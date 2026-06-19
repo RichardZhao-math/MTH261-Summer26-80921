@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: salem                          *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Vectors and Lines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="MTH 261 Intro to Linear Algebra: Summer 2026">
+<meta property="og:title" content="MTH 261 Intro to Linear Algebra: Summer 2026">
+<meta property="book:title" content="MTH 261 Intro to Linear Algebra: Summer 2026">
+<meta name="twitter:description" content="A simple string (no markup is allowed) to describe your book.">
+<meta property="og:description" content="A simple string (no markup is allowed) to describe your book.">
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.3';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.a10fa8051d88cfa9.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.5d73f63c3f06044a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="MTH261_Summer2026.html"><span class="title">MTH 261 Intro to Linear Algebra</span> <span class="subtitle">Summer 2026</span></a></h1>
+<p class="byline">Richard Zhao</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch4-VectorGeometry.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch4-VectorGeometry.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec42-ProjectionsPlanes.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q} 
+\newcommand{\R}{\mathbb R} 
+
+\newcommand{\ds}{\displaystyle}
+
+\newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\adj}{\text{adj}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Nul}{\text{Nul}}
+\newcommand{\Col}{\text{Col}}
+\newcommand{\im}{\text{im}}
+\newcommand{\span}{\text{span}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch1-SystemLinearEquation.html" class="internal"><span class="codenumber">1</span> <span class="title">Systems of Linear Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Solutions and Elementary Operations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-SolvingSystemsEquations" class="internal"><span class="title">Solving Systems of Linear Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-AugmentedMatrices" class="internal"><span class="title">Augmented Matrices and Elementary Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-NumberOfSolution" class="internal"><span class="title">How many solutions can a linear system have?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-ExistenceUniqueness-SystemEquations" class="internal"><span class="title">Existence and Uniqueness Questions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#ws-sec11" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec12-GaussianElimination.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Gaussian Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec12-GaussianElimination.html#subsubsec-NumberOfParameters" class="internal"><span class="title">How many parameters does the solution have?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec12-GaussianElimination.html#subsec-ExistenceUniqueness-AugmentedMatrices" class="internal"><span class="title">Existence and Uniqueness Questions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec12-GaussianElimination.html#ws-sec12" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec13-HomogeneousEquations.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Homogeneous Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec13-HomogeneousEquations.html#subsec-HomogeneousSystem-BasisVectors" class="internal"><span class="title">Basis Vectors and Linear Combinations</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec13-HomogeneousEquations.html#ws-sec13" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch2-MatrixAlgebra.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrix Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrix Addition, Scalar Multiplication, and Transposition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-MatrixIntro" class="internal"><span class="title">What exactly is a matrix?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-BasicMatrixOperations" class="internal"><span class="title">Basic Matrix Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-SubscriptNotationMatrices" class="internal"><span class="title">Subscript Notation for Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-Rules-MatrixAdditionScalarMultiplication" class="internal"><span class="title">Rules for Matrix Addition and Scalar Multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-Rules-TransposeMatrices" class="internal"><span class="title">Rules for Transposes</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#ws-sec21" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix-Vector Multiplication</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-Basics-Vector" class="internal"><span class="title">Quick Notes about Vector Notation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-DecodeAugmentedMatrix" class="internal"><span class="title">What exactly is an Augmented Matrix?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-MultiplyingMatrixVector" class="internal"><span class="title">Multiplying a Matrix by a Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-ExistenceUniqueness-Rank" class="internal"><span class="title">Existence and Uniqueness Questions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-VectorEquations" class="internal"><span class="title">Vector Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-LinearTransformations-Intro" class="internal"><span class="title">Intro to Linear Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-DotProduct-Intro" class="internal"><span class="title">Intro to the Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-ZeroMatrix-IdentityMatrix" class="internal"><span class="title">Two Special Matrices</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#ws-sec22" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec23-MatrixMultiplication.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Multiplication</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec23-MatrixMultiplication.html#ws-sec23" class="internal"><span class="codenumber">2.3</span> <span class="title">Some Exercises for This Section</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec24-MatrixInverse.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrix Inverses</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec24-MatrixInverse.html#subsec-InverseMatrices" class="internal"><span class="title">Inverse of a Matrix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec24-MatrixInverse.html#subsec-ImportantTheorems-Inverses" class="internal"><span class="title">Important Theorems and Facts about Inverses</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec25-ElementaryMatrices.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Elementary Matrices</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec26-LinearTransformations.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch3-DeterminantsDiagonalization.html" class="internal"><span class="codenumber">3</span> <span class="title">Determinants and Diagonalization</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec31-CofactorExpansion.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Cofactor Expansion</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec32-DeterminantsInverse.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Determinants and Matrix Inverses</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec33-EigenvaluesEigenvectors.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec34-Diagonalization.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Diagonalization</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch4-VectorGeometry.html" class="internal"><span class="codenumber">4</span> <span class="title">Vector Geometry</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec41-VectorsLines.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Vectors and Lines</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-BasicVectorR2" class="internal"><span class="title">Vectors in <span class="process-math">\(\boldsymbol{\R^2}\)</span> and <span class="process-math">\(\R^3\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-AttributesVector" class="internal"><span class="title">The Attributes of Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-VectorAlgebra" class="internal"><span class="title">Vector Algebra (Geometry Version)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-LinesR3" class="internal"><span class="title">Lines in <span class="process-math">\(\R^3\)</span></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Projections and Planes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-DotProduct" class="internal"><span class="title">Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-DotProduct-Angles" class="internal"><span class="title">Angle between Two Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-OrthogonalProjection" class="internal"><span class="title">Orthogonal Projection</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-PlanesR3" class="internal"><span class="title">Planes in <span class="process-math">\(\R^3\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-IntersectionLinePlane" class="internal"><span class="title">Intersection of a Line and a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-ParallelIntersecting" class="internal"><span class="title">Parallel and Intersecting Planes</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch5-VectorSpace.html" class="internal"><span class="codenumber">5</span> <span class="title">Vector Space <span class="process-math">\(\R^n\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec51-SubspaceSpanning.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Subspaces and Spanning</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec51-SubspaceSpanning.html#subsec-SubspaceIntro" class="internal"><span class="title">What is a Subspace?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec51-SubspaceSpanning.html#subsec-FundamentalSubspaces" class="internal"><span class="title">Fundamental Subspaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec51-SubspaceSpanning.html#subsec-Span" class="internal"><span class="title">Span and Spanning Sets</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec52-IndependenceDimension.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Independence and Dimension</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-LinearIndependence" class="internal"><span class="title">Linear Independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-Basis" class="internal"><span class="title">Basis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-Dimensions" class="internal"><span class="title">Dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-ExtendedInvertibleMatrixTheorem" class="internal"><span class="title">Extending Our Invertible Matrix Theorem!</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec53-Orthogonality.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Orthogonality</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec54-Rank.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Rank of a Matrix</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec41-VectorsLines">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vectors and Lines</span>
+</h2>
+<section class="introduction" id="sec41-VectorsLines-2">
+<div class="para" id="sec41-VectorsLines-2-1">In this section, we will build the foundation of vector geometry. We will learn what vectors are, how to manipulate them both algebraically and geometrically, and ultimately how to use them to construct and analyze lines in three-dimensional space.<div class="autopermalink" data-description="Paragraph"><a href="#sec41-VectorsLines-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="objectives goal-like" id="sec41-VectorsLines-2-2"><h3 class="heading"><span class="type">Objectives</span></h3>
+<div class="introduction" id="sec41-VectorsLines-2-2-1">
+<div class="para" id="sec41-VectorsLines-2-2-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec41-VectorsLines-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul class="disc" id="sec41-VectorsLines-2-2-2">
+<li id="sec41-VectorsLines-2-2-2-1">
+<div class="para" id="sec41-VectorsLines-2-2-2-1-1">define vectors in <span class="process-math">\(\R^2\)</span> and <span class="process-math">\(\R^3\text{,}\)</span> and determine their components given an initial point and a terminal point.<div class="autopermalink" data-description="Paragraph"><a href="#sec41-VectorsLines-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec41-VectorsLines-2-2-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec41-VectorsLines-2-2-2-2">
+<div class="para" id="sec41-VectorsLines-2-2-2-2-1">calculate the length of a vector.<div class="autopermalink" data-description="Paragraph"><a href="#sec41-VectorsLines-2-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec41-VectorsLines-2-2-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec41-VectorsLines-2-2-2-3">
+<div class="para" id="sec41-VectorsLines-2-2-2-3-1">perform vector addition, scalar multiplication, and vector subtraction geometrically.<div class="autopermalink" data-description="Paragraph"><a href="#sec41-VectorsLines-2-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec41-VectorsLines-2-2-2-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec41-VectorsLines-2-2-2-4">
+<div class="para" id="sec41-VectorsLines-2-2-2-4-1">construct the vector and parametric equations of a line in <span class="process-math">\(\R^3\)</span> given either a point and a direction vector, or two points on the line.<div class="autopermalink" data-description="Paragraph"><a href="#sec41-VectorsLines-2-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec41-VectorsLines-2-2-2-4" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec41-VectorsLines-2-2-2-5">
+<div class="para" id="sec41-VectorsLines-2-2-2-5-1">determine whether two lines in <span class="process-math">\(\R^3\)</span> are parallel, intersecting, or skew, and calculate the exact point of intersection if it exists.<div class="autopermalink" data-description="Paragraph"><a href="#sec41-VectorsLines-2-2-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec41-VectorsLines-2-2-2-5" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives"><a href="#sec41-VectorsLines-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div>
+</article></section>
+<section class="subsection" id="subsec-BasicVectorR2">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vectors in <span class="process-math">\(\boldsymbol{\R^2}\)</span> and <span class="process-math">\(\R^3\)</span></span>
+</h3>
+<div class="para logical" id="subsec-BasicVectorR2-2">
+<div class="para">The notation <span class="process-math">\(\R^n\)</span> means the set of all ordered n-tuples of real numbers. Symbolically speaking,</div>
+<div class="displaymath process-math" id="subsec-BasicVectorR2-2-2">
+\begin{equation*}
+\R^n = \R \times \R \times \cdots \times \R = \left\{(x_1, x_2, \ldots, x_n) \mid x_i \in \R\right\}
+\end{equation*}
+</div>
+<div class="para">Or, using our linear algebra notation, we can write this as</div>
+<div class="displaymath process-math" id="subsec-BasicVectorR2-2-3">
+\begin{equation*}
+\R^n = \left\{ \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} \mid x_i \in \R \right\}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-BasicVectorR2-3">
+<div class="para">Imagine we want to study <em class="emphasis">vector geometry</em>, then we will focus on the cases of <span class="process-math">\(\R^2\)</span> and <span class="process-math">\(\R^3\text{,}\)</span> since they are the most intuitive to visualize. That is,</div>
+<div class="displaymath process-math" id="subsec-BasicVectorR2-3-4">
+\begin{equation*}
+\R^2 = \{\begin{bmatrix} x \\ y \end{bmatrix} \mid x,y \in \R\} \quad\text{and}\quad \R^3 = \{\begin{bmatrix} x \\ y \\ z \end{bmatrix} \mid x,y,z \in \R\}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-BasicVectorR2-4">A <dfn class="terminology">vector</dfn>, in the geometric sense, is an arrow that has a tail and a tip. Let’s call the tail (initial point) <span class="process-math">\(P\)</span> and the tip (terminal point) <span class="process-math">\(Q\text{.}\)</span> Then we can write the vector as <span class="process-math">\(\v{v} = \overrightarrow{PQ}\text{,}\)</span> and we draw <span class="process-math">\(\v{v}\)</span> as an arrow pointing from <span class="process-math">\(P\)</span> to <span class="process-math">\(Q\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-BasicVectorR2-5"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec41-BasicVector-R2.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The vector <span class="process-math">\(\v{v} = \overrightarrow{PQ}\)</span> in <span class="process-math">\(\R^2\)</span><div class="autopermalink" data-description="Figure 4.1.1"><a href="#subsec-BasicVectorR2-5" title="Copy heading and permalink for Figure 4.1.1" aria-label="Copy heading and permalink for Figure 4.1.1">🔗</a></div></figcaption>
+</figure>
+<details id="subsec-BasicVectorR2-6" class="note remark-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Why is <span class="process-math">\(\v{v}\)</span> bolded but not <span class="process-math">\(P\)</span> or <span class="process-math">\(Q\text{?}\)</span></span>
+</h4></summary>
+<article class="note remark-like knowl__content">
+<div class="para" id="subsec-BasicVectorR2-6-2">This is a notation convention. There is a difference between a vector and a point (or scalar). To specify the difference, we usually <em class="alert">bold</em> the vector notation.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-BasicVectorR2-6-3">For example, if you see something like <span class="process-math">\(\v{u}\text{,}\)</span> then this indicates that <span class="process-math">\(\v{u}\)</span> is a vector. As a comparison, if you see something like <span class="process-math">\(u\text{,}\)</span> then this indicates that <span class="process-math">\(u\)</span> is a scalar (a number).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-BasicVectorR2-6-4">But why don’t we bold the vector <span class="process-math">\(\overrightarrow{PQ}\)</span> as <span class="process-math">\(\v{PQ}\text{,}\)</span> but instead put an arrow on top of it?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-6-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-BasicVectorR2-6-5">That is because the arrow notation specifies the tail and the tip of the vector! There is a difference between <span class="process-math">\(\overrightarrow{PQ}\)</span> and <span class="process-math">\(\overrightarrow{QP}\text{!}\)</span> They have the opposite tail and tip, so they point in opposite directions!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-6-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-BasicVectorR2-6-6">Another reason why sometimes we use the arrow notation is because <em class="emphasis">it is super difficult to write in bold font!</em> This is why Richard often writes <span class="process-math">\(\overrightarrow{\, v\, }\)</span> on the board to indicate the vector <span class="process-math">\(\v{v}\text{,}\)</span> since he can’t write in bold font easily...<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-6-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Note 4.1.2: Why is \v{v} bolded but not P or Q"><a href="#subsec-BasicVectorR2-6" title="Copy heading and permalink for Note 4.1.2: Why is \v{v} bolded but not P or Q" aria-label="Copy heading and permalink for Note 4.1.2: Why is \v{v} bolded but not P or Q">🔗</a></div>
+</article></details>
+<div class="para" id="subsec-BasicVectorR2-7">In <span class="process-math">\(\R^2\text{,}\)</span> each point is represented by an ordered pair of real numbers. Then we can define the <dfn class="terminology">components</dfn> of a vector using the ordered pairs of the two points as follows.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-ComponentsVectorR2"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Components of a Vector.</span>
+</h4>
+<div class="para logical" id="def-ComponentsVectorR2-2-1">
+<div class="para">The components of <span class="process-math">\(\v{v} = \overrightarrow{PQ}\text{,}\)</span> where <span class="process-math">\(P = (a_1, b_1)\)</span> and <span class="process-math">\(Q = (a_2, b_2)\text{,}\)</span> are the quantities</div>
+<div class="displaymath process-math" id="def-ComponentsVectorR2-2-1-4">
+\begin{equation*}
+a = a_2 - a_1 \quad \text{($x$-component)}\, , \qquad \qquad b = b_2 - b_1 \quad \text{($y$-component)}
+\end{equation*}
+</div>
+<div class="para">The pair of components is denoted <span class="process-math">\(\langle a,b \rangle\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-ComponentsVectorR2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 4.1.3: Components of a Vector"><a href="#def-ComponentsVectorR2" title="Copy heading and permalink for Definition 4.1.3: Components of a Vector" aria-label="Copy heading and permalink for Definition 4.1.3: Components of a Vector">🔗</a></div>
+</article>
+<div class="para" id="subsec-BasicVectorR2-9">
+<dfn class="terminology">P.S.:</dfn> If you are a linear algebra-ist and want to use the notation of the column vectors instead, be my guest! Just remember that Richard prefers the column vector notation over the sharp-y angle bracket notation (but he is teaching calculus, not linear algebra, so he will have to live with it).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-BasicVectorR2-10"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-BasicVectorR2-10-1">Find the components of the following vectors with tail <span class="process-math">\(P\)</span> and tip <span class="process-math">\(Q\text{.}\)</span> Then sketch the vectors.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="lower-alpha ol-marker-3" id="subsec-BasicVectorR2-10-2">
+<li id="subsec-BasicVectorR2-10-2-1">
+<div class="para" id="subsec-BasicVectorR2-10-2-1-1">
+<span class="process-math">\(P_1 = (1,2)\)</span> and <span class="process-math">\(Q_1 = (4,6)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-10-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#subsec-BasicVectorR2-10-2-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="subsec-BasicVectorR2-10-2-2">
+<div class="para" id="subsec-BasicVectorR2-10-2-2-1">
+<span class="process-math">\(P_2 = (-4,-2)\)</span> and <span class="process-math">\(Q_2 = (-1,2)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-10-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item b"><a href="#subsec-BasicVectorR2-10-2-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="subsec-BasicVectorR2-10-2-3">
+<div class="para" id="subsec-BasicVectorR2-10-2-3-1">
+<span class="process-math">\(P_3 = (2,-1)\)</span> and <span class="process-math">\(Q_3 = (-3,-1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-10-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item c"><a href="#subsec-BasicVectorR2-10-2-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+<li id="subsec-BasicVectorR2-10-2-4">
+<div class="para" id="subsec-BasicVectorR2-10-2-4-1">
+<span class="process-math">\(P_4 = (-2,4)\)</span> and <span class="process-math">\(Q_4 = (-5,1)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-10-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item d"><a href="#subsec-BasicVectorR2-10-2-4" title="Copy heading and permalink for Item d" aria-label="Copy heading and permalink for Item d">🔗</a></div>
+</li>
+</ol>
+<details id="subsec-BasicVectorR2-10-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-BasicVectorR2-10-3-1">
+<div class="para">We can find the components of each vector using the definition:</div>
+<div class="displaymath process-math" id="subsec-BasicVectorR2-10-3-1-1">
+\begin{equation*}
+\v{v} = \la a_2 - a_1, b_2 - b_1 \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-10-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="lower-alpha ol-marker-9" id="subsec-BasicVectorR2-10-3-2">
+<li id="subsec-BasicVectorR2-10-3-2-1">
+<div class="para" id="subsec-BasicVectorR2-10-3-2-1-1">
+<span class="process-math">\(\displaystyle \v{v}_1 = \overrightarrow{P_1Q_1} = \la 4-1, 6-2 \ra = \la 3, 4 \ra\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-10-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#subsec-BasicVectorR2-10-3-2-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="subsec-BasicVectorR2-10-3-2-2">
+<div class="para" id="subsec-BasicVectorR2-10-3-2-2-1">
+<span class="process-math">\(\displaystyle \v{v}_2 = \overrightarrow{P_2Q_2} = \la -1 - (-4), 2 - (-2) \ra = \la 3, 4 \ra\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-10-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item b"><a href="#subsec-BasicVectorR2-10-3-2-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="subsec-BasicVectorR2-10-3-2-3">
+<div class="para" id="subsec-BasicVectorR2-10-3-2-3-1">
+<span class="process-math">\(\displaystyle \v{v}_3 = \overrightarrow{P_3Q_3} = \la -3 - 2, -1 - (-1) \ra = \la -5, 0 \ra\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-10-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item c"><a href="#subsec-BasicVectorR2-10-3-2-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+<li id="subsec-BasicVectorR2-10-3-2-4">
+<div class="para" id="subsec-BasicVectorR2-10-3-2-4-1">
+<span class="process-math">\(\displaystyle \v{v}_4 = \overrightarrow{P_4Q_4} = \la -5 - (-2), 1 - 4 \ra = \la -3, -3 \ra\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-10-3-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item d"><a href="#subsec-BasicVectorR2-10-3-2-4" title="Copy heading and permalink for Item d" aria-label="Copy heading and permalink for Item d">🔗</a></div>
+</li>
+</ol>
+<div class="para" id="subsec-BasicVectorR2-10-3-3">The sketches of the vectors are shown below:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-10-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-BasicVectorR2-10-3-4"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/sec121-VectorComponents-Example.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 4.1.5"><a href="#subsec-BasicVectorR2-10-3-4" title="Copy heading and permalink for Figure 4.1.5" aria-label="Copy heading and permalink for Figure 4.1.5">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solution 4.1.4.1"><a href="#subsec-BasicVectorR2-10-3" title="Copy heading and permalink for Solution 4.1.4.1" aria-label="Copy heading and permalink for Solution 4.1.4.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 4.1.4"><a href="#subsec-BasicVectorR2-10" title="Copy heading and permalink for Example 4.1.4" aria-label="Copy heading and permalink for Example 4.1.4">🔗</a></div>
+</article>
+<div class="para" id="subsec-BasicVectorR2-11">Observe that <span class="process-math">\(\v{v}_1\)</span> and <span class="process-math">\(\v{v}_2\)</span> are <em class="emphasis">parallel</em>. Moreover, <span class="process-math">\(\v{v}_2\)</span> is a translation of <span class="process-math">\(\v{v}_1\)</span> (i.e., we can obtain <span class="process-math">\(\v{v}_2\)</span> by sliding <span class="process-math">\(\v{v}_1\)</span> to the left and down). We call these two vectors <dfn class="terminology">equivalent vectors</dfn> if one is a translation of the other.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-BasicVectorR2-12">In fact, two vectors are <dfn class="terminology">equivalent</dfn> if and only if they have the same components. So instead of studying millions of the same vectors in different locations, we can just study one representative vector for each group of equivalent vectors.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-BasicVectorR2-13">But which location should we choose for the representative vector? To keep things easier, we usually choose the representative vector whose tail is at the origin <span class="process-math">\((0,0)\text{.}\)</span> Then the tip of the vector is at the coordinate point <span class="process-math">\((a,b)\text{,}\)</span> where <span class="process-math">\(\langle a,b \rangle\)</span> are the components of the vector. This is called the <dfn class="terminology">position vector</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-BasicVectorR2-14"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-BasicVectorR2-14-1">Sketch the position vectors of the vectors in the previous example.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-BasicVectorR2-14-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-BasicVectorR2-14-2-1">
+<div class="para">The vectors in the previous example are</div>
+<div class="displaymath process-math" id="subsec-BasicVectorR2-14-2-1-1">
+\begin{equation*}
+\v{v}_1 = \v{v}_2 = \la 3, 4 \ra, \quad \v{v}_3 = \la -5, 0 \ra, \quad \v{v}_4 = \la -3, -3 \ra
+\end{equation*}
+</div>
+<div class="para">The position vectors are sketched below.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-BasicVectorR2-14-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-BasicVectorR2-14-2-2"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/sec121-PositionVectors-Example.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 4.1.7"><a href="#subsec-BasicVectorR2-14-2-2" title="Copy heading and permalink for Figure 4.1.7" aria-label="Copy heading and permalink for Figure 4.1.7">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solution 4.1.6.1"><a href="#subsec-BasicVectorR2-14-2" title="Copy heading and permalink for Solution 4.1.6.1" aria-label="Copy heading and permalink for Solution 4.1.6.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 4.1.6"><a href="#subsec-BasicVectorR2-14" title="Copy heading and permalink for Example 4.1.6" aria-label="Copy heading and permalink for Example 4.1.6">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection: Vectors in \boldsymbol{\R^2} and \R^3"><a href="#subsec-BasicVectorR2" title="Copy heading and permalink for Subsection: Vectors in \boldsymbol{\R^2} and \R^3" aria-label="Copy heading and permalink for Subsection: Vectors in \boldsymbol{\R^2} and \R^3">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-AttributesVector">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Attributes of Vectors</span>
+</h3>
+<div class="para" id="subsec-AttributesVector-2">When defining a vector, it is important to note its <dfn class="terminology">length</dfn> and the <dfn class="terminology">direction</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-AttributesVector-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-AttributesVector-3">The <dfn class="terminology">length</dfn> of a vector <span class="process-math">\(\v{v}\)</span> is the distance from the tail to the tip. This is denoted as <span class="process-math">\(\|\v{v}\|\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-AttributesVector-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-AttributesVector-4">Given a vector <span class="process-math">\(\v{v} = \langle a,b \rangle\text{,}\)</span> we can determine its length using the Pythagorean Theorem, as demonstrated in the figure below.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-AttributesVector-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-AttributesVector-5"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec41-VectorMagnitude-R2.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The Length of the vectors <span class="process-math">\(\v{v}_0\)</span> and <span class="process-math">\(\v{v}\)</span><div class="autopermalink" data-description="Figure 4.1.8"><a href="#subsec-AttributesVector-5" title="Copy heading and permalink for Figure 4.1.8" aria-label="Copy heading and permalink for Figure 4.1.8">🔗</a></div></figcaption>
+</figure>
+<div class="para logical" id="subsec-AttributesVector-6">
+<div class="para">By the Pythagorean Theorem, we have</div>
+<div class="displaymath process-math" id="subsec-AttributesVector-6-1">
+\begin{align*}
+\|\v{v}\| \amp= \sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} \\
+\amp= \sqrt{a^2 + b^2} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-AttributesVector-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-AttributesVector-7">
+<div class="para">The magnitude of a vector is really called the <dfn class="terminology"><span class="process-math">\(\boldsymbol{\ell^2}\)</span> norm</dfn> or the <dfn class="terminology">Euclidean norm</dfn> of a vector in more advanced math courses. In general, norms must satisfy the following three properties:</div>
+<ol class="decimal ol-marker-1" id="subsec-AttributesVector-7-3">
+<li id="subsec-AttributesVector-7-3-1">
+<div class="para" id="subsec-AttributesVector-7-3-1-1">
+<span class="process-math">\(\|\v{v}\| \geq 0\text{,}\)</span> with <span class="process-math">\(\|\v{v}\| = 0\)</span> if and only if <span class="process-math">\(\v{v} = \v{0}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-AttributesVector-7-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#subsec-AttributesVector-7-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="subsec-AttributesVector-7-3-2">
+<div class="para" id="subsec-AttributesVector-7-3-2-1">
+<span class="process-math">\(\| \lambda\v{v}\| = |\lambda|\|\v{v}\|\)</span> for all scalars <span class="process-math">\(\lambda \in \R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-AttributesVector-7-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#subsec-AttributesVector-7-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="subsec-AttributesVector-7-3-3">
+<div class="para" id="subsec-AttributesVector-7-3-3-1">
+<span class="process-math">\(\|\v{v} + \v{w}\| \leq \|\v{v}\| + \|\v{w}\|\)</span> for any two vectors <span class="process-math">\(\v{v}\)</span> and <span class="process-math">\(\v{w}\text{,}\)</span> with equallity only if <span class="process-math">\(\v{v} = 0\text{,}\)</span> <span class="process-math">\(\v{w} = 0\text{,}\)</span> or if <span class="process-math">\(\v{w} = \lambda\v{v}\)</span> where <span class="process-math">\(\lambda \geq 0\text{.}\)</span> (This is the famous <dfn class="terminology">triangle inequality</dfn>).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-AttributesVector-7-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#subsec-AttributesVector-7-3-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="para">This isn’t a linear algebra or functional analysis class, so we won’t go deeper into norms here. If you are interested, feel free to do more digging on your own (or ask Richard!).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-AttributesVector-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-AttributesVector-8"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-AttributesVector-8-1">Find the magnitude of the vectors in the previous examples.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-AttributesVector-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-AttributesVector-8-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-AttributesVector-8-2-1">
+<div class="para">The vectors in the previous examples are</div>
+<div class="displaymath process-math" id="subsec-AttributesVector-8-2-1-1">
+\begin{equation*}
+\v{v}_1 = \v{v}_2 = \la 3, 4 \ra, \quad \v{v}_3 = \la -5, 0 \ra, \quad \v{v}_4 = \la -3, -3 \ra
+\end{equation*}
+</div>
+<div class="para">Then</div>
+<div class="displaymath process-math" id="subsec-AttributesVector-8-2-1-2">
+\begin{align*}
+\|\v{v}_1\| \amp= \sqrt{3^2 + 4^2} = \sqrt{25} = 5 \\
+\|\v{v}_3\| \amp= \sqrt{(-5)^2 + 0^2} = \sqrt{25} = 5 \\
+\|\v{v}_4\| \amp= \sqrt{(-3)^2 + (-3)^2} = \sqrt{18} = 3\sqrt{2} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-AttributesVector-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.1.9.1"><a href="#subsec-AttributesVector-8-2" title="Copy heading and permalink for Solution 4.1.9.1" aria-label="Copy heading and permalink for Solution 4.1.9.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 4.1.9"><a href="#subsec-AttributesVector-8" title="Copy heading and permalink for Example 4.1.9" aria-label="Copy heading and permalink for Example 4.1.9">🔗</a></div>
+</article>
+<div class="para" id="subsec-AttributesVector-9">Now let’s discuss the <dfn class="terminology">direction</dfn> of a vector. The direction of a vector tells us where the vector is pointing. We can indicate the direction of a vector by using the vector itself. As you imagine, the length of a vector has nothing to do with its direction, so we sometimes use a <dfn class="terminology">unit vector</dfn>, which is a vector of length <span class="process-math">\(1\text{,}\)</span> to indicate the direction, when it is not necessary to specify length.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-AttributesVector-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: The Attributes of Vectors"><a href="#subsec-AttributesVector" title="Copy heading and permalink for Subsection: The Attributes of Vectors" aria-label="Copy heading and permalink for Subsection: The Attributes of Vectors">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-VectorAlgebra">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vector Algebra (Geometry Version)</span>
+</h3>
+<div class="para" id="subsec-VectorAlgebra-2">Recall we defined two basic operations for vectors: vector addition and scalar multiplication. They both work component-wise. Now let’s investigate what these operations look like <em class="emphasis">geometrically</em>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-VectorAlgebra-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-VectorAlgebra-3">
+<dfn class="terminology">Vector addition</dfn> tells us how to <em class="emphasis">add two vectors</em> together. Geometrically speaking, we can imagine a vector as the movement from the tail to the tip. Then adding two vectors means performing the movements one after another. That is, we will need to find the equivalent vector of the second vector <em class="emphasis">whose tail is at the tip of the first vector</em>, and the resulting vector is the vector from the tail of the first vector to the tip of the second vector. This is sometimes referred to as the <dfn class="terminology">Triangle Law</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-VectorAlgebra-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-VectorAlgebra-4"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/sec41-VectorAddition-Triangle.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Vector Addition using the Triangle Law<div class="autopermalink" data-description="Figure 4.1.10"><a href="#subsec-VectorAlgebra-4" title="Copy heading and permalink for Figure 4.1.10" aria-label="Copy heading and permalink for Figure 4.1.10">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="subsec-VectorAlgebra-5">But sometimes we are given the position vectors and their tails are both at the origin (or at the same point). Alternatively, rather than finding the equivalent vector of the second vector, we can construct a parallelogram using the two vectors as adjacent sides, and the resulting vector is the diagonal of the parallelogram starting from the common tail of the two vectors. This is called the <dfn class="terminology">Parallelogram Law</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-VectorAlgebra-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-VectorAlgebra-6"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/sec41-VectorAddition-Parallelogram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Vector Addition using the Parallelogram Law<div class="autopermalink" data-description="Figure 4.1.11"><a href="#subsec-VectorAlgebra-6" title="Copy heading and permalink for Figure 4.1.11" aria-label="Copy heading and permalink for Figure 4.1.11">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="subsec-VectorAlgebra-7">Now let’s look at <dfn class="terminology">scalar multiplication</dfn>. The term <em class="alert">scalar</em> refers to a real number. That is, scalar multiplication tells us how to multiply a vector by a real number. The scalar will "scale" or "resize" the vector.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-VectorAlgebra-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-VectorAlgebra-8">When the scalar is positive, the resulting vector points in the same direction, and the size of the vector is scaled by the scalar.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-VectorAlgebra-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-VectorAlgebra-9"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/sec41-ScalarMult-Positive.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Vector Addition using the Parallelogram Law<div class="autopermalink" data-description="Figure 4.1.12"><a href="#subsec-VectorAlgebra-9" title="Copy heading and permalink for Figure 4.1.12" aria-label="Copy heading and permalink for Figure 4.1.12">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="subsec-VectorAlgebra-10">When the scalar is negative, the resulting vector points in the opposite direction, and the size of the vector is scaled by the absolute value of the scalar.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-VectorAlgebra-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-VectorAlgebra-11"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec41-ScalarMult-Negative.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Vector Multiplication by a Negative Scalar<div class="autopermalink" data-description="Figure 4.1.13"><a href="#subsec-VectorAlgebra-11" title="Copy heading and permalink for Figure 4.1.13" aria-label="Copy heading and permalink for Figure 4.1.13">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="subsec-VectorAlgebra-12">But what if the scalar is zero? We can quickly see that the length of the resulting vector is zero, so the resulting vector is the <dfn class="terminology">zero vector</dfn>, denoted by <span class="process-math">\(\v{0}\text{.}\)</span> We can imagine the zero vector  has the tail and tip at the same point, which means it doesn’t have a specific direction. Alternatively, we can say that the zero vector points in <em class="emphasis">all</em> directions.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-VectorAlgebra-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-VectorAlgebra-13">
+<div class="para">Once we have vector addition and scalar multiplication defined, we can subtract two vectors. Recall subtraction is really the same thing as adding the opposite. That is,</div>
+<div class="displaymath process-math" id="subsec-VectorAlgebra-13-1">
+\begin{equation*}
+\v{v} - \v{w} = \v{v} + (-\v{w})
+\end{equation*}
+</div>
+<div class="para">Graphically, we can find <span class="process-math">\(\v{v} - \v{w}\)</span> as follows:</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-VectorAlgebra-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-VectorAlgebra-14"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/sec41-VectorSubtraction.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Vector Subtraction<div class="autopermalink" data-description="Figure 4.1.14"><a href="#subsec-VectorAlgebra-14" title="Copy heading and permalink for Figure 4.1.14" aria-label="Copy heading and permalink for Figure 4.1.14">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Subsection: Vector Algebra (Geometry Version)"><a href="#subsec-VectorAlgebra" title="Copy heading and permalink for Subsection: Vector Algebra (Geometry Version)" aria-label="Copy heading and permalink for Subsection: Vector Algebra (Geometry Version)">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-LinesR3">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lines in <span class="process-math">\(\R^3\)</span></span>
+</h3>
+<div class="para logical" id="subsec-LinesR3-2">
+<div class="para">Remember back when you first learned about lines in <span class="process-math">\(\R^2\text{,}\)</span> you probably remember that we need both <em class="emphasis">the slope</em> and <em class="emphasis">a point on the line</em> to define a line.</div>
+<ul class="no-marker" id="subsec-LinesR3-2-4">
+<li id="subsec-LinesR3-2-4-1">
+<div class="para" id="subsec-LinesR3-2-4-1-1">The slope tells us the direction of the line. Yet knowing just the slope doesn’t tell us a unique line... There can be thousands of parallel lines with the same slope!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-2-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-LinesR3-2-4-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-LinesR3-2-4-2">
+<div class="para" id="subsec-LinesR3-2-4-2-1">A point on the line can pin down the location of the line. Yet knowing just a point on the line doesn’t tell us the direction of the line... We can draw infinitely many lines through a single point!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-2-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-LinesR3-2-4-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">This is also the case in <span class="process-math">\(\R^3\text{!}\)</span> In order to determine a line in <span class="process-math">\(\R^3\text{,}\)</span> we need to know both the direction of the line and a point on the line.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinesR3-3">Unlike stuff in <span class="process-math">\(\R^2\text{,}\)</span> there is no "slope" in <span class="process-math">\(\R^3\)</span> to represent the direction of a line, since "slope" is a concept that only works in two dimensions. Instead, we use a vector to represent the direction of the line.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinesR3-4">We can find a point in <span class="process-math">\(\R^3\)</span> just fine, since points in <span class="process-math">\(\R^3\)</span> are represented by ordered triples.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinesR3-5">Hence, a line in <span class="process-math">\(\R^3\)</span> is determined by a point <span class="process-math">\(P_0 = (x_0, y_0, z_0)\)</span> on the line and a direction vector <span class="process-math">\(\v{v} = \begin{bmatrix} a \\ b \\ c \end{bmatrix}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-lines-3d"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equation of a Line in <span class="process-math">\(\R^3\)</span>.</span>
+</h4>
+<div class="para logical" id="def-lines-3d-2-1">
+<div class="para">The line <span class="process-math">\(\c{L}\)</span> through <span class="process-math">\(P_0 = (x_0, y_0, z_0)\)</span> in the direction of <span class="process-math">\(\v{d} = \begin{bmatrix} a \\ b \\ c \end{bmatrix}\)</span> is described by</div>
+<div class="displaymath process-math" id="def-lines-3d-2-1-4">
+\begin{equation*}
+\v{p} = \v{p}_0 + t \v{d} = \begin{bmatrix} x_0 \\ y_0 \\ z_0 \end{bmatrix} + t \begin{bmatrix} a \\ b \\ c \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\v{p}_0 = \begin{bmatrix} x_0 \\ y_0 \\ z_0 \end{bmatrix}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-lines-3d-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical" id="def-lines-3d-2-2">
+<div class="para">Alternatively, we can rewrite the equation in its <dfn class="terminology">parametric form</dfn>:</div>
+<div class="displaymath process-math" id="def-lines-3d-2-2-2">
+\begin{equation*}
+\v{p} = \begin{bmatrix} x_0 + at \\ y_0 + bt \\ z_0 + ct \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">where the parameter <span class="process-math">\(t\)</span> takes on values <span class="process-math">\(-\infty \lt t \lt \infty\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-lines-3d-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 4.1.15: Equation of a Line in \R^3"><a href="#def-lines-3d" title="Copy heading and permalink for Definition 4.1.15: Equation of a Line in \R^3" aria-label="Copy heading and permalink for Definition 4.1.15: Equation of a Line in \R^3">🔗</a></div>
+</article>
+<figure class="figure figure-like" id="subsec-LinesR3-7"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/sec41-Line3D-Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The line <span class="process-math">\(\v{p} = \v{p}_0 + t \v{d}\)</span> in <span class="process-math">\(\R^3\)</span><div class="autopermalink" data-description="Figure 4.1.16"><a href="#subsec-LinesR3-7" title="Copy heading and permalink for Figure 4.1.16" aria-label="Copy heading and permalink for Figure 4.1.16">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="subsec-LinesR3-8">Observe that the parametric form specify the <span class="process-math">\(x\)</span>-, <span class="process-math">\(y\)</span>-, and <span class="process-math">\(z\)</span>-coordinates of the points on the line as functions of the parameter <span class="process-math">\(t\text{.}\)</span> These three parametric equations is itself a linear function in the parameter <span class="process-math">\(t\text{!}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-LinesR3-9"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-LinesR3-9-1">Find an equation of the line that passes through the point <span class="process-math">\(P_0 = (1,2,4)\)</span> in the direction of <span class="process-math">\(\v{v} = \begin{bmatrix} 5 \\ -3 \\ 1 \end{bmatrix}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-LinesR3-9-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-LinesR3-9-2-1">
+<div class="para">We are given <span class="process-math">\(\v{p}_0 = \begin{bmatrix} 1 \\ 2 \\ 4 \end{bmatrix}\text{.}\)</span> Therefore, an equation of the line is</div>
+<div class="displaymath process-math" id="subsec-LinesR3-9-2-1-2">
+\begin{equation*}
+\v{p} = \v{p}_0 + t \v{d} = \begin{bmatrix} 1 \\ 2 \\ 4 \end{bmatrix} + t \begin{bmatrix} 5 \\ -3 \\ 1 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">for <span class="process-math">\(-\infty \lt t \lt \infty\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-LinesR3-9-2-2">
+<div class="para">Alternatively, we can write the equation in its parametric form:</div>
+<div class="displaymath process-math" id="subsec-LinesR3-9-2-2-1">
+\begin{equation*}
+\v{p} = \begin{bmatrix} 1 + 5t \\ 2 - 3t \\ 4 + t \end{bmatrix} 
+\end{equation*}
+</div>
+<div class="para">for <span class="process-math">\(-\infty \lt t \lt \infty\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-9-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.1.17.1"><a href="#subsec-LinesR3-9-2" title="Copy heading and permalink for Solution 4.1.17.1" aria-label="Copy heading and permalink for Solution 4.1.17.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 4.1.17"><a href="#subsec-LinesR3-9" title="Copy heading and permalink for Example 4.1.17" aria-label="Copy heading and permalink for Example 4.1.17">🔗</a></div>
+</article>
+<div class="para" id="subsec-LinesR3-10">Back in algebra 2, you may also have learned that <em class="emphasis">two points</em> can also determine a line in <span class="process-math">\(\R^2\text{.}\)</span> This is also true in <span class="process-math">\(\R^3\text{.}\)</span> The trick here is to determine the direction vector using the two points.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-LinesR3-11"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-LinesR3-11-1">Find an equation of the line that passes through the points <span class="process-math">\(P = (-2,0,-2)\)</span> and <span class="process-math">\(Q = (4,3,7)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-LinesR3-11-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="subsec-LinesR3-11-2-1">To find an equation of a line, we need a point on the line and a direction vector. So there are really things we need to find out.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinesR3-11-2-2">The easier part is to find a point on the line (we are given two points on the line!)<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-11-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinesR3-11-2-3">The slightly trickier part is to find a direction vector. Can we find a vector parallel to the line using the two points?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-11-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 4.1.18.1"><a href="#subsec-LinesR3-11-2" title="Copy heading and permalink for Hint 4.1.18.1" aria-label="Copy heading and permalink for Hint 4.1.18.1">🔗</a></div>
+</div></details>
+<details id="subsec-LinesR3-11-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-LinesR3-11-3-1">
+<div class="para">A directional vector is <span class="process-math">\(\overrightarrow{PQ}\text{.}\)</span> Then we obtain</div>
+<div class="displaymath process-math" id="subsec-LinesR3-11-3-1-2">
+\begin{equation*}
+\v{d} = \overrightarrow{PQ} = \begin{bmatrix} 4-(-2) \\ 3-0 \\ 7-(-2) \end{bmatrix} = \begin{bmatrix} 6 \\ 3 \\ 9 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">We can use either point <span class="process-math">\(P\)</span> or <span class="process-math">\(Q\)</span> as the point on the line. Using point <span class="process-math">\(P\text{,}\)</span> we have <span class="process-math">\(\v{p}_0 = \begin{bmatrix} -2 \\ 0 \\ -2 \end{bmatrix}\text{.}\)</span> Therefore, an equation of the line is</div>
+<div class="displaymath process-math" id="subsec-LinesR3-11-3-1-7">
+\begin{equation*}
+\v{p} = \v{p}_0 + t \v{d} = \begin{bmatrix} -2 \\ 0 \\ -2 \end{bmatrix} + t \begin{bmatrix} 6 \\ 3 \\ 9 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">for <span class="process-math">\(-\infty \lt t \lt \infty\text{.}\)</span> The corresponding parametric form is</div>
+<div class="displaymath process-math" id="subsec-LinesR3-11-3-1-9">
+\begin{equation*}
+\v{p} = \begin{bmatrix} -2 + 6t \\ 0 + 3t \\ -2 + 9t \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">for <span class="process-math">\(-\infty \lt t \lt \infty\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-11-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.1.18.1"><a href="#subsec-LinesR3-11-3" title="Copy heading and permalink for Solution 4.1.18.1" aria-label="Copy heading and permalink for Solution 4.1.18.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 4.1.18"><a href="#subsec-LinesR3-11" title="Copy heading and permalink for Example 4.1.18" aria-label="Copy heading and permalink for Example 4.1.18">🔗</a></div>
+</article>
+<div class="para" id="subsec-LinesR3-12">Recall back in <span class="process-math">\(\R^2\text{,}\)</span> two lines are either parallel or they intersect at a single point (assuming the lines are not essentially the same line). In <span class="process-math">\(\R^3\text{,}\)</span> if two lines are parallel, then the direction vectors should be parallel, and hence they are scalar multiples of each other. But how do we know if two lines intersect, and if so, how do we find the point of intersection?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-LinesR3-13"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-LinesR3-13-1">Determine whether the lines <span class="process-math">\(\v{p}_1 = \begin{bmatrix} 1 \\ -3 \\ 5 \end{bmatrix} + t \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix}\)</span> and <span class="process-math">\(\v{p}_2 = \begin{bmatrix} 0 \\ 0 \\ 7 \end{bmatrix} + s \begin{bmatrix} -2 \\ 1 \\ 3 \end{bmatrix}\)</span> intersect, and if so, find the point of intersection.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-LinesR3-13-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="subsec-LinesR3-13-2-1">Let’s just assume that the two lines intersect. If two lines intersect, then they must intersect at a single point.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinesR3-13-2-2">Now put on your algebra 2 hat and think about how to find the point of intersection of two lines in <span class="process-math">\(\R^2\text{.}\)</span> (You would set the two equations equal to each other and solve for <span class="process-math">\(x\text{!}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-13-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 4.1.19.1"><a href="#subsec-LinesR3-13-2" title="Copy heading and permalink for Hint 4.1.19.1" aria-label="Copy heading and permalink for Hint 4.1.19.1">🔗</a></div>
+</div></details>
+<details id="subsec-LinesR3-13-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-LinesR3-13-3-1">
+<div class="para">The lines intersect if there exist parameter values <span class="process-math">\(t\)</span> and <span class="process-math">\(s\)</span> such that</div>
+<div class="displaymath process-math" id="subsec-LinesR3-13-3-1-3">
+\begin{align*}
+\begin{bmatrix} 1 \\ -3 \\ 5 \end{bmatrix} + t \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} \amp= \begin{bmatrix} 0 \\ 0 \\ 7 \end{bmatrix} + s \begin{bmatrix} -2 \\ 1 \\ 3 \end{bmatrix} \\
+\begin{bmatrix} 1+t \\ -3+2t \\ 5-t \end{bmatrix} \amp= \begin{bmatrix} -2s \\ s \\ 7+3s \end{bmatrix} 
+\end{align*}
+</div>
+<div class="para">Equating corresponding components, we get</div>
+<div class="displaymath process-math" id="subsec-LinesR3-13-3-1-4">
+\begin{equation*}
+\begin{cases}
+1 + t = -2s \\
+-3 + 2t = s \\
+5 - t = 7 + 3s
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">This is a system of three equations with two variables! We can solve this system using the augmented matrix!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-13-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-LinesR3-13-3-2">
+<div class="para">The agumented matrix of the system is</div>
+<div class="displaymath process-math" id="subsec-LinesR3-13-3-2-1">
+\begin{equation*}
+\begin{pmatrix} 1 \amp 2 \amp \mid \amp -1 \\ 2 \amp -1 \amp \mid \amp 3 \\ -1 \amp -3 \amp \mid \amp 2 \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">Row reducing this matrix, we get</div>
+<div class="displaymath process-math" id="subsec-LinesR3-13-3-2-2">
+\begin{equation*}
+\begin{pmatrix} 1 \amp 0 \amp \mid \amp 1 \\ 0 \amp 1 \amp \mid \amp -1 \\ 0 \amp 0 \amp \mid \amp 0 \end{pmatrix} 
+\end{equation*}
+</div>
+<div class="para">From here we can read off the solution <span class="process-math">\(t = 1\text{,}\)</span> <span class="process-math">\(s = -1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-13-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-LinesR3-13-3-3">
+<div class="para">To find the point of intersection we substitute <span class="process-math">\(t = 1\)</span> into the equation for <span class="process-math">\(\v{p}_1\)</span> (or <span class="process-math">\(s = -1\)</span> into <span class="process-math">\(\v{p}_2\)</span>) to obtain</div>
+<div class="displaymath process-math" id="subsec-LinesR3-13-3-3-5">
+\begin{equation*}
+\begin{bmatrix} 1+1 \\ -3+2(1) \\ 5-1 \end{bmatrix} = \begin{bmatrix} 2 \\ -1 \\ 4 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">The point of intersection is the terminal point of this vector, that is, <span class="process-math">\(\lp 2, -1, 4 \rp\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-13-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.1.19.1"><a href="#subsec-LinesR3-13-3" title="Copy heading and permalink for Solution 4.1.19.1" aria-label="Copy heading and permalink for Solution 4.1.19.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 4.1.19"><a href="#subsec-LinesR3-13" title="Copy heading and permalink for Example 4.1.19" aria-label="Copy heading and permalink for Example 4.1.19">🔗</a></div>
+</article>
+<article class="example example-like" id="subsec-LinesR3-14"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.20</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-LinesR3-14-1">Determine whether the lines <span class="process-math">\(\v{p}_1 = \begin{bmatrix} 1 \\ -2 \\ 4 \end{bmatrix} + t \begin{bmatrix} 1 \\ 3 \\ -1 \end{bmatrix}\)</span> and <span class="process-math">\(\v{p}_2 = \begin{bmatrix} 0 \\ 3 \\ -3 \end{bmatrix} + s \begin{bmatrix} 2 \\ 1 \\ 4 \end{bmatrix}\)</span> are parallel, intersect, or neither.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-LinesR3-14-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="subsec-LinesR3-14-2-1">Observe that the direction vectors are <span class="process-math">\(\v{v}_1 = \begin{bmatrix} 1 \\ 3 \\ -1 \end{bmatrix}\)</span> and <span class="process-math">\(\v{v}_2 = \begin{bmatrix} 2 \\ 1 \\ 4 \end{bmatrix}\)</span> are not multiples of each other, so the lines are not parallel.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-14-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinesR3-14-2-2">Then the two other possibilities are that the lines intersect or they are skew. We haven’t discussed how to check if two lines are skew, but we can check if they intersect. So the question becomes: do the two lines intersect?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-14-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 4.1.20.1"><a href="#subsec-LinesR3-14-2" title="Copy heading and permalink for Hint 4.1.20.1" aria-label="Copy heading and permalink for Hint 4.1.20.1">🔗</a></div>
+</div></details>
+<details id="subsec-LinesR3-14-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-LinesR3-14-3-1">
+<div class="para">If the two lines intersect, then there exist parameter values <span class="process-math">\(t\)</span> and <span class="process-math">\(s\)</span> such that</div>
+<div class="displaymath process-math" id="subsec-LinesR3-14-3-1-3">
+\begin{align*}
+\begin{bmatrix} 1 \\ -2 \\ 4 \end{bmatrix} + t \begin{bmatrix} 1 \\ 3 \\ -1 \end{bmatrix} \amp= \begin{bmatrix} 0 \\ 3 \\ -3 \end{bmatrix} + s \begin{bmatrix} 2 \\ 1 \\ 4 \end{bmatrix} \\
+\begin{bmatrix} 1+t \\ -2+3t \\ 4 - t \end{bmatrix} \amp= \begin{bmatrix} 2s \\ 3 + s \\ -3 + 4s \end{bmatrix} 
+\end{align*}
+</div>
+<div class="para">Equating corresponding components, we get</div>
+<div class="displaymath process-math" id="subsec-LinesR3-14-3-1-4">
+\begin{equation*}
+\begin{cases}
+1 + t = 2s \\
+-2 + 3t = 3 + s \\
+4 - t = -3 + 4s
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">The augmented matrix of this system is</div>
+<div class="displaymath process-math" id="subsec-LinesR3-14-3-1-5">
+\begin{equation*}
+\begin{bmatrix} 1 \amp -2 \amp mid \amp -1 \\ 3 \amp -1 \amp \mid \amp 5 \\ -1 \amp -4 \amp \mid \amp -7 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Row reducing this matrix we get</div>
+<div class="displaymath process-math" id="subsec-LinesR3-14-3-1-6">
+\begin{equation*}
+\begin{bmatrix} 1 \amp 0 \amp \mid \amp 0 \\ 0 \amp 1 \amp \mid \amp 0 \\ 0 \amp 0 \amp \mid \amp 1 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Observe that a pivot position appears in the rightmost column, which implies that the system is inconsistent.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-14-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinesR3-14-3-2">That is, there are no parameter values <span class="process-math">\(t\)</span> and <span class="process-math">\(s\)</span> such that the two lines intersect. But they are not parallel either, so what are they?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-14-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinesR3-14-3-3">It turns out that these two lines are <dfn class="terminology">skew lines</dfn>: they do not intersect and are not parallel. They are not coplanar. The figure below shows the sketch of these two lines.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinesR3-14-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-LinesR3-14-3-4">
+<div class="sidebyside">
+<div class="sbsrow" style="margin-left:10%;margin-right:10%;grid-template-columns:100%;column-gap:0%;">
+<div class="sbspanel sbspanel--top top" style="">
+<div class="interactive-iframe-container"><iframe id="sage-skew-lines-simple" style="width:480px; height:480px; display: block; " src="sage-skew-lines-simple-if.html"></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="sage-skew-lines-simple.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+</div>
+</div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Line <span class="process-math">\(\v{p}_1\)</span> (blue) and Line <span class="process-math">\(\v{p}_2\)</span> (red)<div class="autopermalink" data-description="Figure 4.1.21"><a href="#subsec-LinesR3-14-3-4" title="Copy heading and permalink for Figure 4.1.21" aria-label="Copy heading and permalink for Figure 4.1.21">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Solution 4.1.20.1"><a href="#subsec-LinesR3-14-3" title="Copy heading and permalink for Solution 4.1.20.1" aria-label="Copy heading and permalink for Solution 4.1.20.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 4.1.20"><a href="#subsec-LinesR3-14" title="Copy heading and permalink for Example 4.1.20" aria-label="Copy heading and permalink for Example 4.1.20">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection: Lines in \R^3"><a href="#subsec-LinesR3" title="Copy heading and permalink for Subsection: Lines in \R^3" aria-label="Copy heading and permalink for Subsection: Lines in \R^3">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 4.1: Vectors and Lines"><a href="#sec41-VectorsLines" title="Copy heading and permalink for Section 4.1: Vectors and Lines" aria-label="Copy heading and permalink for Section 4.1: Vectors and Lines">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch4-VectorGeometry.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec42-ProjectionsPlanes.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

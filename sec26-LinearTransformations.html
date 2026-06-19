@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: salem                          *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Linear Transformations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="MTH 261 Intro to Linear Algebra: Summer 2026">
+<meta property="og:title" content="MTH 261 Intro to Linear Algebra: Summer 2026">
+<meta property="book:title" content="MTH 261 Intro to Linear Algebra: Summer 2026">
+<meta name="twitter:description" content="A simple string (no markup is allowed) to describe your book.">
+<meta property="og:description" content="A simple string (no markup is allowed) to describe your book.">
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.3';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.a10fa8051d88cfa9.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.5d73f63c3f06044a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="MTH261_Summer2026.html"><span class="title">MTH 261 Intro to Linear Algebra</span> <span class="subtitle">Summer 2026</span></a></h1>
+<p class="byline">Richard Zhao</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec25-ElementaryMatrices.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch2-MatrixAlgebra.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch3-DeterminantsDiagonalization.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q} 
+\newcommand{\R}{\mathbb R} 
+
+\newcommand{\ds}{\displaystyle}
+
+\newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\adj}{\text{adj}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Nul}{\text{Nul}}
+\newcommand{\Col}{\text{Col}}
+\newcommand{\im}{\text{im}}
+\newcommand{\span}{\text{span}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch1-SystemLinearEquation.html" class="internal"><span class="codenumber">1</span> <span class="title">Systems of Linear Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Solutions and Elementary Operations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-SolvingSystemsEquations" class="internal"><span class="title">Solving Systems of Linear Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-AugmentedMatrices" class="internal"><span class="title">Augmented Matrices and Elementary Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-NumberOfSolution" class="internal"><span class="title">How many solutions can a linear system have?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-ExistenceUniqueness-SystemEquations" class="internal"><span class="title">Existence and Uniqueness Questions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#ws-sec11" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec12-GaussianElimination.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Gaussian Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec12-GaussianElimination.html#subsubsec-NumberOfParameters" class="internal"><span class="title">How many parameters does the solution have?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec12-GaussianElimination.html#subsec-ExistenceUniqueness-AugmentedMatrices" class="internal"><span class="title">Existence and Uniqueness Questions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec12-GaussianElimination.html#ws-sec12" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec13-HomogeneousEquations.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Homogeneous Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec13-HomogeneousEquations.html#subsec-HomogeneousSystem-BasisVectors" class="internal"><span class="title">Basis Vectors and Linear Combinations</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec13-HomogeneousEquations.html#ws-sec13" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch2-MatrixAlgebra.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrix Algebra</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrix Addition, Scalar Multiplication, and Transposition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-MatrixIntro" class="internal"><span class="title">What exactly is a matrix?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-BasicMatrixOperations" class="internal"><span class="title">Basic Matrix Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-SubscriptNotationMatrices" class="internal"><span class="title">Subscript Notation for Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-Rules-MatrixAdditionScalarMultiplication" class="internal"><span class="title">Rules for Matrix Addition and Scalar Multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-Rules-TransposeMatrices" class="internal"><span class="title">Rules for Transposes</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#ws-sec21" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix-Vector Multiplication</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-Basics-Vector" class="internal"><span class="title">Quick Notes about Vector Notation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-DecodeAugmentedMatrix" class="internal"><span class="title">What exactly is an Augmented Matrix?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-MultiplyingMatrixVector" class="internal"><span class="title">Multiplying a Matrix by a Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-ExistenceUniqueness-Rank" class="internal"><span class="title">Existence and Uniqueness Questions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-VectorEquations" class="internal"><span class="title">Vector Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-LinearTransformations-Intro" class="internal"><span class="title">Intro to Linear Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-DotProduct-Intro" class="internal"><span class="title">Intro to the Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-ZeroMatrix-IdentityMatrix" class="internal"><span class="title">Two Special Matrices</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#ws-sec22" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec23-MatrixMultiplication.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Multiplication</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec23-MatrixMultiplication.html#ws-sec23" class="internal"><span class="codenumber">2.3</span> <span class="title">Some Exercises for This Section</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec24-MatrixInverse.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrix Inverses</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec24-MatrixInverse.html#subsec-InverseMatrices" class="internal"><span class="title">Inverse of a Matrix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec24-MatrixInverse.html#subsec-ImportantTheorems-Inverses" class="internal"><span class="title">Important Theorems and Facts about Inverses</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec25-ElementaryMatrices.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Elementary Matrices</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec26-LinearTransformations.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch3-DeterminantsDiagonalization.html" class="internal"><span class="codenumber">3</span> <span class="title">Determinants and Diagonalization</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec31-CofactorExpansion.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Cofactor Expansion</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec32-DeterminantsInverse.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Determinants and Matrix Inverses</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec33-EigenvaluesEigenvectors.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec34-Diagonalization.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Diagonalization</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch4-VectorGeometry.html" class="internal"><span class="codenumber">4</span> <span class="title">Vector Geometry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec41-VectorsLines.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Vectors and Lines</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-BasicVectorR2" class="internal"><span class="title">Vectors in <span class="process-math">\(\boldsymbol{\R^2}\)</span> and <span class="process-math">\(\R^3\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-AttributesVector" class="internal"><span class="title">The Attributes of Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-VectorAlgebra" class="internal"><span class="title">Vector Algebra (Geometry Version)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-LinesR3" class="internal"><span class="title">Lines in <span class="process-math">\(\R^3\)</span></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Projections and Planes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-DotProduct" class="internal"><span class="title">Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-DotProduct-Angles" class="internal"><span class="title">Angle between Two Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-OrthogonalProjection" class="internal"><span class="title">Orthogonal Projection</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-PlanesR3" class="internal"><span class="title">Planes in <span class="process-math">\(\R^3\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-IntersectionLinePlane" class="internal"><span class="title">Intersection of a Line and a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-ParallelIntersecting" class="internal"><span class="title">Parallel and Intersecting Planes</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch5-VectorSpace.html" class="internal"><span class="codenumber">5</span> <span class="title">Vector Space <span class="process-math">\(\R^n\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec51-SubspaceSpanning.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Subspaces and Spanning</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec51-SubspaceSpanning.html#subsec-SubspaceIntro" class="internal"><span class="title">What is a Subspace?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec51-SubspaceSpanning.html#subsec-FundamentalSubspaces" class="internal"><span class="title">Fundamental Subspaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec51-SubspaceSpanning.html#subsec-Span" class="internal"><span class="title">Span and Spanning Sets</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec52-IndependenceDimension.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Independence and Dimension</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-LinearIndependence" class="internal"><span class="title">Linear Independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-Basis" class="internal"><span class="title">Basis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-Dimensions" class="internal"><span class="title">Dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-ExtendedInvertibleMatrixTheorem" class="internal"><span class="title">Extending Our Invertible Matrix Theorem!</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec53-Orthogonality.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Orthogonality</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec54-Rank.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Rank of a Matrix</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec26-LinearTransformations">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Linear Transformations</span>
+</h2>
+<section class="introduction" id="sec26-LinearTransformations-2">
+<div class="para" id="sec26-LinearTransformations-2-1">Up to this point, we have primarily viewed matrices as grids of numbers used to solve systems of equations. Now, it is time to shift our perspective! We can also think of matrices as functions that transform input vectors into new output vectors (through multiplication!).<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-2-2">In this section, we will formalize this idea by exploring <dfn class="terminology">linear transformations</dfn>!<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="objectives goal-like" id="sec26-LinearTransformations-2-3"><h3 class="heading"><span class="type">Objectives</span></h3>
+<div class="introduction" id="sec26-LinearTransformations-2-3-1">
+<div class="para" id="sec26-LinearTransformations-2-3-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul class="disc" id="sec26-LinearTransformations-2-3-2">
+<li id="sec26-LinearTransformations-2-3-2-1">
+<div class="para" id="sec26-LinearTransformations-2-3-2-1-1">determine whether a given function is a linear transformation.<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-2-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec26-LinearTransformations-2-3-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec26-LinearTransformations-2-3-2-2">
+<div class="para" id="sec26-LinearTransformations-2-3-2-2-1">evaluate a linear transformation at a specific vector.<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-2-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec26-LinearTransformations-2-3-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec26-LinearTransformations-2-3-2-3">
+<div class="para" id="sec26-LinearTransformations-2-3-2-3-1">construct the standard matrix of a linear transformation.<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-2-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec26-LinearTransformations-2-3-2-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec26-LinearTransformations-2-3-2-4">
+<div class="para" id="sec26-LinearTransformations-2-3-2-4-1">derive the standard matrices for geometric transformations, such as rotations and reflections in <span class="process-math">\(\R^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-2-3-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec26-LinearTransformations-2-3-2-4" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec26-LinearTransformations-2-3-2-5">
+<div class="para" id="sec26-LinearTransformations-2-3-2-5-1">determine the standard matrix of a linear transformation given its action on an arbitrary set of non-basis vectors.<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-2-3-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec26-LinearTransformations-2-3-2-5" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives"><a href="#sec26-LinearTransformations-2-3" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div>
+</article></section>
+<article class="definition definition-like" id="def-LinearTransformation-Operator"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="def-LinearTransformation-Operator-1-1">
+<div class="para">If <span class="process-math">\(T: \R^n \to \R^m\)</span> is a function with the following two properties:</div>
+<ol class="lower-roman ol-marker-7" id="def-LinearTransformation-Operator-1-1-2">
+<li id="def-LinearTransformation-Operator-1-1-2-1">
+<div class="para logical" id="def-LinearTransformation-Operator-1-1-2-1-1">
+<div class="para">For any scalar <span class="process-math">\(c\)</span> and any vector <span class="process-math">\(\v{x} \in \R^n\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="def-LinearTransformation-Operator-1-1-2-1-1-3">
+\begin{equation*}
+T(c\v{x}) = cT(\v{x})
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-LinearTransformation-Operator-1-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item i"><a href="#def-LinearTransformation-Operator-1-1-2-1" title="Copy heading and permalink for Item i" aria-label="Copy heading and permalink for Item i">🔗</a></div>
+</li>
+<li id="def-LinearTransformation-Operator-1-1-2-2">
+<div class="para logical" id="def-LinearTransformation-Operator-1-1-2-2-1">
+<div class="para">For any two vectors <span class="process-math">\(\v{x}_1, \v{x}_2 \in \R^n\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="def-LinearTransformation-Operator-1-1-2-2-1-2">
+\begin{equation*}
+T(\v{x}_1 + \v{x}_2) = T(\v{x}_1) + T(\v{x}_2)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-LinearTransformation-Operator-1-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item ii"><a href="#def-LinearTransformation-Operator-1-1-2-2" title="Copy heading and permalink for Item ii" aria-label="Copy heading and permalink for Item ii">🔗</a></div>
+</li>
+</ol>
+<div class="para">then <span class="process-math">\(T\)</span> is a <dfn class="terminology">linear transformation</dfn>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-LinearTransformation-Operator-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 2.6.1"><a href="#def-LinearTransformation-Operator" title="Copy heading and permalink for Definition 2.6.1" aria-label="Copy heading and permalink for Definition 2.6.1">🔗</a></div>
+</article>
+<div class="para logical" id="sec26-LinearTransformations-4">
+<div class="para">The two properties in the definition make sense since we can think of a linear transformation as a matrix-vector product. Recall in <a href="sec22-MatrixVectorMultiplication.html" class="internal" title="Section 2.2: Matrix-Vector Multiplication">Section 2.2</a>, every matrix defines a linear transformation in a way that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec22-MatrixVectorMultiplication.html" id="sec26-LinearTransformations-4-2">
+\begin{equation*}
+T(\v{x}) = A\v{x}
+\end{equation*}
+</div>
+<div class="para">By the Matrix Multiplication rules, we know that</div>
+<ol class="lower-roman ol-marker-7" id="sec26-LinearTransformations-4-3">
+<li id="sec26-LinearTransformations-4-3-1">
+<div class="para" id="sec26-LinearTransformations-4-3-1-1">
+<span class="process-math">\(\displaystyle T(c\v{x}) = A(c\v{x}) = cA\v{x} = cT(\v{x})\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-4-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item i"><a href="#sec26-LinearTransformations-4-3-1" title="Copy heading and permalink for Item i" aria-label="Copy heading and permalink for Item i">🔗</a></div>
+</li>
+<li id="sec26-LinearTransformations-4-3-2">
+<div class="para" id="sec26-LinearTransformations-4-3-2-1">
+<span class="process-math">\(\displaystyle T(\v{x}_1 + \v{x}_2) = A(\v{x}_1 + \v{x}_2) = A\v{x}_1 + A\v{x}_2 = T(\v{x}_1) + T(\v{x}_2)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-4-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item ii"><a href="#sec26-LinearTransformations-4-3-2" title="Copy heading and permalink for Item ii" aria-label="Copy heading and permalink for Item ii">🔗</a></div>
+</li>
+</ol>
+<div class="para">Hence, we have the two properties in the definition of linear transformations.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-5">
+<div class="para">
+<em class="emphasis">Note:</em> Sometimes these two properties are combined to form one rule that looks like this:</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-5-2">
+\begin{equation*}
+T(c_1 \v{x}_1 + c_2 \v{x}_2) = c_1 T(\v{x}_1) + c_2 T(\v{x}_2)
+\end{equation*}
+</div>
+<div class="para">This basically tells us that we can figure out the output for a linear combination of vectors by taking the <em class="alert">same linear combination of the outputs</em> of those vectors.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec26-LinearTransformations-6"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A non-example.</span>
+</h3>
+<div class="para logical" id="sec26-LinearTransformations-6-2">
+<div class="para">The function <span class="process-math">\(T: \R^2 \to \R^3\)</span> given by</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-6-2-2">
+\begin{equation*}
+T\lp \begin{bmatrix} x \\ y \end{bmatrix} \rp = \begin{bmatrix} 2x \\ 3y \\ 5x + 7 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">is NOT a linear transformation.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-6-3">
+<div class="para">
+<em class="emphasis">Proof:</em> Notice that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-6-3-2">
+\begin{equation*}
+T\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp = \begin{bmatrix} 2 \\ 0 \\ 12 \end{bmatrix}
+\qquad \text{ and } \qquad
+T\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp = \begin{bmatrix} 0 \\ 3 \\ 7 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">If this were a linear transformation, then property (ii) would mean that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-6-3-3">
+\begin{equation*}
+T\lp \begin{bmatrix} 1 \\ 1 \end{bmatrix} \rp = T\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp + T\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp
+= \begin{bmatrix} 2 \\ 0 \\ 12 \end{bmatrix} + \begin{bmatrix} 0 \\ 3 \\ 7 \end{bmatrix}
+= \begin{bmatrix} 2 \\ 3 \\ 19 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">But in fact,</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-6-3-4">
+\begin{equation*}
+T\lp \begin{bmatrix} 1 \\ 1 \end{bmatrix} \rp = \begin{bmatrix} 2 \\ 3 \\ 12 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Oopsie!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.6.2: A non-example"><a href="#sec26-LinearTransformations-6" title="Copy heading and permalink for Example 2.6.2: A non-example" aria-label="Copy heading and permalink for Example 2.6.2: A non-example">🔗</a></div>
+</article>
+<article class="example example-like" id="sec26-LinearTransformations-7"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">An example.</span>
+</h3>
+<div class="para logical" id="sec26-LinearTransformations-7-2">
+<div class="para">The function <span class="process-math">\(T: \R^2 \to \R^2\)</span> given by</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-7-2-2">
+\begin{equation*}
+T\lp \begin{bmatrix} x \\ y \end{bmatrix} \rp = \begin{bmatrix} 2x + 3y \\ 5x + 7y \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">IS indeed a linear transformation!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-7-3">
+<div class="para">
+<em class="emphasis">Proof:</em> We will verify the two properties in the definition of linear transformations.</div>
+<ol class="lower-roman ol-marker-7" id="sec26-LinearTransformations-7-3-2">
+<li id="sec26-LinearTransformations-7-3-2-1">
+<div class="para logical" id="sec26-LinearTransformations-7-3-2-1-1">
+<div class="para">Suppose <span class="process-math">\(c\)</span> is a scalar and <span class="process-math">\(\begin{bmatrix} x \\ y \end{bmatrix}\)</span> is a vector in <span class="process-math">\(\R^2\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-7-3-2-1-1-4">
+\begin{align*}
+T\lp c\begin{bmatrix} x \\ y \end{bmatrix} \rp = T\lp \begin{bmatrix} cx \\ cy \end{bmatrix} \rp \amp= \begin{bmatrix} 2(cx) + 3(cy) \\ 5(cx) + 7(cy) \end{bmatrix} \\
+\amp= \begin{bmatrix} c(2x + 3y) \\ c(5x + 7y) \end{bmatrix} \\
+\amp= c\begin{bmatrix} 2x + 3y \\ 5x + 7y \end{bmatrix} \\
+\amp= cT\lp \begin{bmatrix} x \\ y \end{bmatrix} \rp 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-7-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item i"><a href="#sec26-LinearTransformations-7-3-2-1" title="Copy heading and permalink for Item i" aria-label="Copy heading and permalink for Item i">🔗</a></div>
+</li>
+<li id="sec26-LinearTransformations-7-3-2-2">
+<div class="para logical" id="sec26-LinearTransformations-7-3-2-2-1">
+<div class="para">Suppose <span class="process-math">\(\begin{bmatrix} x_1 \\ y_1 \end{bmatrix}\)</span> and <span class="process-math">\(\begin{bmatrix} x_2 \\ y_2 \end{bmatrix}\)</span> are two vectors in <span class="process-math">\(\R^2\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-7-3-2-2-1-4">
+\begin{align*}
+T\lp \begin{bmatrix} x_1 \\ y_1 \end{bmatrix} + \begin{bmatrix} x_2 \\ y_2 \end{bmatrix} \rp = T\lp \begin{bmatrix} x_1 + x_2 \\ y_1 + y_2 \end{bmatrix} \rp \amp= \begin{bmatrix} 2(x_1 + x_2) + 3(y_1 + y_2) \\ 5(x_1 + x_2) + 7(y_1 + y_2) \end{bmatrix} \\
+\amp= \begin{bmatrix} (2x_1 + 3y_1) + (2x_2 + 3y_2) \\ (5x_1 + 7y_1) + (5x_2 + 7y_2) \end{bmatrix} \\
+\amp= \begin{bmatrix} 2x_1 + 3y_1 \\ 5x_1 + 7y_1 \end{bmatrix} + \begin{bmatrix} 2x_2 + 3y_2 \\ 5x_2 + 7y_2 \end{bmatrix} \\
+\amp= T\lp \begin{bmatrix} x_1 \\ y_1 \end{bmatrix} \rp + T\lp \begin{bmatrix} x_2 \\ y_2 \end{bmatrix} \rp 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-7-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item ii"><a href="#sec26-LinearTransformations-7-3-2-2" title="Copy heading and permalink for Item ii" aria-label="Copy heading and permalink for Item ii">🔗</a></div>
+</li>
+</ol>
+<div class="para">Since both properties hold, we can conclude that <span class="process-math">\(T\)</span> IS indeed a linear transformation!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-7-4">
+<div class="para">
+<em class="emphasis">Note:</em> In this example, observe that the coefficients do not contribute to the proof at all (so the proof would work exactly the same even if we had different coefficients). Using the same proof, we can show that the function <span class="process-math">\(T: \R^2 \to \R^2\)</span> given by</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-7-4-3">
+\begin{equation*}
+T\lp \begin{bmatrix} x \\ y \end{bmatrix} \rp = \begin{bmatrix} a_1x + b_1y \\ a_2x + b_2y \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">is a linear transformation for any choice of scalars <span class="process-math">\(a_1, b_1, a_2, b_2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-7-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.6.3: An example"><a href="#sec26-LinearTransformations-7" title="Copy heading and permalink for Example 2.6.3: An example" aria-label="Copy heading and permalink for Example 2.6.3: An example">🔗</a></div>
+</article>
+<div class="para" id="sec26-LinearTransformations-8">The two properties of linear transformations make it possible to "plug in" a vector even if we don’t know the rule. That is, we can <em class="alert">evaluate linear transformations using linear combinations</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec26-LinearTransformations-9"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="sec26-LinearTransformations-9-1">
+<div class="para">Suppose <span class="process-math">\(T: \R^3 \to \R^2\)</span> is a linear transformation (but we don’t know the rule) and we do know that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-9-1-2">
+\begin{equation*}
+T \lp \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} \rp = \begin{bmatrix} 2 \\ 0 \end{bmatrix} 
+\qquad \text{ and } \qquad
+T \lp \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} \rp = \begin{bmatrix} 1 \\ -4 \end{bmatrix} 
+\end{equation*}
+</div>
+<div class="para">Let’s say we want to evaluate <span class="process-math">\(T \lp \begin{bmatrix} 5 \\ 10 \\ 3 \end{bmatrix} \rp\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-9-2">
+<em class="alert">How do we do that?</em><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-9-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-9-3">
+<div class="para">Notice that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-9-3-1">
+\begin{equation*}
+\begin{bmatrix} 5 \\ 10 \\ 3 \end{bmatrix} = 3\begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} + 2\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">So property (i) and (ii) of linear transformations tell us that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-9-3-2">
+\begin{align*}
+T \lp \begin{bmatrix} 5 \\ 10 \\ 3 \end{bmatrix} \rp \amp= T \lp 3\begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} + 2\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} \rp \\
+\amp= 3T \lp \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} \rp + 2T \lp \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} \rp \\
+\amp= 3\begin{bmatrix} 2 \\ 0 \end{bmatrix} + 2\begin{bmatrix} 1 \\ -4 \end{bmatrix} \\
+\amp= \begin{bmatrix} 8 \\ -8 \end{bmatrix} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-9-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec26-LinearTransformations-9-4" class="note remark-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">But Richard... How can you find the linear combination?</span>
+</h4></summary>
+<article class="note remark-like knowl__content">
+<div class="para" id="sec26-LinearTransformations-9-4-2">There are two ways to find the linear combination: (1) using guess and check, and/or (2) by setting up a system of equations.<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-9-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-9-4-3">Let’s do a quick example using the formal setting-up-a-system-of-equations method!<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-9-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-9-4-4">Can <span class="process-math">\(\begin{bmatrix} 4 \\ 3 \end{bmatrix}\)</span> be written as a linear combination of <span class="process-math">\(\begin{bmatrix} 5 \\ 3 \end{bmatrix}\)</span> and <span class="process-math">\(\begin{bmatrix} 2 \\ 1 \end{bmatrix}\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-9-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-9-4-5">
+<div class="para">Let’s assume we can! Then there exist scalars <span class="process-math">\(c_1, c_2 \in \R\)</span> such that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-9-4-5-2">
+\begin{equation*}
+c_1\begin{bmatrix} 5 \\ 3 \end{bmatrix} + c_2\begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 4 \\ 3 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">This is essentially a vector equation since the "variables" here are the scalars <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\text{.}\)</span> We can rewrite the vector equation as a system of linear equations:</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-9-4-5-5">
+\begin{equation*}
+\begin{cases}
+5c_1 + 2c_2 = 4 \\
+3c_1 + c_2 = 3
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">Basically, we are asking ourselves if this system of linear equations has a solution.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-9-4-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-9-4-6">
+<div class="para">We are all experts in solving systems of linear equations now! The augmented matrix is</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-9-4-6-1">
+\begin{equation*}
+\begin{bmatrix} 5 \amp 2 \amp \mid \amp 4 \\ 3 \amp 1 \amp \mid \amp 3 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">We can do our Gaussian Elimination magic to get:</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-9-4-6-2">
+\begin{align*}
+\begin{bmatrix} 5 \amp 2 \amp \mid \amp 4 \\ 3 \amp 1 \amp \mid \amp 3 \end{bmatrix} \amp\sim \begin{bmatrix} 1 \amp \frac{2}{5} \amp \mid \amp \frac{4}{5} \\ 3 \amp 1 \amp \mid \amp 3 \end{bmatrix} \amp\amp \frac{1}{5}\text{Row 1}\\
+\amp\sim \begin{bmatrix} 1 \amp \frac{2}{5} \amp \mid \amp \frac{4}{5} \\ 0 \amp -\frac{1}{5} \amp \mid \amp \frac{3}{5} \end{bmatrix} \amp\amp - 3\text{Row 1} + \text{Row 2}\\
+\amp\sim \begin{bmatrix} 1 \amp \frac{2}{5} \amp \mid \amp \frac{4}{5} \\ 0 \amp 1 \amp \mid \amp -3 \end{bmatrix} \amp\amp -5\text{Row 2}\\
+\amp\sim \begin{bmatrix} 1 \amp 0 \amp \mid \amp 2 \\ 0 \amp 1 \amp \mid \amp -3 \end{bmatrix} \amp\amp -\frac{2}{5}\text{Row 2} + \text{Row 1}
+\end{align*}
+</div>
+<div class="para">Converting back to a system of linear equations, we have</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-9-4-6-3">
+\begin{equation*}
+\begin{cases}
+c_1 = 2 \\
+c_2 = -3
+\end{cases}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-9-4-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-9-4-7">
+<div class="para">We can quickly check our work!</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-9-4-7-1">
+\begin{equation*}
+2 \begin{bmatrix} 5 \\ 3 \end{bmatrix} - 3 \begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 4 \\ 3 \end{bmatrix}. 
+\end{equation*}
+</div>
+<div class="para">We did it!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-9-4-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Note 2.6.5: But Richard... How can you find the linear combination?"><a href="#sec26-LinearTransformations-9-4" title="Copy heading and permalink for Note 2.6.5: But Richard... How can you find the linear combination?" aria-label="Copy heading and permalink for Note 2.6.5: But Richard... How can you find the linear combination?">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Example 2.6.4"><a href="#sec26-LinearTransformations-9" title="Copy heading and permalink for Example 2.6.4" aria-label="Copy heading and permalink for Example 2.6.4">🔗</a></div>
+</article>
+<div class="para" id="sec26-LinearTransformations-10">This is a very important kind of problem! Not only does it show up on exams commonly, it will also be the key to finding the matrix for a linear transformation which is one of the most important things in linear algebra!<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="sec26-LinearTransformations-11"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="sec26-LinearTransformations-11-1">
+<div class="para">Suppose <span class="process-math">\(T: \R^3 \to \R^2\)</span> is a linear transformation and we know that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-11-1-2">
+\begin{equation*}
+T \lp \begin{bmatrix} 1 \\ 1 \\ 3 \end{bmatrix} \rp = \begin{bmatrix} 2 \\ 1 \end{bmatrix} 
+\qquad \text{ and } \qquad
+T \lp \begin{bmatrix} 2 \\ 1 \\ 0 \end{bmatrix} \rp = \begin{bmatrix} -2 \\ 3 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Find <span class="process-math">\(T \lp \begin{bmatrix} 1 \\ -1 \\ -9 \end{bmatrix} \rp\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec26-LinearTransformations-11-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="sec26-LinearTransformations-11-2-1">
+<div class="para">Notice that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-11-2-1-1">
+\begin{equation*}
+\begin{bmatrix} 1 \\ -1 \\ -9 \end{bmatrix} = -3 \begin{bmatrix} 1 \\ 1 \\ 3 \end{bmatrix} + 2 \begin{bmatrix} 2 \\ 1 \\ 0 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para"><em class="alert">Remember that if you can’t figure out the linear combination by guessing and checking, you can find it by setting up a system of linear equations!</em></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-11-2-2">
+<div class="para">So we know that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-11-2-2-1">
+\begin{equation*}
+T\lp \begin{bmatrix} 1 \\ -1 \\ -9 \end{bmatrix} \rp = -3 \begin{bmatrix} 1 \\ 1 \\ 3 \end{bmatrix} + 2 \begin{bmatrix} 2 \\ 1 \\ 0 \end{bmatrix} = \begin{bmatrix} -10 \\ 3 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-11-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.6.6.1"><a href="#sec26-LinearTransformations-11-2" title="Copy heading and permalink for Solution 2.6.6.1" aria-label="Copy heading and permalink for Solution 2.6.6.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Checkpoint 2.6.6"><a href="#sec26-LinearTransformations-11" title="Copy heading and permalink for Checkpoint 2.6.6" aria-label="Copy heading and permalink for Checkpoint 2.6.6">🔗</a></div>
+</article>
+<div class="para" id="sec26-LinearTransformations-12">Notice that any vector in <span class="process-math">\(\R^2\)</span> can be written as a linear combination of <span class="process-math">\(\v{e}_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span> and <span class="process-math">\(\v{e}_2 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec26-LinearTransformations-13" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Quick proof of this claim.</span></h3></summary>
+<article class="hiddenproof knowl__content">
+<div class="para logical" id="sec26-LinearTransformations-13-2">
+<div class="para">Let <span class="process-math">\(\begin{bmatrix} x \\ y \end{bmatrix}\)</span> be an arbitrary vector in <span class="process-math">\(\R^2\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-13-2-3">
+\begin{equation*}
+\begin{bmatrix} x \\ y \end{bmatrix} = x\begin{bmatrix} 1 \\ 0 \end{bmatrix} + y\begin{bmatrix} 0 \\ 1 \end{bmatrix} = x\v{e}_1 + y\v{e}_2
+\end{equation*}
+</div>
+<div class="para">Proved!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-13-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2.6.1: Quick proof of this claim"><a href="#sec26-LinearTransformations-13" title="Copy heading and permalink for Proof 2.6.1: Quick proof of this claim" aria-label="Copy heading and permalink for Proof 2.6.1: Quick proof of this claim">🔗</a></div>
+</article></details>
+<div class="para" id="sec26-LinearTransformations-14">
+<span class="process-math">\(\left\{ \v{e}_1, \v{e}_2 \right\}\)</span> is called the <dfn class="terminology">standard basis</dfn> of <span class="process-math">\(\R^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-15">For <span class="process-math">\(\R^n\text{,}\)</span> the standard basis consists of the vectors <span class="process-math">\(\left\{\v{e}_1, \v{e}_2, \ldots, \v{e}_n\right\}\)</span> where the <span class="process-math">\(k\)</span>-th entry of <span class="process-math">\(\v{e}_k\)</span> is a <span class="process-math">\(1\)</span> and all of the rest are zeros. Clearly these are all <span class="process-math">\(n\)</span>-dimensional vectors. That means the <span class="process-math">\(\v{e}_1\)</span> is actually a different vector depending on which <span class="process-math">\(\R^n\)</span> you are working with.<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-16">For example, <span class="process-math">\(\v{e}_1\)</span> in <span class="process-math">\(\R^2\)</span> is <span class="process-math">\(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\text{,}\)</span> but <span class="process-math">\(\v{e}_1\)</span> in <span class="process-math">\(\R^3\)</span> is <span class="process-math">\(\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}\text{.}\)</span> They are NOT the same vectors!<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-17">Combining this fact with the two properties that every linear transformation satisfies, we can see that every linear combination defined on <span class="process-math">\(\R^2\)</span> (this works for <span class="process-math">\(\R^n\)</span> as well, but let’s start small!) is actually determined by what it does to the standard basis vectors <span class="process-math">\(\v{e}_1\)</span> and <span class="process-math">\(\v{e}_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec26-LinearTransformations-18" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Quick proof of this claim.</span></h3></summary>
+<article class="hiddenproof knowl__content">
+<div class="para logical" id="sec26-LinearTransformations-18-2">
+<div class="para">Let <span class="process-math">\(\v{x}\)</span> be a vector in <span class="process-math">\(\R^2\text{.}\)</span> Then there exist scalars <span class="process-math">\(a, b \in \R\)</span> such that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-18-2-4">
+\begin{equation*}
+\v{x} = a\v{e}_1 + b\v{e}_2
+\end{equation*}
+</div>
+<div class="para">Then for any linear transformation <span class="process-math">\(T\)</span> defined on <span class="process-math">\(\R^2\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-18-2-7">
+\begin{equation*}
+T(\v{x}) = T(a\v{e}_1 + b\v{e}_2) = aT(\v{e}_1) + bT(\v{e}_2)
+\end{equation*}
+</div>
+<div class="para">So the output of <span class="process-math">\(T\)</span> at <span class="process-math">\(\v{x}\)</span> is completely determined by the output of <span class="process-math">\(T\)</span> at <span class="process-math">\(\v{e}_1\)</span> and <span class="process-math">\(\v{e}_2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-18-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2.6.2: Quick proof of this claim"><a href="#sec26-LinearTransformations-18" title="Copy heading and permalink for Proof 2.6.2: Quick proof of this claim" aria-label="Copy heading and permalink for Proof 2.6.2: Quick proof of this claim">🔗</a></div>
+</article></details>
+<div class="para" id="sec26-LinearTransformations-19">We can use this fact to figure out how to find the matrix for a linear transformation (and in doing so, we really prove that such a matrix will always exist for any linear transformation)!<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec26-LinearTransformations-20"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="sec26-LinearTransformations-20-1">
+<div class="para">Suppose that <span class="process-math">\(T: \R^2 \to \R^3\)</span> is a linear transformation such that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-20-1-2">
+\begin{equation*}
+T\lp \v{e}_1 \rp = \begin{bmatrix} 2 \\ 0 \\ 3 \end{bmatrix}
+\qquad \text{ and } \qquad
+T\lp \v{e}_2 \rp = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">What is the matrix <span class="process-math">\(A\)</span> such that <span class="process-math">\(T(\v{x}) = A\v{x}\)</span> for all <span class="process-math">\(\v{x} \in \R^2\text{?}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-20-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-20-2">
+<div class="para">Consider any vector <span class="process-math">\(\v{x} = \begin{bmatrix} x \\ y \end{bmatrix}\)</span> in <span class="process-math">\(\R^2\text{.}\)</span> We know that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-20-2-3">
+\begin{align*}
+T\lp \begin{bmatrix} x \\ y \end{bmatrix} \rp \amp= T\lp x\begin{bmatrix} 1 \\ 0 \end{bmatrix} + y\begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp \\
+\amp= xT\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp + yT\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp \\
+\amp= x\begin{bmatrix} 2 \\ 0 \\ 3 \end{bmatrix} + y\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} \\
+\amp= \begin{bmatrix} 2x + y \\ 2y \\ 3x + 3y \end{bmatrix} 
+\end{align*}
+</div>
+<div class="para">Notice that the output is what we would get if we multiplied the matrix <span class="process-math">\(\begin{bmatrix} 2 \amp 1 \\ 0 \amp 2 \\ 3 \amp 3 \end{bmatrix}\)</span> by the vector <span class="process-math">\(\begin{bmatrix} x \\ y \end{bmatrix}\text{!}\)</span> So</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-20-2-6">
+\begin{equation*}
+T\lp \begin{bmatrix} x \\ y \end{bmatrix} \rp = \begin{bmatrix} 2 \amp 1 \\ 0 \amp 2 \\ 3 \amp 3 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">We found the matrix that goes with this linear transformation!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-20-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.6.7"><a href="#sec26-LinearTransformations-20" title="Copy heading and permalink for Example 2.6.7" aria-label="Copy heading and permalink for Example 2.6.7">🔗</a></div>
+</article>
+<div class="para" id="sec26-LinearTransformations-21">Notice that in the above example, <em class="alert">the columns of our matrix were the outputs of the standard basis vectors</em>. That tells us exactly how to find a matrix for any linear transformation!<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-22">
+<div class="para">Suppose <span class="process-math">\(T: \R^n \to \R^m\)</span> is a linear transformation. To find the matrix <span class="process-math">\(A\)</span> such that <span class="process-math">\(T\)</span> is given by the rule <span class="process-math">\(T(\v{x}) = A\v{x}\text{,}\)</span> we...</div>
+<ol class="decimal ol-marker-6" id="sec26-LinearTransformations-22-5">
+<li id="sec26-LinearTransformations-22-5-1">
+<div class="para" id="sec26-LinearTransformations-22-5-1-1">Figure out <span class="process-math">\(T\lp \v{e_1} \rp, T\lp \v{e_2} \rp, \ldots T\lp \v{e_n} \rp\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-22-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec26-LinearTransformations-22-5-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec26-LinearTransformations-22-5-2">
+<div class="para logical" id="sec26-LinearTransformations-22-5-2-1">
+<div class="para">Write the matrix that has columns <span class="process-math">\(T\lp \v{e_1} \rp, T\lp \v{e_2} \rp, \ldots T\lp \v{e_n} \rp\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-22-5-2-1-2">
+\begin{equation*}
+A = \begin{bmatrix} T\lp \v{e_1} \rp \amp T\lp \v{e_2} \rp \amp \cdots \amp T\lp \v{e_n} \rp \end{bmatrix}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-22-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec26-LinearTransformations-22-5-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec26-LinearTransformations-22-5-3">
+<div class="para" id="sec26-LinearTransformations-22-5-3-1">Pat yourself on the back<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-22-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec26-LinearTransformations-22-5-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec26-LinearTransformations-23"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="sec26-LinearTransformations-23-1">
+<div class="para">Let <span class="process-math">\(T: \R^2 \to \R^2\)</span> be a linear transformation given by</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-23-1-2">
+\begin{equation*}
+T\lp \begin{bmatrix} x \\ y \end{bmatrix} \rp = \begin{bmatrix} 2x + 3y \\ 5x + 7y \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Let’s find the matrix <span class="process-math">\(A\)</span> such that <span class="process-math">\(T(\v{x}) = A\v{x}\)</span> for all <span class="process-math">\(\v{x} \in \R^2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-23-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-23-2">
+<div class="para">Step 1: In this case, <span class="process-math">\(\v{e}_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span> and <span class="process-math">\(\v{e}_2 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\text{.}\)</span> So</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-23-2-3">
+\begin{equation*}
+T(\v{e}_1) = T\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp = \begin{bmatrix} 2 \\ 5 \end{bmatrix}
+\qquad \text{ and } \qquad
+T(\v{e}_2) = T\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp = \begin{bmatrix} 3 \\ 7 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-23-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-23-3">Step 2: <span class="process-math">\(A = \begin{bmatrix} T(\v{e}_1)\amp T(\v{e}_2) \end{bmatrix} = \begin{bmatrix} 2 \amp 3 \\ 5 \amp 7 \end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-23-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-23-4">
+<div class="para">Let’s check to see if <span class="process-math">\(A\)</span> really works!</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-23-4-2">
+\begin{equation*}
+A\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 2 \amp 3 \\ 5 \amp 7 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 2x + 3y \\ 5x + 7y \end{bmatrix} 
+\end{equation*}
+</div>
+<div class="para">Woo!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-23-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.6.8"><a href="#sec26-LinearTransformations-23" title="Copy heading and permalink for Example 2.6.8" aria-label="Copy heading and permalink for Example 2.6.8">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec26-LinearTransformations-24"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="sec26-LinearTransformations-24-1">
+<div class="para">Find the matrix that corresponds to the linear transformation <span class="process-math">\(T: \R^3 \to \R^2\)</span> given by</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-24-1-2">
+\begin{equation*}
+T\lp \begin{bmatrix} x \\ y \\ z \end{bmatrix} \rp = \begin{bmatrix} x + 3y + 7z \\ 3x + 5y - 8z \end{bmatrix}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-24-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec26-LinearTransformations-24-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="sec26-LinearTransformations-24-2-1">
+<div class="para">Observe that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-24-2-1-1">
+\begin{align*}
+T\lp \begin{bmatrix} x \\ y \\ z \end{bmatrix} \rp \amp= \begin{bmatrix} x + 3y + 7z \\ 3x + 5y - 8z \end{bmatrix} \\
+\amp= x \begin{bmatrix} 1 \\ 3 \end{bmatrix} + y \begin{bmatrix} 3 \\ 5 \end{bmatrix} + z \begin{bmatrix} 7 \\ -8 \end{bmatrix} 
+\end{align*}
+</div>
+<div class="para">Then we know that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-24-2-1-2">
+\begin{equation*}
+T\lp \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} \rp = \begin{bmatrix} 1 \\ 3 \end{bmatrix}
+\, , \, 
+T\lp \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \rp = \begin{bmatrix} 3 \\ 5 \end{bmatrix}
+\, , \text{ and} \, 
+T\lp \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} \rp = \begin{bmatrix} 7 \\ -8 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">So our matrix is <span class="process-math">\(\begin{bmatrix} 1 \amp 3 \amp 7 \\ 3 \amp 5 \amp -8 \end{bmatrix}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-24-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.6.9.1"><a href="#sec26-LinearTransformations-24-2" title="Copy heading and permalink for Solution 2.6.9.1" aria-label="Copy heading and permalink for Solution 2.6.9.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Checkpoint 2.6.9"><a href="#sec26-LinearTransformations-24" title="Copy heading and permalink for Checkpoint 2.6.9" aria-label="Copy heading and permalink for Checkpoint 2.6.9">🔗</a></div>
+</article>
+<div class="para" id="sec26-LinearTransformations-25">It turns out that rotations and reflections are also linear transformations!<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-26">
+<em class="alert">Let’s find a matrix for a rotation <span class="process-math">\(\theta\)</span> in <span class="process-math">\(\R^2\text{!}\)</span></em> We need to figure out what such a rotation does to the vectors <span class="process-math">\(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span> and <span class="process-math">\(\begin{bmatrix} 0 \\ 1 \end{bmatrix}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-27">Let’s suppose that the vector <span class="process-math">\(\begin{bmatrix} x \\ y \end{bmatrix}\)</span> is the result of rotating <span class="process-math">\(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span> counterclockwise by the angle <span class="process-math">\(\theta\text{.}\)</span> This vector can be represented as an arrow starting at the origin and ending at the point <span class="process-math">\((x, y)\text{.}\)</span> We can draw a triangle to figure out the exact coordinates of the vector <span class="process-math">\(\begin{bmatrix} x \\ y \end{bmatrix}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/sec18-RotationalMatrix-UnitCircle.png" class="contained"></div>
+<div class="para" id="sec26-LinearTransformations-29">The <span class="process-math">\(x\)</span>-coordinate will be <span class="process-math">\(\cos(\theta)\)</span> and the <span class="process-math">\(y\)</span>-coordinate will be <span class="process-math">\(\sin(\theta)\text{.}\)</span> So the rotation takes <span class="process-math">\(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span> to <span class="process-math">\(\begin{bmatrix} \cos(\theta) \\ \sin(\theta) \end{bmatrix}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-30">If we also draw the vector <span class="process-math">\(\begin{bmatrix} 0 \\ 1 \end{bmatrix}\)</span> and rotate it (counterclockwise) by an angle of <span class="process-math">\(\theta\text{,}\)</span> we get a picture like this:<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-30" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/sec18-RotationalMatrix-RotatingTriangle.png" class="contained"></div>
+<div class="para" id="sec26-LinearTransformations-32">This time, the <span class="process-math">\(x\)</span>-coordinate will be <span class="process-math">\(-\sin(\theta)\)</span> and the <span class="process-math">\(y\)</span>-coordinate will be <span class="process-math">\(\cos(\theta)\text{.}\)</span> So the rotation takes <span class="process-math">\(\begin{bmatrix} 0 \\ 1 \end{bmatrix}\)</span> to <span class="process-math">\(\begin{bmatrix} -\sin(\theta) \\ \cos(\theta) \end{bmatrix}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-33">
+<em class="emphasis">Note:</em> These pictures make it easy to see this is true when <span class="process-math">\(\theta\)</span> is between <span class="process-math">\(0^\circ\)</span> and <span class="process-math">\(90^\circ\text{,}\)</span> To see that this is true regardless of how big <span class="process-math">\(\theta\)</span> is, you can either look at cases in all of the four quadrants or you can use trig identities.<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-33" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-34">
+<div class="para">This means that you can find any rotation matrix by plugging <span class="process-math">\(\theta\)</span> into</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-34-2">
+\begin{equation*}
+R_\theta = \begin{bmatrix} \cos(\theta) \amp -\sin(\theta) \\ \sin(\theta) \amp \cos(\theta) \end{bmatrix}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-34" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-35">
+<em class="alert">Now let’s find a matrix for the reflection across the line <span class="process-math">\(y = mx\text{!}\)</span></em> We need fo figure out what happens to <span class="process-math">\(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span> and <span class="process-math">\(\begin{bmatrix} 0 \\ 1 \end{bmatrix}\)</span> when we reflect them across the line <span class="process-math">\(y = mx\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-35" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-36">From analytic geometry, we know that the slope of any line perpendicular to <span class="process-math">\(y = mx\)</span> will have slope <span class="process-math">\(-\frac{1}{m}\text{.}\)</span> We want to find the line through <span class="process-math">\((1,0)\)</span> that has slope <span class="process-math">\(-\frac{1}{m}\text{.}\)</span> That is because we need to find the intersection of that line with <span class="process-math">\(y = mx\)</span> to get the midpoint of the segment between <span class="process-math">\((1,0)\)</span> and the point we get after reflecting <span class="process-math">\((1,0)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-36" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/sec18-ReflectionalMatrix.png" class="contained"></div>
+<div class="para" id="sec26-LinearTransformations-38">That perpendicular line is given by <span class="process-math">\(y - 0 = -\frac{1}{m}(x - 1)\text{,}\)</span> which simplifies to <span class="process-math">\(y = -\frac{1}{m}x + \frac{1}{m}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-38" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-39">
+<div class="para">Now let’s find the point of intersection! Substituting <span class="process-math">\(y = mx\)</span> into this equation, we get</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-39-2">
+\begin{equation*}
+mx = -\frac{1}{m}x + \frac{1}{m}
+\qquad \implies \qquad 
+m^2x = -x + 1
+\end{equation*}
+</div>
+<div class="para">This means that <span class="process-math">\(x = \frac{1}{1 + m^2}\text{.}\)</span> Then substituting again, we get <span class="process-math">\(y = m\frac{1}{1 + m^2}\text{.}\)</span> So the midpoint between <span class="process-math">\((1,0)\)</span> and the result of reflecting <span class="process-math">\((1,0)\)</span> across the line <span class="process-math">\(y = mx\)</span> is <span class="process-math">\(\lp \frac{1}{1 + m^2}, m\frac{1}{1 + m^2} \rp\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-39" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-40">
+<div class="para">The midpoint formula tells us that the midpoint of a segment between points <span class="process-math">\((x_1, y_1)\)</span> and <span class="process-math">\((x_2, y_2)\)</span> is <span class="process-math">\(\lp \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \rp\text{.}\)</span> So</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-40-4">
+\begin{equation*}
+\lp \frac{1}{1 + m^2}, m\frac{1}{1 + m^2} \rp = \lp \frac{1 + x}{2}, \frac{0 + y}{2} \rp
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\((x,y)\)</span> is the point we are looking for. This gives us the equations</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-40-6">
+\begin{equation*}
+\begin{cases}
+\frac{1}{1 + m^2} = \frac{1 + x}{2} \\
+m\frac{1}{1 + m^2} = \frac{y}{2}
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">Solving these equations, we get</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-40-7">
+\begin{equation*}
+\begin{cases}
+x = \frac{1 - m^2}{1 + m^2} \\
+y = \frac{2m}{1 + m^2}
+\end{cases}  
+\end{equation*}
+</div>
+<div class="para">So the reflection takes <span class="process-math">\((1,0)\)</span> to <span class="process-math">\(\lp \frac{1 - m^2}{1 + m^2}, \frac{2m}{1 + m^2} \rp\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-40" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-41">A similar method can be used to find out that the reflection takes the point <span class="process-math">\((0,1)\)</span> to the point <span class="process-math">\(\lp \frac{2m}{1 + m^2}, \frac{m^2 - 1}{1 + m^2} \rp\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-41" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-42">
+<div class="para">Converting these to column vectors, the matrix for reflecting across the line <span class="process-math">\(y = mx\)</span> is given by</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-42-2">
+\begin{equation*}
+R_m = \begin{bmatrix} \frac{1 - m^2}{1 + m^2} \amp \frac{2m}{1 + m^2} \\ \frac{2m}{1 + m^2} \amp \frac{m^2 - 1}{1 + m^2} \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Pulling out the common factor, we can rewrite this as</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-42-3">
+\begin{equation*}
+R_m = \frac{1}{1 + m^2} \begin{bmatrix} 1 - m^2 \amp 2m \\ 2m \amp m^2 - 1 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-42" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-43">We can figure out the matrix that does other transformations using the similar trick by figuring out what the transformation does to the standard basis vectors!<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-43" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec26-LinearTransformations-44"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="sec26-LinearTransformations-44-1">Let’s write a matrix that stretches <span class="process-math">\(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span> by a factor of <span class="process-math">\(3\)</span> and stretches <span class="process-math">\(\begin{bmatrix} 0 \\ 1 \end{bmatrix}\)</span> by a factor of <span class="process-math">\(7\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-44-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-44-2">
+<div class="para">This can be thought of as scalar multiplication of the first vector by <span class="process-math">\(3\)</span> and scalar multiplication of the second vector by <span class="process-math">\(7\text{.}\)</span> So the resulting vector after stretching <span class="process-math">\(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span> will be <span class="process-math">\(\begin{bmatrix} 3 \\ 0 \end{bmatrix}\)</span> and the resulting vector after stretching <span class="process-math">\(\begin{bmatrix} 0 \\ 1 \end{bmatrix}\)</span> will be <span class="process-math">\(\begin{bmatrix} 0 \\ 7 \end{bmatrix}\text{.}\)</span> Hence, our matrix is</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-44-2-7">
+\begin{equation*}
+S = \begin{bmatrix} 3 \amp 0 \\ 0 \amp 7 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-44-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.6.10"><a href="#sec26-LinearTransformations-44" title="Copy heading and permalink for Example 2.6.10" aria-label="Copy heading and permalink for Example 2.6.10">🔗</a></div>
+</article>
+<div class="para" id="sec26-LinearTransformations-45">Observe that the matrix basically is the rule for the linear transformation. However, most of the time when we are asked to find the matrix for a linear transformation, we won’t be given the rule for the transformation. Instead, we will be given other information. For example, we used geometric descriptions to find the matrices for rotations and reflections earlier. We have also seen that if we know what the transformation does to the standard basis vectors, it is straightforward to create the matrix for the transformation.<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-45" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-46">We may also be given information about what the linear transformation does to some vectors that are NOT the standard basis vectors. In that case, we would have to <em class="alert">use that information to figure out what the transformation does to the standard basis vectors in order to find the matrix</em>. Doing that will require figuring out how to write the standard basis vectors as linear combinations of the given vectors.<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-46" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec26-LinearTransformations-47"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="sec26-LinearTransformations-47-1">
+<div class="para">Suppose we have a linear transformation <span class="process-math">\(T\)</span> such that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-47-1-2">
+\begin{equation*}
+T\lp \begin{bmatrix} 1 \\ 2 \end{bmatrix} \rp = \begin{bmatrix} 5 \\ 3 \\ 4 \end{bmatrix}
+\qquad \text{ and } \qquad
+T\lp \begin{bmatrix} 2 \\ 3 \end{bmatrix} \rp = \begin{bmatrix} 1 \\ 7 \\ -3 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">What is the matrix for this linear transformation?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-47-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-47-2">
+<div class="para">To find this matrix, we need to figure out <span class="process-math">\(T\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp\)</span> and T\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp. So we need to solve the following vector equations:</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-47-2-2">
+\begin{align*}
+x_1 \begin{bmatrix} 1 \\ 2\end{bmatrix} + y_1 \begin{bmatrix} 2 \\ 3 \end{bmatrix} \amp= \begin{bmatrix} 1 \\ 0 \end{bmatrix} \\
+x_2 \begin{bmatrix} 1 \\ 2\end{bmatrix} + y_2 \begin{bmatrix} 2 \\ 3 \end{bmatrix} \amp= \begin{bmatrix} 0 \\ 1 \end{bmatrix} 
+\end{align*}
+</div>
+<div class="para"><em class="alert">Sometimes you can guess and check to figure out the linear combinations. This one is NOT at all easy to do that way. So we will need to use some linear algebra to solve these equations!</em></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-47-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-47-3">
+<div class="para">These correspond to the matrix equations:</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-47-3-1">
+\begin{align*}
+\begin{bmatrix} 1 \amp 2 \\ 2 \amp 3 \end{bmatrix} \begin{bmatrix} x_1 \\ y_1 \end{bmatrix} \amp= \begin{bmatrix} 1 \\ 0 \end{bmatrix} \\
+\begin{bmatrix} 1 \amp 2 \\ 2 \amp 3 \end{bmatrix} \begin{bmatrix} x_1 \\ y_1 \end{bmatrix} \amp= \begin{bmatrix} 0 \\ 1 \end{bmatrix} 
+\end{align*}
+</div>
+<div class="para">We can easily solve both of these by finding the inverse of <span class="process-math">\(\begin{bmatrix}1 \amp 2 \\ 2 \amp 3 \end{bmatrix}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-47-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-47-4">The determinant is <span class="process-math">\(3 - 4 = -1\)</span> and the adjugate is <span class="process-math">\(\begin{bmatrix} 3 \amp -2 \\ -2 \amp 1 \end{bmatrix}\text{.}\)</span> So the inverse is <span class="process-math">\(\begin{bmatrix} -3 \amp 2 \\ 2 \amp -1 \end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-47-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-47-5">
+<div class="para">Now we can solve the first equation to get</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-47-5-1">
+\begin{equation*}
+\begin{bmatrix}x_1 \\ y_1 \end{bmatrix} = \begin{bmatrix} -3 \amp 2 \\ 2 \amp -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} -3 \\ 2 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">and we can solve the second equation to get</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-47-5-2">
+\begin{equation*}
+\begin{bmatrix}x_2 \\ y_2 \end{bmatrix} = \begin{bmatrix} -3 \amp 2 \\ 2 \amp -1 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 2 \\ -1 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">So we now know that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-47-5-3">
+\begin{equation*}
+\begin{bmatrix} 1 \\ 0 \end{bmatrix} = -3 \begin{bmatrix} 1 \\ 2 \end{bmatrix} + 2 \begin{bmatrix} 2 \\ 3 \end{bmatrix}
+\qquad \text{ and } \qquad 
+\begin{bmatrix} 0 \\ 1 \end{bmatrix} = -3 \begin{bmatrix} 1 \\ 2 \end{bmatrix} - 1 \begin{bmatrix} 2 \\ 3 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-47-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec26-LinearTransformations-47-6">
+<div class="para">We can use this information to figure out what <span class="process-math">\(T\)</span> does to <span class="process-math">\(\begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span> and <span class="process-math">\(\begin{bmatrix} 0 \\ 1 \end{bmatrix}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-47-6-4">
+\begin{align*}
+T\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp \amp= T\lp -3 \begin{bmatrix} 1 \\ 2 \end{bmatrix} + 2 \begin{bmatrix} 2 \\ 3 \end{bmatrix} \rp\\
+\amp= -3 T\lp \begin{bmatrix} 1 \\ 2 \end{bmatrix} \rp + 2 T\lp \begin{bmatrix} 2 \\ 3 \end{bmatrix} \rp\\
+\amp= -3 \begin{bmatrix} 5 \\ 3 \\ 4 \end{bmatrix} + 2\begin{bmatrix} 1 \\ 7 \\ -3 \end{bmatrix} \\
+\amp= \begin{bmatrix} -13 \\ 5 \\ -18 \end{bmatrix} 
+\end{align*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-47-6-5">
+\begin{align*}
+T\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp \amp= T\lp 2 \begin{bmatrix} 1 \\ 2 \end{bmatrix} - \begin{bmatrix} 2 \\ 3 \end{bmatrix} \rp\\
+\amp= 2 T\lp \begin{bmatrix} 1 \\ 2 \end{bmatrix} \rp - T\lp \begin{bmatrix} 2 \\ 3 \end{bmatrix} \rp\\
+\amp= 2 \begin{bmatrix} 5 \\ 3 \\ 4 \end{bmatrix} - \begin{bmatrix} 1 \\ 7 \\ -3 \end{bmatrix} \\
+\amp= \begin{bmatrix} 9 \\ -1 \\ 11 \end{bmatrix} 
+\end{align*}
+</div>
+<div class="para">So our matrix is <span class="process-math">\(A = \begin{bmatrix} -13 \amp 9 \\ 5 \amp -1 \\-18 \amp 11 \end{bmatrix}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-47-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec26-LinearTransformations-47-7">
+<em class="alert">We are basically done once we figure out what the linear transformation does to our standard basis vectors! But it sometimes takes work to figure that out.</em><div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-47-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 2.6.11"><a href="#sec26-LinearTransformations-47" title="Copy heading and permalink for Example 2.6.11" aria-label="Copy heading and permalink for Example 2.6.11">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="sec26-LinearTransformations-48"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="sec26-LinearTransformations-48-1">
+<div class="para">Suppose you have a linear transformation <span class="process-math">\(T\)</span> such that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-48-1-2">
+\begin{equation*}
+T\lp \begin{bmatrix} 2 \\ 1 \end{bmatrix} \rp = \begin{bmatrix} 1 \\ 3 \\ -2 \end{bmatrix}
+\qquad \text{ and } \qquad
+T\lp \begin{bmatrix} 7 \\ -1 \end{bmatrix} \rp = \begin{bmatrix} -3 \\ 5 \\ 1 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Find the matrix for this linear transformation!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-48-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec26-LinearTransformations-48-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="sec26-LinearTransformations-48-2-1">
+<div class="para">Doing some fun linear algebra, we can figure out that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-48-2-1-1">
+\begin{equation*}
+\begin{bmatrix} 1 \\ 0 \end{bmatrix} = \frac{1}{9} \begin{bmatrix} 2 \\ 1 \end{bmatrix} + \frac{1}{9} \begin{bmatrix} 7 \\ -1 \end{bmatrix}
+\qquad \text{ and } \qquad 
+\begin{bmatrix} 0 \\ 1 \end{bmatrix} = \frac{7}{9} \begin{bmatrix} 2 \\ 1 \end{bmatrix} - \frac{2}{9} \begin{bmatrix} 7 \\ -1 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">So we know that</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-48-2-1-2">
+\begin{equation*}
+T\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp = \frac{1}{9} \begin{bmatrix} 1 \\ 3 \\ -2 \end{bmatrix} + \frac{1}{9} \begin{bmatrix} -3 \\ 5 \\ 1 \end{bmatrix} = \begin{bmatrix} \frac{-2}{9} \\ \frac{8}{9} \\ \frac{-1}{9} \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" id="sec26-LinearTransformations-48-2-1-3">
+\begin{equation*}
+T\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp = \frac{7}{9} \begin{bmatrix} 1 \\ 3 \\ -2 \end{bmatrix} - \frac{2}{9} \begin{bmatrix} -3 \\ 5 \\ 1 \end{bmatrix} = \begin{bmatrix} \frac{13}{9} \\ \frac{11}{9} \\ \frac{-16}{9} \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">So the matrix for this transformation is <span class="process-math">\(\begin{bmatrix} \frac{-2}{9} \amp \frac{13}{9} \\ \frac{8}{9} \amp \frac{11}{9} \\ \frac{-1}{9} \amp \frac{-16}{9} \end{bmatrix}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec26-LinearTransformations-48-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 2.6.12.1"><a href="#sec26-LinearTransformations-48-2" title="Copy heading and permalink for Solution 2.6.12.1" aria-label="Copy heading and permalink for Solution 2.6.12.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Checkpoint 2.6.12"><a href="#sec26-LinearTransformations-48" title="Copy heading and permalink for Checkpoint 2.6.12" aria-label="Copy heading and permalink for Checkpoint 2.6.12">🔗</a></div>
+</article><div class="autopermalink" data-description="Section 2.6: Linear Transformations"><a href="#sec26-LinearTransformations" title="Copy heading and permalink for Section 2.6: Linear Transformations" aria-label="Copy heading and permalink for Section 2.6: Linear Transformations">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec25-ElementaryMatrices.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch3-DeterminantsDiagonalization.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

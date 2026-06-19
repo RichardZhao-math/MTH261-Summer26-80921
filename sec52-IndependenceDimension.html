@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: salem                          *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Independence and Dimension</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="MTH 261 Intro to Linear Algebra: Summer 2026">
+<meta property="og:title" content="MTH 261 Intro to Linear Algebra: Summer 2026">
+<meta property="book:title" content="MTH 261 Intro to Linear Algebra: Summer 2026">
+<meta name="twitter:description" content="A simple string (no markup is allowed) to describe your book.">
+<meta property="og:description" content="A simple string (no markup is allowed) to describe your book.">
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.3';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.a10fa8051d88cfa9.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.5d73f63c3f06044a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="MTH261_Summer2026.html"><span class="title">MTH 261 Intro to Linear Algebra</span> <span class="subtitle">Summer 2026</span></a></h1>
+<p class="byline">Richard Zhao</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec51-SubspaceSpanning.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch5-VectorSpace.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec53-Orthogonality.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q} 
+\newcommand{\R}{\mathbb R} 
+
+\newcommand{\ds}{\displaystyle}
+
+\newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\adj}{\text{adj}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Nul}{\text{Nul}}
+\newcommand{\Col}{\text{Col}}
+\newcommand{\im}{\text{im}}
+\newcommand{\span}{\text{span}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch1-SystemLinearEquation.html" class="internal"><span class="codenumber">1</span> <span class="title">Systems of Linear Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Solutions and Elementary Operations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-SolvingSystemsEquations" class="internal"><span class="title">Solving Systems of Linear Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-AugmentedMatrices" class="internal"><span class="title">Augmented Matrices and Elementary Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-NumberOfSolution" class="internal"><span class="title">How many solutions can a linear system have?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-ExistenceUniqueness-SystemEquations" class="internal"><span class="title">Existence and Uniqueness Questions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#ws-sec11" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec12-GaussianElimination.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Gaussian Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec12-GaussianElimination.html#subsubsec-NumberOfParameters" class="internal"><span class="title">How many parameters does the solution have?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec12-GaussianElimination.html#subsec-ExistenceUniqueness-AugmentedMatrices" class="internal"><span class="title">Existence and Uniqueness Questions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec12-GaussianElimination.html#ws-sec12" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec13-HomogeneousEquations.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Homogeneous Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec13-HomogeneousEquations.html#subsec-HomogeneousSystem-BasisVectors" class="internal"><span class="title">Basis Vectors and Linear Combinations</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec13-HomogeneousEquations.html#ws-sec13" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch2-MatrixAlgebra.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrix Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrix Addition, Scalar Multiplication, and Transposition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-MatrixIntro" class="internal"><span class="title">What exactly is a matrix?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-BasicMatrixOperations" class="internal"><span class="title">Basic Matrix Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-SubscriptNotationMatrices" class="internal"><span class="title">Subscript Notation for Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-Rules-MatrixAdditionScalarMultiplication" class="internal"><span class="title">Rules for Matrix Addition and Scalar Multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-Rules-TransposeMatrices" class="internal"><span class="title">Rules for Transposes</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#ws-sec21" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix-Vector Multiplication</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-Basics-Vector" class="internal"><span class="title">Quick Notes about Vector Notation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-DecodeAugmentedMatrix" class="internal"><span class="title">What exactly is an Augmented Matrix?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-MultiplyingMatrixVector" class="internal"><span class="title">Multiplying a Matrix by a Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-ExistenceUniqueness-Rank" class="internal"><span class="title">Existence and Uniqueness Questions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-VectorEquations" class="internal"><span class="title">Vector Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-LinearTransformations-Intro" class="internal"><span class="title">Intro to Linear Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-DotProduct-Intro" class="internal"><span class="title">Intro to the Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-ZeroMatrix-IdentityMatrix" class="internal"><span class="title">Two Special Matrices</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#ws-sec22" class="internal"><span class="title">Some Exercises for This Section</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec23-MatrixMultiplication.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Multiplication</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec23-MatrixMultiplication.html#ws-sec23" class="internal"><span class="codenumber">2.3</span> <span class="title">Some Exercises for This Section</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec24-MatrixInverse.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrix Inverses</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec24-MatrixInverse.html#subsec-InverseMatrices" class="internal"><span class="title">Inverse of a Matrix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec24-MatrixInverse.html#subsec-ImportantTheorems-Inverses" class="internal"><span class="title">Important Theorems and Facts about Inverses</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec25-ElementaryMatrices.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Elementary Matrices</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec26-LinearTransformations.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch3-DeterminantsDiagonalization.html" class="internal"><span class="codenumber">3</span> <span class="title">Determinants and Diagonalization</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec31-CofactorExpansion.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Cofactor Expansion</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec32-DeterminantsInverse.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Determinants and Matrix Inverses</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec33-EigenvaluesEigenvectors.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec34-Diagonalization.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Diagonalization</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch4-VectorGeometry.html" class="internal"><span class="codenumber">4</span> <span class="title">Vector Geometry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec41-VectorsLines.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Vectors and Lines</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-BasicVectorR2" class="internal"><span class="title">Vectors in <span class="process-math">\(\boldsymbol{\R^2}\)</span> and <span class="process-math">\(\R^3\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-AttributesVector" class="internal"><span class="title">The Attributes of Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-VectorAlgebra" class="internal"><span class="title">Vector Algebra (Geometry Version)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-LinesR3" class="internal"><span class="title">Lines in <span class="process-math">\(\R^3\)</span></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Projections and Planes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-DotProduct" class="internal"><span class="title">Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-DotProduct-Angles" class="internal"><span class="title">Angle between Two Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-OrthogonalProjection" class="internal"><span class="title">Orthogonal Projection</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-PlanesR3" class="internal"><span class="title">Planes in <span class="process-math">\(\R^3\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-IntersectionLinePlane" class="internal"><span class="title">Intersection of a Line and a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-ParallelIntersecting" class="internal"><span class="title">Parallel and Intersecting Planes</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch5-VectorSpace.html" class="internal"><span class="codenumber">5</span> <span class="title">Vector Space <span class="process-math">\(\R^n\)</span></span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec51-SubspaceSpanning.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Subspaces and Spanning</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec51-SubspaceSpanning.html#subsec-SubspaceIntro" class="internal"><span class="title">What is a Subspace?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec51-SubspaceSpanning.html#subsec-FundamentalSubspaces" class="internal"><span class="title">Fundamental Subspaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec51-SubspaceSpanning.html#subsec-Span" class="internal"><span class="title">Span and Spanning Sets</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec52-IndependenceDimension.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Independence and Dimension</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-LinearIndependence" class="internal"><span class="title">Linear Independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-Basis" class="internal"><span class="title">Basis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-Dimensions" class="internal"><span class="title">Dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-ExtendedInvertibleMatrixTheorem" class="internal"><span class="title">Extending Our Invertible Matrix Theorem!</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec53-Orthogonality.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Orthogonality</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec54-Rank.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Rank of a Matrix</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec52-IndependenceDimension">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Independence and Dimension</span>
+</h2>
+<section class="introduction" id="sec52-IndependenceDimension-2">
+<div class="para" id="sec52-IndependenceDimension-2-1">In the previous section, we explored how to build a subspace using a spanning set. But this raises an important question for us to investigate: are all the vectors in a spanning set actually necessary? Sometimes, a set contains "redundant" vectors that don’t add any new direction to the space.<div class="autopermalink" data-description="Paragraph"><a href="#sec52-IndependenceDimension-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec52-IndependenceDimension-2-2">In this section, we are going to explore the concepts of linear independence and dimension.<div class="autopermalink" data-description="Paragraph"><a href="#sec52-IndependenceDimension-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section>
+<article class="objectives goal-like" id="sec52-IndependenceDimension-3"><h3 class="heading"><span class="type">Objectives</span></h3>
+<div class="introduction" id="sec52-IndependenceDimension-3-1">
+<div class="para" id="sec52-IndependenceDimension-3-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec52-IndependenceDimension-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul class="disc" id="sec52-IndependenceDimension-3-2">
+<li id="sec52-IndependenceDimension-3-2-1">
+<div class="para" id="sec52-IndependenceDimension-3-2-1-1">determine if a set of vectors are linearly independent.<div class="autopermalink" data-description="Paragraph"><a href="#sec52-IndependenceDimension-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec52-IndependenceDimension-3-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec52-IndependenceDimension-3-2-2">
+<div class="para" id="sec52-IndependenceDimension-3-2-2-1">construct a basis for a subspace.<div class="autopermalink" data-description="Paragraph"><a href="#sec52-IndependenceDimension-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec52-IndependenceDimension-3-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec52-IndependenceDimension-3-2-3">
+<div class="para" id="sec52-IndependenceDimension-3-2-3-1">determine the dimension of a subspace.<div class="autopermalink" data-description="Paragraph"><a href="#sec52-IndependenceDimension-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec52-IndependenceDimension-3-2-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives 5.2"><a href="#sec52-IndependenceDimension-3" title="Copy heading and permalink for Objectives 5.2" aria-label="Copy heading and permalink for Objectives 5.2">🔗</a></div>
+</article>
+<section class="subsection" id="subsec-LinearIndependence">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Linear Independence</span>
+</h3>
+<div class="para" id="subsec-LinearIndependence-2">When building a span, are all the vectors actually necessary? Sometimes a set contains redundant vectors that don’t contribute to the span. Let’s keep this in mind as we investigate the concept of linear independence.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-LinearIndependence"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="def-LinearIndependence-1-1">
+<div class="para">An indexed set of vectors <span class="process-math">\(\set{\v{v}_1, \v{v}_2, \ldots, \v{v}_p}\text{,}\)</span> <span class="process-math">\(\v{v}_i\in \R^n\text{,}\)</span> is <dfn class="terminology">linearly independent</dfn> if the vector equation</div>
+<div class="displaymath process-math" id="def-LinearIndependence-1-1-4">
+\begin{equation*}
+x_1\v{v}_1 + x_2\v{v}_2 + \cdots + x_p\v{v}_p = \v{0}
+\end{equation*}
+</div>
+<div class="para">has only the trivial solution.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-LinearIndependence-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="def-LinearIndependence-1-2">If the trivial solution is not unique, we call the set <dfn class="terminology">linear dependent</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#def-LinearIndependence-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical" id="def-LinearIndependence-1-3">
+<div class="para">That is, if a set <span class="process-math">\(\set{\v{v}_1, \v{v}_2, \ldots, \v{v}_p}\text{,}\)</span> <span class="process-math">\(\v{v}_i\in \R^n\text{,}\)</span> is linearly dependent, then there exists some scalars <span class="process-math">\(c_1, c_2, \ldots, c_p\in \R\text{,}\)</span> not all zero, such that</div>
+<div class="displaymath process-math" id="def-LinearIndependence-1-3-4">
+\begin{equation*}
+x_1\v{v}_1 + x_2\v{v}_2 + \cdots + x_p\v{v}_p = \v{0}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-LinearIndependence-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.2.1"><a href="#def-LinearIndependence" title="Copy heading and permalink for Definition 5.2.1" aria-label="Copy heading and permalink for Definition 5.2.1">🔗</a></div>
+</article>
+<div class="para" id="subsec-LinearIndependence-4">But how does the vector equation even related to the idea of independence? We will demonstrate the relation in the following example.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-LinearIndependence-5"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="subsec-LinearIndependence-5-1">
+<div class="para">Suppose we have a set of three vectors <span class="process-math">\(\set{\v{v}_1, \v{v}_2, \v{v}_3}\text{,}\)</span> where</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-5-1-2">
+\begin{equation*}
+\v{v}_1 = \begin{bmatrix} 1 \\ 2 \\ 1\end{bmatrix}\, , \qquad \v{v}_2 = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}\, , \qquad \text{ and } \, \v{v}_3 = \begin{bmatrix} 3 \\ 5 \\ 3\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Is this set of vectors linearly independent?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-LinearIndependence-5-2">
+<div class="para">Let’s follow the definition! That is, we want to determine if the solution to the following vector equation</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-5-2-1">
+\begin{equation*}
+x_1 \begin{bmatrix} 1 \\ 2 \\ 1\end{bmatrix} + x_2 \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} + x_3 \begin{bmatrix} 3 \\ 5 \\ 3\end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">is unique.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-LinearIndependence-5-3">
+<div class="para">We know how to solve this equation! We will first convert it to an augmented matrix:</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-5-3-1">
+\begin{equation*}
+\begin{bmatrix} 1 \amp 0 \amp 3 \amp \mid \amp 0 \\ 2 \amp 1 \amp 5 \amp \mid \amp 0 \\ 1 \amp 0 \amp 3 \amp \mid \amp 0 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Now let’s row reduce this augmented matrix!</div>
+<ul class="no-marker" id="subsec-LinearIndependence-5-3-2">
+<li id="subsec-LinearIndependence-5-3-2-1">
+<div class="para logical" id="subsec-LinearIndependence-5-3-2-1-1">
+<div class="para">Step 1: Adding <span class="process-math">\(-2\)</span> times Row 1 to Row 2 (and replacing Row 2), we obtain</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-5-3-2-1-1-2">
+\begin{equation*}
+\begin{bmatrix} 1 \amp 0 \amp 3 \amp \mid \amp 0 \\ 0 \amp 1 \amp -1 \amp \mid \amp 0 \\ 1 \amp 0 \amp 3 \amp \mid \amp 0 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-5-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-LinearIndependence-5-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-LinearIndependence-5-3-2-2">
+<div class="para logical" id="subsec-LinearIndependence-5-3-2-2-1">
+<div class="para">Step 2: Adding <span class="process-math">\(-1\)</span> times Row 1 to Row 3 (and replacing Row 3), we obtain</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-5-3-2-2-1-2">
+\begin{equation*}
+\begin{bmatrix} 1 \amp 0 \amp 3 \amp \mid \amp 0 \\ 0 \amp 1 \amp -1 \amp \mid \amp 0 \\ 0 \amp 0 \amp 0 \amp \mid \amp 0 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-5-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-LinearIndependence-5-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">We immediately know that <span class="process-math">\(x_3\)</span> is a free variable since there is no pivot position in the third column. Hence, this vector equation has infinitely many solutions.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinearIndependence-5-4">By the definition, we know that <span class="process-math">\(\set{\v{v}_1, \v{v}_2, \v{v}_3}\)</span> is <em class="alert">linearly dependent</em>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-5-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinearIndependence-5-5">But what does it mean? Why do we call these three vectors linearly <em class="emphasis">dependent</em>? Well let’s finish solving this vector equation!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-5-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-LinearIndependence-5-6">
+<div class="para">Since <span class="process-math">\(x_3\)</span> is a free variable, then we let <span class="process-math">\(x_3 = t\text{,}\)</span> where <span class="process-math">\(t\in \R\text{.}\)</span> Then we obtain</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-5-6-4">
+\begin{equation*}
+\begin{cases}
+x_1 = -3x_3 = -3t \\
+x_2 = x_3 = t \\
+x_3 = t
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">Okay. This is a <em class="emphasis">general solution</em> to the vector equation. Recall we can obtain a <em class="emphasis">particular solution</em> by assigning a value to our parameter, <span class="process-math">\(t\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-5-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-LinearIndependence-5-7">
+<div class="para">Let’s make <span class="process-math">\(t = 1\text{.}\)</span> Then our particular solution is</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-5-7-2">
+\begin{equation*}
+\begin{cases}
+x_1 = -3(1) = -3 \\
+x_2 = 1 \\
+x_3 = 1
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">Then plugging in the solution to the vector equation will make the equation true. That is, we have the following equation:</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-5-7-3">
+\begin{equation*}
+-3 \begin{bmatrix} 1 \\ 2 \\ 1\end{bmatrix} + 1 \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} + 1 \begin{bmatrix} 3 \\ 5 \\ 3\end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">We can isolate one of the three vectors! Just for demonstration purposes, let’s isolate <span class="process-math">\(\v{v}_2\text{!}\)</span> Then we have</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-5-7-5">
+\begin{equation*}
+\begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} = 3 \begin{bmatrix} 1 \\ 2 \\ 1\end{bmatrix} - \begin{bmatrix} 3 \\ 5 \\ 3\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Observe that <span class="process-math">\(\v{v}_2\)</span> is a <em class="emphasis">linear</em> combination of <span class="process-math">\(\v{v}_1\)</span> and <span class="process-math">\(\v{v}_3\text{!}\)</span> That is, <span class="process-math">\(\v{v}_2\)</span> is <em class="emphasis">dependent</em> on <span class="process-math">\(\v{v}_1\)</span> and <span class="process-math">\(\v{v}_3\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-5-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.2.2"><a href="#subsec-LinearIndependence-5" title="Copy heading and permalink for Example 5.2.2" aria-label="Copy heading and permalink for Example 5.2.2">🔗</a></div>
+</article>
+<div class="para" id="subsec-LinearIndependence-6">The practical meaning of a linearly dependent set of vectors is that a vector can be expressed as a <em class="emphasis">linear combination</em> of the other vectors in the set. That is, this vector is <em class="emphasis">dependent</em> of other vectors. This specific relation is called the <dfn class="terminology">linear dependence relation</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-LinearIndependence-7">
+<div class="para">In the above example, a linear dependence relation is</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-7-1">
+\begin{equation*}
+-3 \begin{bmatrix} 1 \\ 2 \\ 1\end{bmatrix} + 1 \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} + 1 \begin{bmatrix} 3 \\ 5 \\ 3\end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">since this relation allows us to express a vector, <span class="process-math">\(\v{v}_2\text{,}\)</span> as a linear combination of the other vectors, <span class="process-math">\(\v{v}_1\)</span> and <span class="process-math">\(\v{v}_3\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="subsec-LinearIndependence-8"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-LinearIndependence-8-1">Is the set <span class="process-math">\(\left\{\begin{bmatrix} 1 \\ 1 \\ 1\end{bmatrix}\, , \, \begin{bmatrix} 0 \\ 1 \\ 2 \end{bmatrix}\, , \, \begin{bmatrix} 1 \\ 2 \\ 0\end{bmatrix}\right\}\)</span> linearly independent?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-LinearIndependence-8-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="subsec-LinearIndependence-8-2-1">Yes, this set of vectors is <em class="alert">linearly independent</em>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-LinearIndependence-8-2-2">
+<div class="para">To justify this, we set up the homogeneous vector equation:</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-8-2-2-1">
+\begin{equation*}
+x_1 \begin{bmatrix} 1 \\ 1 \\ 1\end{bmatrix} + x_2 \begin{bmatrix} 0 \\ 1 \\ 2 \end{bmatrix} + x_3 \begin{bmatrix} 1 \\ 2 \\ 0\end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-8-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-LinearIndependence-8-2-3">
+<div class="para">We can solve this by row reducing the corresponding augmented matrix:</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-8-2-3-1">
+\begin{align*}
+\begin{bmatrix} 1 \amp 0 \amp 1 \amp \mid \amp 0 \\ 1 \amp 1 \amp 2 \amp \mid \amp 0 \\ 1 \amp 2 \amp 0 \amp \mid \amp 0 \end{bmatrix} \amp\sim \begin{bmatrix} 1 \amp 0 \amp 1 \amp \mid \amp 0 \\ 0 \amp 1 \amp 1 \amp \mid \amp 0 \\ 0 \amp 2 \amp -1 \amp \mid \amp 0 \end{bmatrix} \amp\amp \begin{matrix}-\text{R1} + \text{R2} \\ -\text{R1} + \text{R3} \end{matrix}\\
+\amp\sim \begin{bmatrix} 1 \amp 0 \amp 1 \amp \mid \amp 0 \\ 0 \amp 1 \amp 1 \amp \mid \amp 0 \\ 0 \amp 0 \amp -3 \amp \mid \amp 0 \end{bmatrix} \amp\amp -2\text{R2} + \text{R3} \\
+\amp\sim \begin{bmatrix} 1 \amp 0 \amp 1 \amp \mid \amp 0 \\ 0 \amp 1 \amp 1 \amp \mid \amp 0 \\ 0 \amp 0 \amp 1 \amp \mid \amp 0 \end{bmatrix} \amp\amp \frac{1}{-3}\text{R3} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-8-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinearIndependence-8-2-4">Notice that every column in the coefficient matrix contains a pivot position, which means there are no free variables. Therefore, the vector equation has <em class="emphasis">only</em> the trivial solution (<span class="process-math">\(x_1=0, x_2=0, x_3=0\)</span>). Because no vector can be built from the others, the set is linearly independent.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-8-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.2.3.1"><a href="#subsec-LinearIndependence-8-2" title="Copy heading and permalink for Solution 5.2.3.1" aria-label="Copy heading and permalink for Solution 5.2.3.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Checkpoint 5.2.3"><a href="#subsec-LinearIndependence-8" title="Copy heading and permalink for Checkpoint 5.2.3" aria-label="Copy heading and permalink for Checkpoint 5.2.3">🔗</a></div>
+</article>
+<div class="para logical" id="subsec-LinearIndependence-9">
+<div class="para">You may notice that the procedure to determine whether a set of column vectors are linearly independent is essentially the same as <em class="emphasis">row reducing</em> an augmented matrix representing a homogeneous system of linear equations. That is, we are essentially solving the homogeneous matrix equation <span class="process-math">\(A\v{x} = \v{0}\text{,}\)</span> where <span class="process-math">\(A\)</span> consists of the vectors of interest.</div>
+<ul class="no-marker" id="subsec-LinearIndependence-9-4">
+<li id="subsec-LinearIndependence-9-4-1">
+<div class="para" id="subsec-LinearIndependence-9-4-1-1">If <span class="process-math">\(A\v{x} = \v{0}\)</span> has <em class="emphasis">only</em> the trivial solution, then the columns of <span class="process-math">\(A\)</span> are linearly independent;<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-9-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-LinearIndependence-9-4-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-LinearIndependence-9-4-2">
+<div class="para" id="subsec-LinearIndependence-9-4-2-1">If <span class="process-math">\(A\v{x} = \v{0}\)</span> has infinitely many solutions, then the columns of <span class="process-math">\(A\)</span> are linearly dependent.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-9-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-LinearIndependence-9-4-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-LinearIndependence-10"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="subsec-LinearIndependence-10-1">
+<div class="para">Suppose we are given the coefficient matrix <span class="process-math">\(A = \begin{bmatrix} 1 \amp 1 \amp 2 \\ 2 \amp 3 \amp 5 \\ 1 \amp 0 \amp 3 \end{bmatrix}\text{.}\)</span> Observe that <span class="process-math">\(A\)</span> consists of three column vectors:</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-10-1-3">
+\begin{equation*}
+\v{v}_1 = \begin{bmatrix} 1 \\ 2 \\ 1 \end{bmatrix}\, , \qquad \v{v}_2 = \begin{bmatrix} 1 \\ 3 \\ 0 \end{bmatrix}\, , \qquad \text{ and } \, \v{v}_3 = \begin{bmatrix} 2 \\ 5 \\ 3 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Are they linearly independent?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-LinearIndependence-10-2">
+<div class="para">We can answer this question by solving the homogeneous matrix equation <span class="process-math">\(A\v{x} = \v{0}\text{.}\)</span> The augmented matrix is</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-10-2-2">
+\begin{equation*}
+\begin{bmatrix} 1 \amp 1 \amp 2 \amp \mid \amp 0 \\ 2 \amp 3 \amp 5 \amp \mid \amp 0 \\ 1 \amp 0 \amp 3 \amp \mid \amp 0 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Of course we know how to row reduce it! Notice that the constant column of zeros will stay unchanged after all the elementary row operations. So we can only row reduce the coefficient matrix part!</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-10-2-3">
+\begin{align*}
+\begin{bmatrix} 1 \amp 1 \amp 2 \\ 2 \amp 3 \amp 5 \\ 1 \amp 0 \amp 3 \end{bmatrix} \amp\sim \begin{bmatrix} 1 \amp 1 \amp 2 \\ 0 \amp 1 \amp 1 \\ 1 \amp 0 \amp 3 \end{bmatrix} \amp\amp -2\text{R1} + \text{R2} \\
+\amp\sim \begin{bmatrix} 1 \amp 1 \amp 2 \\ 0 \amp 1 \amp 1 \\ 0 \amp -1 \amp 1 \end{bmatrix} \amp\amp -\text{R1} + \text{R3} \\
+\amp\sim \begin{bmatrix} 1 \amp 0 \amp 1 \\ 0 \amp 1 \amp 1 \\ 0 \amp -1 \amp 1 \end{bmatrix} \amp\amp -\text{R2} + \text{R1} \\
+\amp\sim \begin{bmatrix} 1 \amp 0 \amp 1 \\ 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 2 \end{bmatrix} \amp\amp \text{R2} + \text{R3} \\
+\amp\sim \begin{bmatrix} 1 \amp 0 \amp 1 \\ 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 1 \end{bmatrix} \amp\amp \frac{1}{2}\text{R3} \\
+\amp\sim \begin{bmatrix} 1 \amp 0 \amp 1 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix} \amp\amp -\text{R3} + \text{R2} \\
+\amp\sim \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix} \amp\amp -\text{R3} + \text{R1} 
+\end{align*}
+</div>
+<div class="para">Recall the constant column will consist of all zeros.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-LinearIndependence-10-3">
+<div class="para">Observe that every column of the coefficient matrix has a pivot position, which implies that there is no free variable. Then this homogeneous matrix equation has <em class="emphasis">only</em> the trivial solution. That is, the only "linearly dependent relation" is</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-10-3-2">
+\begin{equation*}
+0 \begin{bmatrix} 1 \\ 2 \\ 1 \end{bmatrix} + 0 \begin{bmatrix} 1 \\ 3 \\ 0 \end{bmatrix} + 0 \begin{bmatrix} 2 \\ 5 \\ 3 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Well we can’t isolate any of the three vectors since all the above relation tells us is that <span class="process-math">\(\v{0} = \v{0}\text{.}\)</span> Hence, it makes sense to call the vectors making up the columns of <span class="process-math">\(A\)</span> <em class="emphasis">linearly independent</em>, in the sense that none of the vector is dependent of other vectors.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-10-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.2.4"><a href="#subsec-LinearIndependence-10" title="Copy heading and permalink for Example 5.2.4" aria-label="Copy heading and permalink for Example 5.2.4">🔗</a></div>
+</article>
+<div class="para" id="subsec-LinearIndependence-11">It turns out that there are some special theorems to determine whether a set of vectors are linearly independent. Let’s look at the following example and see if we can generalize the theorems!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-LinearIndependence-12"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-LinearIndependence-12-1">Is <span class="process-math">\(\left\{\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}, \begin{bmatrix} 2 \\ 4 \\ 6\end{bmatrix}\right\}\)</span> linearly independent?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-12-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinearIndependence-12-2">Think about it first and see if you can figure it out. Then expand the following solution to check your answer!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-12-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-LinearIndependence-12-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="subsec-LinearIndependence-12-3-1">These two vectors are <em class="alert">linearly dependent</em> since there is a way to write a vector as a linear combination of the other vector.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-12-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinearIndependence-12-3-2">Clearly, <span class="process-math">\(\begin{bmatrix} 2 \\ 4 \\ 6\end{bmatrix} = 2 \begin{bmatrix} 1 \\ 2 \\ 3\end{bmatrix}\text{.}\)</span> That is, the vector <span class="process-math">\(\begin{bmatrix} 2 \\ 4 \\ 6\end{bmatrix} \)</span> is a linear combination of the vector <span class="process-math">\(\begin{bmatrix} 1 \\ 2 \\ 3\end{bmatrix} \text{.}\)</span> So <span class="process-math">\(\begin{bmatrix} 2 \\ 4 \\ 6\end{bmatrix} \)</span> is dependent of <span class="process-math">\(\begin{bmatrix} 1 \\ 2 \\ 3\end{bmatrix} \text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-12-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.2.5.1"><a href="#subsec-LinearIndependence-12-3" title="Copy heading and permalink for Solution 5.2.5.1" aria-label="Copy heading and permalink for Solution 5.2.5.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 5.2.5"><a href="#subsec-LinearIndependence-12" title="Copy heading and permalink for Example 5.2.5" aria-label="Copy heading and permalink for Example 5.2.5">🔗</a></div>
+</article>
+<div class="para" id="subsec-LinearIndependence-13">Using the similar argument, we can make sense of the following theorem:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-LinearlyDependent-SetTwoVectors"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="thm-LinearlyDependent-SetTwoVectors-1-1">Consider <span class="process-math">\(\set{\v{v}_1, \v{v}_2}\text{.}\)</span> If <span class="process-math">\(\v{v}_2 = c\v{v}_1\)</span> for some nonzero constant <span class="process-math">\(c\text{,}\)</span> then <span class="process-math">\(\v{v}_1\)</span> and <span class="process-math">\(\v{v}_2\)</span> are linearly dependent.<div class="autopermalink" data-description="Paragraph"><a href="#thm-LinearlyDependent-SetTwoVectors-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.2.6"><a href="#thm-LinearlyDependent-SetTwoVectors" title="Copy heading and permalink for Theorem 5.2.6" aria-label="Copy heading and permalink for Theorem 5.2.6">🔗</a></div>
+</article>
+<div class="para" id="subsec-LinearIndependence-15">Now let’s look at the next example! Remember the goal is to generalize it!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-LinearIndependence-16"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-LinearIndependence-16-1">Is <span class="process-math">\(\left\{\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}, \begin{bmatrix} 1 \\ 5 \\ 6\end{bmatrix}, \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}\right\}\)</span> linearly independent?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinearIndependence-16-2">Think about it first and see if you can figure it out. Then expand the following solution to check your answer!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-16-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-LinearIndependence-16-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="subsec-LinearIndependence-16-3-1">These three vectors are <em class="alert">linearly dependent</em> since there is a way to write a vector as a linear combination of the other vectors.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-16-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-LinearIndependence-16-3-2">
+<div class="para">Clearly, we can represent the zero vector as a linear combination of the other two vectors with both scalars being zero. That is,</div>
+<div class="displaymath process-math" id="subsec-LinearIndependence-16-3-2-1">
+\begin{equation*}
+\begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix} = 0 \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} + 0 \begin{bmatrix} 1 \\ 5 \\ 6 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Hence, these three vectors are linearly dependent.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-16-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.2.7.1"><a href="#subsec-LinearIndependence-16-3" title="Copy heading and permalink for Solution 5.2.7.1" aria-label="Copy heading and permalink for Solution 5.2.7.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 5.2.7"><a href="#subsec-LinearIndependence-16" title="Copy heading and permalink for Example 5.2.7" aria-label="Copy heading and permalink for Example 5.2.7">🔗</a></div>
+</article>
+<div class="para" id="subsec-LinearIndependence-17">Using the similar argument, we can make sense of the following theorem:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-LinearDependence-ZeroVector"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="thm-LinearDependence-ZeroVector-1-1">Any set containing <span class="process-math">\(\v{0}\)</span> is linearly dependent.<div class="autopermalink" data-description="Paragraph"><a href="#thm-LinearDependence-ZeroVector-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.2.8"><a href="#thm-LinearDependence-ZeroVector" title="Copy heading and permalink for Theorem 5.2.8" aria-label="Copy heading and permalink for Theorem 5.2.8">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="subsec-LinearIndependence-19"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-LinearIndependence-19-1">When is the set of a single vector linearly independent?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-19-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-LinearIndependence-19-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="subsec-LinearIndependence-19-2-1">A set containing a single vector <span class="process-math">\(\set{\v{v}}\)</span> is <em class="alert">linearly independent</em> if and only if <span class="process-math">\(\v{v} \neq \v{0}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-19-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinearIndependence-19-2-2">By definition, we are looking at the vector equation <span class="process-math">\(x_1\v{v} = \v{0}\text{.}\)</span> If <span class="process-math">\(\v{v}\)</span> is the zero vector, then the scalar <span class="process-math">\(x_1\)</span> can be any real number (yielding infinitely many solutions), making it a dependent set. If <span class="process-math">\(\v{v}\)</span> is any non-zero vector, the only way for the equation to hold true is if the scalar <span class="process-math">\(x_1 = 0\)</span> (the trivial solution), making it an independent set.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-19-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.2.9.1"><a href="#subsec-LinearIndependence-19-2" title="Copy heading and permalink for Solution 5.2.9.1" aria-label="Copy heading and permalink for Solution 5.2.9.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Checkpoint 5.2.9"><a href="#subsec-LinearIndependence-19" title="Copy heading and permalink for Checkpoint 5.2.9" aria-label="Copy heading and permalink for Checkpoint 5.2.9">🔗</a></div>
+</article>
+<div class="para" id="subsec-LinearIndependence-20">Now let’s look at the next example! Remember the goal is to generalize it!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-LinearIndependence-21"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-LinearIndependence-21-1">Is <span class="process-math">\(\left\{\begin{bmatrix} 1 \\ 2 \end{bmatrix}, \begin{bmatrix} -3 \\ 2 \end{bmatrix}, \begin{bmatrix} 1 \\ 6 \end{bmatrix}\right\}\)</span> linearly independent?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-21-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinearIndependence-21-2">Think about it first and see if you can figure it out. Then expand the following solution to check your answer!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-21-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-LinearIndependence-21-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="subsec-LinearIndependence-21-3-1">These three vectors are <em class="alert">linearly dependent</em> since the homogeneous matrix equation is guaranteed to have infinitely many solutions.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-21-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinearIndependence-21-3-2">Let <span class="process-math">\(A = \begin{bmatrix} 1 \amp -3 \amp 1 \\ 2 \amp 2 \amp 6 \end{bmatrix}\text{.}\)</span> What does the (reduced) row echelon look like after row reductions?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-21-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinearIndependence-21-3-3">Well there are only two row so there can be <em class="emphasis">at most two</em> pivot positions.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-21-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinearIndependence-21-3-4">Yet there are three variables in this equation since each vector gets a mystery scalars. That is, <em class="emphasis">at least one</em> variable is a free variable, and hence the homogeneous equation must have infinitely many solutions.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-21-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LinearIndependence-21-3-5">Therefore, these three vectors are linearly dependent.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-21-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.2.10.1"><a href="#subsec-LinearIndependence-21-3" title="Copy heading and permalink for Solution 5.2.10.1" aria-label="Copy heading and permalink for Solution 5.2.10.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 5.2.10"><a href="#subsec-LinearIndependence-21" title="Copy heading and permalink for Example 5.2.10" aria-label="Copy heading and permalink for Example 5.2.10">🔗</a></div>
+</article>
+<div class="para" id="subsec-LinearIndependence-22">Using the similar argument, we can make sense of the following theorem:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-LinearDependence-MoreVectors"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="thm-LinearDependence-MoreVectors-1-1">A set of vectors with <em class="emphasis">more vectors than there are entries in those vectors</em> are linearly dependent.<div class="autopermalink" data-description="Paragraph"><a href="#thm-LinearDependence-MoreVectors-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 5.2.11"><a href="#thm-LinearDependence-MoreVectors" title="Copy heading and permalink for Theorem 5.2.11" aria-label="Copy heading and permalink for Theorem 5.2.11">🔗</a></div>
+</article>
+<div class="para" id="subsec-LinearIndependence-24">They are the <em class="alert">linear dependence tests</em> we can use to quickly determine if a set of vectors is linearly dependent. If you can apply one of the three tests immediately, great! We can conclude that the set is linearly dependent. <em class="alert">But the failure to apply any of these tests doesn’t mean the set is linearly independent</em>. It just means we will have to go back to the definition to determine it.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LinearIndependence-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Linear Independence"><a href="#subsec-LinearIndependence" title="Copy heading and permalink for Subsection: Linear Independence" aria-label="Copy heading and permalink for Subsection: Linear Independence">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-Basis">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Basis</span>
+</h3>
+<div class="para" id="subsec-Basis-2">Recall that a span of a set of vectors is the <em class="emphasis">smallest</em> subspace containing those vectors, and the span of those vectors contains all possible linear combinations of those vectors. If the spanning set is linearly dependent, then it contains redundant vectors that don’t contribute to the span. We can remove those redundant vectors and still have the same span. For briefness, we only want to keep the necessary vectors that contribute to the span. That is, we want our spanning set to be linearly independent.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Basis-3">This is essentially the <dfn class="terminology">basis</dfn> of a subspace: a <em class="emphasis">linearly independent</em> spanning set that <em class="emphasis">spans the subspace</em>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Basis-4">That is, the two criteria for a basis are: (1) the set must span the subspace of interest, and (2) the set must be linearly independent. In a more math-y way, we can define a basis as follows:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-Basis"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Basis of a Subspace of <span class="process-math">\(\R^n\)</span>.</span>
+</h4>
+<div class="para logical" id="def-Basis-2-1">
+<div class="para">Let <span class="process-math">\(U\)</span> be a subspace of <span class="process-math">\(\R^n\text{.}\)</span> A set of vectors <span class="process-math">\(\set{\v{v}_1, \v{v}_2, \ldots, \v{v}_p}\)</span> is called a <dfn class="terminology">basis</dfn> of <span class="process-math">\(U\)</span> if</div>
+<ol class="decimal" id="def-Basis-2-1-6">
+<li id="def-Basis-2-1-6-1">
+<div class="para" id="def-Basis-2-1-6-1-1">
+<span class="process-math">\(\displaystyle U = \span\set{\v{v}_1, \v{v}_2, \ldots, \v{v}_p}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-Basis-2-1-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#def-Basis-2-1-6-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="def-Basis-2-1-6-2">
+<div class="para" id="def-Basis-2-1-6-2-1">
+<span class="process-math">\(\set{\v{v}_1, \v{v}_2, \ldots, \v{v}_p}\)</span> is linearly independent.<div class="autopermalink" data-description="Paragraph"><a href="#def-Basis-2-1-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#def-Basis-2-1-6-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-Basis-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.2.12: Basis of a Subspace of \R^n"><a href="#def-Basis" title="Copy heading and permalink for Definition 5.2.12: Basis of a Subspace of \R^n" aria-label="Copy heading and permalink for Definition 5.2.12: Basis of a Subspace of \R^n">🔗</a></div>
+</article>
+<div class="para" id="subsec-Basis-6">A basis should only include the necessary vectors that contribute to the span.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-Basis-7"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Basis-7-1">Claim: The set <span class="process-math">\(\left\{\begin{bmatrix} 1 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \end{bmatrix}\right\}\)</span> is a basis for <span class="process-math">\(\R^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Basis-7-2">This claim is true because (1) any vector in <span class="process-math">\(\R^2\)</span> can be written as a linear combination of these two vectors (so it spans <span class="process-math">\(\R^2\)</span>) and (2) these two vectors are linearly independent.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Basis-7-3">Alternatively, <span class="process-math">\(\left\{\begin{bmatrix} 1 \\ 1 \end{bmatrix}, \begin{bmatrix} 1 \\ 2 \end{bmatrix}\right\}\)</span> is also a basis for <span class="process-math">\(\R^2\text{.}\)</span> But why... Well this set of vectors also satisfies the two criteria for a basis.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Basis-7-4">
+<div class="para">(1) Any vector in <span class="process-math">\(\R^2\)</span> can be written as a linear combination of these two vectors. Let <span class="process-math">\(\v{v} = \begin{bmatrix} x \\ y \end{bmatrix}\)</span> be an arbitrary vector in <span class="process-math">\(\R^2\text{.}\)</span> We want to find scalars <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\)</span> such that</div>
+<div class="displaymath process-math" id="subsec-Basis-7-4-6">
+\begin{equation*}
+c_1 \begin{bmatrix} 1 \\ 1 \end{bmatrix} + c_2 \begin{bmatrix} 1 \\ 2 \end{bmatrix} = \begin{bmatrix} x \\ y \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Solving this system, we obtain:</div>
+<div class="displaymath process-math" id="subsec-Basis-7-4-7">
+\begin{equation*}
+\begin{cases}
+c_1 = 2x - y \\
+c_2 = y - x
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">Therefore, any vector in <span class="process-math">\(\R^2\)</span> can be written as a linear combination of these two vectors, so they span <span class="process-math">\(\R^2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-7-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Basis-7-5">(2) These two vectors are linearly independent. The set only contains two vectors and they are not scalar multiples of each other, so they are linearly independent.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-7-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Basis-7-6">
+<em class="emphasis">Amazing Fact about bases!</em> If <span class="process-math">\(\set{\v{x}_1, \v{x}_2, \ldots, \v{x}_p}\)</span> and <span class="process-math">\(\set{\v{y}_1, \v{y}_2, \ldots, \v{y}_k}\)</span> are both bases of a subspace <span class="process-math">\(U\text{,}\)</span> then <span class="process-math">\(p = k\text{.}\)</span> In other words, every basis of a given subspace contains exactly the same number of vectors.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-7-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Basis-7-7">So for example, there is no such thing as a basis for <span class="process-math">\(\R^2\)</span> that contains one or three vectors. They all must contain exactly two vectors!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-7-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Basis-7-8" class="note remark-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">But Richard... Why is it true?</span>
+</h5></summary>
+<article class="note remark-like knowl__content">
+<div class="para" id="subsec-Basis-7-8-2">Well here is a very interesting approach to prove this fact (and this is also usually the approach to prove two quantities are equal in advanced mathematics!).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-7-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Basis-7-8-3">Let’s assume that <span class="process-math">\(\mathcal{B}_1 = \set{\v{x}_1, \v{x}_2, \ldots, \v{x}_p}\)</span> and <span class="process-math">\(\mathcal{B}_2 = \set{\v{y}_1, \v{y}_2, \ldots, \v{y}_k}\)</span> are both bases of a subspace <span class="process-math">\(U\text{.}\)</span> Then <span class="process-math">\(\mathcal{B}_1\)</span> has <span class="process-math">\(p\)</span> vectors in it and <span class="process-math">\(\mathcal{B}_2\)</span> has <span class="process-math">\(k\)</span> vectors in it.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-7-8-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Basis-7-8-4">The approach goes like this: we want to show that <span class="process-math">\(\mathcal{B}_1\)</span> cannot contain more vectors than <span class="process-math">\(\mathcal{B}_2\)</span> (so <span class="process-math">\(p \leq k\)</span>), and also that <span class="process-math">\(\mathcal{B}_2\)</span> cannot contain more vectors than <span class="process-math">\(\mathcal{B}_1\)</span> (so <span class="process-math">\(k \leq p\)</span>). Then this will force <span class="process-math">\(p = k\)</span> to be true!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-7-8-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Basis-7-8-5">Since <span class="process-math">\(\mathcal{B}_1\)</span> is a basis of <span class="process-math">\(U\)</span> and <span class="process-math">\(\set{\v{y}_1, \v{y}_2, \ldots, \v{y}_k}\)</span> spans <span class="process-math">\(U\text{,}\)</span> then <span class="process-math">\(p \leq k\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-7-8-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Basis-7-8-6">And since <span class="process-math">\(\mathcal{B}_2\)</span> is a basis of <span class="process-math">\(U\)</span> and <span class="process-math">\(\set{\v{x}_1, \v{x}_2, \ldots, \v{x}_p}\)</span> spans <span class="process-math">\(U\text{,}\)</span> then <span class="process-math">\(k \leq p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-7-8-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Basis-7-8-7">Together, that means <span class="process-math">\(p = k\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Basis-7-8-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Note 5.2.14: But Richard... Why is it true?"><a href="#subsec-Basis-7-8" title="Copy heading and permalink for Note 5.2.14: But Richard... Why is it true?" aria-label="Copy heading and permalink for Note 5.2.14: But Richard... Why is it true?">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Example 5.2.13"><a href="#subsec-Basis-7" title="Copy heading and permalink for Example 5.2.13" aria-label="Copy heading and permalink for Example 5.2.13">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection: Basis"><a href="#subsec-Basis" title="Copy heading and permalink for Subsection: Basis" aria-label="Copy heading and permalink for Subsection: Basis">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-Dimensions">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Dimensions</span>
+</h3>
+<div class="para" id="subsec-Dimensions-2">Recall that the number of vectors in a basis is a fixed number for a given subspace, and we can generate the whole subspace by taking linear combinations of the vectors in the basis. Then we define the <dfn class="terminology">dimension</dfn> of a subspace as the number of vectors in a basis for that subspace.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Dimensions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-Dimensions"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Dimension of a Subspace of <span class="process-math">\(\R^n\)</span>.</span>
+</h4>
+<div class="para" id="def-Dimensions-2-1">Let <span class="process-math">\(U\)</span> be a subspace and <span class="process-math">\(\set{\v{v}_1, \v{v}_2, \ldots, \v{v}_p}\)</span> be a basis of <span class="process-math">\(U\text{.}\)</span> Then the <dfn class="terminology">dimension</dfn> of <span class="process-math">\(U\text{,}\)</span> denoted <span class="process-math">\(\dim U\text{,}\)</span> is the number of vectors in the basis, which is <span class="process-math">\(p\text{.}\)</span> That is, <span class="process-math">\(\dim U = p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-Dimensions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 5.2.15: Dimension of a Subspace of \R^n"><a href="#def-Dimensions" title="Copy heading and permalink for Definition 5.2.15: Dimension of a Subspace of \R^n" aria-label="Copy heading and permalink for Definition 5.2.15: Dimension of a Subspace of \R^n">🔗</a></div>
+</article>
+<article class="example example-like" id="subsec-Dimensions-4"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Dimensions-4-1">It makes sense to say that the dimension of <span class="process-math">\(\R^2\)</span> is <span class="process-math">\(2\)</span> and the dimension of <span class="process-math">\(\R^3\)</span> is <span class="process-math">\(3\text{.}\)</span> But how does it match with our definition of dimension?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Dimensions-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Dimensions-4-2">We can verify this by finding a basis for <span class="process-math">\(\R^2\)</span> and <span class="process-math">\(\R^3\)</span> easily. Earlier, we saw that <span class="process-math">\(\left\{\begin{bmatrix} 1 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \end{bmatrix} \right\}\)</span> is a basis for <span class="process-math">\(\R^2\text{,}\)</span> so <span class="process-math">\(\dim \R^2 = 2\text{.}\)</span> The basis is called the <dfn class="terminology">standard basis</dfn> for <span class="process-math">\(\R^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Dimensions-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Dimensions-4-3">Similarly, <span class="process-math">\(\left\{\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}\right\}\)</span> is a basis for <span class="process-math">\(\R^3\text{,}\)</span> so <span class="process-math">\(\dim \R^3 = 3\text{.}\)</span> This basis is called the <dfn class="terminology">standard basis</dfn> for <span class="process-math">\(\R^3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Dimensions-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Dimensions-4-4">
+<div class="para">More generally, the dimension of <span class="process-math">\(\R^n\)</span> is <span class="process-math">\(n\)</span> since the standard basis for <span class="process-math">\(\R^n\)</span> is</div>
+<div class="displaymath process-math" id="subsec-Dimensions-4-4-4">
+\begin{equation*}
+\left\{\begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{bmatrix}, \ldots, \begin{bmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{bmatrix}\right\}
+\end{equation*}
+</div>
+<div class="para">and there are exactly <span class="process-math">\(n\)</span> vectors in this basis.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Dimensions-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.2.16"><a href="#subsec-Dimensions-4" title="Copy heading and permalink for Example 5.2.16" aria-label="Copy heading and permalink for Example 5.2.16">🔗</a></div>
+</article>
+<div class="para" id="subsec-Dimensions-5">Recall we talked about two fundamental subspaces associated with a matrix in the last section: the null space and the column space. What about their basis and dimension?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Dimensions-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Dimensions-6">Good news! The technique we use to find a spanning set for the null space of a matrix will automatically give us a basis! So we can find a basis of a null space by just doing what we have been doing: solving the homogeneous equation <span class="process-math">\(A\v{x} = \v{0}\)</span> and writing the solution in parametric form. The vectors corresponding to the free variables will form a basis for the null space.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Dimensions-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Dimensions-7">
+<em class="emphasis">NOTE:</em> The reason why the vectors corresponding to the free variables will automatically form a basis for the null space is because of the nature of the free variables (talk to Richard if you are super interested in it!). So the only way to end up with the wrong number of vectors in the basis is to have the wrong number of free variables.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Dimensions-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Dimensions-8">Yet the basis for the column space is a bit more tricky to find, as there is no guarantee that the columns of a matrix will be linearly independent. However, we can find a basis for the column space by <em class="alert">only including the pivot columns</em>, as these column vectors are guaranteed to be linearly independent (so we essentially take out the free variables to make sure <span class="process-math">\(A\v{x} = \v{0}\)</span> only has the trivial solution).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Dimensions-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="ex-BasisNullColumnSpaces"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="ex-BasisNullColumnSpaces-1">Let’s say we have the matrix <span class="process-math">\(A = \begin{bmatrix} -3 \amp 6 \amp -1 \amp 1 \amp 7 \\ 1 \amp -2 \amp 2 \amp 3 \amp -1 \\ 2 \amp -4 \amp 5 \amp 8 \amp -4 \end{bmatrix}\)</span> and this time we want to find a basis for the null space and the column space.<div class="autopermalink" data-description="Paragraph"><a href="#ex-BasisNullColumnSpaces-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-BasisNullColumnSpaces-2">
+<div class="para">In the last section, we solved the homogeneous equation <span class="process-math">\(A\v{x} = \v{0}\text{.}\)</span> For our convenience, let’s copy down the reduced row echelon form of the augmented matrix:</div>
+<div class="displaymath process-math" id="ex-BasisNullColumnSpaces-2-2">
+\begin{equation*}
+\begin{bmatrix} 1 \amp -2 \amp 0 \amp -1 \amp 0 \amp \mid \amp 0  \\ 0 \amp 0 \amp 1 \amp 2 \amp 0 \amp \mid \amp 0\\ 0 \amp 0 \amp 0 \amp 0 \amp 1 \amp \mid \amp 0 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">
+<em class="emphasis">P.S.:</em> Row echelon form is enough as well since all we need to identify are the pivot columns (or not the pivot columns).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-BasisNullColumnSpaces-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-BasisNullColumnSpaces-3">
+<div class="para">Lets’ start with the null space first! The solution to the homogeneous equation <span class="process-math">\(A\v{x} = \v{0}\text{,}\)</span> in parametric form, looks like this:</div>
+<div class="displaymath process-math" id="ex-BasisNullColumnSpaces-3-2">
+\begin{equation*}
+\v{x} = \begin{bmatrix} 2x_2 + x_4 \\ x_2 \\ -2x_4 \\ x_4 \\ 0 \end{bmatrix} = x_2\begin{bmatrix} 2 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} + x_4 \begin{bmatrix} 1 \\ 0 \\ -2 \\ 1 \\ 0\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(x_2, x_4 \in \R\text{.}\)</span> Hence, the null space of <span class="process-math">\(A\)</span> is</div>
+<div class="displaymath process-math" id="ex-BasisNullColumnSpaces-3-5">
+\begin{equation*}
+\Nul A = \span\left\{\begin{bmatrix} 2 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 1 \\ 0 \\ -2 \\ 1 \\ 0\end{bmatrix}\right\}
+\end{equation*}
+</div>
+<div class="para">Since these vectors are linearly independent, then a basis for the null space is <span class="process-math">\(\left\{\begin{bmatrix} 2 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 1 \\ 0 \\ -2 \\ 1 \\ 0\end{bmatrix}\right\}\)</span> and hence the null space has dimension <span class="process-math">\(2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-BasisNullColumnSpaces-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-BasisNullColumnSpaces-4">What about a basis for the column space? Let’s stare at the reduced row echelon form of the coefficient matrix part again!<div class="autopermalink" data-description="Paragraph"><a href="#ex-BasisNullColumnSpaces-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-BasisNullColumnSpaces-5">
+<div class="para">Notice that a pivot position appears in the first, third, and fifth columns. So they do NOT correspond to free variables. Imagine if we remove column 2 and column 4 from the coefficient matrix in the beginning, then we will end up with a homogeneous equation that has no free variable, and hence the columns are linearly independent. Therefore, we can span the column space by just including the first, third, and fifth columns. That is,</div>
+<div class="displaymath process-math" id="ex-BasisNullColumnSpaces-5-1">
+\begin{equation*}
+\Col A = \span\left\{\begin{bmatrix} -3 \\ 1 \\ 2 \end{bmatrix}, \begin{bmatrix} -1 \\ 2 \\ 5 \end{bmatrix}, \begin{bmatrix} 7 \\ -1 \\ -4 \end{bmatrix}\right\}
+\end{equation*}
+</div>
+<div class="para">A basis for the column space is <span class="process-math">\(\left\{\begin{bmatrix} -3 \\ 1 \\ 2 \end{bmatrix}, \begin{bmatrix} -1 \\ 2 \\ 5 \end{bmatrix}, \begin{bmatrix} 7 \\ -1 \\ -4 \end{bmatrix}\right\}\)</span> and hence the column space has dimension <span class="process-math">\(3\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-BasisNullColumnSpaces-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-BasisNullColumnSpaces-6">
+<em class="alert">Spoiler:</em> You may have noticed that the dimension of the null space and the dimension of the column space add up to the number of columns in the matrix. This is a BIG theorem in linear algebra! We can sense that this is true because we take the columns with pivot positions to form a basis for the column space and use the columns without pivot positions to figure out a basis for the null space. We will focus on this theorem in section 5.4 (and this theorem is a fundamental theorem of linear algebra!) .<div class="autopermalink" data-description="Paragraph"><a href="#ex-BasisNullColumnSpaces-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.2.17"><a href="#ex-BasisNullColumnSpaces" title="Copy heading and permalink for Example 5.2.17" aria-label="Copy heading and permalink for Example 5.2.17">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="subsec-Dimensions-10"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Dimensions-10-1">Let <span class="process-math">\(B = \begin{bmatrix} -1 \amp -1 \amp -1 \amp -2 \amp -4 \\ 2 \amp 1 \amp 0 \amp 0 \amp 3 \\ 2 \amp 1 \amp 1 \amp 1 \amp 6 \end{bmatrix}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Dimensions-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Dimensions-10-2">Find a basis and the dimension for <span class="process-math">\(\Nul A\)</span> and <span class="process-math">\(\Col A\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Dimensions-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.2.18"><a href="#subsec-Dimensions-10" title="Copy heading and permalink for Checkpoint 5.2.18" aria-label="Copy heading and permalink for Checkpoint 5.2.18">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection: Dimensions"><a href="#subsec-Dimensions" title="Copy heading and permalink for Subsection: Dimensions" aria-label="Copy heading and permalink for Subsection: Dimensions">🔗</a></div>
+</section>
+<section class="subsection" id="subsec-ExtendedInvertibleMatrixTheorem">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extending Our Invertible Matrix Theorem!</span>
+</h3>
+<div class="para" id="subsec-ExtendedInvertibleMatrixTheorem-2">Back in <a href="sec24-MatrixInverse.html" class="internal" title="Section 2.4: Matrix Inverses">Section 2.4</a> we saw our first version of the <a href="sec24-MatrixInverse.html#thm-InvertibleMatrixTheorem" class="xref" data-knowl="./knowl/xref/thm-InvertibleMatrixTheorem.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.4.15: Invertible Matrix Theorem">Theorem 2.4.15</a>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ExtendedInvertibleMatrixTheorem-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ExtendedInvertibleMatrixTheorem-3">
+<div class="para">Now that we learn more fancy things in linear algebra, we can add a couple more conditions that are equivalent to invertibility:</div>
+<ul class="no-marker" id="subsec-ExtendedInvertibleMatrixTheorem-3-1">
+<li id="subsec-ExtendedInvertibleMatrixTheorem-3-1-1">
+<div class="para" id="subsec-ExtendedInvertibleMatrixTheorem-3-1-1-1">7. The columns of <span class="process-math">\(A\)</span> are linearly independent.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-ExtendedInvertibleMatrixTheorem-3-1-2">
+<div class="para" id="subsec-ExtendedInvertibleMatrixTheorem-3-1-2-1">8. The columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-ExtendedInvertibleMatrixTheorem-3-1-3">
+<div class="para" id="subsec-ExtendedInvertibleMatrixTheorem-3-1-3-1">9. The columns of <span class="process-math">\(A\)</span> form a basis of <span class="process-math">\(\R^n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-ExtendedInvertibleMatrixTheorem-3-1-4">
+<div class="para" id="subsec-ExtendedInvertibleMatrixTheorem-3-1-4-1">10. <span class="process-math">\(\Col A = \R^n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-ExtendedInvertibleMatrixTheorem-3-1-5">
+<div class="para" id="subsec-ExtendedInvertibleMatrixTheorem-3-1-5-1">11. <span class="process-math">\(\dim \Col A = n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3-1-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-ExtendedInvertibleMatrixTheorem-3-1-6">
+<div class="para" id="subsec-ExtendedInvertibleMatrixTheorem-3-1-6-1">12. <span class="process-math">\(\Nul A = \set{\v{0}}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3-1-6" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-ExtendedInvertibleMatrixTheorem-3-1-7">
+<div class="para" id="subsec-ExtendedInvertibleMatrixTheorem-3-1-7-1">13. <span class="process-math">\(\dim \Nul A = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3-1-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3-1-7" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">They should be immediate results from the Invertible Matrix Theorem, but rephrasing it using all the fancy concepts we learned in this chapter.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ExtendedInvertibleMatrixTheorem-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Extending Our Invertible Matrix Theorem!"><a href="#subsec-ExtendedInvertibleMatrixTheorem" title="Copy heading and permalink for Subsection: Extending Our Invertible Matrix Theorem!" aria-label="Copy heading and permalink for Subsection: Extending Our Invertible Matrix Theorem!">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 5.2: Independence and Dimension"><a href="#sec52-IndependenceDimension" title="Copy heading and permalink for Section 5.2: Independence and Dimension" aria-label="Copy heading and permalink for Section 5.2: Independence and Dimension">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec51-SubspaceSpanning.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec53-Orthogonality.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

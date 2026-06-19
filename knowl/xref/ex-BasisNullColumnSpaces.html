@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: salem                          *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h2 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h2>
+<div class="para">Let’s say we have the matrix <span class="process-math">\(A = \begin{bmatrix} -3 \amp 6 \amp -1 \amp 1 \amp 7 \\ 1 \amp -2 \amp 2 \amp 3 \amp -1 \\ 2 \amp -4 \amp 5 \amp 8 \amp -4 \end{bmatrix}\)</span> and this time we want to find a basis for the null space and the column space.<div class="autopermalink" data-description="Paragraph"><a href="#ex-BasisNullColumnSpaces-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">In the last section, we solved the homogeneous equation <span class="process-math">\(A\v{x} = \v{0}\text{.}\)</span> For our convenience, let’s copy down the reduced row echelon form of the augmented matrix:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{bmatrix} 1 \amp -2 \amp 0 \amp -1 \amp 0 \amp \mid \amp 0  \\ 0 \amp 0 \amp 1 \amp 2 \amp 0 \amp \mid \amp 0\\ 0 \amp 0 \amp 0 \amp 0 \amp 1 \amp \mid \amp 0 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">
+<em class="emphasis">P.S.:</em> Row echelon form is enough as well since all we need to identify are the pivot columns (or not the pivot columns).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-BasisNullColumnSpaces-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">Lets’ start with the null space first! The solution to the homogeneous equation <span class="process-math">\(A\v{x} = \v{0}\text{,}\)</span> in parametric form, looks like this:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\v{x} = \begin{bmatrix} 2x_2 + x_4 \\ x_2 \\ -2x_4 \\ x_4 \\ 0 \end{bmatrix} = x_2\begin{bmatrix} 2 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} + x_4 \begin{bmatrix} 1 \\ 0 \\ -2 \\ 1 \\ 0\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(x_2, x_4 \in \R\text{.}\)</span> Hence, the null space of <span class="process-math">\(A\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Nul A = \span\left\{\begin{bmatrix} 2 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 1 \\ 0 \\ -2 \\ 1 \\ 0\end{bmatrix}\right\}
+\end{equation*}
+</div>
+<div class="para">Since these vectors are linearly independent, then a basis for the null space is <span class="process-math">\(\left\{\begin{bmatrix} 2 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 1 \\ 0 \\ -2 \\ 1 \\ 0\end{bmatrix}\right\}\)</span> and hence the null space has dimension <span class="process-math">\(2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-BasisNullColumnSpaces-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">What about a basis for the column space? Let’s stare at the reduced row echelon form of the coefficient matrix part again!<div class="autopermalink" data-description="Paragraph"><a href="#ex-BasisNullColumnSpaces-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">Notice that a pivot position appears in the first, third, and fifth columns. So they do NOT correspond to free variables. Imagine if we remove column 2 and column 4 from the coefficient matrix in the beginning, then we will end up with a homogeneous equation that has no free variable, and hence the columns are linearly independent. Therefore, we can span the column space by just including the first, third, and fifth columns. That is,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Col A = \span\left\{\begin{bmatrix} -3 \\ 1 \\ 2 \end{bmatrix}, \begin{bmatrix} -1 \\ 2 \\ 5 \end{bmatrix}, \begin{bmatrix} 7 \\ -1 \\ -4 \end{bmatrix}\right\}
+\end{equation*}
+</div>
+<div class="para">A basis for the column space is <span class="process-math">\(\left\{\begin{bmatrix} -3 \\ 1 \\ 2 \end{bmatrix}, \begin{bmatrix} -1 \\ 2 \\ 5 \end{bmatrix}, \begin{bmatrix} 7 \\ -1 \\ -4 \end{bmatrix}\right\}\)</span> and hence the column space has dimension <span class="process-math">\(3\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-BasisNullColumnSpaces-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">
+<em class="alert">Spoiler:</em> You may have noticed that the dimension of the null space and the dimension of the column space add up to the number of columns in the matrix. This is a BIG theorem in linear algebra! We can sense that this is true because we take the columns with pivot positions to form a basis for the column space and use the columns without pivot positions to figure out a basis for the null space. We will focus on this theorem in section 5.4 (and this theorem is a fundamental theorem of linear algebra!) .<div class="autopermalink" data-description="Paragraph"><a href="#ex-BasisNullColumnSpaces-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 5.2.17"><a href="#ex-BasisNullColumnSpaces" title="Copy heading and permalink for Example 5.2.17" aria-label="Copy heading and permalink for Example 5.2.17">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec52-IndependenceDimension.html#ex-BasisNullColumnSpaces">In Context</a></span>
+</body>
+</html>
