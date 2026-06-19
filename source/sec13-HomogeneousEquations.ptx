@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec13-HomogeneousEquations" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Homogeneous Equations</title>
+
+  <introduction>
+    <p>
+      In this section, we explore a special type of systems of linear equations, called the <alert>homogeneous systems of linear equations</alert>. 
+    </p>
+
+    <objectives>
+      <introduction>
+        <p>
+          After this section, students will be able to:
+        </p>
+      </introduction>
+      <ul>
+        <li>
+          <p>
+            solve homogeneous systems of linear equations using Gaussian elimination algorithm. 
+          </p>
+        </li>
+        <li>
+          <p>
+            write the general solution of a homogeneous system as a linear combination of basic vectors (written as column vectors). 
+          </p>
+        </li>
+      </ul>
+    </objectives>
+  </introduction>
+
+  <investigation>
+    <p>
+      Richard claims that the following system of linear equations has <em>at least one</em> solution (hence a consistent system) at the first glance. 
+      <md>
+        \begin{cases}
+          4x - 12y + 2z = 0 \\  
+          2x - 6y = 0 \\
+          3x - 9y + z = 0 \\
+          -2x + 6y - z = 0
+        \end{cases}
+      </md>
+      Why does Richard know about it quickly? 
+    </p>
+
+    <hint>
+      <p>
+        Recall something is called a solution if it satisfies all the equations in the system. 
+        Can you guess-and-check a solution to this system quickly? 
+      </p>
+    </hint>
+
+    <solution>
+      <p>
+        If you plug in zero for every variable, you will get zero on the left-hand side of every equation and solve all of them! 
+        So <m>(0,0,0)</m> is a solution to this system of linear equations.
+      </p>
+
+      <p>
+        When you have all zeros for the constant terms, you always have this solution (all variables equal to zero), which is called the "<term>trivial solution</term>".  
+      </p>
+    </solution>
+  </investigation>
+
+  <p>
+    In this section, we will learn about a super important special kind of system of equations called <term>homogeneous systems</term>. 
+  </p>
+  
+  <p>
+    A <term>homogeneous system of equations</term> (or a system of homogeneous equations) is just a special case where all of the constants to the right of the equal sign are zero. 
+  </p>
+
+  <p>
+    For example, we worked with the following system of linear equations in the last section: 
+    <md>
+      \begin{cases}
+        4x - 12y + 2z = -12 \\  
+        2x - 6y = -10 \\
+        3x - 9y + z = -11 \\
+        -2x + 6y - z = 6
+      \end{cases}
+    </md>
+    This is NOT a homogeneous system since the constants on the right-hand side are not all zero. 
+    We can make it homogeneous by changing the number on the right-hand side of every equation to a zero as follows: 
+    <md>
+      \begin{cases}
+        4x - 12y + 2z = 0 \\  
+        2x - 6y = 0 \\
+        3x - 9y + z = 0 \\
+        -2x + 6y - z = 0
+      \end{cases}
+    </md>
+    Then we have a homogeneous system! 
+  </p>
+
+  <p>
+    <em>Note: </em> Just to be clear, this is a different system of linear equations. 
+    However, we will see later that it is actually related to the original one in an important way!
+  </p>
+
+  <p>
+    Usually, a system of linear equations can have either (1) zero, (2) one, or (3) infinitely many solutions. 
+    But it is <em>impossible</em> for a homogeneous system to have zero solutions! 
+    As we figured out the investigation question, every homogeneous system has at least the trivial solution (where all the variables are zero). 
+    So <alert>a homogeneous system either has one solution (trivial) OR it has infinitely many solutions</alert>. 
+  </p>
+
+  <p>
+    Let's solve our homogeneous system in the investigation! 
+    First, we will write the augmented matrix for the system: 
+    <md>
+      \begin{bmatrix}
+        4 \amp -12 \amp 2 \amp \mid \amp 0 \\
+        2 \amp -6 \amp 0 \amp \mid \amp 0 \\
+        3 \amp -9 \amp 1 \amp \mid \amp 0 \\
+        -2 \amp 6 \amp -1 \amp \mid \amp 0
+      \end{bmatrix}
+    </md>
+    We can actually do the <alert>exact same</alert> steps that we did with the non-homogeneous version. 
+    The only difference is that the constant column doesn't require any work since all the entries hold steady at zero. 
+  </p>
+
+  <p>
+    So if we put it into row echelon form, we get: 
+    <md>
+      \begin{bmatrix}
+        1 \amp -3 \amp \frac{1}{2} \amp \mid \amp 0 \\
+        0 \amp 0 \amp 1 \amp \mid \amp 0 \\
+        0 \amp 0 \amp 0 \amp \mid \amp 0 \\
+        0 \amp 0 \amp 0 \amp \mid \amp 0
+      \end{bmatrix}
+    </md>
+    Now we can convert back to a system of linear equations and we get: 
+    <md>
+      \begin{cases}
+        x - 3y + \frac{1}{2}z = 0 \\  
+        z = 0 \\
+        0 = 0 \\
+        0 = 0
+      \end{cases}
+    </md>
+    Just like with the regular version, <m>x</m> and <m>z</m> are the leading variables and <m>y</m> is a free variable. 
+    We can back substitute <m>z = 0</m> into the first equation to get <m>x = 3y</m> and write the solution in parametric form: 
+    <md>
+      \begin{cases}
+        x = 3y \\  
+        y = y \\
+        z = 0
+      \end{cases}
+    </md>
+    or by writing what an arbitrary point in the solution set looks like: <m>(3y, y, 0)</m>
+  </p>
+
+  <subsection xml:id="subsec-HomogeneousSystem-BasisVectors">
+    <title>Basis Vectors and Linear Combinations</title>
+
+    <p>
+      Now, notice that we can factor out a <m>y</m> in the solution and see that the set of solutions is of the form
+      <md>
+        y(3,1,0)
+      </md>
+      where <m>y</m> can be any real number. 
+      That means every solution of the system is a multiple of <m>(3,1,0)</m>. 
+    </p>
+
+    <p>
+      We call this <m>(3,1,0)</m> a "<term>basis</term>" or "<term>basic</term> vector" of the solution set 
+      (Actually "basis" is much more common, but the author uses "basic" in the textbook...). 
+    </p>
+
+    <example>
+      <p>
+        Pretend that we had a (homogeneous) system of 4 linear equations in 5 variables <m>(x,y,z,u,z)</m> and we put the augmented matrix into row echelon form and got: 
+        <md>
+          \begin{bmatrix}
+            1 \amp -3 \amp 5 \amp 2 \amp 7 \amp \mid \amp 0 \\
+            0 \amp 0 \amp 1 \amp 0 \amp 1 \amp \mid \amp 0 \\
+            0 \amp 0 \amp 0 \amp 0 \amp 1 \amp \mid \amp 0 \\
+            0 \amp 0 \amp 0 \amp 0 \amp 0 \amp \mid \amp 0
+          \end{bmatrix}
+        </md>
+        The leading variables are <m>x</m>, <m>z</m>, and <m>v</m>, so our free variables are <m>y</m> and <m>u</m>. 
+        That is, we should be able to solve for the other three variables in terms of <m>y</m> and <m>u</m>. 
+      </p>
+
+      <p>
+        Let's convert it to a system of linear equations: 
+        <md>
+          \begin{cases}
+            x - 3y + 5z + 2u + 7v = 0 \\  
+            z + v = 0 \\
+            v = 0 \\
+            0 = 0
+          \end{cases}
+        </md>
+        We know that <m>v = 0</m> and we can back substitute into the second equation to get <m>z = 0</m> as well. 
+      </p>
+
+      <p>
+        Back substituting into the first equation, we get 
+        <md>
+          x - 3y + 2u = 0 \qquad \implies \qquad x = 3y - 2u
+        </md>
+        Now we can write an arbitrary point in the solution set as 
+        <md>
+          (3y - 2u, y, 0, u, 0)
+        </md>
+        Now we can split this up into two vectors, one with only <m>y</m>'s and one with only <m>u</m>'s: 
+        <md>
+          <mrow> (3y - 2u, y, 0, u, 0) \amp= (3y,y,0,0,0) + (-2u,0,0,u,0) </mrow>
+          <mrow> \amp= y(3,1,0,0,0) + u(-2,0,0,1,0) \amp\amp \text{factor out the $y$ and $u$} </mrow>
+        </md>
+        This means that every solution is a <term>linear combination</term> of the "basic" solutions <m>(3,1,0,0,0)</m> and <m>(-2,0,0,1,0)</m>. 
+      </p>
+    </example>
+
+    <p>
+      Points in <m>n</m>-dimensional space are represented as ordered <m>n</m>-tuples. 
+      For example, the point <m>(2,4,5,1)</m> is a point in <m>4</m>-space (we represent <m>4</m>-space by <m>\R^4</m>). 
+      In linear algebra, such  points can also be represented as <m>1 \times n</m> matrices (row vectors) or <m>n \times 1</m> matrices (column vectors). 
+      So <m>(2,4,5,1)</m> can be represented as the row vector 
+      <md>
+        \begin{bmatrix}
+          2 \amp 4 \amp 5 \amp 1
+        \end{bmatrix}
+      </md>
+      or the column vector
+      <md>
+        \begin{bmatrix}
+          2 \\
+          4 \\
+          5 \\
+          1
+        \end{bmatrix}
+      </md>
+      In this class, we will mostly use <alert>column vectors</alert> for reasons that will become clear in Section 2.2. 
+    </p>
+
+    <example>
+      <p>
+        Recall that we did our earlier example we got the solution 
+        <md>
+          (3y - 2u, y, 0, u, 0)
+        </md>
+        which we broke up into the sum of two points like this:
+        <md>
+          (3y,y,0,0,0) + (-2u,0,0,u,0)
+        </md>
+        Then we factor out the <m>y</m> and <m>u</m> to get
+        <md>
+          y(3,1,0,0,0) + u(-2,0,0,1,0)
+        </md>
+      </p>
+
+      <p>
+        Now, we can rewrite all of this using column vectors! 
+        An arbitrary solution (in parametric form) would look like
+        <md>
+          <mrow> \begin{bmatrix} 3y - 2u \\ y \\ 0 \\ u \\ 0 \end{bmatrix} \amp= \begin{bmatrix} 3y \\ y \\ 0 \\ 0 \\ 0 \end{bmatrix} + \begin{bmatrix} -2u \\ 0 \\ 0 \\ u \\ 0 \end{bmatrix} </mrow>
+          <mrow> \amp= y \begin{bmatrix} 3 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} + u \begin{bmatrix} -2 \\ 0 \\ 0 \\ 1 \\ 0 \end{bmatrix} </mrow>
+        </md>
+        Notice that any vector of this form is a solution to the homogeneous system of linear equations. 
+        The <m>y</m> and <m>u</m> can be any number! 
+      </p>
+
+      <p>
+        In particular, this means that both <m>\begin{bmatrix}3 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}</m> and <m>\begin{bmatrix}-2 \\ 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}</m> are solutions! 
+        That is one reason why they are called the basic solutions (it explains the "solution" part). 
+        We will learn more about wht they are called "basic" in the future!
+      </p>
+    </example>
+
+    <p>
+      To make sure we are all on the same page, recall we define two operations on vectors: <alert>vector addition</alert> and <alert>scalar multiplication</alert>. 
+      They are both defined <alert>component-wise</alert>.  
+      That is, 
+      <ul marker="">
+        <li>
+          <p>
+            to add two vectors, we just add together the corresponding entries, and
+          </p>
+        </li>
+        <li>
+          <p>
+            to multiply a vector by a scalar, we just multiply every entry by that scalar. 
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      Now let's talk about linear combinations! 
+      A <term>linear combination</term> of a set of vectors is a <em>sum</em> of <em>scalar multiples</em> of those vectors. 
+    </p>
+
+    <example>
+      <ol marker="(1)">
+        <li>
+          <p>
+            <m>(2,3)</m> is a linear combination of <m>(1,0)</m> and <m>(0,1)</m> since
+            <md>
+              (2,3) = 2(1,0) + 3(0,1)
+            </md>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>(2,3)</m> is also a linear combination of <m>(1,0)</m> and <m>(1,1)</m> since
+            <md>
+              (2,3) = -1(1,0) + 3(1,1)
+            </md>
+          </p>
+        </li>
+      </ol>
+    </example>
+
+    <p>
+      The expression 
+      <md>
+        y \begin{bmatrix} 3 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix} + u \begin{bmatrix} -2 \\ 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}
+      </md>
+      represents the set of <alert>all</alert> possible linear combinations of <m>\begin{bmatrix} 3 \\ 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}</m> and <m>\begin{bmatrix} -2 \\ 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}</m>.
+    </p>
+
+    <exercise>
+      <p>
+        Solve the following homogeneous system of linear equations and write an arbitrary solution as a linear combination of basic solutions (written as column vectors): 
+        <md>
+          \begin{cases}
+            3x - 2y + z + 5u = 0 \\  
+            x - 6y + 2z + u = 0 \\
+            x + 10y - 3z + 3u = 0 \\
+            4x - 8y + 3z + 6u = 0
+          \end{cases}
+        </md>
+      </p>
+
+      <solution>
+        <p>
+          Let's start by writing the augmented matrix for the system: 
+          <md>
+            \begin{bmatrix}
+              3 \amp -2 \amp 1 \amp 5 \amp \mid \amp 0 \\
+              1 \amp -6 \amp 2 \amp 1 \amp \mid \amp 0 \\
+              1 \amp 10 \amp -3 \amp 3 \amp \mid \amp 0 \\
+              4 \amp -8 \amp 3 \amp 6 \amp \mid \amp 0
+            \end{bmatrix}
+          </md>
+          We will solve the system using the Gaussian elimination algorithm. 
+        </p>
+
+        <p>
+          Step 1: Swap Row 1 and Row 2 so that we get a leading <m>1</m> without using any fractions: 
+          <md>
+            \begin{bmatrix}
+              1 \amp -6 \amp 2 \amp 1 \amp \mid \amp 0 \\
+              3 \amp -2 \amp 1 \amp 5 \amp \mid \amp 0 \\
+              1 \amp 10 \amp -3 \amp 3 \amp \mid \amp 0 \\
+              4 \amp -8 \amp 3 \amp 6 \amp \mid \amp 0
+            \end{bmatrix}
+          </md>
+        </p>
+
+        <p>
+          Step 2: Add <m>-3</m> times Row 1 to Row 2 (and replace Row 2), add <m>-1</m> times Row 1 to Row 3 (and replace Row 3), and add <m>-4</m> times Row 1 to Row 4 (and replace Row 4) to get: 
+          <md>
+            \begin{bmatrix}
+              1 \amp -6 \amp 2 \amp 1 \amp \mid \amp 0 \\
+              0 \amp 16 \amp -5 \amp 2 \amp \mid \amp 0 \\
+              0 \amp 16 \amp -5 \amp 2 \amp \mid \amp 0 \\
+              0 \amp 16 \amp -5 \amp 2 \amp \mid \amp 0
+            \end{bmatrix}
+          </md>
+        </p>
+
+        <p>
+          Step 3: Multiply Row 2, Row 3, and Row 4 by <m>\frac{1}{16}</m> (observe the last three rows are exactly the same!) to get:
+          <md>
+            \begin{bmatrix}
+              1 \amp -6 \amp 2 \amp 1 \amp \mid \amp 0 \\
+              0 \amp 1 \amp -\frac{5}{16} \amp \frac{1}{8} \amp \mid \amp 0 \\
+              0 \amp 1 \amp -\frac{5}{16} \amp \frac{1}{8} \amp \mid \amp 0 \\
+              0 \amp 1 \amp -\frac{5}{16} \amp \frac{1}{8} \amp \mid \amp 0
+            \end{bmatrix}
+          </md>
+        </p>
+
+        <p>
+          Step 4: Add <m>-1</m> times Row 2 to Row 3 (and replace Row 3) and add <m>-1</m> times Row 2 to Row 4 (and replace Row 4) to get:
+          <md>
+            \begin{bmatrix}
+              1 \amp -6 \amp 2 \amp 1 \amp \mid \amp 0 \\
+              0 \amp 1 \amp -\frac{5}{16} \amp \frac{1}{8} \amp \mid \amp 0 \\
+              0 \amp 0 \amp 0 \amp 0 \amp \mid \amp 0 \\
+              0 \amp 0 \amp 0 \amp 0 \amp \mid \amp 0
+            \end{bmatrix}
+          </md>
+        </p>
+
+        <p>
+          We can see from the leading <m>1</m>s that <m>x</m> and <m>y</m> are the leading variables and <m>z</m> and <m>u</m> are the free variables. 
+          We can also see this from converting back to a system of linear equations:
+          <md>
+            \begin{cases}
+              x - 6y + 2z + u = 0 \\  
+              y - \frac{5}{16}z + \frac{1}{8}u = 0 \\
+              0 = 0 \\
+              0 = 0
+            \end{cases}
+          </md>
+          We can solve for <m>x</m> in terms of <m>y</m>, <m>z</m>, and <m>u</m> to get: 
+          <md>
+            x = 6y - 2z - u
+          </md>
+          We can also solve for <m>y</m> in terms of <m>z</m> and <m>u</m> to get: 
+          <md>
+            y = \frac{5}{16}z - \frac{1}{8}u
+          </md>
+          Then we can back substitute this expression for <m>y</m> into the first equation to get: 
+          <md>
+            <mrow>x \amp= 6 \lp \frac{5}{16}z - \frac{1}{8}u \rp - 2z - u </mrow>
+            <mrow> \amp- \frac{15}{8}z - \frac{3}{4}u - 2z - u </mrow>
+            <mrow> \amp= -\frac{1}{8}z - \frac{7}{4}u </mrow>
+          </md>
+          Now let's write our general solution as a column vector! 
+          Every solution looks like
+          <md>
+            <mrow> \begin{bmatrix} -\frac{1}{8}z - \frac{7}{4}u \\ \frac{5}{16}z - \frac{1}{8}u \\ z \\ u \end{bmatrix} \amp= \begin{bmatrix} -\frac{1}{8}z \\ \frac{5}{16}z \\ z \\ 0 \end{bmatrix} + \begin{bmatrix} -\frac{7}{4}u \\ -\frac{1}{8}u \\ 0 \\ u \end{bmatrix} </mrow>
+            <mrow> \amp= z \begin{bmatrix} -\frac{1}{8} \\ \frac{5}{16} \\ 1 \\ 0 \end{bmatrix} + u \begin{bmatrix} -\frac{7}{4} \\ -\frac{1}{8} \\ 0 \\ 1 \end{bmatrix} </mrow>
+          </md>
+        </p>
+
+        <note>
+          <title>If you want to turn the augmented matrix into reduced row echelon form...</title>
+
+          <p>
+            To get the augmented matrix into reduced row echelon form, we will just need to do one more step after Step 4. 
+          </p>
+
+          <p>
+            Step 5: Add <m>6</m> times Row 2 to Row 1 (and replace Row 1) to get:
+            <md>
+              \begin{bmatrix}
+                1 \amp 0 \amp \frac{1}{8} \amp \frac{7}{4} \amp \mid \amp 0 \\
+                0 \amp 1 \amp -\frac{5}{16} \amp \frac{1}{8} \amp \mid \amp 0 \\
+                0 \amp 0 \amp 0 \amp 0 \amp \mid \amp 0 \\
+                0 \amp 0 \amp 0 \amp 0 \amp \mid \amp 0
+              \end{bmatrix}
+            </md>
+          </p>
+
+          <p>
+            Converting it back to the system of linear equations, we get: 
+            <md>
+              \begin{cases}
+                x + \frac{1}{8}z + \frac{7}{4}u = 0 \\  
+                y - \frac{5}{16}z + \frac{1}{8}u = 0 \\
+                0 = 0 \\
+                0 = 0
+              \end{cases}
+            </md>
+            Similarly, we see that <m>z</m> and <m>u</m> are the free variables, and hence we will represent <m>x</m> and <m>y</m> in terms of <m>z</m> and <m>u</m>: 
+            <md>
+              \begin{cases}
+                x = -\frac{1}{8}z - \frac{7}{4}u \\  
+                y = \frac{5}{16}z - \frac{1}{8}u 
+              \end{cases}
+            </md>
+          </p>
+
+          <p>
+            Then we can write our general solution as a column vector! Every solution looks like
+            <md>
+              \begin{bmatrix} -\frac{1}{8}z - \frac{7}{4}u \\ \frac{5}{16}z - \frac{1}{8}u \\ z \\ u \end{bmatrix} = z \begin{bmatrix} -\frac{1}{8} \\ \frac{5}{16} \\ 1 \\ 0 \end{bmatrix} + u \begin{bmatrix} -\frac{7}{4} \\ -\frac{1}{8} \\ 0 \\ 1 \end{bmatrix}
+            </md>
+          </p>
+        </note>
+      </solution>
+    </exercise>
+
+    <p>
+      We are actually exposed to some big concepts in linear algebra, like linear combinations and basic vectors. 
+      We will loop back to these concepts formally later when we get to the theory of vector spaces. 
+      For now, it is totally fine if you have only a vague understanding of these concepts.
+      Remember the overall goal of this section is to learn how to solve homogeneous systems of linear equations!   
+    </p>
+  </subsection>
+
+  <worksheet xml:id="ws-sec13">
+    <title>Some Exercises for This Section</title>
+    
+    <introduction>
+      <p>
+        Richard included some practice problems that cover some main concepts in this section. 
+        You don't need to turn it in, but you are highly encouraged to work on this with your classmates. 
+        The problems here may end up being in-class practice problems, homework problems, and/or exam problems. 
+        Reach out to Richard for help if you get stuck or have any questions. 
+      </p>
+
+      <p>
+        Only the final answers are included to some of the problems for you to check your result. 
+        If you want to check your work, talk to Richard and he is happy to discuss the process with you. 
+      </p>
+    </introduction>
+  </worksheet>
+
+</section>

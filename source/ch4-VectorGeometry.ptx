@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch4-VectorGeometry" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Vector Geometry</title>
+
+
+  <!-- include sections -->
+  <xi:include href="sec41-VectorsLines.ptx" />
+  <xi:include href="sec42-ProjectionPlanes.ptx" />
+
+</chapter>

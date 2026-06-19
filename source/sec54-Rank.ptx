@@ -1,0 +1,132 @@
+<section xml:id="sec54-Rank" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Rank of a Matrix</title>
+
+  <p>
+    Recall that back in <xref ref="sec51-SubspaceSpanning"/>, we investigated two of the four fundamental subspaces as <alert>Null Spaces</alert> (<xref ref="def-NullSpace"/>) and <alert>Column Spaces</alert> (<xref ref="def-ColumnSpace"/>). 
+    We also saw how we can find a basis for these two subspaces in <xref ref="sec52-IndependenceDimension"/>. 
+    There is actually a cool observation about the relationship between their dimensions. 
+  </p>
+
+  <example>
+    <p>
+        Recall we did an example back in <xref ref="sec52-IndependenceDimension"/> to find a basis for the null space and the column space of the matrix <m>A = \begin{bmatrix} -3 \amp 6 \amp -1 \amp 1 \amp 7 \\ 1 \amp -2 \amp 2 \amp 3 \amp -1 \\ 2 \amp -4 \amp 5 \amp 8 \amp -4 \end{bmatrix}</m>. 
+        <xref ref="ex-BasisNullColumnSpaces"/> will link you back to the work if you need a refresher. 
+    </p>
+
+    <p>
+        If we try finding the dimension of the null space and the dimension of the column space, we may notice that they add up to the number of columns. 
+        That is, <m>\dim \Nul A = 2</m>, <m>\dim \Col A = 3</m>, and <m>n = 5</m>, so
+        <md>
+            \dim \Nul A + \dim \Col A = n
+        </md>
+        Well this makes sense because a basis of <m>\Col A</m> consists of the columns that contains a pivot position, and a basis of <m>\Nul A</m> can be obtained using the columns without a pivot position. 
+        So every column counts. 
+    </p>
+  </example>
+
+  <p>
+    This observation about the relationship between the dimensions is a <term>fundamental theorem of linear algebra</term>, as it links two of the fundamental subspaces together. 
+  </p>
+
+  <p>
+    Terminology! 
+    The <term>rank</term> of a matrix is the dimension of the column space, and the <term>nullity</term> of a matrix is the dimension of the null space. 
+    Then we have the following theorem: 
+  </p>
+
+  <theorem xml:id="thm-RankNullityTheorem">
+    <title>Rank-Nullity Theorem</title>
+    <statement>
+        <p>
+            Let <m>A</m> be an <m>m \times n</m> matrix. 
+            Then
+            <md>
+                \dim \Col A + \dim \Nul A = n
+            </md>
+            That is, the rank plus the nullity equals to the number of columns. 
+        </p>
+    </statement>
+  </theorem>
+  
+  <p>
+    The other two fundamental subspaces are the column space and the null space of the transpose. 
+    That is, let <m>A</m> be an <m>m \times n</m> matrix. 
+    Then its four fundamental subspaces are
+    <ul marker="">
+        <li>
+            <p>
+                <m>\Col A</m>, the column space of <m>A</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>\Nul A</m>, the null space of <m>A</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>\Col A^T</m>, the column space of <m>A^T</m>, aka the <term>row space</term>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>\Nul A^T</m>, the null space of <m>A^T</m>, aka the <term>left-null space</term>
+            </p>
+        </li>
+    </ul>
+  </p>
+
+  <p>
+    If we apply the Rank-Nullity Theorem to <m>A^T</m>, then we can find the relationship between the dimension of the row space and the left-null space, as follows: 
+    <md>
+        \dim \Col A^T + \dim \Nul A^T = m
+    </md>
+    And if you think about the connection between the column space and the row space, they should have the <alert>same dimension</alert> since the number of pivot positions in a matrix should be fixed (unchanged through transpose). 
+    That is, 
+    <md>
+        \dim \Col A^T = \dim \Col A
+    </md>
+    This is essentially part of the <alert>fundamental theorem of linear algebra </alert>, along with the orthogonal condition that we won't be discussing in this class but it is super obvious 
+    (look up something called the "direct sum"), captured in the following diagram. 
+  </p>
+
+  <figure>
+    <image source="sec54-FundamentalSubspaces-Diagram.png" width="75%"></image>
+    <caption>Diagram of Fundamental Theorem of Linear Algebra</caption>
+  </figure>
+
+  <theorem xml:id="thm-FundamentalTheoremLinearAlgebra">
+    <title>Fundamental Theorem of Linear Algebra</title>
+    <statement>
+        <p>
+            Let <m>A</m> be an <m>m \times n</m> matrix with <m>\rank A = r</m>. 
+            Then
+            <ol>
+                <li>
+                    <p>
+                        <m>\dim \Col A = \dim \Col A^T = r</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\dim \Nul A = n - r </m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\dim \Nul A^T = m - r </m>
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+  </theorem>
+
+  <p>
+    There are other statements in the fundamental theorem of linear algebra captured in this diagram (i.e., <m>\R^n</m> is the direct sum of the row space and the null space). 
+    Essentially, the fundamental theorem of linear algebra is a collection of results about many properties of the four fundamental subspaces. 
+    In this class, all we care about here is the connection between the <alert>dimensions</alert> of the subspaces. 
+  </p>
+  
+
+</section>

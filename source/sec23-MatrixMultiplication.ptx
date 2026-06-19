@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec23-MatrixMultiplication" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Matrix Multiplication</title>
+
+  <introduction>
+    <p>
+      In our previous work, we established how to multiply a matrix by a single column vector. 
+      In this section, we will extend this concept to multiply a matrix by another matrix. 
+      As you will see, multiplying two matrices is essentially just performing matrix-vector multiplication multiple times.
+    </p>
+
+    <objectives>
+      <introduction>
+        <p>
+          After this section, students will be able to:
+        </p>
+      </introduction>
+      <ul>
+        <li>
+          <p>
+            compute the product of two matrices; 
+          </p>
+        </li>
+        <li>
+          <p>
+            determine whether two matrices can be multiplied based on their sizes and state the size of the answer matrix; 
+          </p>
+        </li>
+        <li>
+          <p>
+            understand the rules for matrix multiplication; 
+          </p>
+        </li>
+        <li>
+          <p>
+            recognize and demonstrate that matrix multiplication is generally not commutative. 
+          </p>
+        </li>
+      </ul>
+    </objectives>
+  </introduction>
+
+  <p>
+    Recall when you multiply a column vector by a matrix, you just compute the dot product of that vector by each row vector of the matrix. 
+    Then you get a nice column vector.
+  </p>
+
+  <p>
+    If you want to multiply a matrix by another matrix, you just do that for <alert>every column</alert> of the matrix on the right and you get all of the columns in your answer matrix. 
+    And that is how you multiply matrices! 
+  </p>
+
+  <example>
+    <p>
+      Let's multiply the following two matrices
+      <md>
+        \begin{bmatrix} 3 \amp 5 \amp 6 \amp 2 \\ 1 \amp -1 \amp 2 \amp 3 \\ 0 \amp 5 \amp 1 \amp -1 \end{bmatrix}
+        \begin{bmatrix} 2 \amp 1 \\ 1 \amp -3 \\ 0 \amp 5 \\ 5 \amp -2 \end{bmatrix}
+      </md>
+    </p>
+
+    <p>
+      Oberve that the matrix on the right consists of two columns. 
+      We know how to multiply the column (aka a column vector) by the matrix. 
+      Let's do that! 
+      <md>
+        \begin{bmatrix} 3 \amp 5 \amp 6 \amp 2 \\ 1 \amp -1 \amp 2 \amp 3 \\ 0 \amp 5 \amp 1 \amp -1 \end{bmatrix}
+        \begin{bmatrix} 2 \\ 1 \\ 0  \\ 5 \end{bmatrix}
+        = 
+        \begin{bmatrix} 3(2) + 5(1) + 6(0) + 2(5) \\ 1(2) + -1(1) + 2(0) + 3(5) \\ 0(2) + 5(1) + 1(0) + -1(5) \end{bmatrix}
+        = 
+        \begin{bmatrix} 21 \\ 16 \\ 0 \end{bmatrix}
+      </md>
+      and
+      <md>
+        \begin{bmatrix} 3 \amp 5 \amp 6 \amp 2 \\ 1 \amp -1 \amp 2 \amp 3 \\ 0 \amp 5 \amp 1 \amp -1 \end{bmatrix}
+        \begin{bmatrix} 1 \\ -3 \\ 5  \\ -2 \end{bmatrix}
+        = 
+        \begin{bmatrix} 3(1) + 5(-3) + 6(5) + 2(-2) \\ 1(1) + -1(-3) + 2(5) + 3(-2) \\ 0(1) + 5(-3) + 1(5) + -1(-2) \end{bmatrix}
+        = 
+        \begin{bmatrix} 14 \\ 8 \\ -8 \end{bmatrix}
+      </md>
+      Then the first column vector we get is the first column in the answer matrix and the second column vector we get is the second column in the answer matrix. 
+      That is, 
+      <md>
+        \begin{bmatrix} 3 \amp 5 \amp 6 \amp 2 \\ 1 \amp -1 \amp 2 \amp 3 \\ 0 \amp 5 \amp 1 \amp -1 \end{bmatrix}
+        \begin{bmatrix} 2 \amp 1 \\ 1 \amp -3 \\ 0 \amp 5 \\ 5 \amp -2 \end{bmatrix}
+        = 
+        \begin{bmatrix} 21 \amp 14 \\ 16 \amp 8 \\ 0 \amp -8 \end{bmatrix}
+      </md>
+    </p>
+  </example>
+
+  <p>
+    Writing out the general formula for matrix multiplication using all the little subscripts would be horrible. 
+    But there is a clever way to write matrices that makes it a bit easier.
+  </p>
+
+  <p>
+    Suppose you want to multiply a <m>m \times n</m> matrix <m>A</m> by the <m>n\times k</m> matrix <m>B</m>. 
+    Instead of writing down all the entries of <m>B</m> using double subscripts, we can write the matrix as a collection of columns using single subscripts. 
+    So the matrix <m>B</m> looks like this: 
+    <md>
+      B = \begin{bmatrix} \v{b}_1 \amp \v{b}_2 \amp \cdots \amp \v{b}_k \end{bmatrix}
+    </md>
+    Then 
+    <md>
+      <mrow> AB \amp= A \begin{bmatrix} \v{b}_1 \amp \v{b}_2 \amp \cdots \amp \v{b}_k \end{bmatrix} </mrow>
+      <mrow> \amp= \begin{bmatrix} A\v{b}_1 \amp A\v{b}_2 \amp \cdots \amp A\v{b}_k \end{bmatrix} </mrow>
+    </md>
+    where each column of the answer is a product of <m>A</m> with the corresponding column vector of <m>B</m>. 
+    And each of those products are computed by taking the dot product of each row of <m>A</m> with that column vector. 
+  </p>
+
+  <p>
+    Summary: the <m>(i,j)</m> entry of the matrix <m>AB</m> is computed by taking the dot product of the <m>i</m>th row of <m>A</m> with the <m>j</m>-th column of <m>B</m> (rows times columns). 
+  </p>
+
+  <exercise>
+    <p>
+      Multiply! If it is impossible, say why!
+      <ol marker="1.">
+        <li>
+          <p>
+            <m>\begin{bmatrix} 1 \amp 5 \amp 2 \\ 3 \amp 2 \amp 1 \\ 0 \amp 2 \amp -3 \\ 1 \amp 1 \amp 1\end{bmatrix}
+            \begin{bmatrix} 2 \amp -1 \amp 0 \\ 1 \amp 3 \amp 2 \\ 5 \amp -2 \amp 0 \end{bmatrix} </m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\begin{bmatrix} 1 \amp 5 \amp 2 \\ 3 \amp 2 \amp 1 \\ 0 \amp 2 \amp -3 \\ 1 \amp 1 \amp 1\end{bmatrix}
+            \begin{bmatrix} 2 \amp 3 \amp 1 \\ 1 \amp 7 \amp 2 \\ 5 \amp -2 \amp -2 \\ 7 \amp 8 \amp 9 \end{bmatrix} </m>
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <solution>
+      <p>
+        1. 
+        <md>
+          <mrow> \amp \begin{bmatrix} 1 \amp 5 \amp 2 \\ 3 \amp 2 \amp 1 \\ 0 \amp 2 \amp -3 \\ 1 \amp 1 \amp 1 \end{bmatrix} \begin{bmatrix} 2 \amp -1 \amp 0 \\ 1 \amp 3 \amp 2 \\ 5 \amp -2 \amp 0 \end{bmatrix} </mrow>
+          <mrow>  = \amp \begin{bmatrix} 1(2) + 5(1) + 2(5) \amp 1(-1) + 5(3) + 2(-2) \amp 1(0) + 5(2) + 2(0) \\ 3(2) + 2(1) + 1(5) \amp 3(-1) + 2(3) + 1(-2) \amp 3(0) + 2(2) + 1(0) \\ 0(2) + 2(1) + -3(5) \amp 0(-1) + 2(3) + -3(-2) \amp 0(0) + 2(2) + -3(0) \\ 1(2) + 1(1) + 1(5) \amp 1(-1) + 1(3) + 1(-2) \amp 1(0) + 1(2) + 1(0) \end{bmatrix} </mrow>
+          <mrow> = \amp \begin{bmatrix} 17 \amp 10 \amp 10 \\ 13 \amp 1 \amp 4 \\ -13 \amp 12 \amp 4 \\ 8 \amp 0 \amp 2 \end{bmatrix} </mrow>
+        </md>
+      </p>
+
+      <p>
+        2. This is impossible. 
+        You can't multiply a <m>4 \times 3</m> matrix by a <m>4 \times 3</m> matrix. 
+        None of the dot products work! 
+      </p>
+
+      <p>
+        For example, if you want to find the <m>(1,1)</m> entry in the answer matrix, then you would find the dot product of the first row of the matrix to the left and the first column of the matrix to the right. 
+        But... there are three entries in the first row vector and four entries in the column vector... 
+        The sizes don't work out... (there is nothing we can multiply by the <m>7</m>)... 
+      </p>
+    </solution>
+  </exercise>
+
+  <p>
+    To make sure the dot products work out for matrix multiplication, we want to make sure the number of columns in the first matrix matches up with the number of rows in the second matrix. 
+    That is, to multiply two matrices <m>A</m> and <m>B</m> with the size of <m>A</m> being <m>m\times n</m>, the size of <m>B</m> must be <m>n \times k</m>. 
+    The answer matrix is of the size of <m>m\times k</m>. 
+  </p>
+
+  <p>
+    New operation means more rules! 
+    Here is a theorem that collects some rules about matrix multiplication.
+  </p>
+
+  <theorem xml:id="thm-RulesMatrixMultiplication">
+    <title>Matrix Multiplication Rules</title>
+    <statement>
+      <p>
+        Suppose <m>A</m>, <m>B</m>, and <m>C</m> are matrices that are the right size for the products to be defined. 
+        And suppose <m>I</m> is the identity matrix that is the right size as well. 
+        The following properties hold: 
+        <ol marker="1.">
+          <li>
+            <p>
+              <alert>Identity Property</alert>: <m>IA = A</m> and <m>AI = A</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <alert>Associativity</alert>: <m>A(BC) = (AB)C</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              (Left) <alert>Distributive Property</alert>: <m>A(B + C) = AB + AC</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              (Right) <alert>Distributive Property</alert>: <m>(A + B)C = AC + BC</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <alert>Regrouping with Scalar Multiplication</alert>; For any scalar <m>c</m>, <m>c(AB) = (cA)B = A(cB)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <alert>Transpose of a Product</alert>: <m>(AB)^T = B^T A^T</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    The first five rules should not be surprising. 
+    Spend some time to convince yourself why they are true!  
+  </p>
+
+  <proof>
+    <title>Proof Ideas and Sketches Using Smaller Matrices</title>
+    <p>
+      <ol marker="1.">
+        <li>
+          <p>
+            The first equation follows from multiplying the identify matrix by a column vector. 
+            You get that same column vector as the answer. 
+            Since that would happen for every column of <m>A</m>, you will get <m>A</m> as your answer. 
+          </p>
+
+          <p>
+            The second equation is true because when you multiply <m>A</m> by the <m>k</m>th column of <m>I</m>, the single <m>1</m> in the <m>k</m>th row of that column will reproduce the <m>k</m>th column of the matrix. 
+          </p>
+        </li>
+        <li>
+          <p>
+            This one gets messy when the matrices start getting bigger, so let's verify it in the <m>2 \times 2</m> case. 
+            The proof in general works the same just with a lot more subscripts to juggle! 
+            <md>
+              <mrow> A(BC) \amp= \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} \lp \begin{bmatrix} b_{11} \amp b_{12} \\ b_{21} \amp b_{22} \end{bmatrix} \begin{bmatrix} c_{11} \amp c_{12} \\ c_{21} \amp c_{22} \end{bmatrix} \rp </mrow>
+              <mrow> \amp= \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} \begin{bmatrix} b_{11}c_{11} + b_{12}c_{21} \amp b_{11}c_{12} + b_{12}c_{22} \\ b_{21}c_{11} + b_{22}c_{21} \amp b_{21}c_{12} + b_{22}c_{22} \end{bmatrix} </mrow>
+              <mrow> \amp= \begin{bmatrix} a_{11}\lp b_{11}c_{11} + b_{12}c_{21}\rp + a_{12} \lp b_{21}c_{11} + b_{22}c_{21} \rp \amp a_{11}\lp b_{11}c_{12} + b_{12}c_{22}\rp + a_{12}\lp b_{21}c_{12} + b_{22}c_{22}\rp \\ a_{21}\lp b_{11}c_{11} + b_{12}c_{21}\rp + a_{22}\lp b_{21}c_{11} + b_{22}c_{21}\rp \amp a_{21}\lp b_{11}c_{12} + b_{12}c_{22}\rp + a_{22}\lp b_{21}c_{12} + b_{22}c_{22}\rp \end{bmatrix} </mrow>  
+              <mrow> \amp= \begin{bmatrix} a_{11}b_{11}c_{11} + a_{11}b_{12}c_{21} + a_{12}b_{21}c_{11} + a_{12}b_{22}c_{21} \amp a_{11}b_{11}c_{12} + a_{11}b_{12}c_{22} + a_{12}b_{21}c_{12} + a_{12}b_{22}c_{22} \\ a_{21}b_{11}c_{11} + a_{21}b_{12}c_{21} + a_{22}b_{21}c_{11} + a_{22}b_{22}c_{21} \amp a_{21}b_{11}c_{12} + a_{21}b_{12}c_{22} + a_{22}b_{21}c_{12} + a_{22}b_{22}c_{22} \end{bmatrix} </mrow>
+            </md>
+            and
+            <md>
+              <mrow> (AB)C \amp= \lp \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} \begin{bmatrix} b_{11} \amp b_{12} \\ b_{21} \amp b_{22} \end{bmatrix} \rp \begin{bmatrix} c_{11} \amp c_{12} \\ c_{21} \amp c_{22} \end{bmatrix} </mrow>
+              <mrow> \amp= \begin{bmatrix} a_{11}b_{11} + a_{12}b_{21} \amp a_{11}b_{12} + a_{12}b_{22} \\ a_{21}b_{11} + a_{22}b_{21} \amp a_{21}b_{12} + a_{22}b_{22} \end{bmatrix} \begin{bmatrix} c_{11} \amp c_{12} \\ c_{21} \amp c_{22} \end{bmatrix} </mrow>
+              <mrow> \amp= \begin{bmatrix} \lp a_{11}b_{11} + a_{12}b_{21} \rp c_{11} + \lp a_{11}b_{12} + a_{12}b_{22} \rp c_{21} \amp \lp a_{11}b_{11} + a_{12}b_{21} \rp c_{12} + \lp a_{11}b_{12} + a_{12}b_{22} \rp c_{22} \\ \lp a_{21}b_{11} + a_{22}b_{21} \rp c_{11} + \lp a_{21}b_{12} + a_{22}b_{22} \rp c_{21} \amp \lp a_{21}b_{11} + a_{22}b_{21} \rp c_{12} + \lp a_{21}b_{12} + a_{22}b_{22} \rp c_{22} \end{bmatrix} </mrow>
+              <mrow> \amp= \begin{bmatrix} a_{11}b_{11}c_{11} + a_{12}b_{21}c_{11} + a_{11}b_{12}c_{21} + a_{12}b_{22}c_{21} \amp a_{11}b_{11}c_{12} + a_{12}b_{21}c_{12} + a_{11}b_{12}c_{22} + a_{12}b_{22}c_{22} \\ a_{21}b_{11}c_{11} + a_{22}b_{21}c_{11} + a_{21}b_{12}c_{21} + a_{22}b_{22}c_{21} \amp a_{21}b_{11}c_{12} + a_{22}b_{21}c_{12} + a_{21}b_{12}c_{22} + a_{22}b_{22}c_{22} \end{bmatrix} </mrow>
+            </md>
+            Comparing the results, we can see that the matrix multiplication is associative because multiplication of numbers is! 
+          </p>
+        </li>
+        <li>
+          <p>
+            This one isn't quite as messy as the previous one, but still warrants limiting to <m>2 \times 2</m> case: 
+            <md>
+              <mrow> A(B + C) \amp= \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} \lp \begin{bmatrix} b_{11} \amp b_{12} \\ b_{21} \amp b_{22} \end{bmatrix} + \begin{bmatrix} c_{11} \amp c_{12} \\ c_{21} \amp c_{22} \end{bmatrix} \rp </mrow>
+              <mrow> \amp= \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} \begin{bmatrix} b_{11} + c_{11} \amp b_{12} + c_{12} \\ b_{21} + c_{21} \amp b_{22} + c_{22} \end{bmatrix} </mrow>
+              <mrow> \amp= \begin{bmatrix} a_{11}\lp b_{11} + c_{11}\rp + a_{12}\lp b_{21} + c_{21}\rp \amp a_{11}\lp b_{12} + c_{12}\rp + a_{12}\lp b_{22} + c_{22}\rp \\ a_{21}\lp b_{11} + c_{11}\rp + a_{22}\lp b_{21} + c_{21}\rp \amp a_{21}\lp b_{12} + c_{12}\rp + a_{22}\lp b_{22} + c_{22}\rp \end{bmatrix} </mrow>
+              <mrow> \amp= \begin{bmatrix} a_{11}b_{11} + a_{11}c_{11} + a_{12}b_{21} + a_{12}c_{21} \amp a_{11}b_{12} + a_{11}c_{12} + a_{12}b_{22} + a_{12}c_{22} \\ a_{21}b_{11} + a_{21}c_{11} + a_{22}b_{21} + a_{22}c_{21} \amp a_{21}b_{12} + a_{21}c_{12} + a_{22}b_{22} + a_{22}c_{22} \end{bmatrix} </mrow>
+              <mrow> \amp= \begin{bmatrix} \lp a_{11}b_{11} + a_{12}b_{21}\rp + \lp a_{11}c_{11} + a_{12}c_{21}\rp \amp \lp a_{11}b_{12} + a_{12}b_{22}\rp + \lp a_{11}c_{12} + a_{12}c_{22}\rp \\ \lp a_{21}b_{11} + a_{22}b_{21}\rp + \lp a_{21}c_{11} + a_{22}c_{21}\rp \amp \lp a_{21}b_{12} + a_{22}b_{22}\rp + \lp a_{21}c_{12} + a_{22}c_{22}\rp \end{bmatrix} </mrow>
+              <mrow> \amp= \begin{bmatrix} a_{11}b_{11} + a_{12}b_{21} \amp a_{11}b_{12} + a_{12}b_{22} \\ a_{21}b_{11} + a_{22}b_{21} \amp a_{21}b_{12} + a_{22}b_{22} \end{bmatrix} + \begin{bmatrix} a_{11}c_{11} + a_{12}c_{21} \amp a_{11}c_{12} + a_{12}c_{22} \\ a_{21}c_{11} + a_{22}c_{21} \amp a_{21}c_{12} + a_{22}c_{22} \end{bmatrix} </mrow>
+              <mrow> \amp= \lp \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} \begin{bmatrix} b_{11} \amp b_{12} \\ b_{21} \amp b_{22} \end{bmatrix} \rp + \lp \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} \begin{bmatrix} c_{11} \amp c_{12} \\ c_{21} \amp c_{22} \end{bmatrix} \rp </mrow>
+              <mrow> \amp= AB + AC </mrow>
+            </md>
+          </p>
+        </li>
+        <li>
+          <p>
+            The verification of this one works just like the previous one with the obvious changes. 
+            Again it comes down to the fact that we have the distributive property in basic arithmetic. 
+          </p>
+        </li>
+        <li>
+          <p>
+            I encourage you to verify this for the <m>2\times 2</m> case. 
+            This one is much less messy than the ones we have done! 
+          </p>
+        </li>
+      </ol>
+    </p>
+  </proof>
+
+  <p>
+    You may find the last rule a bit surprising. 
+    Why isn't <m>(AB)^T</m> equal to <m>A^T B^T</m>? 
+  </p>
+
+  <p>
+    This surprise should tell you that matrix multiplication is not commutative!
+  </p>
+
+  <p>
+    Let's verify this one for the <m>2 \times 2</m> case! 
+    <md>
+      <mrow> (AB)^T \amp= \lp \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix} \begin{bmatrix} b_{11} \amp b_{12} \\ b_{21} \amp b_{22} \end{bmatrix} \rp^T </mrow>
+      <mrow> \amp= \begin{bmatrix} a_{11}b_{11} + a_{12}b_{21} \amp a_{11}b_{12} + a_{12}b_{22} \\ a_{21}b_{11} + a_{22}b_{21} \amp a_{21}b_{12} + a_{22}b_{22} \end{bmatrix}^T </mrow>
+      <mrow> \amp= \begin{bmatrix} a_{11}b_{11} + a_{12}b_{21} \amp a_{21}b_{11} + a_{22}b_{21} \\ a_{11}b_{12} + a_{12}b_{22} \amp a_{21}b_{12} + a_{22}b_{22} \end{bmatrix} </mrow>
+    </md>
+    If you computed <m>A^T B^T</m> and compare it to this you would find you would NOT get this result! 
+    But if we commute all of the products inside this matrix... 
+    <md>
+      <mrow> \amp \qquad \, \, \, = \begin{bmatrix} b_{11}a_{11} + b_{21}a_{12} \amp b_{11}a_{21} + b_{21}a_{22} \\ b_{12}a_{11} + b_{22}a_{12} \amp b_{12}a_{21} + b_{22}a_{22} \end{bmatrix} </mrow>
+    </md>
+    This is what you would get for <m>B^T A^T</m>! 
+    <md>
+      <mrow> B^T A^T \amp= \begin{bmatrix} b_{11} \amp b_{12} \\ b_{21} \amp b_{22} \end{bmatrix}^T \begin{bmatrix} a_{11} \amp a_{12} \\ a_{21} \amp a_{22} \end{bmatrix}^T </mrow>
+      <mrow> \amp= \begin{bmatrix} b_{11} \amp b_{21} \\ b_{12} \amp b_{22} \end{bmatrix} \begin{bmatrix} a_{11} \amp a_{21} \\ a_{12} \amp a_{22} \end{bmatrix} </mrow>
+      <mrow> \amp= \begin{bmatrix} b_{11}a_{11} + b_{21}a_{12} \amp b_{11}a_{21} + b_{21}a_{22} \\ b_{12}a_{11} + b_{22}a_{12} \amp b_{12}a_{21} + b_{22}a_{22} \end{bmatrix} </mrow>
+    </md>
+  </p>
+  
+  <p>
+    Observe that <alert>commutativity</alert> is not included in the theorem. 
+    That is because matrix multiplication is NOT commutative, which means in general it is NOT true that <m>AB = BA</m>. 
+    Sometimes it happens that way but often it does not!  
+  </p>
+
+  <p>
+    A quick counter-example can show that matrix multiplication is non-commutative. 
+    Let <m>A = \begin{bmatrix} 0 \amp 2 \\ 1 \amp -2 \end{bmatrix}</m> and <m>B = \begin{bmatrix} 1 \amp 2 \\ -1 \amp 1 \end{bmatrix}</m>. 
+    Observe that
+    <md>
+      AB = \begin{bmatrix} 0 \amp 2 \\ 1 \amp -2 \end{bmatrix}
+      \begin{bmatrix} 1 \amp 2 \\ -1 \amp 1 \end{bmatrix}
+      = \begin{bmatrix} -2 \amp 2 \\ 3 \amp 0 \end{bmatrix}
+    </md>
+    but
+    <md>
+      BA = \begin{bmatrix} 1 \amp 2 \\ -1 \amp 1 \end{bmatrix}
+      \begin{bmatrix} 0 \amp 2 \\ 1 \amp -2 \end{bmatrix}
+      = \begin{bmatrix} 2 \amp -2 \\ 1 \amp -4 \end{bmatrix}
+    </md>
+    Hence <m>AB \neq BA</m>... 
+  </p>
+
+  <worksheet xml:id="ws-sec23">
+    <title>Some Exercises for This Section</title>
+    
+    <introduction>
+      <p>
+        Richard included some practice problems that cover some main concepts in this section. 
+        You don't need to turn it in, but you are highly encouraged to work on this with your classmates. 
+        The problems here may end up being in-class practice problems, homework problems, and/or exam problems. 
+        Reach out to Richard for help if you get stuck or have any questions. 
+      </p>
+
+      <p>
+        Only the final answers are included to some of the problems for you to check your result. 
+        If you want to check your work, talk to Richard and he is happy to discuss the process with you. 
+      </p>
+    </introduction>
+  </worksheet>
+
+</section>

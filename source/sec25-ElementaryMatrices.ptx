@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec25-ElementaryMatrices" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Elementary Matrices</title>
+
+  <introduction>
+    <p>
+      In previous sections, we utilized Gaussian Elimination as our primary tool for solving systems of linear equations and computing matrix inverses. 
+      Separately, we learned the mechanics of matrix multiplication. 
+      While these might seem like distinct mathematical operations, they are intimately connected. 
+      In this section, we will bridge that gap by introducing <term>elementary matrices</term>. 
+    </p>
+
+    <objectives>
+      <introduction>
+        <p>
+          After this section, students will be able to:
+        </p>
+      </introduction>
+      <ul>
+        <li>
+          <p>
+            define and construct elementary matrices by applying a single elementary row operation to the identity matrix;
+          </p>
+        </li>
+        <li>
+          <p>
+            execute elementary row operations on a given matrix via left-multiplication by an elementary matrix; 
+          </p>
+        </li>
+        <li>
+          <p>
+            determine the inverse of an elementary matrix by reversing the corresponding row operation on the identity matrix;
+          </p>
+        </li>
+        <li>
+          <p>
+            express any invertible matrix, and its inverse, as a product of elementary matrices.
+          </p>
+        </li>
+      </ul>
+    </objectives>
+  </introduction>
+
+  <p>
+    We've learned how to solve systems of equations and find matrix inverses by using the Gaussian Elimination algorithm.
+    And we learned how to multiply matrices. 
+    It turns out that these two things are related! 
+  </p>
+        
+  <p>
+    Each of the three elementary row operations can be performed by multiplying by an <term>elementary matrix</term>. 
+  </p>
+
+  <p>
+    Let's see this by looking at an example!
+  </p>
+
+  <example>
+    <p>
+      Consider the system: 
+      <md>
+        \begin{cases}
+          3x + 2y = 5 \\
+          5x - 8y = 14
+        \end{cases}
+      </md>
+      The augmented matrix is <m>\begin{bmatrix} 3 \amp 2 \amp \mid \amp 5 \\ 5 \amp -8 \amp \mid \amp 14 \end{bmatrix}</m>
+    </p>
+
+    <p>
+      Recall there are three elementary row operations we can perform to an augmented matrix. 
+      <ol marker="1.">
+        <li>
+          <p>
+            We could swap the two rows by multiplying by the matrix <m>\begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix}</m>: 
+            <md>
+              \begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix} \begin{bmatrix} 3 \amp 2 \amp \mid \amp 5 \\ 5 \amp -8 \amp \mid \amp 14 \end{bmatrix} = \begin{bmatrix} 5 \amp -8 \amp \mid \amp 14 \\ 3 \amp 2 \amp \mid \amp 5 \end{bmatrix}
+            </md>
+          </p>
+        </li>
+        <li>
+          <p>
+            We could multiply Row 2 by <m>5</m> by multiplying by the matrix <m>\begin{bmatrix} 1 \amp 0 \\ 0 \amp 5 \end{bmatrix}</m>: 
+            <md>
+              \begin{bmatrix} 1 \amp 0 \\ 0 \amp 5 \end{bmatrix} \begin{bmatrix} 3 \amp 2 \amp \mid \amp 5 \\ 5 \amp -8 \amp \mid \amp 14 \end{bmatrix} = \begin{bmatrix} 3 \amp 2 \amp \mid \amp 5 \\ 25 \amp -40 \amp \mid \amp 70 \end{bmatrix}
+            </md>
+          </p>
+        </li>
+        <li>
+          <p>
+            We could add <m>3</m> times Row 1 to Row 2 (and replace Row 2) by multiplying by the matrix <m>\begin{bmatrix} 1 \amp 0 \\ 3 \amp 1 \end{bmatrix}</m>: 
+            <md>
+              \begin{bmatrix} 1 \amp 0 \\ 3 \amp 1 \end{bmatrix} \begin{bmatrix} 3 \amp 2 \amp \mid \amp 5 \\ 5 \amp -8 \amp \mid \amp 14 \end{bmatrix} = \begin{bmatrix} 3 \amp 2 \amp \mid \amp 5 \\ 14 \amp -2 \amp \mid \amp 29 \end{bmatrix}
+            </md>
+          </p>
+        </li>
+      </ol>
+      Notice that in each case, the matrix that we used to do the elementary operation is exactly the matrix you would get by doing that same elementary operation to the identity matrix.
+      WHAT!??
+      <ol marker="1.">
+        <li>
+          <p>
+            If we swap the two rows of <m>\begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}</m>, we get <m>\begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            If we multiply Row 2 of <m>\begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}</m> by <m>5</m>, we get <m>\begin{bmatrix} 1 \amp 0 \\ 0 \amp 5 \end{bmatrix}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            If we add <m>3</m> times Row 1 of <m>\begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}</m> to Row 2 (and replace Row 2), we get <m>\begin{bmatrix} 1 \amp 0 \\ 3 \amp 1 \end{bmatrix}</m>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </example>
+
+  <p>
+    <alert>Summary:</alert> Every elementary row operation corresponds to an <term>elementary matrix</term>, <m>E</m>, that can be created by performing that operation on the identity matrix. 
+    We can perform that operation on any matrix <m>A</m> by computing the product <m>EA</m>. 
+  </p>
+
+  <example>
+    <p>
+      Consider the matrix <m>A = \begin{bmatrix} 1 \amp 2 \\ 3 \amp 4 \end{bmatrix}</m>. 
+      Suppose we did the following two steps: 
+      <ol marker="1.">
+        <li>
+          <p>
+            Swap Row 1 and Row 2; 
+          </p>
+        </li>
+        <li>
+          <p>
+            Add <m>4</m> times Row 1 to Row 2 (and replace Row 2). 
+          </p>
+        </li>
+      </ol>
+      That would look like this: 
+      <md>
+        \begin{bmatrix} 1 \amp 2 \\ 3 \amp 4 \end{bmatrix} \rightarrow \begin{bmatrix} 3 \amp 4 \\ 1 \amp 2 \end{bmatrix} \rightarrow \begin{bmatrix} 3 \amp 4 \\ 13 \amp 18 \end{bmatrix}
+      </md>
+    </p>
+
+    <p>
+      The first step corresponds to the elementary matrix 
+      <md>
+        E_1 = \begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix}
+      </md> 
+      and the second step corresponds to the elementary matrix 
+      <md>
+        E_2 = \begin{bmatrix} 1 \amp 0 \\ 4 \amp 1 \end{bmatrix}
+      </md>
+      (<em>Note: </em> When we made <m>E_2</m>, we started with a brand new identity matrix rather than using <m>E_1</m>.)
+    </p>
+
+    <p>
+      Now notice that
+      <md>
+        E_2E_1A = \begin{bmatrix} 1 \amp 0 \\ 4 \amp 1 \end{bmatrix} \begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix} \begin{bmatrix} 1 \amp 2 \\ 3 \amp 4 \end{bmatrix}
+        = \begin{bmatrix} 3 \amp 4 \\ 13 \amp 18 \end{bmatrix}
+      </md>
+    </p>
+  </example>
+
+  <p>
+    The <alert>inverse</alert> of an elementary matrix <m>E</m>, <m>E^{-1}</m> is also an elementary matrix and can be used to perform the inverse of the elementary operation (the operation that would undo the original row operation). 
+  </p>
+
+  <example>
+    <p>
+      If <m>E</m> corresponds to adding <m>7</m> times Row 1 to Row 3, then the elementary matrix is
+      <me>
+        E = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 7 \amp 0 \amp 1 \end{bmatrix} 
+      </me>
+      Then <m>E^{-1} = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ -7 \amp 0 \amp 1 \end{bmatrix}</m> 
+      and this corresponds to adding <m>-7</m> times Row 1 to Row 3. 
+    </p>
+  </example>
+
+  <p>
+    Here is the claim: <alert>A matrix is invertible if and only if it is the product of elementary matrices</alert>. 
+  </p>
+
+  <p>
+    Let's think about our method for finding inverses using Gaussian Elimination algorithm. 
+    We create a big augmented matrix <m>\begin{bmatrix} A \mid I \end{bmatrix}</m> and then do elementary operations until we get to <m>\begin{bmatrix} I \mid A^{-1} \end{bmatrix}</m>. 
+  </p>
+
+  <p>
+    Now we know that we could do this by multiplying the augmented matrix by the corresponding elementary matrices. 
+    Let's call those elementary matrices <m>E_1, E_2, \ldots, E_k</m>. 
+    Then if we just look at the right side of the big augmented matrix, we would see that 
+    <md>
+      E_k \ldots E_2E_1 I = A^{-1}
+    </md>
+    Take the inverse of both sides, and we get
+    <md>
+      E_1^{-1} E_2^{-1} \ldots E_{k}^{-1} = A
+    </md>
+  </p>
+
+  <p>
+    We can use what we just learned to describe a process that will always work to write any invertible matrix as a product of elementary matrices: 
+    <ol marker="Step 1:">
+      <li>
+        <p>
+          Put the matrix into reduced row echelon form. 
+          If it is invertible, then this form will be the identity matrix. 
+        </p>
+      </li>
+      <li>
+        <p>
+          For each step, write down the corresponding elementary matrix (writing them from right to left). 
+          Remember that each time we need to start with a brand new identity matrix to make our elementary matrix!
+        </p>
+
+        <p>
+          If you multiply the elementary matrices, you will get the inverse of the original matrix. 
+        </p>
+      </li>
+      <li>
+        <p>
+          Take the inverse of each of the elementary matrices and then write them down in the reverse order. 
+          Then we are done! 
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <example>
+    <p>
+      Consider this matrix <m>A = \begin{bmatrix} 3 \amp 2 \\ 5 \amp -8 \end{bmatrix}</m> and we want to find <m>A^{-1}</m>. 
+    </p>
+
+    <p>
+      First, let's multiply the top row by <m>\frac{1}{3}</m> to get our leading <m>1</m>: 
+      <md>
+        \begin{bmatrix} 1 \amp \frac{2}{3} \\ 5 \amp -8 \end{bmatrix}
+      </md>
+      This first step corresponds to the elementary matrix <m>E_1 = \begin{bmatrix} \frac{1}{3} \amp 0 \\ 0 \amp 1 \end{bmatrix}</m>
+    </p>
+
+    <p>
+      Second, let's add <m>-5</m> times Row 1 to Row 2 (and replace Row 2) to get a zero below the first leading <m>1</m>: 
+      <md>
+        \begin{bmatrix} 1 \amp \frac{2}{3} \\ 0 \amp \frac{-34}{3} \end{bmatrix}
+      </md>
+      This second step corresponds to the elementary matrix <m>E_2 = \begin{bmatrix} 1 \amp 0 \\ -5 \amp 1 \end{bmatrix}</m>
+    </p>
+
+    <p>
+      Third, let's multiply the second row by <m>\frac{-3}{34}</m> to get our second leading <m>1</m>: 
+      <md>
+        \begin{bmatrix} 1 \amp \frac{2}{3} \\ 0 \amp 1 \end{bmatrix}
+      </md>
+      This third step corresponds to the elementary matrix <m>E_3 = \begin{bmatrix} 1 \amp 0 \\ 0 \amp \frac{-3}{34} \end{bmatrix}</m>
+    </p>
+
+    <p>
+      Fourth, let's add <m>\frac{-2}{3}</m> times Row 2 to Row 1 (and replace Row 1) to put the matrix into reduced row echelon form: 
+      <md>
+        \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+      </md>
+      This fourth step corresponds to the elementary matrix <m>E_4 = \begin{bmatrix} 1 \amp \frac{-2}{3} \\ 0 \amp 1 \end{bmatrix}</m>
+    </p>
+
+    <p>
+      So 
+      <md>
+        <mrow>A^{-1} \amp= E_4E_3E_2E_1 </mrow>
+        <mrow> \amp= \begin{bmatrix} 1 \amp \frac{-2}{3} \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} 1 \amp 0 \\ 0 \amp \frac{-3}{34} \end{bmatrix} \begin{bmatrix} 1 \amp 0 \\ -5 \amp 1 \end{bmatrix} \begin{bmatrix} \frac{1}{3} \amp 0 \\ 0 \amp 1 \end{bmatrix} </mrow>
+        <mrow> \amp= \begin{bmatrix} \frac{4}{17} \amp \frac{1}{17} \\ \frac{5}{34} \amp \frac{-3}{34} \end{bmatrix} </mrow>
+      </md>
+    </p>
+
+    <p>
+      We can write all of the inverses of the elementary matrices by using the reverse operation on the identity matrix: 
+      <ul marker="">
+        <li>
+          <p>
+            The inverse of <m>E_4 = \begin{bmatrix} 1 \amp \frac{-2}{3} \\ 0 \amp 1 \end{bmatrix}</m> is <m>\begin{bmatrix} 1 \amp \frac{2}{3} \\ 0 \amp 1 \end{bmatrix}</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            The inverse of <m>E_3 = \begin{bmatrix} 1 \amp 0 \\ 0 \amp \frac{-3}{34} \end{bmatrix}</m> is <m>\begin{bmatrix} 1 \amp 0 \\ 0 \amp \frac{34}{-3} \end{bmatrix}</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            The inverse of <m>E_2 = \begin{bmatrix} 1 \amp 0 \\ -5 \amp 1 \end{bmatrix}</m> is <m>\begin{bmatrix} 1 \amp 0 \\ 5 \amp 1 \end{bmatrix}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The inverse of <m>E_1 = \begin{bmatrix} \frac{1}{3} \amp 0 \\ 0 \amp 1 \end{bmatrix}</m> is <m>\begin{bmatrix} 3 \amp 0 \\ 0 \amp 1 \end{bmatrix}</m>.
+          </p>
+        </li>
+      </ul>
+      So
+      <md>
+        <mrow>A \amp= E_1^{-1}E_2^{-1}E_3^{-1}E_4^{-1} </mrow>
+        <mrow> \amp= \begin{bmatrix} 3 \amp 0 \\ 0 \amp 1 \end{bmatrix} \begin{bmatrix} 1 \amp 0 \\ 5 \amp 1 \end{bmatrix}  \begin{bmatrix} 1 \amp 0 \\ 0 \amp \frac{34}{-3} \end{bmatrix} \begin{bmatrix} 1 \amp \frac{2}{3} \\ 0 \amp 1 \end{bmatrix}  </mrow>
+      </md>
+    </p>
+  </example>
+
+  <exercise>
+    <p>
+      Write the following matrix AND its inverse as a product of elementary matrices. 
+      <md>
+        A = \begin{bmatrix} 0 \amp 2 \amp 1 \\ 1 \amp 3 \amp -1 \\ -1 \amp -3 \amp 0 \end{bmatrix}
+      </md>
+    </p>
+
+    <solution>
+      <p>
+        Step 1: Swap Row 1 and Row 2 to get
+        <md>
+          \begin{bmatrix} 1 \amp 3 \amp -1 \\ 0 \amp 2 \amp 1 \\ -1 \amp -3 \amp 0 \end{bmatrix}
+        </md>
+        This corresponds to the elementary matrix <m>E_1 = \begin{bmatrix} 0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}</m>
+      </p>
+
+      <p>
+        Step 2: Add <m>1</m> times Row 1 to Row 3 (and replace Row 3) to get
+        <md>
+          \begin{bmatrix} 1 \amp 3 \amp -1 \\ 0 \amp 2 \amp 1 \\ 0 \amp 0 \amp -1 \end{bmatrix}
+        </md>
+        This corresponds to the elementary matrix <m>E_2 = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 1 \end{bmatrix}</m>
+      </p>
+
+      <p>
+        Step 3: Multiply Row 2 by <m>\frac{1}{2}</m> to get
+        <md>
+          \begin{bmatrix} 1 \amp 3 \amp -1 \\ 0 \amp 1 \amp \frac{1}{2} \\ 0 \amp 0 \amp -1 \end{bmatrix}
+        </md>
+        This corresponds to the elementary matrix <m>E_3 = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp \frac{1}{2} \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}</m>
+      </p>
+
+      <p>
+        Step 4: Multiply Row 3 by <m>-1</m> to get
+        <md>
+          \begin{bmatrix} 1 \amp 3 \amp -1 \\ 0 \amp 1 \amp \frac{1}{2} \\ 0 \amp 0 \amp 1 \end{bmatrix}
+        </md>
+        This corresponds to the elementary matrix <m>E_4 = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp -1 \end{bmatrix}</m>
+      </p>
+
+      <p>
+        Step 5: Add <m>-3</m> times Row 2 to Row 1 (and replace Row 1) to get
+        <md>
+          \begin{bmatrix} 1 \amp 0 \amp -\frac{5}{2} \\ 0 \amp 1 \amp \frac{1}{2} \\ 0 \amp 0 \amp 1 \end{bmatrix}
+        </md>
+        This corresponds to the elementary matrix <m>E_5 = \begin{bmatrix} 1 \amp -3 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}</m>
+      </p>
+
+      <p>
+        Step 6: Add <m>\frac{5}{2}</m> times Row 3 to Row 1 (and replace Row 1) to get
+        <md>
+          \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp \frac{1}{2} \\ 0 \amp 0 \amp 1 \end{bmatrix}
+        </md>
+        This corresponds to the elementary matrix <m>E_6 = \begin{bmatrix} 1 \amp 0 \amp \frac{5}{2} \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}</m>
+      </p>
+
+      <p>
+        Step 7: Add <m>\frac{-1}{2}</m> times Row 3 to Row 2 (and replace Row 2) to get
+        <md>
+          \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}
+        </md>
+        This corresponds to the elementary matrix <m>E_7 = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp \frac{-1}{2} \\ 0 \amp 0 \amp 1 \end{bmatrix}</m>
+      </p>
+
+      <p>
+        This tells us that
+        <md>
+          <mrow>A^{-1} \amp= E_7E_6E_5E_4E_3E_2E_1 </mrow>
+          <mrow> \amp= \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp \frac{-1}{2} \\ 0 \amp 0 \amp 1 \end{bmatrix} \begin{bmatrix} 1 \amp 0 \amp \frac{5}{2} \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix} \begin{bmatrix} 1 \amp -3 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix} \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp -1 \end{bmatrix} \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp \frac{1}{2} \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix} \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 1 \end{bmatrix} \begin{bmatrix} 0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix} </mrow>
+        </md>
+        If we multiply those out we see that <m>A^{-1} = \begin{bmatrix} \frac{-3}{2} \amp \frac{-3}{2} \amp \frac{-5}{2} \\ \frac{1}{2} \amp \frac{1}{2} \amp \frac{1}{2} \\ 0 \amp -1 \amp -1 \end{bmatrix}</m>
+      </p>
+
+      <p>
+        And taking the inverse of both sides of the giant product (and using the "shoes and socks" rule), we see that
+        <md>
+          A = E_1^{-1}E_2^{-1}E_3^{-1}E_4^{-1}E_5^{-1}E_6^{-1}E_7^{-1}
+        </md>
+        So let's find the inverses of each of these matrices by performing the inverse operation on the identity matrix: 
+        <ul marker="">
+          <li>
+            <p>
+              <m>E_1</m> swaps Row 1 and Row 2 and that operation is its own inverse (do it twice and you get right back where you started), so <m>E_1^{-1} = \begin{bmatrix} 0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>E_2</m> adds Row 1 to Row 3, and the inverse of that is adding <m>-1</m> times Row 1 to Row 2, so <m>E_2^{-1} = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ -1 \amp 0 \amp 1 \end{bmatrix}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>E_3</m> multiplies Row 2 by <m>\frac{1}{2}</m>, and the inverse of that is multiplying Row 2 by <m>2</m>, so <m>E_3^{-1} = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>E_4</m> multiplies Row 3 by <m>-1</m>, and that operation is its own inverse, so <m>E_4^{-1} = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp -1 \end{bmatrix}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>E_5</m> adds <m>-3</m> times Row 2 to Row 1, and the inverse of that is adding <m>3</m> times Row 2 to Row 1, so <m>E_5^{-1} = \begin{bmatrix} 1 \amp 3 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>E_6</m> adds <m>\frac{5}{2}</m> times Row 3 to Row 1, and the inverse of that is adding <m>\frac{-5}{2}</m> times Row 3 to Row 1, so <m>E_6^{-1} = \begin{bmatrix} 1 \amp 0 \amp \frac{-5}{2} \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>E_7</m> adds <m>\frac{-1}{2}</m> times Row 3 to Row 2, and the inverse of that is adding <m>\frac{1}{2}</m> times Row 3 to Row 2, so <m>E_7^{-1} = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp \frac{1}{2} \\ 0 \amp 0 \amp 1 \end{bmatrix}</m>.
+            </p>
+          </li>
+        </ul>
+        This means... 
+        <md>
+          <mrow> A \amp= E_1^{-1}E_2^{-1}E_3^{-1}E_4^{-1}E_5^{-1}E_6^{-1}E_7^{-1} </mrow>
+          <mrow> 
+            \amp= \begin{bmatrix} 0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}
+            \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ -1 \amp 0 \amp 1 \end{bmatrix}
+            \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}
+            \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp -1 \end{bmatrix}
+            \begin{bmatrix} 1 \amp 3 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}
+            \begin{bmatrix} 1 \amp 0 \amp \frac{-5}{2} \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix}
+            \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp \frac{1}{2} \\ 0 \amp 0 \amp 1 \end{bmatrix}
+          </mrow>
+        </md>
+      </p>
+    </solution>
+  </exercise>
+</section>

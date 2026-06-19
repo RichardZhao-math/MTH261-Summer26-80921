@@ -1,0 +1,123 @@
+<section xml:id="sec53-Orthogonality" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Orthogonality</title>
+
+  <p>
+    Recall back in <xref ref="sec42-ProjectionsPlanes"/>, we saw that two vectors are <alert>orthogonal</alert> if their <em>dot product</em> is <m>0</m> in <xref ref="def-DotProduct"/>. 
+    Similarly, we can define <term>orthogonal sets</term> as a set of orthogonal vectors. 
+  </p>
+
+  <definition xml:id="def-OrthogonalSet">
+    <title>Orthogonal Sets</title>
+    <statement>
+        <p>
+            A set of vectors <m>\set{\v{v}_1, \v{v}_2 , \ldots, \v{v}_p}</m> is an <term>orthogonal set</term> if each pair of distinct vectors from this set is orthogonal. 
+            That is, 
+            <md>
+                \v{v}_i \cdot \v{v}_j = 0
+            </md>
+            whenever <m>i \neq j</m>. 
+        </p>
+    </statement>
+  </definition>
+
+  <example>
+    <p>
+        Let <m>\v{v}_1 = \begin{bmatrix} 3 \\ 1 \\ 1 \end{bmatrix}</m>, <m>\v{v}_2 = \begin{bmatrix} -1 \\ 2 \\ 1 \end{bmatrix}</m>, and <m>\v{v}_3 = \begin{bmatrix} -\frac{1}{2} \\ -2 \\ \frac{7}{2} \end{bmatrix}</m>. 
+        Is this set <m>\set{\v{v}_1, \v{v}_2, \v{v}_3}</m> an orthogonal set? 
+    </p>
+
+    <p>
+        If this is an orthogonal set, then each pair of the distinct vectors is orthogonal. 
+        We can form three pairs of distinct vectors in the set, and we will check their orthogonality respectively: 
+        <md>
+            <mrow> \v{v}_1 \cdot \v{v}_2 \amp= \begin{bmatrix} 3 \\ 1 \\ 1 \end{bmatrix} \cdot \begin{bmatrix} -1 \\ 2 \\ 1 \end{bmatrix} = -3 + 2 + 1 = 0</mrow>
+            <mrow> \v{v}_2 \cdot \v{v}_3 \amp= \begin{bmatrix} -1 \\ 2 \\ 1 \end{bmatrix} \cdot \begin{bmatrix} -\frac{1}{2} \\ -2 \\ \frac{7}{2} \end{bmatrix} = \frac{1}{2} - 4 + \frac{7}{2} = 0</mrow>
+            <mrow> \v{v}_1 \cdot \v{v}_3 \amp= \begin{bmatrix} 3 \\ 1 \\ 1 \end{bmatrix} \cdot \begin{bmatrix} -\frac{1}{2} \\ -2 \\ \frac{7}{2} \end{bmatrix} = -\frac{3}{2} - 2 + \frac{7}{2} = 0</mrow>
+        </md>
+        Observe that each pair of distinct vectors in the set is orthogonal. 
+        Hence this is an orthogonal set. 
+    </p>
+  </example>
+
+  <p>
+    Sometimes we want to only focus on the direction of a vector. 
+    Since the length of a vector has nothing to do with its direction, we want to minimize the effect of the length by <alert>making the length to be <m>1</m></alert>. 
+  </p>
+
+  <definition xml:id="def-UnitVector">
+    <title>Unit Vectors</title>
+    <statement>
+        <p>
+            A vector with length <m>1</m> is called a <term>unit vector</term>. 
+        </p>
+    </statement>
+  </definition>
+
+  <p>
+    Given a non-zero vector <m>\v{v}</m>, we can make its length to be <m>1</m> by <alert>dividing it by its length</alert>. 
+    That is, a unit vector in the same direction as <m>\v{v}</m> is
+    <md>
+        \v{u} = \frac{\v{v}}{\|\v{v}\|}
+    </md>
+    This process of creating a normal vector <m>\v{u}</m> from <m>\v{v}</m> is called <term>normalizing <m>\v{v}</m></term>. 
+  </p>
+
+  <p>
+    Given an orthogonal set, we can even normalize each vector in this set! 
+    This set is called the <term>orthonormal set</term>. 
+  </p>
+
+  <definition xml:id="def-OrthonormalSet">
+    <title>Orthonormal Sets</title>
+    <statement>
+        <p>
+            A set <m>\set{\v{u}_1, \v{u}_2, \ldots, \v{u}_p}</m> is an <term>orthonormal set</term> if it is an orthogonal set of unit vectors. 
+        </p>
+    </statement>
+  </definition>
+
+  <example>
+    <p>
+        We showed that, in the previous example, that <m>\set{\v{v}_1, \v{v}_2, \v{v}_3}</m> is an orthogonal set, where <m>\v{v}_1 = \begin{bmatrix} 3 \\ 1 \\ 1 \end{bmatrix}</m>, <m>\v{v}_2 = \begin{bmatrix} -1 \\ 2 \\ 1 \end{bmatrix}</m>, and <m>\v{v}_3 = \begin{bmatrix} -\frac{1}{2} \\ -2 \\ \frac{7}{2} \end{bmatrix}</m>. 
+        Is this set also an orthonormal set? 
+    </p>
+
+    <p>
+        The answer is no since none of the three vectors have the length of <m>1</m>. 
+    </p>
+
+    <p>
+        <alert>But we can make an orthonormal set out of it</alert> by normalizing each vector. 
+        Since normalization (aka rescaling the vector to have the length of <m>1</m>) will not change the direction, the orthogonality remains. 
+    </p>
+
+    <p>
+        Observe that
+        <md>
+            <mrow> \|\v{v}_1\| \amp= \sqrt{3^2 + 1^2 + 1^2} = \sqrt{11} </mrow>
+            <mrow> \|\v{v}_2\| \amp= \sqrt{(-1)^2 + 2^2 + 1^2} = \sqrt{6} </mrow>
+            <mrow> \|\v{v}_3\| \amp= \sqrt{\lp -\frac{1}{2} \rp^2 + (-2)^2 + \lp \frac{7}{2} \rp^2} = \frac{\sqrt{66}}{2} </mrow>
+        </md>
+        Then we can normalize each vector by dividing it by its lengths: 
+        <md>
+            <mrow>\v{u}_1 \amp= \frac{\v{v}_1}{\|\v{v}_1\|} = \frac{1}{\sqrt{11}}\begin{bmatrix} 3 \\ 1 \\ 1 \end{bmatrix} = \begin{bmatrix} \frac{3}{\sqrt{11}} \\ \frac{1}{\sqrt{11}} \\ \frac{1}{\sqrt{11}} \end{bmatrix}</mrow>
+            <mrow>\v{u}_2 \amp= \frac{\v{v}_2}{\|\v{v}_2\|} = \frac{1}{\sqrt{6}}\begin{bmatrix} -1 \\ 2 \\ 1 \end{bmatrix} = \begin{bmatrix} -\frac{1}{\sqrt{6}} \\ \frac{2}{\sqrt{6}} \\ \frac{1}{\sqrt{6}} \end{bmatrix}</mrow>
+            <mrow>\v{u}_3 \amp= \frac{\v{v}_3}{\|\v{v}_3\|} = \frac{2}{\sqrt{66}}\begin{bmatrix} -\frac{1}{2} \\ -2 \\ \frac{7}{2} \end{bmatrix} = \begin{bmatrix} -\frac{1}{\sqrt{66}} \\ -\frac{4}{\sqrt{66}} \\ \frac{7}{\sqrt{66}} \end{bmatrix}</mrow>
+        </md>
+        The set <m>\set{\v{u}_1, \v{u}_2, \v{u}_3}</m> is now an orthonormal set!
+    </p>
+  </example>
+
+  <p>
+    But why do we want orthogonal/orthonormal sets? 
+    That is because these sets are <em>linearly independent</em> so they can become some bases for some subspaces. 
+    Also, things are working out nicely with orthogonal/orthonormal bases, so we like to work with them. 
+  </p>
+
+  <p>
+    If we want an orthogonal basis for a subspace, we can produce it using the <term>Gram-Schmidt Process</term>. 
+    We will not be covering it in this class.
+    Feel free to look into it if you are interested.
+    You should be able to understand the process just fine, as the trick to make the process work is through projection that we learned before!
+  </p>
+</section>

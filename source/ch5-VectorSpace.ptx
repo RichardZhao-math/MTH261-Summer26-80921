@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch5-VectorSpace" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Vector Space <m>\R^n</m></title>
+
+  <!-- include sections -->
+  <xi:include href="sec51-SubspaceSpanning.ptx" />
+  <xi:include href="sec52-IndependenceDimension.ptx" />
+  <xi:include href="sec53-Orthogonality.ptx" />
+  <xi:include href="sec54-Rank.ptx" />
+
+</chapter>

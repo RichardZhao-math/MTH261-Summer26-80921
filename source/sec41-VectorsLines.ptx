@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec41-VectorsLines" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Vectors and Lines</title>
+
+  <introduction>
+    <p>
+      In this section, we will build the foundation of vector geometry. 
+      We will learn what vectors are, how to manipulate them both algebraically and geometrically, and ultimately how to use them to construct and analyze lines in three-dimensional space. 
+    </p>
+
+    <objectives>
+      <introduction>
+        <p>
+          After this section, students will be able to:
+        </p>
+      </introduction>
+      <ul>
+        <li>
+          <p>
+            define vectors in <m>\R^2</m> and <m>\R^3</m>, and determine their components given an initial point and a terminal point.
+          </p>
+        </li>
+        <li>
+          <p>
+            calculate the length of a vector.
+          </p>
+        </li>
+        <li>
+          <p>
+            perform vector addition, scalar multiplication, and vector subtraction geometrically.
+          </p>
+        </li>
+        <li>
+          <p>
+            construct the vector and parametric equations of a line in <m>\R^3</m> given either a point and a direction vector, or two points on the line.
+          </p>
+        </li>
+        <li>
+          <p>
+            determine whether two lines in <m>\R^3</m> are parallel, intersecting, or skew, and calculate the exact point of intersection if it exists.
+          </p>
+        </li>
+      </ul>
+    </objectives>
+    
+  </introduction>
+
+  <subsection xml:id="subsec-BasicVectorR2">
+    <title>Vectors in <m>\boldsymbol{\R^2}</m> and <m>\R^3</m></title>
+
+    <p>
+      The notation <m>\R^n</m> means the set of all ordered n-tuples of real numbers. 
+      Symbolically speaking, 
+      <md>
+        \R^n = \R \times \R \times \cdots \times \R = \left\{(x_1, x_2, \ldots, x_n) \mid x_i \in \R\right\}
+      </md>
+      Or, using our linear algebra notation, we can write this as
+        <md>
+            \R^n = \left\{ \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} \mid x_i \in \R \right\}
+        </md> 
+    </p>
+
+    <p>
+        Imagine we want to study <em>vector geometry</em>, then we will focus on the cases of <m>\R^2</m> and <m>\R^3</m>, since they are the most intuitive to visualize. 
+        That is, 
+        <md>
+            \R^2 = \{\begin{bmatrix} x \\ y \end{bmatrix} \mid x,y \in \R\} \quad\text{and}\quad \R^3 = \{\begin{bmatrix} x \\ y \\ z \end{bmatrix} \mid x,y,z \in \R\}
+        </md>
+    </p>
+
+    <p>
+        A <term>vector</term>, in the geometric sense, is an arrow that has a tail and a tip. 
+        Let's call the tail (initial point) <m>P</m> and the tip (terminal point) <m>Q</m>. 
+        Then we can write the vector as <m>\v{v} = \overrightarrow{PQ}</m>, and we draw <m>\v{v}</m> as an arrow pointing from <m>P</m> to <m>Q</m>. 
+    </p>
+
+    <figure>
+      <caption>The vector <m>\v{v} = \overrightarrow{PQ}</m> in <m>\R^2</m></caption>
+      <image source="sec41-BasicVector-R2.png" width="50%"></image>
+    </figure>
+
+    <note>
+      <title>Why is <m>\v{v}</m> bolded but not <m>P</m> or <m>Q</m>? </title>
+      <p>
+        This is a notation convention. 
+        There is a difference between a vector and a point (or scalar). 
+        To specify the difference, we usually <alert>bold</alert> the vector notation. 
+      </p>
+
+      <p>
+        For example, if you see something like <m>\v{u}</m>, then this indicates that <m>\v{u}</m> is a vector. 
+        As a comparison, if you see something like <m>u</m>, then this indicates that <m>u</m> is a scalar (a number). 
+      </p>
+
+      <p>
+        But why don't we bold the vector <m>\overrightarrow{PQ}</m> as <m>\v{PQ}</m>, but instead put an arrow on top of it? 
+      </p>
+
+      <p>
+        That is because the arrow notation specifies the tail and the tip of the vector! 
+        There is a difference between <m>\overrightarrow{PQ}</m> and <m>\overrightarrow{QP}</m>! 
+        They have the opposite tail and tip, so they point in opposite directions! 
+      </p>
+
+      <p>
+        Another reason why sometimes we use the arrow notation is because <em>it is super difficult to write in bold font!</em>
+        This is why Richard often writes <m>\overrightarrow{\, v\, }</m> on the board to indicate the vector <m>\v{v}</m>, since he can't write in bold font easily... 
+      </p>
+    </note>
+
+    <p>
+      In <m>\R^2</m>, each point is represented by an ordered pair of real numbers. 
+      Then we can define the <term>components</term> of a vector using the ordered pairs of the two points as follows.
+    </p>
+
+    <definition xml:id="def-ComponentsVectorR2">
+      <title>Components of a Vector</title>
+      <statement>
+        <p>
+          The components of <m>\v{v} = \overrightarrow{PQ}</m>, where <m>P = (a_1, b_1)</m> and <m>Q = (a_2, b_2)</m>, are the quantities
+          <md>
+            a = a_2 - a_1 \quad \text{($x$-component)}\, , \qquad \qquad b = b_2 - b_1 \quad \text{($y$-component)}
+          </md>
+          The pair of components is denoted <m>\langle a,b \rangle</m>. 
+        </p>
+      </statement>
+    </definition>
+    
+    <p>
+      <term>P.S.:</term> If you are a linear algebra-ist and want to use the notation of the column vectors instead, be my guest! 
+      Just remember that Richard prefers the column vector notation over the sharp-y angle bracket notation (but he is teaching calculus, not linear algebra, so he will have to live with it).
+    </p>
+
+    <example>
+      <p>
+        Find the components of the following vectors with tail <m>P</m> and tip <m>Q</m>. 
+        Then sketch the vectors.  
+      </p>
+
+      <ol marker="(a)">
+        <li>
+          <p>
+            <m>P_1 = (1,2)</m> and <m>Q_1 = (4,6)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>P_2 = (-4,-2)</m> and <m>Q_2 = (-1,2)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>P_3 = (2,-1)</m> and <m>Q_3 = (-3,-1)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>P_4 = (-2,4)</m> and <m>Q_4 = (-5,1)</m>
+          </p>
+        </li>
+      </ol>
+
+      <solution>
+        <p>
+          We can find the components of each vector using the definition: 
+          <md>
+            \v{v} = \la a_2 - a_1, b_2 - b_1 \ra
+          </md>
+        </p>
+        <ol marker="a">
+          <li>
+            <p>
+              <m>\v{v}_1 = \overrightarrow{P_1Q_1} = \la 4-1, 6-2 \ra = \la 3, 4 \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{v}_2 = \overrightarrow{P_2Q_2} = \la -1 - (-4), 2 - (-2) \ra = \la 3, 4 \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{v}_3 = \overrightarrow{P_3Q_3} = \la -3 - 2, -1 - (-1) \ra = \la -5, 0 \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{v}_4 = \overrightarrow{P_4Q_4} = \la -5 - (-2), 1 - 4 \ra = \la -3, -3 \ra</m>
+            </p>
+          </li>
+        </ol>
+
+        <p>
+          The sketches of the vectors are shown below: 
+        </p>
+
+        <figure>
+          <image source="sec121-VectorComponents-Example.png" width="60%"></image>
+        </figure>
+      </solution>
+    </example>
+
+    <p>
+      Observe that <m>\v{v}_1</m> and <m>\v{v}_2</m> are <em>parallel</em>. 
+      Moreover, <m>\v{v}_2</m> is a translation of <m>\v{v}_1</m> (i.e., we can obtain <m>\v{v}_2</m> by sliding <m>\v{v}_1</m> to the left and down). 
+      We call these two vectors <term>equivalent vectors</term> if one is a translation of the other.  
+    </p>
+
+    <p>
+      In fact, two vectors are <term>equivalent</term> if and only if they have the same components. 
+      So instead of studying millions of the same vectors in different locations, we can just study one representative vector for each group of equivalent vectors. 
+    </p>
+
+    <p>
+      But which location should we choose for the representative vector? 
+      To keep things easier, we usually choose the representative vector whose tail is at the origin <m>(0,0)</m>. 
+      Then the tip of the vector is at the coordinate point <m>(a,b)</m>, where <m>\langle a,b \rangle</m> are the components of the vector.
+      This is called the <term>position vector</term>. 
+    </p>
+
+    <example>
+      <p>
+        Sketch the position vectors of the vectors in the previous example. 
+      </p>
+
+      <solution>
+        <p>
+          The vectors in the previous example are 
+          <md>
+            \v{v}_1 = \v{v}_2 = \la 3, 4 \ra, \quad \v{v}_3 = \la -5, 0 \ra, \quad \v{v}_4 = \la -3, -3 \ra
+          </md>
+          The position vectors are sketched below. 
+        </p>
+
+         <figure>
+          <image source="sec121-PositionVectors-Example.png" width="60%"></image>
+        </figure>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-AttributesVector">
+    <title>The Attributes of Vectors</title>
+
+    <p>
+      When defining a vector, it is important to note its <term>length</term> and the <term>direction</term>. 
+    </p>
+
+    <p>
+      The <term>length</term> of a vector <m>\v{v}</m> is the distance from the tail to the tip. 
+      This is denoted as <m>\|\v{v}\|</m>. 
+    </p>
+
+    <p>
+      Given a vector <m>\v{v} = \langle a,b \rangle</m>, we can determine its length using the Pythagorean Theorem, as demonstrated in the figure below. 
+    </p>
+
+    <figure>
+      <caption>The Length of the vectors <m>\v{v}_0</m> and <m>\v{v}</m></caption>
+      <image source="sec41-VectorMagnitude-R2.png" width="50%">
+      </image>
+    </figure>
+
+    <p>
+      By the Pythagorean Theorem, we have
+      <md>
+        <mrow> \|\v{v}\| \amp= \sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} </mrow>
+        <mrow> \amp= \sqrt{a^2 + b^2} </mrow>
+      </md>
+    </p>
+    
+    <p>
+      The magnitude of a vector is really called the <term><m>\boldsymbol{\ell^2}</m> norm</term> or the <term>Euclidean norm</term> of a vector in more advanced math courses.
+      In general, norms must satisfy the following three properties: 
+      <ol marker="1.">
+        <li>
+          <p>
+            <m>\|\v{v}\| \geq 0</m>, with <m>\|\v{v}\| = 0</m> if and only if <m>\v{v} = \v{0}</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\| \lambda\v{v}\| = |\lambda|\|\v{v}\|</m> for all scalars <m>\lambda \in \R</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\|\v{v} + \v{w}\| \leq \|\v{v}\| + \|\v{w}\|</m> for any two vectors <m>\v{v}</m> and <m>\v{w}</m>, with equallity only if <m>\v{v} = 0</m>, <m>\v{w} = 0</m>, or if <m>\v{w} = \lambda\v{v}</m> where <m>\lambda \geq 0</m>. 
+            (This is the famous <term>triangle inequality</term>). 
+          </p>
+        </li>
+      </ol>
+      This isn't a linear algebra or functional analysis class, so we won't go deeper into norms here. 
+      If you are interested, feel free to do more digging on your own (or ask Richard!). 
+    </p>
+
+    <example>
+      <p>
+        Find the magnitude of the vectors in the previous examples. 
+      </p>
+
+      <solution>
+        <p>
+          The vectors in the previous examples are
+          <md>
+            \v{v}_1 = \v{v}_2 = \la 3, 4 \ra, \quad \v{v}_3 = \la -5, 0 \ra, \quad \v{v}_4 = \la -3, -3 \ra
+          </md>
+          Then 
+          <md>
+            <mrow>\|\v{v}_1\| \amp= \sqrt{3^2 + 4^2} = \sqrt{25} = 5 </mrow>
+            <mrow>\|\v{v}_3\| \amp= \sqrt{(-5)^2 + 0^2} = \sqrt{25} = 5 </mrow>
+            <mrow>\|\v{v}_4\| \amp= \sqrt{(-3)^2 + (-3)^2} = \sqrt{18} = 3\sqrt{2} </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Now let's discuss the <term>direction</term> of a vector. 
+      The direction of a vector tells us where the vector is pointing. 
+      We can indicate the direction of a vector by using the vector itself. 
+      As you imagine, the length of a vector has nothing to do with its direction, so we sometimes use a <term>unit vector</term>, which is a vector of length <m>1</m>, to indicate the direction, when it is not necessary to specify length. 
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-VectorAlgebra">
+    <title>Vector Algebra (Geometry Version)</title>
+
+    <p>
+      Recall we defined two basic operations for vectors: vector addition and scalar multiplication. 
+      They both work component-wise. 
+      Now let's investigate what these operations look like <em>geometrically</em>.
+    </p>
+
+    <p>
+      <term>Vector addition</term> tells us how to <em>add two vectors</em> together. 
+      Geometrically speaking, we can imagine a vector as the movement from the tail to the tip. 
+      Then adding two vectors means performing the movements one after another. 
+      That is, we will need to find the equivalent vector of the second vector <em>whose tail is at the tip of the first vector</em>, and the resulting vector is the vector from the tail of the first vector to the tip of the second vector. 
+      This is sometimes referred to as the <term>Triangle Law</term>. 
+    </p>
+
+    <figure>
+      <image source="sec41-VectorAddition-Triangle.png" width="60%"></image>
+      <caption>Vector Addition using the Triangle Law</caption>
+    </figure>
+
+    <p>
+      But sometimes we are given the position vectors and their tails are both at the origin (or at the same point). 
+      Alternatively, rather than finding the equivalent vector of the second vector, we can construct a parallelogram using the two vectors as adjacent sides, and the resulting vector is the diagonal of the parallelogram starting from the common tail of the two vectors. 
+      This is called the <term>Parallelogram Law</term>. 
+    </p>
+
+    <figure>
+      <image source="sec41-VectorAddition-Parallelogram.png" width="60%"></image>
+      <caption>Vector Addition using the Parallelogram Law</caption>
+    </figure>
+
+    <p>
+      Now let's look at <term>scalar multiplication</term>. 
+      The term <alert>scalar</alert> refers to a real number. 
+      That is, scalar multiplication tells us how to multiply a vector by a real number. 
+      The scalar will "scale" or "resize" the vector. 
+    </p>
+
+    <p>
+      When the scalar is positive, the resulting vector points in the same direction, and the size of the vector is scaled by the scalar. 
+    </p>
+
+    <figure>
+      <image source="sec41-ScalarMult-Positive.png" width="40%"></image>
+      <caption>Vector Addition using the Parallelogram Law</caption>
+    </figure>
+
+    <p>
+      When the scalar is negative, the resulting vector points in the opposite direction, and the size of the vector is scaled by the absolute value of the scalar. 
+    </p>
+
+    <figure>
+      <image source="sec41-ScalarMult-Negative.png" width="50%"></image>
+      <caption>Vector Multiplication by a Negative Scalar</caption>
+    </figure>
+
+    <p>
+      But what if the scalar is zero? 
+      We can quickly see that the length of the resulting vector is zero, so the resulting vector is the <term>zero vector</term>, denoted by <m>\v{0}</m>. 
+      We can imagine the zero vector  has the tail and tip at the same point, which means it doesn't have a specific direction. 
+      Alternatively, we can say that the zero vector points in <em>all</em> directions. 
+    </p>
+    
+    <p>
+      Once we have vector addition and scalar multiplication defined, we can subtract two vectors. 
+      Recall subtraction is really the same thing as adding the opposite. 
+      That is, 
+      <md>
+        \v{v} - \v{w} = \v{v} + (-\v{w})
+      </md>
+      Graphically, we can find <m>\v{v} - \v{w}</m> as follows:
+    </p>
+
+    <figure>
+      <image source="sec41-VectorSubtraction.png" width="80%"></image>
+      <caption>Vector Subtraction</caption>
+    </figure>
+    </subsection>
+
+    <subsection xml:id="subsec-LinesR3">
+        <title>Lines in <m>\R^3</m></title>
+
+        <p>
+        Remember back when you first learned about lines in <m>\R^2</m>, you probably remember that we need both <em>the slope</em> and <em>a point on the line</em> to define a line. 
+        <ul marker="">
+            <li>
+            <p>
+                The slope tells us the direction of the line. 
+                Yet knowing just the slope doesn't tell us a unique line... 
+                There can be thousands of parallel lines with the same slope! 
+            </p>
+            </li>
+            <li>
+            <p>
+                A point on the line can pin down the location of the line. 
+                Yet knowing just a point on the line doesn't tell us the direction of the line... 
+                We can draw infinitely many lines through a single point!  
+            </p>
+            </li>
+        </ul>
+        This is also the case in <m>\R^3</m>! 
+        In order to determine a line in <m>\R^3</m>, we need to know both the direction of the line and a point on the line. 
+        </p>
+
+        <p>
+        Unlike stuff in <m>\R^2</m>, there is no "slope" in <m>\R^3</m> to represent the direction of a line, since "slope" is a concept that only works in two dimensions. 
+        Instead, we use a vector to represent the direction of the line. 
+        </p>
+
+        <p>
+        We can find a point in <m>\R^3</m> just fine, since points in <m>\R^3</m> are represented by ordered triples. 
+        </p>
+
+        <p>
+        Hence, a line in <m>\R^3</m> is determined by a point <m>P_0 = (x_0, y_0, z_0)</m> on the line and a direction vector <m>\v{v} = \begin{bmatrix} a \\ b \\ c \end{bmatrix}</m>. 
+        </p>
+
+        <definition xml:id="def-lines-3d">
+        <title>Equation of a Line in <m>\R^3</m></title>
+        <statement>
+            <p>
+                The line <m>\c{L}</m> through <m>P_0 = (x_0, y_0, z_0)</m> in the direction of <m>\v{d} = \begin{bmatrix} a \\ b \\ c \end{bmatrix}</m> is described by 
+                <md>
+                    \v{p} = \v{p}_0 + t \v{d} = \begin{bmatrix} x_0 \\ y_0 \\ z_0 \end{bmatrix} + t \begin{bmatrix} a \\ b \\ c \end{bmatrix}
+                </md>
+                where <m>\v{p}_0 = \begin{bmatrix} x_0 \\ y_0 \\ z_0 \end{bmatrix}</m>.
+            </p>
+
+            <p>
+                Alternatively, we can rewrite the equation in its <term>parametric form</term>:
+                <md>
+                    \v{p} = \begin{bmatrix} x_0 + at \\ y_0 + bt \\ z_0 + ct \end{bmatrix}
+                </md>
+                where the parameter <m>t</m> takes on values <m>-\infty \lt t \lt \infty</m>. 
+            </p>
+        </statement>
+        </definition>
+
+        <figure>
+        <image source="sec41-Line3D-Diagram.png" width="75%"></image>
+        <caption>The line <m>\v{p} = \v{p}_0 + t \v{d}</m> in <m>\R^3</m></caption>
+        </figure>
+
+        <p>
+            Observe that the parametric form specify the <m>x</m>-, <m>y</m>-, and <m>z</m>-coordinates of the points on the line as functions of the parameter <m>t</m>. 
+            These three parametric equations is itself a linear function in the parameter <m>t</m>! 
+        </p>
+
+        <example>
+            <p>
+                Find an equation of the line that passes through the point <m>P_0 = (1,2,4)</m> in the direction of <m>\v{v} = \begin{bmatrix} 5 \\ -3 \\ 1 \end{bmatrix}</m>. 
+            </p>
+
+            <solution>
+                <p>
+                    We are given <m>\v{p}_0 = \begin{bmatrix} 1 \\ 2 \\ 4 \end{bmatrix}</m>. 
+                    Therefore, an equation of the line is 
+                    <md>
+                        \v{p} = \v{p}_0 + t \v{d} = \begin{bmatrix} 1 \\ 2 \\ 4 \end{bmatrix} + t \begin{bmatrix} 5 \\ -3 \\ 1 \end{bmatrix}
+                    </md>
+                    for <m>-\infty \lt t \lt \infty</m>. 
+                </p>
+                
+                <p>
+                    Alternatively, we can write the equation in its parametric form:
+                     <md>
+                        \v{p} = \begin{bmatrix} 1 + 5t \\ 2 - 3t \\ 4 + t \end{bmatrix} 
+                    </md>
+                    for <m>-\infty \lt t \lt \infty</m>. 
+                </p>
+            </solution>
+        </example>
+
+        <p>
+        Back in algebra 2, you may also have learned that <em>two points</em> can also determine a line in <m>\R^2</m>. 
+        This is also true in <m>\R^3</m>. 
+        The trick here is to determine the direction vector using the two points. 
+        </p>
+
+        <example>
+        <p>
+            Find an equation of the line that passes through the points <m>P = (-2,0,-2)</m> and <m>Q = (4,3,7)</m>. 
+        </p>
+
+        <hint>
+            <p>
+            To find an equation of a line, we need a point on the line and a direction vector. 
+            So there are really things we need to find out. 
+            </p>
+
+            <p>
+            The easier part is to find a point on the line (we are given two points on the line!)
+            </p>
+
+            <p>
+            The slightly trickier part is to find a direction vector. 
+            Can we find a vector parallel to the line using the two points? 
+            </p>
+        </hint>
+
+        <solution>
+            <p>
+            A directional vector is <m>\overrightarrow{PQ}</m>. 
+            Then we obtain
+            <md>
+                \v{d} = \overrightarrow{PQ} = \begin{bmatrix} 4-(-2) \\ 3-0 \\ 7-(-2) \end{bmatrix} = \begin{bmatrix} 6 \\ 3 \\ 9 \end{bmatrix}
+            </md>
+            We can use either point <m>P</m> or <m>Q</m> as the point on the line. 
+            Using point <m>P</m>, we have <m>\v{p}_0 = \begin{bmatrix} -2 \\ 0 \\ -2 \end{bmatrix}</m>. 
+            Therefore, an equation of the line is 
+            <md>
+                \v{p} = \v{p}_0 + t \v{d} = \begin{bmatrix} -2 \\ 0 \\ -2 \end{bmatrix} + t \begin{bmatrix} 6 \\ 3 \\ 9 \end{bmatrix}
+            </md>
+            for <m>-\infty \lt t \lt \infty</m>. 
+            The corresponding parametric form is 
+            <md>
+                \v{p} = \begin{bmatrix} -2 + 6t \\ 0 + 3t \\ -2 + 9t \end{bmatrix}
+            </md>
+            for <m>-\infty \lt t \lt \infty</m>. 
+            </p>
+        </solution>
+        </example>
+
+        <p>
+            Recall back in <m>\R^2</m>, two lines are either parallel or they intersect at a single point (assuming the lines are not essentially the same line). 
+            In <m>\R^3</m>, if two lines are parallel, then the direction vectors should be parallel, and hence they are scalar multiples of each other. 
+            But how do we know if two lines intersect, and if so, how do we find the point of intersection?
+        </p>
+
+        <example>
+        <p>
+            Determine whether the lines <m>\v{p}_1 = \begin{bmatrix} 1 \\ -3 \\ 5 \end{bmatrix} + t \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix}</m> and <m>\v{p}_2 = \begin{bmatrix} 0 \\ 0 \\ 7 \end{bmatrix} + s \begin{bmatrix} -2 \\ 1 \\ 3 \end{bmatrix}</m> intersect, and if so, find the point of intersection.
+        </p>
+
+        <hint>
+            <p>
+            Let's just assume that the two lines intersect. 
+            If two lines intersect, then they must intersect at a single point.
+            </p>
+
+            <p>
+            Now put on your algebra 2 hat and think about how to find the point of intersection of two lines in <m>\R^2</m>. 
+            (You would set the two equations equal to each other and solve for <m>x</m>!)
+            </p>
+        </hint>
+
+        <solution>
+            <p>
+                The lines intersect if there exist parameter values <m>t</m> and <m>s</m> such that
+                <md>
+                    <mrow>\begin{bmatrix} 1 \\ -3 \\ 5 \end{bmatrix} + t \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} \amp= \begin{bmatrix} 0 \\ 0 \\ 7 \end{bmatrix} + s \begin{bmatrix} -2 \\ 1 \\ 3 \end{bmatrix} </mrow>
+                    <mrow>\begin{bmatrix} 1+t \\ -3+2t \\ 5-t \end{bmatrix} \amp= \begin{bmatrix} -2s \\ s \\ 7+3s \end{bmatrix} </mrow>
+                </md>
+                Equating corresponding components, we get
+                <md>
+                    \begin{cases}
+                    1 + t = -2s \\
+                    -3 + 2t = s \\
+                    5 - t = 7 + 3s
+                    \end{cases}
+                </md>
+                This is a system of three equations with two variables!  
+                We can solve this system using the augmented matrix! 
+            </p>
+
+            <p>
+                The agumented matrix of the system is
+                <md>
+                \begin{pmatrix} 1 \amp 2 \amp \mid \amp -1 \\ 2 \amp -1 \amp \mid \amp 3 \\ -1 \amp -3 \amp \mid \amp 2 \end{pmatrix}
+                </md>
+                Row reducing this matrix, we get
+                <md>
+                \begin{pmatrix} 1 \amp 0 \amp \mid \amp 1 \\ 0 \amp 1 \amp \mid \amp -1 \\ 0 \amp 0 \amp \mid \amp 0 \end{pmatrix} 
+                </md>
+                From here we can read off the solution <m>t = 1</m>, <m>s = -1</m>.
+            </p>
+
+            <p>
+                To find the point of intersection we substitute <m>t = 1</m> into the equation for <m>\v{p}_1</m> (or <m>s = -1</m> into <m>\v{p}_2</m>) to obtain
+                <md>
+                    \begin{bmatrix} 1+1 \\ -3+2(1) \\ 5-1 \end{bmatrix} = \begin{bmatrix} 2 \\ -1 \\ 4 \end{bmatrix}
+                </md>
+                The point of intersection is the terminal point of this vector, that is, <m>\lp 2, -1, 4 \rp</m>.
+            </p>
+        </solution>
+        </example>
+
+        <example>
+        <p>
+            Determine whether the lines <m>\v{p}_1 = \begin{bmatrix} 1 \\ -2 \\ 4 \end{bmatrix} + t \begin{bmatrix} 1 \\ 3 \\ -1 \end{bmatrix}</m> and <m>\v{p}_2 = \begin{bmatrix} 0 \\ 3 \\ -3 \end{bmatrix} + s \begin{bmatrix} 2 \\ 1 \\ 4 \end{bmatrix}</m> are parallel, intersect, or neither. 
+        </p>
+
+        <hint>
+            <p>
+            Observe that the direction vectors are <m>\v{v}_1 = \begin{bmatrix} 1 \\ 3 \\ -1 \end{bmatrix}</m> and <m>\v{v}_2 = \begin{bmatrix} 2 \\ 1 \\ 4 \end{bmatrix}</m> are not multiples of each other, so the lines are not parallel.
+            </p>
+
+            <p>
+            Then the two other possibilities are that the lines intersect or they are skew. 
+            We haven't discussed how to check if two lines are skew, but we can check if they intersect. 
+            So the question becomes: do the two lines intersect? 
+            </p>
+        </hint>
+
+        <solution>
+            <p>
+                If the two lines intersect, then there exist parameter values <m>t</m> and <m>s</m> such that
+                <md>
+                    <mrow>\begin{bmatrix} 1 \\ -2 \\ 4 \end{bmatrix} + t \begin{bmatrix} 1 \\ 3 \\ -1 \end{bmatrix} \amp= \begin{bmatrix} 0 \\ 3 \\ -3 \end{bmatrix} + s \begin{bmatrix} 2 \\ 1 \\ 4 \end{bmatrix} </mrow>
+                    <mrow>\begin{bmatrix} 1+t \\ -2+3t \\ 4 - t \end{bmatrix} \amp= \begin{bmatrix} 2s \\ 3 + s \\ -3 + 4s \end{bmatrix} </mrow>
+                </md>
+                Equating corresponding components, we get
+                <md>
+                    \begin{cases}
+                    1 + t = 2s \\
+                    -2 + 3t = 3 + s \\
+                    4 - t = -3 + 4s
+                    \end{cases}
+                </md>
+                The augmented matrix of this system is 
+                <md>
+                    \begin{bmatrix} 1 \amp -2 \amp mid \amp -1 \\ 3 \amp -1 \amp \mid \amp 5 \\ -1 \amp -4 \amp \mid \amp -7 \end{bmatrix}
+                </md>
+                Row reducing this matrix we get
+                <md>
+                    \begin{bmatrix} 1 \amp 0 \amp \mid \amp 0 \\ 0 \amp 1 \amp \mid \amp 0 \\ 0 \amp 0 \amp \mid \amp 1 \end{bmatrix}
+                </md>
+                Observe that a pivot position appears in the rightmost column, which implies that the system is inconsistent. 
+            </p>
+
+            <p>
+                That is, there are no parameter values <m>t</m> and <m>s</m> such that the two lines intersect. 
+                But they are not parallel either, so what are they? 
+            </p>
+
+            <p>
+                It turns out that these two lines are <term>skew lines</term>: they do not intersect and are not parallel. 
+                They are not coplanar.
+                The figure below shows the sketch of these two lines. 
+            </p>
+
+            <figure>
+            <caption>Line <m>\v{p}_1</m> (blue) and Line <m>\v{p}_2</m> (red)</caption>
+            <sidebyside width="80%">
+            <interactive xml:id="sage-skew-lines-simple" platform="sage" width="100%" aspect="1:1">
+                <slate surface="sage">
+                    var('t, s')
+                    
+                    # 1. Define the Lines
+                    # Note: We use parens in comments to avoid XML parsing errors
+                    # r1(t) = (1, -2, 4) + t(1, 3, -1)
+                    line1 = parametric_plot3d(
+                        [1 + t, -2 + 3*t, 4 - t], 
+                        (t, -2, 4), 
+                        color='blue', thickness=3
+                    )
+                    
+                    # r2(s) = (0, 3, -3) + s(2, 1, 4)
+                    line2 = parametric_plot3d(
+                        [0 + 2*s, 3 + s, -3 + 4*s], 
+                        (s, -1, 3), 
+                        color='red', thickness=3
+                    )
+
+                    # 2. Axes Setup
+                    x_len, y_len, z_len = 6, 8, 8
+                    
+                    axes_arrows = (
+                        arrow3d((0,0,0), (x_len,0,0), color='black', width=1) +
+                        arrow3d((0,0,0), (0,y_len,0), color='black', width=1) +
+                        arrow3d((0,0,0), (0,0,z_len), color='black', width=1)
+                    )
+                    
+                    axes_labels = (
+                        text3d("x", (x_len + 0.2, 0, 0), color='black') +
+                        text3d("y", (0, y_len + 0.2, 0), color='black') +
+                        text3d("z", (0, 0, z_len + 0.2), color='black')
+                    )
+
+                    # 3. Ticks
+                    ticks = Graphics()
+                    tick_size = 0.2
+                    
+                    for i in range(1, x_len):
+                        ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black')
+                    for i in range(1, y_len):
+                        ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black')
+                    for i in range(1, z_len):
+                        ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black')
+
+                    # 4. Show Everything
+                    show(line1 + line2 + axes_arrows + axes_labels + ticks, frame=False)
+                </slate>
+            </interactive>
+            </sidebyside>
+        </figure>
+        </solution>
+        </example>
+    </subsection>
+
+</section>

@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec26-LinearTransformations" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Linear Transformations</title>
+
+  <introduction>
+    <p>
+      Up to this point, we have primarily viewed matrices as grids of numbers used to solve systems of equations. 
+      Now, it is time to shift our perspective! 
+      We can also think of matrices as functions that transform input vectors into new output vectors (through multiplication!). 
+    </p>
+
+    <p>
+      In this section, we will formalize this idea by exploring <term>linear transformations</term>! 
+    </p>
+
+    <objectives>
+      <introduction>
+        <p>
+          After this section, students will be able to:
+        </p>
+      </introduction>
+      <ul>
+        <li>
+          <p>
+            determine whether a given function is a linear transformation.
+          </p>
+        </li>
+        <li>
+          <p>
+            evaluate a linear transformation at a specific vector.
+          </p>
+        </li>
+        <li>
+          <p>
+            construct the standard matrix of a linear transformation.
+          </p>
+        </li>
+        <li>
+          <p>
+            derive the standard matrices for geometric transformations, such as rotations and reflections in <m>\R^2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            determine the standard matrix of a linear transformation given its action on an arbitrary set of non-basis vectors.
+          </p>
+        </li>
+      </ul>
+    </objectives>
+  </introduction>
+
+  <definition xml:id="def-LinearTransformation-Operator">
+    <statement>
+      <p>
+        If <m>T: \R^n \to \R^m</m> is a function with the following two properties: 
+        <ol marker="i.">
+          <li>
+            <p>
+              For any scalar <m>c</m> and any vector <m>\v{x} \in \R^n</m>, 
+              <md>
+                T(c\v{x}) = cT(\v{x})
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              For any two vectors <m>\v{x}_1, \v{x}_2 \in \R^n</m>, 
+              <md>
+                T(\v{x}_1 + \v{x}_2) = T(\v{x}_1) + T(\v{x}_2)
+              </md>
+            </p>
+          </li>
+        </ol>
+        then <m>T</m> is a <term>linear transformation</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    The two properties in the definition make sense since we can think of a linear transformation as a matrix-vector product. 
+    Recall in <xref ref="sec22-MatrixVectorMultiplication"/>, every matrix defines a linear transformation in a way that
+    <md>
+      T(\v{x}) = A\v{x}
+    </md>
+    By the Matrix Multiplication rules, we know that
+    <ol marker="i.">
+      <li>
+        <p>
+          <m>T(c\v{x}) = A(c\v{x}) = cA\v{x} = cT(\v{x})</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>T(\v{x}_1 + \v{x}_2) = A(\v{x}_1 + \v{x}_2) = A\v{x}_1 + A\v{x}_2 = T(\v{x}_1) + T(\v{x}_2)</m>
+        </p>
+      </li>
+    </ol>
+    Hence, we have the two properties in the definition of linear transformations. 
+  </p>
+
+  <p>
+    <em>Note:</em> Sometimes these two properties are combined to form one rule that looks like this: 
+    <md>
+      T(c_1 \v{x}_1 + c_2 \v{x}_2) = c_1 T(\v{x}_1) + c_2 T(\v{x}_2)
+    </md>
+    This basically tells us that we can figure out the output for a linear combination of vectors by taking the <alert>same linear combination of the outputs</alert> of those vectors. 
+  </p>
+
+  <example>
+    <title>A non-example</title>
+    <p>
+      The function <m>T: \R^2 \to \R^3</m> given by 
+      <md>
+        T\lp \begin{bmatrix} x \\ y \end{bmatrix} \rp = \begin{bmatrix} 2x \\ 3y \\ 5x + 7 \end{bmatrix}
+      </md>
+      is NOT a linear transformation. 
+    </p>
+
+    <p>
+      <em>Proof:</em> Notice that 
+        <md>
+          T\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp = \begin{bmatrix} 2 \\ 0 \\ 12 \end{bmatrix}
+          \qquad \text{ and } \qquad
+          T\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp = \begin{bmatrix} 0 \\ 3 \\ 7 \end{bmatrix}
+        </md>
+        If this were a linear transformation, then property (ii) would mean that
+        <md>
+          T\lp \begin{bmatrix} 1 \\ 1 \end{bmatrix} \rp = T\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp + T\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp
+          = \begin{bmatrix} 2 \\ 0 \\ 12 \end{bmatrix} + \begin{bmatrix} 0 \\ 3 \\ 7 \end{bmatrix}
+          = \begin{bmatrix} 2 \\ 3 \\ 19 \end{bmatrix}
+        </md>
+        But in fact, 
+        <md>
+          T\lp \begin{bmatrix} 1 \\ 1 \end{bmatrix} \rp = \begin{bmatrix} 2 \\ 3 \\ 12 \end{bmatrix}
+        </md>
+        Oopsie! 
+    </p>
+  </example>
+
+  <example>
+    <title>An example</title>
+    <p>
+      The function <m>T: \R^2 \to \R^2</m> given by
+      <md>
+        T\lp \begin{bmatrix} x \\ y \end{bmatrix} \rp = \begin{bmatrix} 2x + 3y \\ 5x + 7y \end{bmatrix}
+      </md>
+      IS indeed a linear transformation!
+    </p>
+
+    <p>
+      <em>Proof:</em> We will verify the two properties in the definition of linear transformations. 
+      <ol marker="i.">
+        <li>
+          <p>
+            Suppose <m>c</m> is a scalar and <m>\begin{bmatrix} x \\ y \end{bmatrix}</m> is a vector in <m>\R^2</m>. 
+            Then
+            <md>
+              <mrow>T\lp c\begin{bmatrix} x \\ y \end{bmatrix} \rp = T\lp \begin{bmatrix} cx \\ cy \end{bmatrix} \rp \amp= \begin{bmatrix} 2(cx) + 3(cy) \\ 5(cx) + 7(cy) \end{bmatrix} </mrow>
+              <mrow> \amp= \begin{bmatrix} c(2x + 3y) \\ c(5x + 7y) \end{bmatrix} </mrow>
+              <mrow> \amp= c\begin{bmatrix} 2x + 3y \\ 5x + 7y \end{bmatrix} </mrow>
+              <mrow> \amp= cT\lp \begin{bmatrix} x \\ y \end{bmatrix} \rp </mrow>
+            </md>
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>\begin{bmatrix} x_1 \\ y_1 \end{bmatrix}</m> and <m>\begin{bmatrix} x_2 \\ y_2 \end{bmatrix}</m> are two vectors in <m>\R^2</m>. 
+            Then
+            <md>
+              <mrow>T\lp \begin{bmatrix} x_1 \\ y_1 \end{bmatrix} + \begin{bmatrix} x_2 \\ y_2 \end{bmatrix} \rp = T\lp \begin{bmatrix} x_1 + x_2 \\ y_1 + y_2 \end{bmatrix} \rp \amp= \begin{bmatrix} 2(x_1 + x_2) + 3(y_1 + y_2) \\ 5(x_1 + x_2) + 7(y_1 + y_2) \end{bmatrix} </mrow>
+              <mrow> \amp= \begin{bmatrix} (2x_1 + 3y_1) + (2x_2 + 3y_2) \\ (5x_1 + 7y_1) + (5x_2 + 7y_2) \end{bmatrix} </mrow>
+              <mrow> \amp= \begin{bmatrix} 2x_1 + 3y_1 \\ 5x_1 + 7y_1 \end{bmatrix} + \begin{bmatrix} 2x_2 + 3y_2 \\ 5x_2 + 7y_2 \end{bmatrix} </mrow>
+              <mrow> \amp= T\lp \begin{bmatrix} x_1 \\ y_1 \end{bmatrix} \rp + T\lp \begin{bmatrix} x_2 \\ y_2 \end{bmatrix} \rp </mrow>
+            </md>
+          </p>
+        </li>
+      </ol>
+      Since both properties hold, we can conclude that <m>T</m> IS indeed a linear transformation! 
+    </p>
+
+    <p>
+      <em>Note:</em> In this example, observe that the coefficients do not contribute to the proof at all (so the proof would work exactly the same even if we had different coefficients). 
+      Using the same proof, we can show that the function <m>T: \R^2 \to \R^2</m> given by
+      <md>
+        T\lp \begin{bmatrix} x \\ y \end{bmatrix} \rp = \begin{bmatrix} a_1x + b_1y \\ a_2x + b_2y \end{bmatrix}
+      </md>
+      is a linear transformation for any choice of scalars <m>a_1, b_1, a_2, b_2</m>.
+    </p>
+  </example>
+
+  <p>
+    The two properties of linear transformations make it possible to "plug in" a vector even if we don't know the rule. 
+    That is, we can <alert>evaluate linear transformations using linear combinations</alert>. 
+  </p>
+
+  <example>
+    <p>
+      Suppose <m>T: \R^3 \to \R^2</m> is a linear transformation (but we don't know the rule) and we do know that
+      <md>
+        T \lp \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} \rp = \begin{bmatrix} 2 \\ 0 \end{bmatrix} 
+        \qquad \text{ and } \qquad
+        T \lp \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} \rp = \begin{bmatrix} 1 \\ -4 \end{bmatrix} 
+      </md>
+      Let's say we want to evaluate <m>T \lp \begin{bmatrix} 5 \\ 10 \\ 3 \end{bmatrix} \rp</m>.
+    </p>
+
+    <p>
+      <alert>How do we do that? </alert>
+    </p>
+
+    <p>
+      Notice that 
+      <md>
+        \begin{bmatrix} 5 \\ 10 \\ 3 \end{bmatrix} = 3\begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} + 2\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
+      </md>
+      So property (i) and (ii) of linear transformations tell us that
+      <md>
+        <mrow> T \lp \begin{bmatrix} 5 \\ 10 \\ 3 \end{bmatrix} \rp \amp= T \lp 3\begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} + 2\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} \rp </mrow>
+        <mrow> \amp= 3T \lp \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} \rp + 2T \lp \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} \rp </mrow>
+        <mrow> \amp= 3\begin{bmatrix} 2 \\ 0 \end{bmatrix} + 2\begin{bmatrix} 1 \\ -4 \end{bmatrix} </mrow>
+        <mrow> \amp= \begin{bmatrix} 8 \\ -8 \end{bmatrix} </mrow>
+      </md>
+    </p>
+
+    <note>
+      <title>But Richard... How can you find the linear combination?</title>
+
+      <p>
+        There are two ways to find the linear combination: (1) using guess and check, and/or (2) by setting up a system of equations. 
+      </p>
+
+      <p>
+        Let's do a quick example using the formal setting-up-a-system-of-equations method! 
+      </p>
+
+      <p>
+        Can <m>\begin{bmatrix} 4 \\ 3 \end{bmatrix}</m> be written as a linear combination of <m>\begin{bmatrix} 5 \\ 3 \end{bmatrix}</m> and <m>\begin{bmatrix} 2 \\ 1 \end{bmatrix}</m>?
+      </p>
+
+      <p>
+        Let's assume we can! 
+        Then there exist scalars <m>c_1, c_2 \in \R</m> such that
+        <md>
+          c_1\begin{bmatrix} 5 \\ 3 \end{bmatrix} + c_2\begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 4 \\ 3 \end{bmatrix}
+        </md>
+        This is essentially a vector equation since the "variables" here are the scalars <m>c_1</m> and <m>c_2</m>. 
+        We can rewrite the vector equation as a system of linear equations:
+          <md>
+            \begin{cases}
+              5c_1 + 2c_2 = 4 \\
+              3c_1 + c_2 = 3
+            \end{cases}
+          </md>
+          Basically, we are asking ourselves if this system of linear equations has a solution.
+        </p>
+
+        <p>
+          We are all experts in solving systems of linear equations now! 
+          The augmented matrix is
+          <md>
+            \begin{bmatrix} 5 \amp 2 \amp \mid \amp 4 \\ 3 \amp 1 \amp \mid \amp 3 \end{bmatrix}
+          </md>
+          We can do our Gaussian Elimination magic to get: 
+          <md>
+            <mrow> \begin{bmatrix} 5 \amp 2 \amp \mid \amp 4 \\ 3 \amp 1 \amp \mid \amp 3 \end{bmatrix} \amp\sim \begin{bmatrix} 1 \amp \frac{2}{5} \amp \mid \amp \frac{4}{5} \\ 3 \amp 1 \amp \mid \amp 3 \end{bmatrix} \amp\amp \frac{1}{5}\text{Row 1}</mrow>
+            <mrow> \amp\sim \begin{bmatrix} 1 \amp \frac{2}{5} \amp \mid \amp \frac{4}{5} \\ 0 \amp -\frac{1}{5} \amp \mid \amp \frac{3}{5} \end{bmatrix} \amp\amp - 3\text{Row 1} + \text{Row 2}</mrow>
+            <mrow> \amp\sim \begin{bmatrix} 1 \amp \frac{2}{5} \amp \mid \amp \frac{4}{5} \\ 0 \amp 1 \amp \mid \amp -3 \end{bmatrix} \amp\amp -5\text{Row 2}</mrow>
+            <mrow> \amp\sim \begin{bmatrix} 1 \amp 0 \amp \mid \amp 2 \\ 0 \amp 1 \amp \mid \amp -3 \end{bmatrix} \amp\amp -\frac{2}{5}\text{Row 2} + \text{Row 1}</mrow>
+          </md>
+          Converting back to a system of linear equations, we have
+          <md>
+            \begin{cases}
+              c_1 = 2 \\
+              c_2 = -3
+            \end{cases}
+          </md>
+        </p>
+
+        <p>
+          We can quickly check our work! 
+          <md>
+            2 \begin{bmatrix} 5 \\ 3 \end{bmatrix} - 3 \begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 4 \\ 3 \end{bmatrix}. 
+          </md>
+          We did it! 
+        </p>
+    </note>
+  </example>
+
+  <p>
+    This is a very important kind of problem! 
+    Not only does it show up on exams commonly, it will also be the key to finding the matrix for a linear transformation which is one of the most important things in linear algebra!
+  </p>
+
+  <exercise>
+    <p>
+      Suppose <m>T: \R^3 \to \R^2</m> is a linear transformation and we know that
+      <md>
+        T \lp \begin{bmatrix} 1 \\ 1 \\ 3 \end{bmatrix} \rp = \begin{bmatrix} 2 \\ 1 \end{bmatrix} 
+        \qquad \text{ and } \qquad
+        T \lp \begin{bmatrix} 2 \\ 1 \\ 0 \end{bmatrix} \rp = \begin{bmatrix} -2 \\ 3 \end{bmatrix}
+      </md>
+      Find <m>T \lp \begin{bmatrix} 1 \\ -1 \\ -9 \end{bmatrix} \rp</m>.
+    </p>
+
+    <solution>
+      <p>
+        Notice that
+        <md>
+          \begin{bmatrix} 1 \\ -1 \\ -9 \end{bmatrix} = -3 \begin{bmatrix} 1 \\ 1 \\ 3 \end{bmatrix} + 2 \begin{bmatrix} 2 \\ 1 \\ 0 \end{bmatrix}
+        </md>
+        <alert>Remember that if you can't figure out the linear combination by guessing and checking, you can find it by setting up a system of linear equations!</alert>
+      </p>
+
+      <p>
+        So we know that
+        <md>
+          T\lp \begin{bmatrix} 1 \\ -1 \\ -9 \end{bmatrix} \rp = -3 \begin{bmatrix} 1 \\ 1 \\ 3 \end{bmatrix} + 2 \begin{bmatrix} 2 \\ 1 \\ 0 \end{bmatrix} = \begin{bmatrix} -10 \\ 3 \end{bmatrix}
+        </md>
+        
+      </p>
+    </solution>
+  </exercise>
+
+  <p>
+    Notice that any vector in <m>\R^2</m> can be written as a linear combination of <m>\v{e}_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}</m> and <m>\v{e}_2 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}</m>. 
+  </p>
+
+  <proof>
+    <title>Quick proof of this claim</title>
+    <p>
+      Let <m>\begin{bmatrix} x \\ y \end{bmatrix}</m> be an arbitrary vector in <m>\R^2</m>. 
+      Then
+      <md>
+        \begin{bmatrix} x \\ y \end{bmatrix} = x\begin{bmatrix} 1 \\ 0 \end{bmatrix} + y\begin{bmatrix} 0 \\ 1 \end{bmatrix} = x\v{e}_1 + y\v{e}_2
+      </md>
+      Proved! 
+    </p>
+  </proof>
+
+  <p>
+    <m>\left\{ \v{e}_1, \v{e}_2 \right\}</m> is called the <term>standard basis</term> of <m>\R^2</m>. 
+  </p>
+
+  <p>
+    For <m>\R^n</m>, the standard basis consists of the vectors <m>\left\{\v{e}_1, \v{e}_2, \ldots, \v{e}_n\right\}</m> where the <m>k</m>-th entry of <m>\v{e}_k</m> is a <m>1</m> and all of the rest are zeros. 
+    Clearly these are all <m>n</m>-dimensional vectors. 
+    That means the <m>\v{e}_1</m> is actually a different vector depending on which <m>\R^n</m> you are working with. 
+  </p>
+
+  <p>
+    For example, <m>\v{e}_1</m> in <m>\R^2</m> is <m>\begin{bmatrix} 1 \\ 0 \end{bmatrix}</m>, but <m>\v{e}_1</m> in <m>\R^3</m> is <m>\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}</m>. 
+    They are NOT the same vectors! 
+  </p>
+
+  <p>
+    Combining this fact with the two properties that every linear transformation satisfies, we can see that every linear combination defined on <m>\R^2</m> (this works for <m>\R^n</m> as well, but let's start small!) is actually determined by what it does to the standard basis vectors <m>\v{e}_1</m> and <m>\v{e}_2</m>. 
+  </p>
+
+  <proof>
+    <title>Quick proof of this claim</title>
+    <p>
+      Let <m>\v{x}</m> be a vector in <m>\R^2</m>. 
+      Then there exist scalars <m>a, b \in \R</m> such that
+      <md>
+        \v{x} = a\v{e}_1 + b\v{e}_2
+      </md>
+      Then for any linear transformation <m>T</m> defined on <m>\R^2</m>, we have
+      <md>
+        T(\v{x}) = T(a\v{e}_1 + b\v{e}_2) = aT(\v{e}_1) + bT(\v{e}_2)
+      </md>
+      So the output of <m>T</m> at <m>\v{x}</m> is completely determined by the output of <m>T</m> at <m>\v{e}_1</m> and <m>\v{e}_2</m>.
+    </p>
+  </proof>
+
+  <p>
+    We can use this fact to figure out how to find the matrix for a linear transformation (and in doing so, we really prove that such a matrix will always exist for any linear transformation)!
+  </p>
+
+  <example>
+    <p>
+      Suppose that <m>T: \R^2 \to \R^3</m> is a linear transformation such that
+      <md>
+        T\lp \v{e}_1 \rp = \begin{bmatrix} 2 \\ 0 \\ 3 \end{bmatrix}
+        \qquad \text{ and } \qquad
+        T\lp \v{e}_2 \rp = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
+      </md>
+      What is the matrix <m>A</m> such that <m>T(\v{x}) = A\v{x}</m> for all <m>\v{x} \in \R^2</m>?
+    </p>
+
+    <p>
+      Consider any vector <m>\v{x} = \begin{bmatrix} x \\ y \end{bmatrix}</m> in <m>\R^2</m>.
+      We know that
+      <md>
+        <mrow> T\lp \begin{bmatrix} x \\ y \end{bmatrix} \rp \amp= T\lp x\begin{bmatrix} 1 \\ 0 \end{bmatrix} + y\begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp </mrow>
+        <mrow> \amp= xT\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp + yT\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp </mrow>
+        <mrow> \amp= x\begin{bmatrix} 2 \\ 0 \\ 3 \end{bmatrix} + y\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} </mrow>
+        <mrow> \amp= \begin{bmatrix} 2x + y \\ 2y \\ 3x + 3y \end{bmatrix} </mrow>
+      </md>
+      Notice that the output is what we would get if we multiplied the matrix <m>\begin{bmatrix} 2 \amp 1 \\ 0 \amp 2 \\ 3 \amp 3 \end{bmatrix}</m> by the vector <m>\begin{bmatrix} x \\ y \end{bmatrix}</m>! 
+      So
+      <md>
+        T\lp \begin{bmatrix} x \\ y \end{bmatrix} \rp = \begin{bmatrix} 2 \amp 1 \\ 0 \amp 2 \\ 3 \amp 3 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}
+      </md>
+      We found the matrix that goes with this linear transformation!
+    </p>
+  </example>
+
+  <p>
+    Notice that in the above example, <alert>the columns of our matrix were the outputs of the standard basis vectors</alert>. 
+    That tells us exactly how to find a matrix for any linear transformation!
+  </p>
+
+  <p>
+    Suppose <m>T: \R^n \to \R^m</m> is a linear transformation. 
+    To find the matrix <m>A</m> such that <m>T</m> is given by the rule <m>T(\v{x}) = A\v{x}</m>, we...
+    <ol marker="Step 1:">
+      <li>
+        <p>
+          Figure out <m>T\lp \v{e_1} \rp, T\lp \v{e_2} \rp, \ldots T\lp \v{e_n} \rp</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          Write the matrix that has columns <m>T\lp \v{e_1} \rp, T\lp \v{e_2} \rp, \ldots T\lp \v{e_n} \rp</m>: 
+          <md>
+            A = \begin{bmatrix} T\lp \v{e_1} \rp \amp T\lp \v{e_2} \rp \amp \cdots \amp T\lp \v{e_n} \rp \end{bmatrix}
+          </md>
+        </p>
+      </li>
+      <li>
+        <p>
+          Pat yourself on the back
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <example>
+    <p>
+      Let <m>T: \R^2 \to \R^2</m> be a linear transformation given by
+      <md>
+        T\lp \begin{bmatrix} x \\ y \end{bmatrix} \rp = \begin{bmatrix} 2x + 3y \\ 5x + 7y \end{bmatrix}
+      </md>
+      Let's find the matrix <m>A</m> such that <m>T(\v{x}) = A\v{x}</m> for all <m>\v{x} \in \R^2</m>. 
+    </p>
+
+    <p>
+      Step 1: In this case, <m>\v{e}_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}</m> and <m>\v{e}_2 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}</m>.
+      So
+      <md>
+        T(\v{e}_1) = T\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp = \begin{bmatrix} 2 \\ 5 \end{bmatrix}
+        \qquad \text{ and } \qquad
+        T(\v{e}_2) = T\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp = \begin{bmatrix} 3 \\ 7 \end{bmatrix}
+      </md>
+    </p>
+
+    <p>
+      Step 2: <m>A = \begin{bmatrix} T(\v{e}_1)\amp T(\v{e}_2) \end{bmatrix} = \begin{bmatrix} 2 \amp 3 \\ 5 \amp 7 \end{bmatrix}</m>
+    </p>
+
+    <p>
+      Let's check to see if <m>A</m> really works!
+      <md>
+        A\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 2 \amp 3 \\ 5 \amp 7 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 2x + 3y \\ 5x + 7y \end{bmatrix} 
+      </md>
+      Woo! 
+    </p>
+  </example>
+
+  <exercise>
+    <p>
+      Find the matrix that corresponds to the linear transformation <m>T: \R^3 \to \R^2</m> given by
+      <md>
+        T\lp \begin{bmatrix} x \\ y \\ z \end{bmatrix} \rp = \begin{bmatrix} x + 3y + 7z \\ 3x + 5y - 8z \end{bmatrix}
+      </md>
+    </p>
+
+    <solution>
+      <p>
+        Observe that
+        <md>
+          <mrow> T\lp \begin{bmatrix} x \\ y \\ z \end{bmatrix} \rp \amp= \begin{bmatrix} x + 3y + 7z \\ 3x + 5y - 8z \end{bmatrix} </mrow>
+          <mrow> \amp= x \begin{bmatrix} 1 \\ 3 \end{bmatrix} + y \begin{bmatrix} 3 \\ 5 \end{bmatrix} + z \begin{bmatrix} 7 \\ -8 \end{bmatrix} </mrow>
+        </md>
+        Then we know that
+        <md>
+          T\lp \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} \rp = \begin{bmatrix} 1 \\ 3 \end{bmatrix}
+          \, , \, 
+          T\lp \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \rp = \begin{bmatrix} 3 \\ 5 \end{bmatrix}
+          \, , \text{ and} \, 
+          T\lp \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} \rp = \begin{bmatrix} 7 \\ -8 \end{bmatrix}
+        </md>
+        So our matrix is <m>\begin{bmatrix} 1 \amp 3 \amp 7 \\ 3 \amp 5 \amp -8 \end{bmatrix}</m>
+      </p>
+    </solution>
+  </exercise>
+
+  <p>
+    It turns out that rotations and reflections are also linear transformations! 
+  </p>
+
+  <p>
+    <alert>Let's find a matrix for a rotation <m>\theta</m> in <m>\R^2</m>!</alert>
+    We need to figure out what such a rotation does to the vectors <m>\begin{bmatrix} 1 \\ 0 \end{bmatrix}</m> and <m>\begin{bmatrix} 0 \\ 1 \end{bmatrix}</m>.
+  </p>
+
+  <p>
+    Let's suppose that the vector <m>\begin{bmatrix} x \\ y \end{bmatrix}</m> is the result of rotating <m>\begin{bmatrix} 1 \\ 0 \end{bmatrix}</m> counterclockwise by the angle <m>\theta</m>. 
+    This vector can be represented as an arrow starting at the origin and ending at the point <m>(x, y)</m>. 
+    We can draw a triangle to figure out the exact coordinates of the vector <m>\begin{bmatrix} x \\ y \end{bmatrix}</m>. 
+  </p>
+
+  <image source="sec18-RotationalMatrix-UnitCircle.png" width="60%"></image>
+
+  <p>
+    The <m>x</m>-coordinate will be <m>\cos(\theta)</m> and the <m>y</m>-coordinate will be <m>\sin(\theta)</m>. 
+    So the rotation takes <m>\begin{bmatrix} 1 \\ 0 \end{bmatrix}</m> to <m>\begin{bmatrix} \cos(\theta) \\ \sin(\theta) \end{bmatrix}</m>. 
+  </p>
+
+  <p>
+    If we also draw the vector <m>\begin{bmatrix} 0 \\ 1 \end{bmatrix}</m> and rotate it (counterclockwise) by an angle of <m>\theta</m>, we get a picture like this: 
+  </p>
+
+  <image source="sec18-RotationalMatrix-RotatingTriangle.png" width="60%"></image>
+
+  <p>
+    This time, the <m>x</m>-coordinate will be <m>-\sin(\theta)</m> and the <m>y</m>-coordinate will be <m>\cos(\theta)</m>. 
+    So the rotation takes <m>\begin{bmatrix} 0 \\ 1 \end{bmatrix}</m> to <m>\begin{bmatrix} -\sin(\theta) \\ \cos(\theta) \end{bmatrix}</m>.
+  </p>
+
+  <p>
+    <em>Note:</em> These pictures make it easy to see this is true when <m>\theta</m> is between <m>0^\circ</m> and <m>90^\circ</m>, 
+    To see that this is true regardless of how big <m>\theta</m> is, you can either look at cases in all of the four quadrants or you can use trig identities. 
+  </p>
+
+  <p>
+    This means that you can find any rotation matrix by plugging <m>\theta</m> into
+    <md>
+      R_\theta = \begin{bmatrix} \cos(\theta) \amp -\sin(\theta) \\ \sin(\theta) \amp \cos(\theta) \end{bmatrix}
+    </md>
+  </p>
+
+  <p>
+    <alert>Now let's find a matrix for the reflection across the line <m>y = mx</m>!</alert>
+    We need fo figure out what happens to <m>\begin{bmatrix} 1 \\ 0 \end{bmatrix}</m> and <m>\begin{bmatrix} 0 \\ 1 \end{bmatrix}</m> when we reflect them across the line <m>y = mx</m>.
+  </p>
+
+  <p>
+    From analytic geometry, we know that the slope of any line perpendicular to <m>y = mx</m> will have slope <m>-\frac{1}{m}</m>. 
+    We want to find the line through <m>(1,0)</m> that has slope <m>-\frac{1}{m}</m>. 
+    That is because we need to find the intersection of that line with <m>y = mx</m> to get the midpoint of the segment between <m>(1,0)</m> and the point we get after reflecting <m>(1,0)</m>. 
+  </p>
+
+  <image source="sec18-ReflectionalMatrix.png" width="60%"></image>
+  
+  <p>
+    That perpendicular line is given by <m>y - 0 = -\frac{1}{m}(x - 1)</m>, which simplifies to <m>y = -\frac{1}{m}x + \frac{1}{m}</m>. 
+  </p>
+
+  <p>
+    Now let's find the point of intersection! 
+    Substituting <m>y = mx</m> into this equation, we get 
+    <md>
+      mx = -\frac{1}{m}x + \frac{1}{m}
+      \qquad \implies \qquad 
+      m^2x = -x + 1
+    </md>
+    This means that <m>x = \frac{1}{1 + m^2}</m>. 
+    Then substituting again, we get <m>y = m\frac{1}{1 + m^2}</m>.
+    So the midpoint between <m>(1,0)</m> and the result of reflecting <m>(1,0)</m> across the line <m>y = mx</m> is <m>\lp \frac{1}{1 + m^2}, m\frac{1}{1 + m^2} \rp</m>. 
+  </p>
+
+  <p>
+    The midpoint formula tells us that the midpoint of a segment between points <m>(x_1, y_1)</m> and <m>(x_2, y_2)</m> is <m>\lp \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \rp</m>.
+    So 
+    <md>
+      \lp \frac{1}{1 + m^2}, m\frac{1}{1 + m^2} \rp = \lp \frac{1 + x}{2}, \frac{0 + y}{2} \rp
+    </md>
+    where <m>(x,y)</m> is the point we are looking for. 
+    This gives us the equations
+    <md>
+      \begin{cases}
+        \frac{1}{1 + m^2} = \frac{1 + x}{2} \\
+        m\frac{1}{1 + m^2} = \frac{y}{2}
+      \end{cases}
+    </md>
+    Solving these equations, we get 
+    <md>
+      \begin{cases}
+        x = \frac{1 - m^2}{1 + m^2} \\
+        y = \frac{2m}{1 + m^2}
+      \end{cases}  
+    </md>
+    So the reflection takes <m>(1,0)</m> to <m>\lp \frac{1 - m^2}{1 + m^2}, \frac{2m}{1 + m^2} \rp</m>.
+  </p>
+
+  <p>
+    A similar method can be used to find out that the reflection takes the point <m>(0,1)</m> to the point <m>\lp \frac{2m}{1 + m^2}, \frac{m^2 - 1}{1 + m^2} \rp</m>. 
+  </p>
+
+  <p>
+    Converting these to column vectors, the matrix for reflecting across the line <m>y = mx</m> is given by
+    <md>
+      R_m = \begin{bmatrix} \frac{1 - m^2}{1 + m^2} \amp \frac{2m}{1 + m^2} \\ \frac{2m}{1 + m^2} \amp \frac{m^2 - 1}{1 + m^2} \end{bmatrix}
+    </md>
+    Pulling out the common factor, we can rewrite this as
+    <md>
+      R_m = \frac{1}{1 + m^2} \begin{bmatrix} 1 - m^2 \amp 2m \\ 2m \amp m^2 - 1 \end{bmatrix}
+    </md>
+  </p>
+
+  <p>
+    We can figure out the matrix that does other transformations using the similar trick by figuring out what the transformation does to the standard basis vectors!
+  </p>
+
+  <example>
+    <p>
+      Let's write a matrix that stretches <m>\begin{bmatrix} 1 \\ 0 \end{bmatrix}</m> by a factor of <m>3</m> and stretches <m>\begin{bmatrix} 0 \\ 1 \end{bmatrix}</m> by a factor of <m>7</m>. 
+    </p>
+
+    <p>
+      This can be thought of as scalar multiplication of the first vector by <m>3</m> and scalar multiplication of the second vector by <m>7</m>. 
+      So the resulting vector after stretching <m>\begin{bmatrix} 1 \\ 0 \end{bmatrix}</m> will be <m>\begin{bmatrix} 3 \\ 0 \end{bmatrix}</m> and the resulting vector after stretching <m>\begin{bmatrix} 0 \\ 1 \end{bmatrix}</m> will be <m>\begin{bmatrix} 0 \\ 7 \end{bmatrix}</m>. 
+      Hence, our matrix is
+      <md>
+        S = \begin{bmatrix} 3 \amp 0 \\ 0 \amp 7 \end{bmatrix}
+      </md>
+    </p>
+  </example>
+
+  <p>
+    Observe that the matrix basically is the rule for the linear transformation. 
+    However, most of the time when we are asked to find the matrix for a linear transformation, we won't be given the rule for the transformation. 
+    Instead, we will be given other information. 
+    For example, we used geometric descriptions to find the matrices for rotations and reflections earlier. 
+    We have also seen that if we know what the transformation does to the standard basis vectors, it is straightforward to create the matrix for the transformation.  
+  </p>
+
+  <p>
+    We may also be given information about what the linear transformation does to some vectors that are NOT the standard basis vectors. 
+    In that case, we would have to <alert>use that information to figure out what the transformation does to the standard basis vectors in order to find the matrix</alert>. 
+    Doing that will require figuring out how to write the standard basis vectors as linear combinations of the given vectors. 
+  </p>
+
+  <example>
+    <p>
+      Suppose we have a linear transformation <m>T</m> such that
+      <md>
+        T\lp \begin{bmatrix} 1 \\ 2 \end{bmatrix} \rp = \begin{bmatrix} 5 \\ 3 \\ 4 \end{bmatrix}
+        \qquad \text{ and } \qquad
+        T\lp \begin{bmatrix} 2 \\ 3 \end{bmatrix} \rp = \begin{bmatrix} 1 \\ 7 \\ -3 \end{bmatrix}
+      </md>
+      What is the matrix for this linear transformation? 
+    </p>
+
+    <p>
+      To find this matrix, we need to figure out <m>T\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp</m> and T\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp. 
+      So we need to solve the following vector equations: 
+      <md>
+        <mrow>x_1 \begin{bmatrix} 1 \\ 2\end{bmatrix} + y_1 \begin{bmatrix} 2 \\ 3 \end{bmatrix} \amp= \begin{bmatrix} 1 \\ 0 \end{bmatrix} </mrow>
+        <mrow>x_2 \begin{bmatrix} 1 \\ 2\end{bmatrix} + y_2 \begin{bmatrix} 2 \\ 3 \end{bmatrix} \amp= \begin{bmatrix} 0 \\ 1 \end{bmatrix} </mrow>
+      </md>
+      <alert>Sometimes you can guess and check to figure out the linear combinations. 
+        This one is NOT at all easy to do that way. 
+        So we will need to use some linear algebra to solve these equations!
+      </alert>
+    </p>
+
+    <p>
+      These correspond to the matrix equations: 
+      <md>
+        <mrow> \begin{bmatrix} 1 \amp 2 \\ 2 \amp 3 \end{bmatrix} \begin{bmatrix} x_1 \\ y_1 \end{bmatrix} \amp= \begin{bmatrix} 1 \\ 0 \end{bmatrix} </mrow>
+        <mrow> \begin{bmatrix} 1 \amp 2 \\ 2 \amp 3 \end{bmatrix} \begin{bmatrix} x_1 \\ y_1 \end{bmatrix} \amp= \begin{bmatrix} 0 \\ 1 \end{bmatrix} </mrow>
+      </md>
+      We can easily solve both of these by finding the inverse of <m>\begin{bmatrix}1 \amp 2 \\ 2 \amp 3 \end{bmatrix}</m>
+    </p>
+
+    <p>
+      The determinant is <m>3 - 4 = -1</m> and the adjugate is <m>\begin{bmatrix} 3 \amp -2 \\ -2 \amp 1 \end{bmatrix}</m>. 
+      So the inverse is <m>\begin{bmatrix} -3 \amp 2 \\ 2 \amp -1 \end{bmatrix}</m>
+    </p>
+
+    <p>
+      Now we can solve the first equation to get
+      <md>
+        \begin{bmatrix}x_1 \\ y_1 \end{bmatrix} = \begin{bmatrix} -3 \amp 2 \\ 2 \amp -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} -3 \\ 2 \end{bmatrix}
+      </md>
+      and we can solve the second equation to get
+      <md>
+        \begin{bmatrix}x_2 \\ y_2 \end{bmatrix} = \begin{bmatrix} -3 \amp 2 \\ 2 \amp -1 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 2 \\ -1 \end{bmatrix}
+      </md>
+      So we now know that
+      <md>
+        \begin{bmatrix} 1 \\ 0 \end{bmatrix} = -3 \begin{bmatrix} 1 \\ 2 \end{bmatrix} + 2 \begin{bmatrix} 2 \\ 3 \end{bmatrix}
+        \qquad \text{ and } \qquad 
+        \begin{bmatrix} 0 \\ 1 \end{bmatrix} = -3 \begin{bmatrix} 1 \\ 2 \end{bmatrix} - 1 \begin{bmatrix} 2 \\ 3 \end{bmatrix}
+      </md>
+    </p>
+
+    <p>
+      We can use this information to figure out what <m>T</m> does to <m>\begin{bmatrix} 1 \\ 0 \end{bmatrix}</m> and <m>\begin{bmatrix} 0 \\ 1 \end{bmatrix}</m>: 
+      <md>
+        <mrow> T\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp \amp= T\lp -3 \begin{bmatrix} 1 \\ 2 \end{bmatrix} + 2 \begin{bmatrix} 2 \\ 3 \end{bmatrix} \rp</mrow> 
+        <mrow> \amp= -3 T\lp \begin{bmatrix} 1 \\ 2 \end{bmatrix} \rp + 2 T\lp \begin{bmatrix} 2 \\ 3 \end{bmatrix} \rp</mrow>
+        <mrow> \amp= -3 \begin{bmatrix} 5 \\ 3 \\ 4 \end{bmatrix} + 2\begin{bmatrix} 1 \\ 7 \\ -3 \end{bmatrix} </mrow>
+        <mrow> \amp= \begin{bmatrix} -13 \\ 5 \\ -18 \end{bmatrix} </mrow>
+      </md>
+      and
+      <md>
+        <mrow> T\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp \amp= T\lp 2 \begin{bmatrix} 1 \\ 2 \end{bmatrix} - \begin{bmatrix} 2 \\ 3 \end{bmatrix} \rp</mrow> 
+        <mrow> \amp= 2 T\lp \begin{bmatrix} 1 \\ 2 \end{bmatrix} \rp - T\lp \begin{bmatrix} 2 \\ 3 \end{bmatrix} \rp</mrow>
+        <mrow> \amp= 2 \begin{bmatrix} 5 \\ 3 \\ 4 \end{bmatrix} - \begin{bmatrix} 1 \\ 7 \\ -3 \end{bmatrix} </mrow>
+        <mrow> \amp= \begin{bmatrix} 9 \\ -1 \\ 11 \end{bmatrix} </mrow>
+      </md>
+      So our matrix is <m>A = \begin{bmatrix} -13 \amp 9 \\ 5 \amp -1 \\-18 \amp 11 \end{bmatrix}</m>
+    </p>
+
+    <p>
+      <alert>We are basically done once we figure out what the linear transformation does to our standard basis vectors! 
+        But it sometimes takes work to figure that out. 
+      </alert>
+    </p>
+  </example>
+
+  <exercise>
+    <p>
+      Suppose you have a linear transformation <m>T</m> such that
+      <md>
+        T\lp \begin{bmatrix} 2 \\ 1 \end{bmatrix} \rp = \begin{bmatrix} 1 \\ 3 \\ -2 \end{bmatrix}
+        \qquad \text{ and } \qquad
+        T\lp \begin{bmatrix} 7 \\ -1 \end{bmatrix} \rp = \begin{bmatrix} -3 \\ 5 \\ 1 \end{bmatrix}
+      </md>
+      Find the matrix for this linear transformation!
+    </p>
+
+    <solution>
+      <p>
+        Doing some fun linear algebra, we can figure out that
+        <md>
+          \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \frac{1}{9} \begin{bmatrix} 2 \\ 1 \end{bmatrix} + \frac{1}{9} \begin{bmatrix} 7 \\ -1 \end{bmatrix}
+          \qquad \text{ and } \qquad 
+          \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \frac{7}{9} \begin{bmatrix} 2 \\ 1 \end{bmatrix} - \frac{2}{9} \begin{bmatrix} 7 \\ -1 \end{bmatrix}
+        </md>
+        So we know that
+        <md>
+          T\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp = \frac{1}{9} \begin{bmatrix} 1 \\ 3 \\ -2 \end{bmatrix} + \frac{1}{9} \begin{bmatrix} -3 \\ 5 \\ 1 \end{bmatrix} = \begin{bmatrix} \frac{-2}{9} \\ \frac{8}{9} \\ \frac{-1}{9} \end{bmatrix}
+        </md>
+        and
+        <md>
+          T\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp = \frac{7}{9} \begin{bmatrix} 1 \\ 3 \\ -2 \end{bmatrix} - \frac{2}{9} \begin{bmatrix} -3 \\ 5 \\ 1 \end{bmatrix} = \begin{bmatrix} \frac{13}{9} \\ \frac{11}{9} \\ \frac{-16}{9} \end{bmatrix}
+        </md>
+        So the matrix for this transformation is <m>\begin{bmatrix} \frac{-2}{9} \amp \frac{13}{9} \\ \frac{8}{9} \amp \frac{11}{9} \\ \frac{-1}{9} \amp \frac{-16}{9} \end{bmatrix}</m>
+      </p>
+    </solution>
+  </exercise>
+
+</section>

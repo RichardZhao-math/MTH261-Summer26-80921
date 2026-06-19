@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch1-SystemLinearEquation" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Systems of Linear Equations</title>
+
+  <!-- include sections -->
+  <xi:include href="sec11-SolutionsElementaryOperations.ptx" />
+  <xi:include href="sec12-GaussianElimination.ptx" />
+  <xi:include href="sec13-HomogeneousEquations.ptx" />
+
+</chapter>
