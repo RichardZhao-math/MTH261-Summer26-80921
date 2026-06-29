@@ -442,6 +442,582 @@ var ptx_lunr_docs = [
   "body": "symmetric "
 },
 {
+  "id": "sec22-MatrixVectorMultiplication",
+  "level": "1",
+  "url": "sec22-MatrixVectorMultiplication.html",
+  "type": "Section",
+  "number": "2.2",
+  "title": "Matrix-Vector Multiplication",
+  "body": " Matrix-Vector Multiplication   Now we get to the cool part! We are going to learn how to multiply a matrix by a vector. This is SUPER IMPORTANT for three reasons:   This corresponds to evaluating a linear transformation at a point which leads to tons of cool geometry stuff. Much more about this in the future!    It is the foundation for multiplying matrices (which is probably the most important thing in Matrix Algebra and corresponds to composing linear transformations).    It gives us new ways to think about systems of equations!   Takeaway: make sure you are an expert at multiplying a vector by a matrix!    After this section, students will be able to:     represent a system of linear equations in four equivalent forms: a system of equations, an augmented matrix, a matrix equation, and a vector equation.    multiply a matrix by a vector using both the dot product method and the linear combination method.    determine the existence of solutions for a system of linear equations by comparing the rank of the coefficient matrix and the rank of the augmented matrix.    see the connection between matrix-vector multiplication and linear transformations.    identify and apply the properties of two special matrices: the identity matrix and the zero matrix, in the context of multiplying a matrix by a vector.       Quick Notes about Vector Notation  We already know that we can represent a point in the plane as an ordered pair like . And we also know that two points in the plane, and , are equal if (and only if) both coordinates are exactly the same. In other words, if and only if and .  This generalizes immediately to the set of ordered -tuples of real numbers : And if and only if , , , .  You may recall, when dealing with or we will sometimes use the conventions from calculus (and precalculus) and use , , and to represent the 2 (or 3) coordinates and use subscripts to distinguish different points. However, in this class, it will be more common to do the opposite. We will use the more general convention of using different letters for different points and using the subscripts to denote the different coordinates. So in this class, we will mostly be writing things like and NOT .  You may also notice that when we write a point in in this way, the point looks kind of like a row matrix: But most often we will represent points in as column matrices:   One last observation: is closed under the operations of scalar multiplication and matrix (vector) addition. In other words, if you multiply a vector in by a scalar the answer is also in . And if you add two vectors in the answer is in .    What exactly is an Augmented Matrix?  Consider the augmented matrix You may have heard Richard saying that an augmented matrix is a \"fake\" matrix but is really just a shorthand notation to represent a system of linear equations. It turns out that an augmented matrix actually hides three matrices, two of which are vectors (aka. column matrices). Hence, an augmented matrix is really three matrices smashed together to represent a system of linear equations in a convenient way.  The left side of an augmented matrix is the coefficient matrix . For our (general) example above, the coefficient matrix is   The right side of an augmented matrix is the constant matrix or constant (column) vector . For our example, the constant vector is   To figure out what the third matrix\/vector is, let's convert the augmented matrix to a system of linear equations! For our example, we get First, notice that this system of equations can be seen as one equation involving two matrices\/vectors! You may have noticed that the solution is the one part of our system that we haven't talked about as a matrix\/vector yet. Well let's fix that now!  The vector on the left-hand side is the one that we get when we multiply the coefficient matrix by the solution vector  when represented as a column vector: In other words our system of equations can be represented by the matrix equation : Or using the names of the matrices:     Multiplying a Matrix by a Vector  Now let's take a deeper look at the product and try to figure out how to multiply a matrix by a vector. For our example, we had So what is happening?  First notice that we are multiplying a matrix by a matrix and getting a matrix. Also, notice that the first (top) entry of the answer is achieved by multiplying each entry in the first row of the matrix by the corresponding entry of the column vector and adding the results. First thing in the row times first thing in the column plus second thing in the row times second thing in the column and so on...   The first entry is    Then the second entry in the answer is achieved in the same way but using the second row of the matrix :   The second entry is    Then the third entry in the answeris achieved in the same way but using the third row of the matrix :   The third entry is    And finally the fourth entry in the answer is achieved in the same way but using the fourth row of the matrix :   The fourth entry is    When we run out of rows of , we are done!   Let's try this out with the following product of a matrix and a vector:   First, we take the first row of the matrix and multiply each entry by the corresponding entry in the column vector and add the results: Next, we take the second row of the matrix and do the same thing: Finally, we take the third row of the matrix and do the same thing: So the answer is     Multiply! If it is impossible, say why!               a.   b. This is impossible! There are three things in each row of the matrix but four things in the vector. There is nothing to multiply by the !      Existence and Uniqueness Questions  Recall a consistent system of linear equations has at least one solution and an inconsistent system of linear equations has no solutions. We have looked at the existence question in the past in two different ways:   In , when converting an augmented matrix to a system of linear equations and there is one equation that is always false (like ), then the system is inconsistent .    In , when an augmented matrix has a pivot position in the rightmost column (aka the constant column), then the system is inconsistent .   We will look at the same question again but in a new perspective. Back in , we define the rank of a matrix to be the number of pivot positions (aka the leading s) in the matrix. Now that we have two different matrices: the augmented matrix and the coefficient matrix, how do their ranks relate to the existence question?  Consider the following system of equations: The augmented matrix is... If we put this matrix into row echelon form, we get Notice that the rank of this augmented matrix (if we pretend it is a real matrix) is because there are two leading s. But if we look only at the coefficient matrix (the part to the left of the vertical lines) we see that the rank is because there is only one leading .   Those ranks are different! Maybe that means something?   Let's write this nice (row echelon) version of the system as a matrix equation! The coefficient matrix is and the constant vector is . This is a two-variable system, so the solution matrix looks like . So as a matrix equation, our system is   Okay... so now let's think about what will happen when we multiply our vector by the coefficient matrix . When we get to the second row (to find the second entry in the answer), we will multiply both and by zero. That means we will get not like we are supposed to get! So this system has no solution! In other words, it is inconsistent !   Notice that this happened because the rank of the augmented matrix was BIGGER than the rank of the coefficient matrix!   That can only happen if there is a leading in the last column of the augmented matrix (the constant vector). And that will always result in no solution because it will always give you when you convert back to a system of equations (see how things are connected back to the two perspectives of the existence questions).  Your textbook makes this a nice little theorem with no proof (yes the textbook literally says \"with no proof\"). With the above example in mind, you may be able to see why the theorem is true.    For a system of linear equations with corresponding matrix equation , the augmented matrix will be .  Suppose the rank of the coefficient matrix is . Then   The rank of the augmented matrix is either equal to or .  This is because the augmented matrix just has one extra column which gives a spot for at most one more leading in that column (which can only happen if there is a row of the coefficient matrix that is all zeros after putting it in row echelon form).    The system is consistent if an only if the rank of is .  In this situation, any time a row of the coefficient matrix gets zeroed out, there is also a zero in the constant column of that row. So in this situation we never have a equation after we put the augmented matrix in row echelon form.  What I didn't prove was that in this nice situation we always get at least one solution. You should be able to convince yourself that you always will be able to start at the bottom and back-substitute and either get one solution (if there are no free variables) or infinitely many (if there are some free variables).    The system is inconsistent if and only if the rank of is .  This happens exactly when there is a row that is all zeros except for a in the constant spot (the rightmost column). That corresponds to a situation. So there are no solutions.  As noted in the previous item, I did not prove that this is the ONLY way to get no solution, but if you imagine the substitution process (after putting the system into row echelon form) you can see that this is the only thing that can prevent you from getting a solution!    Fun logic fact: Item 3 is actually redundant and is already covered by item 1 and 2! That is, if item 1 and 2 are true, then item 3 must be true as well!      Vector Equations  So far we have three different ways to represent a system of linear equations: (1) as a system of equations, (2) as an augmented matrix, and (3) as a matrix equation. There is actually a fourth way to represent a system of linear equations: as a vector equation .  Let's again consider the system of linear equations Remember that we can think of our original system of equations as representing an equation involving two vectors: Now let's do the same technique we used to write a solution as a linear combination of basic vectors. Specifically, let's first break up the vector on the left-hand side into three vectors. One with in it, one with in it, and one with in it: Now let's factor out the scalars , , and to get: Substituting this last version into our original equation, we get the vector equation : Notice that this vector equation tells us that we get a solution to a system of linear equations precisely when the constant vector is a linear combination of the columns of the coefficient matrix . See how the column vectors on the left-hand side are just the columns of the coefficient matrix?!?! See how the solution vector is just the set of scalars (coefficients) used to write this linear combination of the column vectors?!?! This observation will be important to keep in mind!   Consider the following system of linear equations: Write this system as a (1) Augmented Matrix, (2) a Matrix Equation, and (3) a Vector Equation.   The augmented matrix is   The matrix equation is   The vector equation is     The Vector Equation gives us yet another way to multiply a vector by a matrix! Let's compare the Matrix Equation and the Vector Equation for a system of linear equations: The Matrix Equation is The Vector Equation is This means that So that means that the left-hand side of the Vector Equation actually gives us a second way to multiply a vector by a matrix. You just compute the linear combination of the columns using the vector to get your scalars.   Let's multiply the following matrix and vector in this new way:   We treat the columns of the matrix as vectors and compute the linear combination of those vectors using the entries of the column vector as our scalars. This is the same answer as before!     Intro to Linear Transformations  It turns out that every matrix actually defines a function. Specifically, a matrix defines a function from to .   Any point in can be represented by a column vector. For example, the point can be represented by .  Let . If we take that point and multiply it by the matrix , we get   This is a function! We started with the input and we \"plugged\" that point into our function by multiplying it (as a column vector) by . This gave us the output .  Let's call this function . It is defined by the rule   We can take any matrix and use that rule and will get a function! The inputs need to have the same number of coordinates as the matrix has columns. And the outputs will have the same number of coordinates as the matrix has rows.   The function given by a matrix, using the rule , is a special kind of function called a linear transformation . We will learn more about linear transformations at the end of the term. But since we just learned how to multiply a matrix by a vector and that defines a linear transformation, let's spend a bit of time thinking about the geometry of such transformations.   Suppose that . The function given by will be a function from to . So it maps points on the plane to points on the plane.  Let's figure out what this transformation does geometrically by doing the following:   Draw a rectangle centered at and label the four vertices. This is your \"before\" picture.    Plug in each of the four vertices using the rule (write the points as column vectors and multiply!)    Plot the four outputs and connect the dots.    Describe what happened to your rectangle.      I will start with a rectangle with vertices , , , and   First, let's connect the dots to draw our rectangle. This is our \"before\" picture.   Plugging in each of the vertices to our transformation, we get Let's graph the outputs and connect the dots. This is our \"after\" picture.   So what does the transformation do? It is a flip (across the line ) and a stretch (by a factor of )!  It actually turns out that the functions defined this way (multiplying vectors by a matrix) always do some combination of the following to the plane: Stretch, Reflect (Flip), Rotate.      Intro to the Dot Product  The first method of multiplying matrices that we learned was actually based on the dot product which is an operation performed on two vectors (of the same size) and the produces a scalar . Sometimes it is actually called a scalar product to emphasize the fact that the output is a scalar.  So how does it work? Let's look at the formula for multiplying a vector by a matrix. For the case of a general matrix, we saw that we could multiply by a column vector. Notice that this result actually comes from performing the same process four different times (once for each row of the matrix).  What we were actually doing was taking the dot product of each row with the column vector. So our multiplication computation consisted of four dot products each of which gave us one of the entries in our answer.   Dot Product   Let and be two vectors in . The dot product of and , denoted by , is the scalar given by the formula      Let's compute the dot product of the vectors and .    Scroll up a bit and you will see the dot product formula show up in each entry where we multiplied the general matrix by a vector. To get the th entry of the answer, we can take the dot product of the th row of the matrix and the vector.  We will talk more about this soon when we learn how to multiply two matrices together.    Two Special Matrices  Recall there are two special numbers in arithmetic: and , in the sense that (1) times any number is and (2) times any number is that same number. There are also two special matrices in matrix arithmetic that play the same role as and do in regular arithmetic.  In the last section, we defined the zero matrix to be the matrix with all entries equal to . If is the zero matrix then for any vector , we have where is the zero vector in .  That is because each time you compute a dot product to get an entry of the answer, you are taking a dot product with a row vector where all entries are zero. So you are always just adding up a bunch of zeros. So you will always get zero for every entry in the product.  The matrix equivalent of is called the identity matrix . That is, when we multiply the identity matrix by a vector, we get the same vector back.  For every positive integer , there is a special matrix called the identity matrix of size . The identity matrix has a in every entry of the main diagonal and a in every other spot.  For example, the identity matrix of size is and the identity matrix of size is When the size is obvious from context, we don't need the little subscript in the name for the identity matrix. We just call it .  But why does the identity matrix look like that? Imagine we multiply by an arbitrary vector . We get    "
+},
+{
+  "id": "sec22-MatrixVectorMultiplication-2-2",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#sec22-MatrixVectorMultiplication-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     represent a system of linear equations in four equivalent forms: a system of equations, an augmented matrix, a matrix equation, and a vector equation.    multiply a matrix by a vector using both the dot product method and the linear combination method.    determine the existence of solutions for a system of linear equations by comparing the rank of the coefficient matrix and the rank of the augmented matrix.    see the connection between matrix-vector multiplication and linear transformations.    identify and apply the properties of two special matrices: the identity matrix and the zero matrix, in the context of multiplying a matrix by a vector.    "
+},
+{
+  "id": "subsec-Basics-Vector-6",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-Basics-Vector-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "closed "
+},
+{
+  "id": "subsec-DecodeAugmentedMatrix-3",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-DecodeAugmentedMatrix-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "coefficient matrix "
+},
+{
+  "id": "subsec-DecodeAugmentedMatrix-4",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-DecodeAugmentedMatrix-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "constant matrix constant (column) vector "
+},
+{
+  "id": "subsec-DecodeAugmentedMatrix-6",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-DecodeAugmentedMatrix-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "matrix equation "
+},
+{
+  "id": "subsec-MultiplyingMatrixVector-4",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-MultiplyingMatrixVector-4",
+  "type": "Example",
+  "number": "2.2.1",
+  "title": "",
+  "body": " Let's try this out with the following product of a matrix and a vector:   First, we take the first row of the matrix and multiply each entry by the corresponding entry in the column vector and add the results: Next, we take the second row of the matrix and do the same thing: Finally, we take the third row of the matrix and do the same thing: So the answer is   "
+},
+{
+  "id": "subsec-MultiplyingMatrixVector-5",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-MultiplyingMatrixVector-5",
+  "type": "Checkpoint",
+  "number": "2.2.2",
+  "title": "",
+  "body": " Multiply! If it is impossible, say why!               a.   b. This is impossible! There are three things in each row of the matrix but four things in the vector. There is nothing to multiply by the !   "
+},
+{
+  "id": "subsec-ExistenceUniqueness-Rank-2",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-ExistenceUniqueness-Rank-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "consistent inconsistent rank "
+},
+{
+  "id": "thm-Existence_Rank",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#thm-Existence_Rank",
+  "type": "Theorem",
+  "number": "2.2.3",
+  "title": "",
+  "body": "  For a system of linear equations with corresponding matrix equation , the augmented matrix will be .  Suppose the rank of the coefficient matrix is . Then   The rank of the augmented matrix is either equal to or .  This is because the augmented matrix just has one extra column which gives a spot for at most one more leading in that column (which can only happen if there is a row of the coefficient matrix that is all zeros after putting it in row echelon form).    The system is consistent if an only if the rank of is .  In this situation, any time a row of the coefficient matrix gets zeroed out, there is also a zero in the constant column of that row. So in this situation we never have a equation after we put the augmented matrix in row echelon form.  What I didn't prove was that in this nice situation we always get at least one solution. You should be able to convince yourself that you always will be able to start at the bottom and back-substitute and either get one solution (if there are no free variables) or infinitely many (if there are some free variables).    The system is inconsistent if and only if the rank of is .  This happens exactly when there is a row that is all zeros except for a in the constant spot (the rightmost column). That corresponds to a situation. So there are no solutions.  As noted in the previous item, I did not prove that this is the ONLY way to get no solution, but if you imagine the substitution process (after putting the system into row echelon form) you can see that this is the only thing that can prevent you from getting a solution!    Fun logic fact: Item 3 is actually redundant and is already covered by item 1 and 2! That is, if item 1 and 2 are true, then item 3 must be true as well!   "
+},
+{
+  "id": "subsec-VectorEquations-2",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-VectorEquations-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "vector equation "
+},
+{
+  "id": "subsec-VectorEquations-3",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-VectorEquations-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "vector equation "
+},
+{
+  "id": "subsec-VectorEquations-4",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-VectorEquations-4",
+  "type": "Checkpoint",
+  "number": "2.2.4",
+  "title": "",
+  "body": " Consider the following system of linear equations: Write this system as a (1) Augmented Matrix, (2) a Matrix Equation, and (3) a Vector Equation.   The augmented matrix is   The matrix equation is   The vector equation is    "
+},
+{
+  "id": "subsec-VectorEquations-6",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-VectorEquations-6",
+  "type": "Example",
+  "number": "2.2.5",
+  "title": "",
+  "body": " Let's multiply the following matrix and vector in this new way:   We treat the columns of the matrix as vectors and compute the linear combination of those vectors using the entries of the column vector as our scalars. This is the same answer as before!  "
+},
+{
+  "id": "subsec-LinearTransformations-Intro-3",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-LinearTransformations-Intro-3",
+  "type": "Example",
+  "number": "2.2.6",
+  "title": "",
+  "body": " Any point in can be represented by a column vector. For example, the point can be represented by .  Let . If we take that point and multiply it by the matrix , we get   This is a function! We started with the input and we \"plugged\" that point into our function by multiplying it (as a column vector) by . This gave us the output .  Let's call this function . It is defined by the rule   We can take any matrix and use that rule and will get a function! The inputs need to have the same number of coordinates as the matrix has columns. And the outputs will have the same number of coordinates as the matrix has rows.  "
+},
+{
+  "id": "subsec-LinearTransformations-Intro-4",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-LinearTransformations-Intro-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "linear transformation "
+},
+{
+  "id": "subsec-LinearTransformations-Intro-5",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-LinearTransformations-Intro-5",
+  "type": "Example",
+  "number": "2.2.7",
+  "title": "",
+  "body": " Suppose that . The function given by will be a function from to . So it maps points on the plane to points on the plane.  Let's figure out what this transformation does geometrically by doing the following:   Draw a rectangle centered at and label the four vertices. This is your \"before\" picture.    Plug in each of the four vertices using the rule (write the points as column vectors and multiply!)    Plot the four outputs and connect the dots.    Describe what happened to your rectangle.      I will start with a rectangle with vertices , , , and   First, let's connect the dots to draw our rectangle. This is our \"before\" picture.   Plugging in each of the vertices to our transformation, we get Let's graph the outputs and connect the dots. This is our \"after\" picture.   So what does the transformation do? It is a flip (across the line ) and a stretch (by a factor of )!  It actually turns out that the functions defined this way (multiplying vectors by a matrix) always do some combination of the following to the plane: Stretch, Reflect (Flip), Rotate.   "
+},
+{
+  "id": "subsec-DotProduct-Intro-2",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-DotProduct-Intro-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "dot product scalar product "
+},
+{
+  "id": "subsec-DotProduct-Intro-4",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-DotProduct-Intro-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "dot product "
+},
+{
+  "id": "def-DotProduct-Intro",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#def-DotProduct-Intro",
+  "type": "Definition",
+  "number": "2.2.8",
+  "title": "Dot Product.",
+  "body": " Dot Product   Let and be two vectors in . The dot product of and , denoted by , is the scalar given by the formula    "
+},
+{
+  "id": "subsec-DotProduct-Intro-6",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-DotProduct-Intro-6",
+  "type": "Example",
+  "number": "2.2.9",
+  "title": "",
+  "body": " Let's compute the dot product of the vectors and .   "
+},
+{
+  "id": "subsec-ZeroMatrix-IdentityMatrix-3",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-ZeroMatrix-IdentityMatrix-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "zero matrix "
+},
+{
+  "id": "subsec-ZeroMatrix-IdentityMatrix-5",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-ZeroMatrix-IdentityMatrix-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "identity matrix "
+},
+{
+  "id": "subsec-ZeroMatrix-IdentityMatrix-6",
+  "level": "2",
+  "url": "sec22-MatrixVectorMultiplication.html#subsec-ZeroMatrix-IdentityMatrix-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "identity matrix "
+},
+{
+  "id": "sec23-MatrixMultiplication",
+  "level": "1",
+  "url": "sec23-MatrixMultiplication.html",
+  "type": "Section",
+  "number": "2.3",
+  "title": "Matrix Multiplication",
+  "body": " Matrix Multiplication   In our previous work, we established how to multiply a matrix by a single column vector. In this section, we will extend this concept to multiply a matrix by another matrix. As you will see, multiplying two matrices is essentially just performing matrix-vector multiplication multiple times.    After this section, students will be able to:     compute the product of two matrices;    determine whether two matrices can be multiplied based on their sizes and state the size of the answer matrix;    understand the rules for matrix multiplication;    recognize and demonstrate that matrix multiplication is generally not commutative.      Recall when you multiply a column vector by a matrix, you just compute the dot product of that vector by each row vector of the matrix. Then you get a nice column vector.  If you want to multiply a matrix by another matrix, you just do that for every column of the matrix on the right and you get all of the columns in your answer matrix. And that is how you multiply matrices!   Let's multiply the following two matrices   Oberve that the matrix on the right consists of two columns. We know how to multiply the column (aka a column vector) by the matrix. Let's do that! and Then the first column vector we get is the first column in the answer matrix and the second column vector we get is the second column in the answer matrix. That is,    Writing out the general formula for matrix multiplication using all the little subscripts would be horrible. But there is a clever way to write matrices that makes it a bit easier.  Suppose you want to multiply a matrix by the matrix . Instead of writing down all the entries of using double subscripts, we can write the matrix as a collection of columns using single subscripts. So the matrix looks like this: Then where each column of the answer is a product of with the corresponding column vector of . And each of those products are computed by taking the dot product of each row of with that column vector.  Summary: the entry of the matrix is computed by taking the dot product of the th row of with the -th column of (rows times columns).   Multiply! If it is impossible, say why!               1.   2. This is impossible. You can't multiply a matrix by a matrix. None of the dot products work!  For example, if you want to find the entry in the answer matrix, then you would find the dot product of the first row of the matrix to the left and the first column of the matrix to the right. But... there are three entries in the first row vector and four entries in the column vector... The sizes don't work out... (there is nothing we can multiply by the )...    To make sure the dot products work out for matrix multiplication, we want to make sure the number of columns in the first matrix matches up with the number of rows in the second matrix. That is, to multiply two matrices and with the size of being , the size of must be . The answer matrix is of the size of .  New operation means more rules! Here is a theorem that collects some rules about matrix multiplication.   Matrix Multiplication Rules   Suppose , , and are matrices that are the right size for the products to be defined. And suppose is the identity matrix that is the right size as well. The following properties hold:    Identity Property : and      Associativity :     (Left) Distributive Property :     (Right) Distributive Property :      Regrouping with Scalar Multiplication ; For any scalar ,      Transpose of a Product :        The first five rules should not be surprising. Spend some time to convince yourself why they are true!   Proof Ideas and Sketches Using Smaller Matrices     The first equation follows from multiplying the identify matrix by a column vector. You get that same column vector as the answer. Since that would happen for every column of , you will get as your answer.  The second equation is true because when you multiply by the th column of , the single in the th row of that column will reproduce the th column of the matrix.    This one gets messy when the matrices start getting bigger, so let's verify it in the case. The proof in general works the same just with a lot more subscripts to juggle! and Comparing the results, we can see that the matrix multiplication is associative because multiplication of numbers is!    This one isn't quite as messy as the previous one, but still warrants limiting to case:     The verification of this one works just like the previous one with the obvious changes. Again it comes down to the fact that we have the distributive property in basic arithmetic.    I encourage you to verify this for the case. This one is much less messy than the ones we have done!      You may find the last rule a bit surprising. Why isn't equal to ?  This surprise should tell you that matrix multiplication is not commutative!  Let's verify this one for the case! If you computed and compare it to this you would find you would NOT get this result! But if we commute all of the products inside this matrix... This is what you would get for !   Observe that commutativity is not included in the theorem. That is because matrix multiplication is NOT commutative, which means in general it is NOT true that . Sometimes it happens that way but often it does not!  A quick counter-example can show that matrix multiplication is non-commutative. Let and . Observe that but Hence ...  "
+},
+{
+  "id": "sec23-MatrixMultiplication-2-2",
+  "level": "2",
+  "url": "sec23-MatrixMultiplication.html#sec23-MatrixMultiplication-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     compute the product of two matrices;    determine whether two matrices can be multiplied based on their sizes and state the size of the answer matrix;    understand the rules for matrix multiplication;    recognize and demonstrate that matrix multiplication is generally not commutative.    "
+},
+{
+  "id": "sec23-MatrixMultiplication-5",
+  "level": "2",
+  "url": "sec23-MatrixMultiplication.html#sec23-MatrixMultiplication-5",
+  "type": "Example",
+  "number": "2.3.1",
+  "title": "",
+  "body": " Let's multiply the following two matrices   Oberve that the matrix on the right consists of two columns. We know how to multiply the column (aka a column vector) by the matrix. Let's do that! and Then the first column vector we get is the first column in the answer matrix and the second column vector we get is the second column in the answer matrix. That is,   "
+},
+{
+  "id": "sec23-MatrixMultiplication-9",
+  "level": "2",
+  "url": "sec23-MatrixMultiplication.html#sec23-MatrixMultiplication-9",
+  "type": "Checkpoint",
+  "number": "2.3.2",
+  "title": "",
+  "body": " Multiply! If it is impossible, say why!               1.   2. This is impossible. You can't multiply a matrix by a matrix. None of the dot products work!  For example, if you want to find the entry in the answer matrix, then you would find the dot product of the first row of the matrix to the left and the first column of the matrix to the right. But... there are three entries in the first row vector and four entries in the column vector... The sizes don't work out... (there is nothing we can multiply by the )...   "
+},
+{
+  "id": "thm-RulesMatrixMultiplication",
+  "level": "2",
+  "url": "sec23-MatrixMultiplication.html#thm-RulesMatrixMultiplication",
+  "type": "Theorem",
+  "number": "2.3.3",
+  "title": "Matrix Multiplication Rules.",
+  "body": " Matrix Multiplication Rules   Suppose , , and are matrices that are the right size for the products to be defined. And suppose is the identity matrix that is the right size as well. The following properties hold:    Identity Property : and      Associativity :     (Left) Distributive Property :     (Right) Distributive Property :      Regrouping with Scalar Multiplication ; For any scalar ,      Transpose of a Product :       "
+},
+{
+  "id": "sec23-MatrixMultiplication-14",
+  "level": "2",
+  "url": "sec23-MatrixMultiplication.html#sec23-MatrixMultiplication-14",
+  "type": "Proof",
+  "number": "2.3.1",
+  "title": "Proof Ideas and Sketches Using Smaller Matrices.",
+  "body": " Proof Ideas and Sketches Using Smaller Matrices     The first equation follows from multiplying the identify matrix by a column vector. You get that same column vector as the answer. Since that would happen for every column of , you will get as your answer.  The second equation is true because when you multiply by the th column of , the single in the th row of that column will reproduce the th column of the matrix.    This one gets messy when the matrices start getting bigger, so let's verify it in the case. The proof in general works the same just with a lot more subscripts to juggle! and Comparing the results, we can see that the matrix multiplication is associative because multiplication of numbers is!    This one isn't quite as messy as the previous one, but still warrants limiting to case:     The verification of this one works just like the previous one with the obvious changes. Again it comes down to the fact that we have the distributive property in basic arithmetic.    I encourage you to verify this for the case. This one is much less messy than the ones we have done!     "
+},
+{
+  "id": "sec24-MatrixInverse",
+  "level": "1",
+  "url": "sec24-MatrixInverse.html",
+  "type": "Section",
+  "number": "2.4",
+  "title": "Matrix Inverses",
+  "body": " Matrix Inverses   In our journey through linear algebra, we have explored how to multiply matrices and how to represent systems of equations as the matrix equation . A natural mathematical question arises: can we \"undo\" matrix multiplication? In the realm of real numbers, we solve algebraic equations like by multiplying by the reciprocal (or inverse) of . In this section, we investigate whether a similar structural concept exists for matrices.    After this section, students will be able to:     determine if a matrix is invertible;    find the inverse of a invertible matrix using a formula;    find the inverse of an invertible matrix using the Gaussian Elimination algorithm;    solve systems of linear equations using matrix inverses.       Let . Find a matrix such that where is the identity matrix.   There are two possible strategies:   Strategy #1: Guess and check! This strategy is doable for a matrix but usually quite tedious. The matrix is made special so that it isn't too bad at all.   Strategy #2: Remember how matrix multiplication works: When we multiply by , each column of the answer is found by multiplying the corresponding column of by .  So we know that if is the first column of , then we will need to be since that is the first column of the identity matrix. If we call the entries of that column and , then we can solve a system of equations to figure out what and are!  Then we can do a similar process to figure out what the second column of is!    Using Strategy #1...  You probably discovered that the only way to get the in the top left of the answer is to put a in the bottom left of . Then you can figure out that you need a in the top left of to get the in the bottom left of the answer.  Now you need a in the top right of the answer. because of the in , your answer for this spot will be times whatever you put in the bottom right of . So that has to be a .  Finally that in the bottom right of means that you need a in your top right spot in order to get the you need in the bottom right of the identity matrix. So the matrix     Using Strategy #2...  If we call our first column of  , then we know that we need We can solve this using the substitution method easily since the top equation tells us and substituting this into the second equation gives us So the first column of will have to be .  Now if we call our second column of  , then we know that we need This one is even quicker to solve because the top equation tells us and substituting this into the second equation gives us . So the second column of will have to be .  Therefore, the matrix .  And we can quickly verify that :    Now that you found , take a minute and compute .    is also !    This matrix is a special buddy of . This is called the inverse of !   Inverse of a Matrix   Inverse of a Matrix   If is a square matrix, a matrix is called an inverse of if and only if . A matrix that has an inverse is called an invertible matrix .      An exmaple:  is invertible and since...    A non-example:  is NOT invertible because no matter what matrix you try you will get a row of zeros:      A matrix can only have one inverse.     Suppose and are both inverses of . Then This means .  Multiplying both sides of equation (on the left) by , we get Using the associative property, we get Since we also know that , then .  So by the identity property, .   In the case, there is a quick way to find out if a matrix is invertible and there is a nice formula for the inverse. We just have to define two terms:   Determinant of Matrices   Let be a matrix. The determinant of the matrix is defined by      Adjugate of Matrices   Let be a matrix. The adjugate of the matrix is The adjugate of can be obtained by (1) swapping the elements in the main diagonal, and (2) changing the sign of the elements not on the main diagonal.    The matrix is invertible if and only if . And is    Let . Notice that Since , we know that exists.  We can also find . We know that . Then   If you want to verify that is indeed the inverse of , try multiplying them together and you should get back .   Remember how we worked so hard to solve systems of linear equations in week 1? And remember that every system of linear equations can be written as a Matrix Equation in week 2? Well, if the coefficient matrix is invertible, then we can solve this equation using just like back in Algebra 1!  Let's assume that is invertible, then . Say we have a Matrix Equation . We certainly can multiply the same thing (say ) on two sides of the equation. We get So the solution to this equation must be .  If you want to verify that this is indeed a solution, then we can plug in into the left side of our equation. We see that So this really is a solution to the equation! Let's make it a theorem!    If is an invertible matrix, then the Matrix Equation has exactly one solution. The solution is .     Consider the following system of linear equations: The Matrix Equation version of this system is , where   Notice that So is invertible! We can find the solution using the little theorem we just came up with!  Since , then we get By our theorem, the solution to the system is     Solve the following system of linear equation by   writing the system as a Matrix Equation;    finding the inverse of the coefficient matrix;    using the inverse to solve the system.      1. The matrix equation is   2. The determinant is and the adjugate matrix is , so the inverse is   3. The solution is     There is another way to compute inverse matrices efficiently, which is using the Gaussian Elimination algorithm we learned back in .  Suppose we want to find the inverse of a matrix . That is, we are looking for a matrix such that Since we multiply these matrices by multiplying the by each of the column vectors and , the first matrix-vector product needs to give us the first column of and the second matrix-vector product needs to give us the second column of . That means that finding the inverse boils down to solving two systems of equations given by the matrix equations: Observe that these two systems of linear equations have the same coefficient matrix. So if we used augmented matrices, we would end up doing the same steps to put the matrices into reduced row echelon form.  The technique based on this idea is to put these two equations into ONE giant augmented matrix: But it gets even better! Let's do an example...   Let's say we want to find the inverse of the matrix . We will first make our big augmented matrix: Now we will put this thing into reduced row echelon form!  Step 1: Swap Row 1 and Row 2, we get We have our first leading and it already has a zero beneath it.  Step 2: Multiply Row 2 by , we get Now the matrix is in row echelon form. Let's get it into reduced row echelon form by getting a zero above the second leading .  Step 3: Multiply times Row 2 to Row 1 (and replace Row 1), we get Notice that the part on the left is the identity matrix. And, notice that the part on the right is the inverse!   That is basically the technique:   Step 1: Make a big augmented matrix with on the left side and on the right side.    Step 2: Put the augmented matrix into reduced row echelon form.   If the matrix is invertible, then the reduced row-echelon form will have on the left side and on the right side.   Use the Gaussian Elimination algorithm to find the inverse of the matrix    The big augmented matrix is   First let's get zeros beneath our first leading :   Now we need to get our second leading by multiplying Row 2 by :   Now we need a zero beneath our second leading . We can multiply Row 2 by and adding it to Row 3:   Now to get our last leading , we need to multiply Row 3 by :   Then we need to get zeros above this third leading . So, let's add times Row 3 to Row 2 and -3 times Row 3 to Row 1:   So the inverse is       Important Theorems and Facts about Inverses   Cancellation Law for Matrices   Suppose and are matrices and is an invertible matrix. Then the following holds:   If , then .    If , then .        Part 1: Suppose . Then Therefore,   The proof of Part 2 would be similar.     Suppose is invertible. Then the inverse of is the transpose of . That is,      Suppose is invertible. Then But and . Substituting these into the above equation, we get So the inverse of is the transpose of .     If and are invertible matrices and is defined, then     This is also called \"shoes and socks\" because you take off your shoes and socks in the reverse order in which you put them on. That is what this theorem says about matrix inverses.       There are also a collection of a bunch of facts about inverses (including some of the ones we have just mentioned).  Suppose the following matrices are all square and the same size.    is invertible and .    If is invertible, so is and .    If and are invertible, so is , and .    If are all invertible, so is their product , and .    If is invertible, then so is , and .    If is invertible and is a number, then is invertible and .    If is invertible, so is its transpose , and .     It is super important to be able to tell whether a matrix is invertible. One of the most important theorems in linear algebra i the Invertible Matrix Theorem , which identifies several conditions that are equivalent to a matrix being invertible.   Invertible Matrix Theorem   The following conditions are equivalent for an matrix:    is invertible.    The homogeneous system has only the trivial solution .     can be carried to the identity matrix by elementary row operations.    The system has at least one solution for every choice of column .    There exists an matrix such that .     .       If you Google the Invertible Matrix Theorem, there are a lot more equivalent conditions than what we have listed here. Some of them are just rephrasing the conditions using other terminology and some of them requires a bit more linear algebra concepts that we are building towards. We will certainly circle back to this theorem and add more conditions when we learn more!   "
+},
+{
+  "id": "sec24-MatrixInverse-2-2",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#sec24-MatrixInverse-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     determine if a matrix is invertible;    find the inverse of a invertible matrix using a formula;    find the inverse of an invertible matrix using the Gaussian Elimination algorithm;    solve systems of linear equations using matrix inverses.    "
+},
+{
+  "id": "sec24-MatrixInverse-3",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#sec24-MatrixInverse-3",
+  "type": "Investigation",
+  "number": "2.4.1",
+  "title": "",
+  "body": " Let . Find a matrix such that where is the identity matrix.   There are two possible strategies:   Strategy #1: Guess and check! This strategy is doable for a matrix but usually quite tedious. The matrix is made special so that it isn't too bad at all.   Strategy #2: Remember how matrix multiplication works: When we multiply by , each column of the answer is found by multiplying the corresponding column of by .  So we know that if is the first column of , then we will need to be since that is the first column of the identity matrix. If we call the entries of that column and , then we can solve a system of equations to figure out what and are!  Then we can do a similar process to figure out what the second column of is!    Using Strategy #1...  You probably discovered that the only way to get the in the top left of the answer is to put a in the bottom left of . Then you can figure out that you need a in the top left of to get the in the bottom left of the answer.  Now you need a in the top right of the answer. because of the in , your answer for this spot will be times whatever you put in the bottom right of . So that has to be a .  Finally that in the bottom right of means that you need a in your top right spot in order to get the you need in the bottom right of the identity matrix. So the matrix     Using Strategy #2...  If we call our first column of  , then we know that we need We can solve this using the substitution method easily since the top equation tells us and substituting this into the second equation gives us So the first column of will have to be .  Now if we call our second column of  , then we know that we need This one is even quicker to solve because the top equation tells us and substituting this into the second equation gives us . So the second column of will have to be .  Therefore, the matrix .  And we can quickly verify that :    Now that you found , take a minute and compute .    is also !   "
+},
+{
+  "id": "sec24-MatrixInverse-4",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#sec24-MatrixInverse-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "inverse "
+},
+{
+  "id": "def-inverse-matrix",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#def-inverse-matrix",
+  "type": "Definition",
+  "number": "2.4.1",
+  "title": "Inverse of a Matrix.",
+  "body": " Inverse of a Matrix   If is a square matrix, a matrix is called an inverse of if and only if . A matrix that has an inverse is called an invertible matrix .   "
+},
+{
+  "id": "subsec-InverseMatrices-3",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#subsec-InverseMatrices-3",
+  "type": "Example",
+  "number": "2.4.2",
+  "title": "",
+  "body": "  An exmaple:  is invertible and since...    A non-example:  is NOT invertible because no matter what matrix you try you will get a row of zeros:   "
+},
+{
+  "id": "thm-Uniqueness_Inverses",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#thm-Uniqueness_Inverses",
+  "type": "Theorem",
+  "number": "2.4.3",
+  "title": "",
+  "body": "  A matrix can only have one inverse.   "
+},
+{
+  "id": "subsec-InverseMatrices-5",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#subsec-InverseMatrices-5",
+  "type": "Proof",
+  "number": "1",
+  "title": "",
+  "body": " Suppose and are both inverses of . Then This means .  Multiplying both sides of equation (on the left) by , we get Using the associative property, we get Since we also know that , then .  So by the identity property, .  "
+},
+{
+  "id": "def-Determinant-2x2Matrices",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#def-Determinant-2x2Matrices",
+  "type": "Definition",
+  "number": "2.4.4",
+  "title": "Determinant of <span class=\"process-math\">\\(2\\times 2\\)<\/span> Matrices.",
+  "body": " Determinant of Matrices   Let be a matrix. The determinant of the matrix is defined by    "
+},
+{
+  "id": "def-Adjugate-2x2Matrices",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#def-Adjugate-2x2Matrices",
+  "type": "Definition",
+  "number": "2.4.5",
+  "title": "Adjugate of <span class=\"process-math\">\\(2\\times 2\\)<\/span> Matrices.",
+  "body": " Adjugate of Matrices   Let be a matrix. The adjugate of the matrix is The adjugate of can be obtained by (1) swapping the elements in the main diagonal, and (2) changing the sign of the elements not on the main diagonal.   "
+},
+{
+  "id": "subsec-InverseMatrices-10",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#subsec-InverseMatrices-10",
+  "type": "Example",
+  "number": "2.4.6",
+  "title": "",
+  "body": " Let . Notice that Since , we know that exists.  We can also find . We know that . Then   If you want to verify that is indeed the inverse of , try multiplying them together and you should get back .  "
+},
+{
+  "id": "thm-UniqueSolution-InvertibleMatrix",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#thm-UniqueSolution-InvertibleMatrix",
+  "type": "Theorem",
+  "number": "2.4.7",
+  "title": "",
+  "body": "  If is an invertible matrix, then the Matrix Equation has exactly one solution. The solution is .   "
+},
+{
+  "id": "subsec-InverseMatrices-15",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#subsec-InverseMatrices-15",
+  "type": "Example",
+  "number": "2.4.8",
+  "title": "",
+  "body": " Consider the following system of linear equations: The Matrix Equation version of this system is , where   Notice that So is invertible! We can find the solution using the little theorem we just came up with!  Since , then we get By our theorem, the solution to the system is   "
+},
+{
+  "id": "subsec-InverseMatrices-16",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#subsec-InverseMatrices-16",
+  "type": "Checkpoint",
+  "number": "2.4.9",
+  "title": "",
+  "body": " Solve the following system of linear equation by   writing the system as a Matrix Equation;    finding the inverse of the coefficient matrix;    using the inverse to solve the system.      1. The matrix equation is   2. The determinant is and the adjugate matrix is , so the inverse is   3. The solution is    "
+},
+{
+  "id": "subsec-InverseMatrices-20",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#subsec-InverseMatrices-20",
+  "type": "Example",
+  "number": "2.4.10",
+  "title": "",
+  "body": " Let's say we want to find the inverse of the matrix . We will first make our big augmented matrix: Now we will put this thing into reduced row echelon form!  Step 1: Swap Row 1 and Row 2, we get We have our first leading and it already has a zero beneath it.  Step 2: Multiply Row 2 by , we get Now the matrix is in row echelon form. Let's get it into reduced row echelon form by getting a zero above the second leading .  Step 3: Multiply times Row 2 to Row 1 (and replace Row 1), we get Notice that the part on the left is the identity matrix. And, notice that the part on the right is the inverse!  "
+},
+{
+  "id": "subsec-InverseMatrices-22",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#subsec-InverseMatrices-22",
+  "type": "Checkpoint",
+  "number": "2.4.11",
+  "title": "",
+  "body": " Use the Gaussian Elimination algorithm to find the inverse of the matrix    The big augmented matrix is   First let's get zeros beneath our first leading :   Now we need to get our second leading by multiplying Row 2 by :   Now we need a zero beneath our second leading . We can multiply Row 2 by and adding it to Row 3:   Now to get our last leading , we need to multiply Row 3 by :   Then we need to get zeros above this third leading . So, let's add times Row 3 to Row 2 and -3 times Row 3 to Row 1:   So the inverse is    "
+},
+{
+  "id": "thm-CancellationLaw-Matrices",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#thm-CancellationLaw-Matrices",
+  "type": "Theorem",
+  "number": "2.4.12",
+  "title": "Cancellation Law for Matrices.",
+  "body": " Cancellation Law for Matrices   Suppose and are matrices and is an invertible matrix. Then the following holds:   If , then .    If , then .      "
+},
+{
+  "id": "subsec-ImportantTheorems-Inverses-3",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#subsec-ImportantTheorems-Inverses-3",
+  "type": "Proof",
+  "number": "1",
+  "title": "",
+  "body": " Part 1: Suppose . Then Therefore,   The proof of Part 2 would be similar.  "
+},
+{
+  "id": "thm-Transpose-Inverse",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#thm-Transpose-Inverse",
+  "type": "Theorem",
+  "number": "2.4.13",
+  "title": "",
+  "body": "  Suppose is invertible. Then the inverse of is the transpose of . That is,    "
+},
+{
+  "id": "subsec-ImportantTheorems-Inverses-5",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#subsec-ImportantTheorems-Inverses-5",
+  "type": "Proof",
+  "number": "2",
+  "title": "",
+  "body": " Suppose is invertible. Then But and . Substituting these into the above equation, we get So the inverse of is the transpose of .  "
+},
+{
+  "id": "thm-Product-Inverse",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#thm-Product-Inverse",
+  "type": "Theorem",
+  "number": "2.4.14",
+  "title": "",
+  "body": "  If and are invertible matrices and is defined, then    "
+},
+{
+  "id": "subsec-ImportantTheorems-Inverses-8",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#subsec-ImportantTheorems-Inverses-8",
+  "type": "Proof",
+  "number": "3",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "subsec-ImportantTheorems-Inverses-11",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#subsec-ImportantTheorems-Inverses-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Invertible Matrix Theorem "
+},
+{
+  "id": "thm-InvertibleMatrixTheorem",
+  "level": "2",
+  "url": "sec24-MatrixInverse.html#thm-InvertibleMatrixTheorem",
+  "type": "Theorem",
+  "number": "2.4.15",
+  "title": "Invertible Matrix Theorem.",
+  "body": " Invertible Matrix Theorem   The following conditions are equivalent for an matrix:    is invertible.    The homogeneous system has only the trivial solution .     can be carried to the identity matrix by elementary row operations.    The system has at least one solution for every choice of column .    There exists an matrix such that .     .      "
+},
+{
+  "id": "sec25-ElementaryMatrices",
+  "level": "1",
+  "url": "sec25-ElementaryMatrices.html",
+  "type": "Section",
+  "number": "2.5",
+  "title": "Elementary Matrices",
+  "body": " Elementary Matrices   In previous sections, we utilized Gaussian Elimination as our primary tool for solving systems of linear equations and computing matrix inverses. Separately, we learned the mechanics of matrix multiplication. While these might seem like distinct mathematical operations, they are intimately connected. In this section, we will bridge that gap by introducing elementary matrices .    After this section, students will be able to:     define and construct elementary matrices by applying a single elementary row operation to the identity matrix;    execute elementary row operations on a given matrix via left-multiplication by an elementary matrix;    determine the inverse of an elementary matrix by reversing the corresponding row operation on the identity matrix;    express any invertible matrix, and its inverse, as a product of elementary matrices.      We've learned how to solve systems of equations and find matrix inverses by using the Gaussian Elimination algorithm. And we learned how to multiply matrices. It turns out that these two things are related!  Each of the three elementary row operations can be performed by multiplying by an elementary matrix .  Let's see this by looking at an example!   Consider the system: The augmented matrix is   Recall there are three elementary row operations we can perform to an augmented matrix.   We could swap the two rows by multiplying by the matrix :     We could multiply Row 2 by by multiplying by the matrix :     We could add times Row 1 to Row 2 (and replace Row 2) by multiplying by the matrix :    Notice that in each case, the matrix that we used to do the elementary operation is exactly the matrix you would get by doing that same elementary operation to the identity matrix. WHAT!??   If we swap the two rows of , we get     If we multiply Row 2 of by , we get     If we add times Row 1 of to Row 2 (and replace Row 2), we get        Summary: Every elementary row operation corresponds to an elementary matrix , , that can be created by performing that operation on the identity matrix. We can perform that operation on any matrix by computing the product .   Consider the matrix . Suppose we did the following two steps:   Swap Row 1 and Row 2;    Add times Row 1 to Row 2 (and replace Row 2).   That would look like this:   The first step corresponds to the elementary matrix and the second step corresponds to the elementary matrix ( Note: When we made , we started with a brand new identity matrix rather than using .)  Now notice that    The inverse of an elementary matrix , is also an elementary matrix and can be used to perform the inverse of the elementary operation (the operation that would undo the original row operation).   If corresponds to adding times Row 1 to Row 3, then the elementary matrix is Then and this corresponds to adding times Row 1 to Row 3.   Here is the claim: A matrix is invertible if and only if it is the product of elementary matrices .  Let's think about our method for finding inverses using Gaussian Elimination algorithm. We create a big augmented matrix and then do elementary operations until we get to .  Now we know that we could do this by multiplying the augmented matrix by the corresponding elementary matrices. Let's call those elementary matrices . Then if we just look at the right side of the big augmented matrix, we would see that Take the inverse of both sides, and we get   We can use what we just learned to describe a process that will always work to write any invertible matrix as a product of elementary matrices:   Put the matrix into reduced row echelon form. If it is invertible, then this form will be the identity matrix.    For each step, write down the corresponding elementary matrix (writing them from right to left). Remember that each time we need to start with a brand new identity matrix to make our elementary matrix!  If you multiply the elementary matrices, you will get the inverse of the original matrix.    Take the inverse of each of the elementary matrices and then write them down in the reverse order. Then we are done!      Consider this matrix and we want to find .  First, let's multiply the top row by to get our leading : This first step corresponds to the elementary matrix   Second, let's add times Row 1 to Row 2 (and replace Row 2) to get a zero below the first leading : This second step corresponds to the elementary matrix   Third, let's multiply the second row by to get our second leading : This third step corresponds to the elementary matrix   Fourth, let's add times Row 2 to Row 1 (and replace Row 1) to put the matrix into reduced row echelon form: This fourth step corresponds to the elementary matrix   So   We can write all of the inverses of the elementary matrices by using the reverse operation on the identity matrix:   The inverse of is .    The inverse of is .    The inverse of is .    The inverse of is .   So     Write the following matrix AND its inverse as a product of elementary matrices.    Step 1: Swap Row 1 and Row 2 to get This corresponds to the elementary matrix   Step 2: Add times Row 1 to Row 3 (and replace Row 3) to get This corresponds to the elementary matrix   Step 3: Multiply Row 2 by to get This corresponds to the elementary matrix   Step 4: Multiply Row 3 by to get This corresponds to the elementary matrix   Step 5: Add times Row 2 to Row 1 (and replace Row 1) to get This corresponds to the elementary matrix   Step 6: Add times Row 3 to Row 1 (and replace Row 1) to get This corresponds to the elementary matrix   Step 7: Add times Row 3 to Row 2 (and replace Row 2) to get This corresponds to the elementary matrix   This tells us that If we multiply those out we see that   And taking the inverse of both sides of the giant product (and using the \"shoes and socks\" rule), we see that So let's find the inverses of each of these matrices by performing the inverse operation on the identity matrix:    swaps Row 1 and Row 2 and that operation is its own inverse (do it twice and you get right back where you started), so .     adds Row 1 to Row 3, and the inverse of that is adding times Row 1 to Row 2, so .     multiplies Row 2 by , and the inverse of that is multiplying Row 2 by , so .     multiplies Row 3 by , and that operation is its own inverse, so .     adds times Row 2 to Row 1, and the inverse of that is adding times Row 2 to Row 1, so .     adds times Row 3 to Row 1, and the inverse of that is adding times Row 3 to Row 1, so .     adds times Row 3 to Row 2, and the inverse of that is adding times Row 3 to Row 2, so .   This means...     "
+},
+{
+  "id": "sec25-ElementaryMatrices-2-1",
+  "level": "2",
+  "url": "sec25-ElementaryMatrices.html#sec25-ElementaryMatrices-2-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "elementary matrices "
+},
+{
+  "id": "sec25-ElementaryMatrices-2-2",
+  "level": "2",
+  "url": "sec25-ElementaryMatrices.html#sec25-ElementaryMatrices-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     define and construct elementary matrices by applying a single elementary row operation to the identity matrix;    execute elementary row operations on a given matrix via left-multiplication by an elementary matrix;    determine the inverse of an elementary matrix by reversing the corresponding row operation on the identity matrix;    express any invertible matrix, and its inverse, as a product of elementary matrices.    "
+},
+{
+  "id": "sec25-ElementaryMatrices-4",
+  "level": "2",
+  "url": "sec25-ElementaryMatrices.html#sec25-ElementaryMatrices-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "elementary matrix "
+},
+{
+  "id": "sec25-ElementaryMatrices-6",
+  "level": "2",
+  "url": "sec25-ElementaryMatrices.html#sec25-ElementaryMatrices-6",
+  "type": "Example",
+  "number": "2.5.1",
+  "title": "",
+  "body": " Consider the system: The augmented matrix is   Recall there are three elementary row operations we can perform to an augmented matrix.   We could swap the two rows by multiplying by the matrix :     We could multiply Row 2 by by multiplying by the matrix :     We could add times Row 1 to Row 2 (and replace Row 2) by multiplying by the matrix :    Notice that in each case, the matrix that we used to do the elementary operation is exactly the matrix you would get by doing that same elementary operation to the identity matrix. WHAT!??   If we swap the two rows of , we get     If we multiply Row 2 of by , we get     If we add times Row 1 of to Row 2 (and replace Row 2), we get      "
+},
+{
+  "id": "sec25-ElementaryMatrices-7",
+  "level": "2",
+  "url": "sec25-ElementaryMatrices.html#sec25-ElementaryMatrices-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "elementary matrix "
+},
+{
+  "id": "sec25-ElementaryMatrices-8",
+  "level": "2",
+  "url": "sec25-ElementaryMatrices.html#sec25-ElementaryMatrices-8",
+  "type": "Example",
+  "number": "2.5.2",
+  "title": "",
+  "body": " Consider the matrix . Suppose we did the following two steps:   Swap Row 1 and Row 2;    Add times Row 1 to Row 2 (and replace Row 2).   That would look like this:   The first step corresponds to the elementary matrix and the second step corresponds to the elementary matrix ( Note: When we made , we started with a brand new identity matrix rather than using .)  Now notice that   "
+},
+{
+  "id": "sec25-ElementaryMatrices-10",
+  "level": "2",
+  "url": "sec25-ElementaryMatrices.html#sec25-ElementaryMatrices-10",
+  "type": "Example",
+  "number": "2.5.3",
+  "title": "",
+  "body": " If corresponds to adding times Row 1 to Row 3, then the elementary matrix is Then and this corresponds to adding times Row 1 to Row 3.  "
+},
+{
+  "id": "sec25-ElementaryMatrices-15",
+  "level": "2",
+  "url": "sec25-ElementaryMatrices.html#sec25-ElementaryMatrices-15",
+  "type": "Example",
+  "number": "2.5.4",
+  "title": "",
+  "body": " Consider this matrix and we want to find .  First, let's multiply the top row by to get our leading : This first step corresponds to the elementary matrix   Second, let's add times Row 1 to Row 2 (and replace Row 2) to get a zero below the first leading : This second step corresponds to the elementary matrix   Third, let's multiply the second row by to get our second leading : This third step corresponds to the elementary matrix   Fourth, let's add times Row 2 to Row 1 (and replace Row 1) to put the matrix into reduced row echelon form: This fourth step corresponds to the elementary matrix   So   We can write all of the inverses of the elementary matrices by using the reverse operation on the identity matrix:   The inverse of is .    The inverse of is .    The inverse of is .    The inverse of is .   So   "
+},
+{
+  "id": "sec25-ElementaryMatrices-16",
+  "level": "2",
+  "url": "sec25-ElementaryMatrices.html#sec25-ElementaryMatrices-16",
+  "type": "Checkpoint",
+  "number": "2.5.5",
+  "title": "",
+  "body": " Write the following matrix AND its inverse as a product of elementary matrices.    Step 1: Swap Row 1 and Row 2 to get This corresponds to the elementary matrix   Step 2: Add times Row 1 to Row 3 (and replace Row 3) to get This corresponds to the elementary matrix   Step 3: Multiply Row 2 by to get This corresponds to the elementary matrix   Step 4: Multiply Row 3 by to get This corresponds to the elementary matrix   Step 5: Add times Row 2 to Row 1 (and replace Row 1) to get This corresponds to the elementary matrix   Step 6: Add times Row 3 to Row 1 (and replace Row 1) to get This corresponds to the elementary matrix   Step 7: Add times Row 3 to Row 2 (and replace Row 2) to get This corresponds to the elementary matrix   This tells us that If we multiply those out we see that   And taking the inverse of both sides of the giant product (and using the \"shoes and socks\" rule), we see that So let's find the inverses of each of these matrices by performing the inverse operation on the identity matrix:    swaps Row 1 and Row 2 and that operation is its own inverse (do it twice and you get right back where you started), so .     adds Row 1 to Row 3, and the inverse of that is adding times Row 1 to Row 2, so .     multiplies Row 2 by , and the inverse of that is multiplying Row 2 by , so .     multiplies Row 3 by , and that operation is its own inverse, so .     adds times Row 2 to Row 1, and the inverse of that is adding times Row 2 to Row 1, so .     adds times Row 3 to Row 1, and the inverse of that is adding times Row 3 to Row 1, so .     adds times Row 3 to Row 2, and the inverse of that is adding times Row 3 to Row 2, so .   This means...    "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
