@@ -5,11 +5,12 @@
 
   <!-- include sections -->
   <xi:include href="sec21-BasicMatrixOperations.ptx" />
-  <!--
   <xi:include href="sec22-MatrixVectorMultiplication.ptx" />
   <xi:include href="sec23-MatrixMultiplication.ptx" />
   <xi:include href="sec24-MatrixInverse.ptx" />
   <xi:include href="sec25-ElementaryMatrices.ptx" />
+
+  <!--
   <xi:include href="sec26-LinearTransformations.ptx" />
   -->
 
