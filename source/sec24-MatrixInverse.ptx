@@ -296,7 +296,7 @@
         <mrow>\implies \qquad \lp A^{-1} A \rp \v{x} \amp= A^{-1}\v{b} </mrow>
         <mrow>\implies \qquad \qquad \quad \, \, \v{x} \amp= A^{-1} \v{b} </mrow>
       </md>
-      So the solution to this equation must be <m>x\v{x} = A^{-1} \v{b}</m>. 
+      So the solution to this equation must be <m>\v{x} = A^{-1} \v{b}</m>. 
     </p>
 
     <p>
