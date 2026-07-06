@@ -655,7 +655,7 @@
     </p>
 
     <p>
-      To find this matrix, we need to figure out <m>T\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp</m> and T\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp. 
+      To find this matrix, we need to figure out <m>T\lp \begin{bmatrix} 1 \\ 0 \end{bmatrix} \rp</m> and <m>T\lp \begin{bmatrix} 0 \\ 1 \end{bmatrix} \rp</m>. 
       So we need to solve the following vector equations: 
       <md>
         <mrow>x_1 \begin{bmatrix} 1 \\ 2\end{bmatrix} + y_1 \begin{bmatrix} 2 \\ 3 \end{bmatrix} \amp= \begin{bmatrix} 1 \\ 0 \end{bmatrix} </mrow>

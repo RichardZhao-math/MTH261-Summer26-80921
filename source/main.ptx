@@ -14,8 +14,9 @@
     <!-- Include chapters -->
     <xi:include href="./ch1-SystemLinearEquation.ptx" />
     <xi:include href="./ch2-MatrixAlgebra.ptx" />
-    <!--
     <xi:include href="./ch3-DeterminantsDiagonalization.ptx" />
+    
+    <!--
     <xi:include href="./ch4-VectorGeometry.ptx" />
     <xi:include href="./ch5-VectorSpace.ptx" />
     <xi:include href="./ch7-LinearTransformation.ptx" />

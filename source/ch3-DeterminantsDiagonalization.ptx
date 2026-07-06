@@ -7,7 +7,10 @@
   <!-- include sections -->
   <xi:include href="sec31-CofactorExpansion.ptx" />
   <xi:include href="sec32-DeterminantsInverse.ptx" />
+
+  <!--
   <xi:include href="sec33-EigenvaluesEigenvectors.ptx" />
   <xi:include href="sec34-Diagonalization.ptx" />
+  -->
 
 </chapter>
