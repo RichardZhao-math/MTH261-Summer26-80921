@@ -1018,6 +1018,384 @@ var ptx_lunr_docs = [
   "body": " Write the following matrix AND its inverse as a product of elementary matrices.    Step 1: Swap Row 1 and Row 2 to get This corresponds to the elementary matrix   Step 2: Add times Row 1 to Row 3 (and replace Row 3) to get This corresponds to the elementary matrix   Step 3: Multiply Row 2 by to get This corresponds to the elementary matrix   Step 4: Multiply Row 3 by to get This corresponds to the elementary matrix   Step 5: Add times Row 2 to Row 1 (and replace Row 1) to get This corresponds to the elementary matrix   Step 6: Add times Row 3 to Row 1 (and replace Row 1) to get This corresponds to the elementary matrix   Step 7: Add times Row 3 to Row 2 (and replace Row 2) to get This corresponds to the elementary matrix   This tells us that If we multiply those out we see that   And taking the inverse of both sides of the giant product (and using the \"shoes and socks\" rule), we see that So let's find the inverses of each of these matrices by performing the inverse operation on the identity matrix:    swaps Row 1 and Row 2 and that operation is its own inverse (do it twice and you get right back where you started), so .     adds Row 1 to Row 3, and the inverse of that is adding times Row 1 to Row 2, so .     multiplies Row 2 by , and the inverse of that is multiplying Row 2 by , so .     multiplies Row 3 by , and that operation is its own inverse, so .     adds times Row 2 to Row 1, and the inverse of that is adding times Row 2 to Row 1, so .     adds times Row 3 to Row 1, and the inverse of that is adding times Row 3 to Row 1, so .     adds times Row 3 to Row 2, and the inverse of that is adding times Row 3 to Row 2, so .   This means...    "
 },
 {
+  "id": "sec26-LinearTransformations",
+  "level": "1",
+  "url": "sec26-LinearTransformations.html",
+  "type": "Section",
+  "number": "2.6",
+  "title": "Linear Transformations",
+  "body": " Linear Transformations   Up to this point, we have primarily viewed matrices as grids of numbers used to solve systems of equations. Now, it is time to shift our perspective! We can also think of matrices as functions that transform input vectors into new output vectors (through multiplication!).  In this section, we will formalize this idea by exploring linear transformations !    After this section, students will be able to:     determine whether a given function is a linear transformation.    evaluate a linear transformation at a specific vector.    construct the standard matrix of a linear transformation.    derive the standard matrices for geometric transformations, such as rotations and reflections in .    determine the standard matrix of a linear transformation given its action on an arbitrary set of non-basis vectors.        If is a function with the following two properties:   For any scalar and any vector ,     For any two vectors ,    then is a linear transformation .    The two properties in the definition make sense since we can think of a linear transformation as a matrix-vector product. Recall in , every matrix defines a linear transformation in a way that By the Matrix Multiplication rules, we know that            Hence, we have the two properties in the definition of linear transformations.   Note: Sometimes these two properties are combined to form one rule that looks like this: This basically tells us that we can figure out the output for a linear combination of vectors by taking the same linear combination of the outputs of those vectors.   A non-example  The function given by is NOT a linear transformation.   Proof: Notice that If this were a linear transformation, then property (ii) would mean that But in fact, Oopsie!    An example  The function given by IS indeed a linear transformation!   Proof: We will verify the two properties in the definition of linear transformations.   Suppose is a scalar and is a vector in . Then     Suppose and are two vectors in . Then    Since both properties hold, we can conclude that IS indeed a linear transformation!   Note: In this example, observe that the coefficients do not contribute to the proof at all (so the proof would work exactly the same even if we had different coefficients). Using the same proof, we can show that the function given by is a linear transformation for any choice of scalars .   The two properties of linear transformations make it possible to \"plug in\" a vector even if we don't know the rule. That is, we can evaluate linear transformations using linear combinations .   Suppose is a linear transformation (but we don't know the rule) and we do know that Let's say we want to evaluate .   How do we do that?   Notice that So property (i) and (ii) of linear transformations tell us that    But Richard... How can you find the linear combination?  There are two ways to find the linear combination: (1) using guess and check, and\/or (2) by setting up a system of equations.  Let's do a quick example using the formal setting-up-a-system-of-equations method!  Can be written as a linear combination of and ?  Let's assume we can! Then there exist scalars such that This is essentially a vector equation since the \"variables\" here are the scalars and . We can rewrite the vector equation as a system of linear equations: Basically, we are asking ourselves if this system of linear equations has a solution.  We are all experts in solving systems of linear equations now! The augmented matrix is We can do our Gaussian Elimination magic to get: Converting back to a system of linear equations, we have   We can quickly check our work! We did it!    This is a very important kind of problem! Not only does it show up on exams commonly, it will also be the key to finding the matrix for a linear transformation which is one of the most important things in linear algebra!   Suppose is a linear transformation and we know that Find .   Notice that  Remember that if you can't figure out the linear combination by guessing and checking, you can find it by setting up a system of linear equations!   So we know that     Notice that any vector in can be written as a linear combination of and .   Quick proof of this claim  Let be an arbitrary vector in . Then Proved!    is called the standard basis of .  For , the standard basis consists of the vectors where the -th entry of is a and all of the rest are zeros. Clearly these are all -dimensional vectors. That means the is actually a different vector depending on which you are working with.  For example, in is , but in is . They are NOT the same vectors!  Combining this fact with the two properties that every linear transformation satisfies, we can see that every linear combination defined on (this works for as well, but let's start small!) is actually determined by what it does to the standard basis vectors and .   Quick proof of this claim  Let be a vector in . Then there exist scalars such that Then for any linear transformation defined on , we have So the output of at is completely determined by the output of at and .   We can use this fact to figure out how to find the matrix for a linear transformation (and in doing so, we really prove that such a matrix will always exist for any linear transformation)!   Suppose that is a linear transformation such that What is the matrix such that for all ?  Consider any vector in . We know that Notice that the output is what we would get if we multiplied the matrix by the vector ! So We found the matrix that goes with this linear transformation!   Notice that in the above example, the columns of our matrix were the outputs of the standard basis vectors . That tells us exactly how to find a matrix for any linear transformation!  Suppose is a linear transformation. To find the matrix such that is given by the rule , we...   Figure out     Write the matrix that has columns :     Pat yourself on the back      Let be a linear transformation given by Let's find the matrix such that for all .  Step 1: In this case, and . So   Step 2:   Let's check to see if really works! Woo!    Find the matrix that corresponds to the linear transformation given by    Observe that Then we know that So our matrix is     It turns out that rotations and reflections are also linear transformations!   Let's find a matrix for a rotation in ! We need to figure out what such a rotation does to the vectors and .  Let's suppose that the vector is the result of rotating counterclockwise by the angle . This vector can be represented as an arrow starting at the origin and ending at the point . We can draw a triangle to figure out the exact coordinates of the vector .   The -coordinate will be and the -coordinate will be . So the rotation takes to .  If we also draw the vector and rotate it (counterclockwise) by an angle of , we get a picture like this:   This time, the -coordinate will be and the -coordinate will be . So the rotation takes to .   Note: These pictures make it easy to see this is true when is between and , To see that this is true regardless of how big is, you can either look at cases in all of the four quadrants or you can use trig identities.  This means that you can find any rotation matrix by plugging into    Now let's find a matrix for the reflection across the line ! We need fo figure out what happens to and when we reflect them across the line .  From analytic geometry, we know that the slope of any line perpendicular to will have slope . We want to find the line through that has slope . That is because we need to find the intersection of that line with to get the midpoint of the segment between and the point we get after reflecting .   That perpendicular line is given by , which simplifies to .  Now let's find the point of intersection! Substituting into this equation, we get This means that . Then substituting again, we get . So the midpoint between and the result of reflecting across the line is .  The midpoint formula tells us that the midpoint of a segment between points and is . So where is the point we are looking for. This gives us the equations Solving these equations, we get So the reflection takes to .  A similar method can be used to find out that the reflection takes the point to the point .  Converting these to column vectors, the matrix for reflecting across the line is given by Pulling out the common factor, we can rewrite this as   We can figure out the matrix that does other transformations using the similar trick by figuring out what the transformation does to the standard basis vectors!   Let's write a matrix that stretches by a factor of and stretches by a factor of .  This can be thought of as scalar multiplication of the first vector by and scalar multiplication of the second vector by . So the resulting vector after stretching will be and the resulting vector after stretching will be . Hence, our matrix is    Observe that the matrix basically is the rule for the linear transformation. However, most of the time when we are asked to find the matrix for a linear transformation, we won't be given the rule for the transformation. Instead, we will be given other information. For example, we used geometric descriptions to find the matrices for rotations and reflections earlier. We have also seen that if we know what the transformation does to the standard basis vectors, it is straightforward to create the matrix for the transformation.  We may also be given information about what the linear transformation does to some vectors that are NOT the standard basis vectors. In that case, we would have to use that information to figure out what the transformation does to the standard basis vectors in order to find the matrix . Doing that will require figuring out how to write the standard basis vectors as linear combinations of the given vectors.   Suppose we have a linear transformation such that What is the matrix for this linear transformation?  To find this matrix, we need to figure out and . So we need to solve the following vector equations:  Sometimes you can guess and check to figure out the linear combinations. This one is NOT at all easy to do that way. So we will need to use some linear algebra to solve these equations!   These correspond to the matrix equations: We can easily solve both of these by finding the inverse of   The determinant is and the adjugate is . So the inverse is   Now we can solve the first equation to get and we can solve the second equation to get So we now know that   We can use this information to figure out what does to and : and So our matrix is    We are basically done once we figure out what the linear transformation does to our standard basis vectors! But it sometimes takes work to figure that out.     Suppose you have a linear transformation such that Find the matrix for this linear transformation!   Doing some fun linear algebra, we can figure out that So we know that and So the matrix for this transformation is     "
+},
+{
+  "id": "sec26-LinearTransformations-2-2",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-2-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "linear transformations "
+},
+{
+  "id": "sec26-LinearTransformations-2-3",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-2-3",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     determine whether a given function is a linear transformation.    evaluate a linear transformation at a specific vector.    construct the standard matrix of a linear transformation.    derive the standard matrices for geometric transformations, such as rotations and reflections in .    determine the standard matrix of a linear transformation given its action on an arbitrary set of non-basis vectors.    "
+},
+{
+  "id": "def-LinearTransformation-Operator",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#def-LinearTransformation-Operator",
+  "type": "Definition",
+  "number": "2.6.1",
+  "title": "",
+  "body": "  If is a function with the following two properties:   For any scalar and any vector ,     For any two vectors ,    then is a linear transformation .   "
+},
+{
+  "id": "sec26-LinearTransformations-6",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-6",
+  "type": "Example",
+  "number": "2.6.2",
+  "title": "A non-example.",
+  "body": " A non-example  The function given by is NOT a linear transformation.   Proof: Notice that If this were a linear transformation, then property (ii) would mean that But in fact, Oopsie!  "
+},
+{
+  "id": "sec26-LinearTransformations-7",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-7",
+  "type": "Example",
+  "number": "2.6.3",
+  "title": "An example.",
+  "body": " An example  The function given by IS indeed a linear transformation!   Proof: We will verify the two properties in the definition of linear transformations.   Suppose is a scalar and is a vector in . Then     Suppose and are two vectors in . Then    Since both properties hold, we can conclude that IS indeed a linear transformation!   Note: In this example, observe that the coefficients do not contribute to the proof at all (so the proof would work exactly the same even if we had different coefficients). Using the same proof, we can show that the function given by is a linear transformation for any choice of scalars .  "
+},
+{
+  "id": "sec26-LinearTransformations-9",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-9",
+  "type": "Example",
+  "number": "2.6.4",
+  "title": "",
+  "body": " Suppose is a linear transformation (but we don't know the rule) and we do know that Let's say we want to evaluate .   How do we do that?   Notice that So property (i) and (ii) of linear transformations tell us that    But Richard... How can you find the linear combination?  There are two ways to find the linear combination: (1) using guess and check, and\/or (2) by setting up a system of equations.  Let's do a quick example using the formal setting-up-a-system-of-equations method!  Can be written as a linear combination of and ?  Let's assume we can! Then there exist scalars such that This is essentially a vector equation since the \"variables\" here are the scalars and . We can rewrite the vector equation as a system of linear equations: Basically, we are asking ourselves if this system of linear equations has a solution.  We are all experts in solving systems of linear equations now! The augmented matrix is We can do our Gaussian Elimination magic to get: Converting back to a system of linear equations, we have   We can quickly check our work! We did it!   "
+},
+{
+  "id": "sec26-LinearTransformations-11",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-11",
+  "type": "Checkpoint",
+  "number": "2.6.6",
+  "title": "",
+  "body": " Suppose is a linear transformation and we know that Find .   Notice that  Remember that if you can't figure out the linear combination by guessing and checking, you can find it by setting up a system of linear equations!   So we know that    "
+},
+{
+  "id": "sec26-LinearTransformations-13",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-13",
+  "type": "Proof",
+  "number": "2.6.1",
+  "title": "Quick proof of this claim.",
+  "body": " Quick proof of this claim  Let be an arbitrary vector in . Then Proved!  "
+},
+{
+  "id": "sec26-LinearTransformations-14",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-14",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "standard basis "
+},
+{
+  "id": "sec26-LinearTransformations-18",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-18",
+  "type": "Proof",
+  "number": "2.6.2",
+  "title": "Quick proof of this claim.",
+  "body": " Quick proof of this claim  Let be a vector in . Then there exist scalars such that Then for any linear transformation defined on , we have So the output of at is completely determined by the output of at and .  "
+},
+{
+  "id": "sec26-LinearTransformations-20",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-20",
+  "type": "Example",
+  "number": "2.6.7",
+  "title": "",
+  "body": " Suppose that is a linear transformation such that What is the matrix such that for all ?  Consider any vector in . We know that Notice that the output is what we would get if we multiplied the matrix by the vector ! So We found the matrix that goes with this linear transformation!  "
+},
+{
+  "id": "sec26-LinearTransformations-23",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-23",
+  "type": "Example",
+  "number": "2.6.8",
+  "title": "",
+  "body": " Let be a linear transformation given by Let's find the matrix such that for all .  Step 1: In this case, and . So   Step 2:   Let's check to see if really works! Woo!  "
+},
+{
+  "id": "sec26-LinearTransformations-24",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-24",
+  "type": "Checkpoint",
+  "number": "2.6.9",
+  "title": "",
+  "body": " Find the matrix that corresponds to the linear transformation given by    Observe that Then we know that So our matrix is    "
+},
+{
+  "id": "sec26-LinearTransformations-44",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-44",
+  "type": "Example",
+  "number": "2.6.10",
+  "title": "",
+  "body": " Let's write a matrix that stretches by a factor of and stretches by a factor of .  This can be thought of as scalar multiplication of the first vector by and scalar multiplication of the second vector by . So the resulting vector after stretching will be and the resulting vector after stretching will be . Hence, our matrix is   "
+},
+{
+  "id": "sec26-LinearTransformations-47",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-47",
+  "type": "Example",
+  "number": "2.6.11",
+  "title": "",
+  "body": " Suppose we have a linear transformation such that What is the matrix for this linear transformation?  To find this matrix, we need to figure out and . So we need to solve the following vector equations:  Sometimes you can guess and check to figure out the linear combinations. This one is NOT at all easy to do that way. So we will need to use some linear algebra to solve these equations!   These correspond to the matrix equations: We can easily solve both of these by finding the inverse of   The determinant is and the adjugate is . So the inverse is   Now we can solve the first equation to get and we can solve the second equation to get So we now know that   We can use this information to figure out what does to and : and So our matrix is    We are basically done once we figure out what the linear transformation does to our standard basis vectors! But it sometimes takes work to figure that out.   "
+},
+{
+  "id": "sec26-LinearTransformations-48",
+  "level": "2",
+  "url": "sec26-LinearTransformations.html#sec26-LinearTransformations-48",
+  "type": "Checkpoint",
+  "number": "2.6.12",
+  "title": "",
+  "body": " Suppose you have a linear transformation such that Find the matrix for this linear transformation!   Doing some fun linear algebra, we can figure out that So we know that and So the matrix for this transformation is    "
+},
+{
+  "id": "sec31-CofactorExpansion",
+  "level": "1",
+  "url": "sec31-CofactorExpansion.html",
+  "type": "Section",
+  "number": "3.1",
+  "title": "The Cofactor Expansion",
+  "body": " The Cofactor Expansion   You may recall we learned a special formula back in that computes the determinant of a matrix. But what does it mean?  Determinant is really a special linear operator with special properties that we won't be able to make sense of fully in this class. Instead, we will focus on how to compute the determinant in this section.    After this section, students will be able to:     Compute the determinant of an matrix in various methods.    Determine the cofactors, including the signs.      The cofactor expansion is a method to compute the determinant of a matrix.  But what's the determinant of a matrix? We won't be able to answer this question now since we haven't gotten into vector geometry yet. Right now, you can think of the determinant of a matrix a special number associated with the matrix that tells us many things about the matrix (e.g., its invertibility).  Notation-wise, the determinant of the matrix is denoted by . When we are working with a specific matrix, we replace the brackets with absolute values and then it stands for the determinant (which is a number) rather than a matrix.  For example, the determinant of the matrix is denoted by   If you are super interested in knowing what the determinant represents, check out the following video:   The Determinant    In this section, we will focus on how to compute the determinant rather than what the number tells us.   Let's find the determinant of the matrix using the method of cofactor expansion!  The way to do so is to pick one row or column to expand on. We can pick any of them:  Let's pick Row 1: So the determinant of this matrix is .  Alternatively, we can pick Column 2 to expand on: See the determinant is the same!   So how does it work?   Pick a row or a column.    For each entry, multiply it by the determinant of the matrix you get by eliminating the row and the column that the entry is in .    If the row number plus the column number is odd, multiply the little determinant by .    Add up all the products.   Here is a strategy to help us pick a row or a column to expand on: If possible, pick the row\/column that has the most zeros in it, since we don't have to compute any of the little determinants of those (as they will be multiplied by zero!).   Use the cofactor expansion method to compute the determinant of the matrix in the following two ways:   Expand on Row 2.    Expand on Column 3.      First expand on Row 2:  Note: It doesn't hurt anything if you calculate the part where it says \"stuff\", but it isn't necessary since that gets multiplied by zero.  Second expand on Column 3:     The main idea of the cofactor expansion is that it allows us to build up the determinant of a matrix using the determinants of smaller matrices . So once we know how to compute the determinant of matrices, we can use that to figure out the determinant of a matrix. And then we could use that to figure out how to compute the determinant of a matrix (and etc...)  The products we add up ( or times the little determinant) during the cofactor expansion procedures are called the cofactors .   Formal Definition of Cofactors   Given an matrix , let be the matrix obtained by deleting the th row and the th column of . Then the cofactor is     The is the part of the formula that does the multiplication by or :   If the sum of the row number and the column number is odd, we get the ;    If the sum of the row number and the column number is even, we get the .   So to get a cofactor, we will find out little determinant and then either change its sign or leave it alone.  We can anticipate when we need to change the sign when computing a cofactor by imagining a checkerboard pattern of or overlaying the matrix. For example, for a matrix, we would have the pattern We canmake the right pattern for any matrix by making this checkerboard pattern starting with a in the -entry.  Then the determinant of a matrix can be calculated by multiplying each entry of a row (or column) of the matrix by its cofactor and then summing the results.   Let's compute the determinant of a matrix   We will need to pick a row\/column to begin. Observe that Column 2 has the most zeros in it, so let's pick that one! So we need to compute these two determinants: by picking Row 3 to expand on, and by picking Row 1 to expand on.  So    If you are asked to compute the matrix of a large matrix, you are REALLY hoping it has a row or column with a bunch of zeros otherwise you will be computing a bunch of determinants each of which requires you to compute a bunch of other determinants.   Compute the determinant of    Observe that Column 3 has three zeros! So let's expand on it! So Let's use Row 2 to compute the determinant we need: So     You may get the sense that the cofactor method can require a lot of calculation and it is MUCH easier when there are a lot of zeros in the matrix. Recall elementary row operations can create zeros in a matrix. A natural question to ask is whether it is possible to use elementary row operations to make a determinant easier to calculate without changing the result.  The answer is yes! And the following theorem tells us how:   Row Operations and Determinants   Let be an matrix. Then   If the matrix has a row or column of zeros its determinant is zero.    If two rows of a matrix are swapped, the sign of the determinant is changed.    If a row (or column) of a matrix is multiplied by a constant, the resulting matrix will have a determinant that is a product of the original determinant and that same constant.    If two rows (or columns) of a matrix are identical, then the determinant of the matrix is zero.    If a multiple of one row of a matrix is added to another row, the determinant of the matrix is unchanged!        But Richard... Why are these things true?  Below are the explanations for each of the statement. Some of them are straightforward and some are tricky. Feel free to click open the ones you are super curious about! You are under no obligation to memorize them or anything!   Explaining the First Statement...  If you used the cofactor method and expanded along the row or column that is all zero, then every cofactor would be multiplied by zero, giving you the answer of zero.    Explaining the Second Statement...  Let's consider rows only (the argument is similar for columns).  In the cases, we can see that while so the answers have opposite sides.  Now if the matrix is bigger than , we can calculate the determinant of both of them using the cofactor method and expanding on a row other than the two that are swapped .   In both calculations, the number each cofactor is multiplied by is unchanged (since we are using the same row in each case).  But for each cofactor calculation, we are computing a determinants. When we compute the ones for the matrix with the swapped rows, we get opposite signs because the rows of each matrix have been swapped.   This is what it would look like when the 1st and 3rd rows are swapped for a matrix: and Notice that all of the determinants in the second version will have opposite signs of the ones in the first version.  For a matrix, we can use the same trick. Again, all of the cofactors will change sign. And so on...   Note: This idea can be turned into a formal proof using the Principal of Mathematical Induction.    Explaining the Third Statement...  This one is straightforward. If we expand on the row\/column that has been multiplied by a constant, none of the cofactors will change. But in the calculation we will get an extra factor in each term since each entry of the row\/column is multiplied by the constant. We can just factor out that constant to see that the determinant has been multiplied by that constant.  Here is what it looks like in the case if we multiply the middle row by : and     Explaining the Fourth Statement...  This is a fun one! Imagine swapping the two rows (or columns) that are identical. By the second statement , the determinant will change signs if we do this.  BUT since the two rows (or columns) are identical, switching the rows (or columns) won't change the matrix at all. So the determinant can't change!  What is the only number that we can multiplied by without changing it? ZERO!     Explaining the Fifth Statement...  This is the trickiest and the most important statement! Let's look at the general case and try to figure out why doing this operation does not change the determinant.  Here is the calculation of the \"before\" matrix, expanding on Row 2: Now let's see what happens if we multiply Row 1 by and add that to Row 2 (we will expand using Row 2 again): Observe that So this part will become since Row 1 and Row 2 are identical. This tells us that See the determinant is the same as the determinant of the general matrix!    So what is this new method for computing determinants?  First, we know that if a matrix has a whole row (or column) of zeros or if it has two identical rows (or columns) the determinant is zero. Second, we know that if we can maximize the number of zeros we get in a row, we can minimize the number of cofactors we actually have to compute.  Actually there is one more even awesome-er fact that we can use to make determinant calculations fairly easy using row operations. We will do an example first and that will show us what that awesome-er fact is.   Let's compute   Step 1: We can add times Row 1 to Row 2 (and replace Row 2). This will not change the determinant.   Step 2: We can add times Row 1 to Row 3 (and replace Row 3). And this again will not change the determinant.   Step 3: We can add Row 2 to Row 4 (and replace Row 4), and the determinant is still unchanged.   Step 4: We can add times Row 3 to Row 4 without changing the determinant!   Notice that we now have all zeros below the main diagonal. At this point, Richard instantly knows that the determinant is going to be . How does he know that?  Watch what happens when we expand along the last row to compute the determinant: Now we need to figure out the determinant of one matrix that also has all zeros below the main diagonal. So... And now we need to figure out the determinant of one matrix that also has all zeros below the main diagonal (well there is only one spot there, but still!). Continuing then, we get...   So it turned out that the answer was just the product of the entries on the diagonal !   If you think about how cofactor expansion works, the determinant of a matrix that has all zeros below the main diagonal should always be the product of the entries on the main diagonal! That means our new method (using row operations) is   Use row operations to put the matrix in a form where it all of the entries below the main diagonal are zeros (this is called upper triangular form).   P.S.: NEVER use the operation where you just multiply a row by a constant and keep track of how many times you swap rows.    Multiply all the entries on the diagonal.   If the number of row swaps you did is even, then this is the answer;    If the number of row swaps you did is odd, multiply it by to get the determinant.        A matrix that only has zeros below the main diagonal is called an upper triangle matrix, and a matrix that only has zeros above the main diagonal is called a lower triangular matrix. We can compute the determinant of these matrices by multiplying all of the entries on the diagonal together .   Use this new row-reduction method to compute the determinant of    We will add Row 1 tp Row 2, times Row 1 to Row 3, and times Row 1 to Row 4. We get: Now we will add times Row 2 to Row 3, and times Row 2 to Row 4. We get: Now we have an upper triangular matrix and can see that .     What is the determinant of the identity matrix (of any size)?   Identity matrix (of any size) is an upper triangular matrix with 's on the main diagonal (It is also a lower triangular matrix!). Hence the determinant is .    We will continue our investigation of determinants more about the properties and applications of determinants in the next section!  "
+},
+{
+  "id": "sec31-CofactorExpansion-2-3",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#sec31-CofactorExpansion-2-3",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     Compute the determinant of an matrix in various methods.    Determine the cofactors, including the signs.    "
+},
+{
+  "id": "sec31-CofactorExpansion-3",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#sec31-CofactorExpansion-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "cofactor expansion "
+},
+{
+  "id": "sec31-CofactorExpansion-4",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#sec31-CofactorExpansion-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "determinant "
+},
+{
+  "id": "sec31-CofactorExpansion-8",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#sec31-CofactorExpansion-8",
+  "type": "Figure",
+  "number": "3.1.1",
+  "title": "",
+  "body": " The Determinant   "
+},
+{
+  "id": "sec31-CofactorExpansion-10",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#sec31-CofactorExpansion-10",
+  "type": "Example",
+  "number": "3.1.2",
+  "title": "",
+  "body": " Let's find the determinant of the matrix using the method of cofactor expansion!  The way to do so is to pick one row or column to expand on. We can pick any of them:  Let's pick Row 1: So the determinant of this matrix is .  Alternatively, we can pick Column 2 to expand on: See the determinant is the same!  "
+},
+{
+  "id": "sec31-CofactorExpansion-12",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#sec31-CofactorExpansion-12",
+  "type": "Checkpoint",
+  "number": "3.1.3",
+  "title": "",
+  "body": " Use the cofactor expansion method to compute the determinant of the matrix in the following two ways:   Expand on Row 2.    Expand on Column 3.      First expand on Row 2:  Note: It doesn't hurt anything if you calculate the part where it says \"stuff\", but it isn't necessary since that gets multiplied by zero.  Second expand on Column 3:    "
+},
+{
+  "id": "def-Cofactor",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#def-Cofactor",
+  "type": "Definition",
+  "number": "3.1.4",
+  "title": "Formal Definition of Cofactors.",
+  "body": " Formal Definition of Cofactors   Given an matrix , let be the matrix obtained by deleting the th row and the th column of . Then the cofactor is    "
+},
+{
+  "id": "sec31-CofactorExpansion-19",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#sec31-CofactorExpansion-19",
+  "type": "Example",
+  "number": "3.1.5",
+  "title": "",
+  "body": " Let's compute the determinant of a matrix   We will need to pick a row\/column to begin. Observe that Column 2 has the most zeros in it, so let's pick that one! So we need to compute these two determinants: by picking Row 3 to expand on, and by picking Row 1 to expand on.  So   "
+},
+{
+  "id": "sec31-CofactorExpansion-21",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#sec31-CofactorExpansion-21",
+  "type": "Checkpoint",
+  "number": "3.1.6",
+  "title": "",
+  "body": " Compute the determinant of    Observe that Column 3 has three zeros! So let's expand on it! So Let's use Row 2 to compute the determinant we need: So    "
+},
+{
+  "id": "thm-RowOperations-Determinants",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#thm-RowOperations-Determinants",
+  "type": "Theorem",
+  "number": "3.1.7",
+  "title": "Row Operations and Determinants.",
+  "body": " Row Operations and Determinants   Let be an matrix. Then   If the matrix has a row or column of zeros its determinant is zero.    If two rows of a matrix are swapped, the sign of the determinant is changed.    If a row (or column) of a matrix is multiplied by a constant, the resulting matrix will have a determinant that is a product of the original determinant and that same constant.    If two rows (or columns) of a matrix are identical, then the determinant of the matrix is zero.    If a multiple of one row of a matrix is added to another row, the determinant of the matrix is unchanged!      "
+},
+{
+  "id": "sec31-CofactorExpansion-25",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#sec31-CofactorExpansion-25",
+  "type": "Note",
+  "number": "3.1.8",
+  "title": "But Richard... Why are these things true?",
+  "body": " But Richard... Why are these things true?  Below are the explanations for each of the statement. Some of them are straightforward and some are tricky. Feel free to click open the ones you are super curious about! You are under no obligation to memorize them or anything!   Explaining the First Statement...  If you used the cofactor method and expanded along the row or column that is all zero, then every cofactor would be multiplied by zero, giving you the answer of zero.    Explaining the Second Statement...  Let's consider rows only (the argument is similar for columns).  In the cases, we can see that while so the answers have opposite sides.  Now if the matrix is bigger than , we can calculate the determinant of both of them using the cofactor method and expanding on a row other than the two that are swapped .   In both calculations, the number each cofactor is multiplied by is unchanged (since we are using the same row in each case).  But for each cofactor calculation, we are computing a determinants. When we compute the ones for the matrix with the swapped rows, we get opposite signs because the rows of each matrix have been swapped.   This is what it would look like when the 1st and 3rd rows are swapped for a matrix: and Notice that all of the determinants in the second version will have opposite signs of the ones in the first version.  For a matrix, we can use the same trick. Again, all of the cofactors will change sign. And so on...   Note: This idea can be turned into a formal proof using the Principal of Mathematical Induction.    Explaining the Third Statement...  This one is straightforward. If we expand on the row\/column that has been multiplied by a constant, none of the cofactors will change. But in the calculation we will get an extra factor in each term since each entry of the row\/column is multiplied by the constant. We can just factor out that constant to see that the determinant has been multiplied by that constant.  Here is what it looks like in the case if we multiply the middle row by : and     Explaining the Fourth Statement...  This is a fun one! Imagine swapping the two rows (or columns) that are identical. By the second statement , the determinant will change signs if we do this.  BUT since the two rows (or columns) are identical, switching the rows (or columns) won't change the matrix at all. So the determinant can't change!  What is the only number that we can multiplied by without changing it? ZERO!     Explaining the Fifth Statement...  This is the trickiest and the most important statement! Let's look at the general case and try to figure out why doing this operation does not change the determinant.  Here is the calculation of the \"before\" matrix, expanding on Row 2: Now let's see what happens if we multiply Row 1 by and add that to Row 2 (we will expand using Row 2 again): Observe that So this part will become since Row 1 and Row 2 are identical. This tells us that See the determinant is the same as the determinant of the general matrix!   "
+},
+{
+  "id": "sec31-CofactorExpansion-29",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#sec31-CofactorExpansion-29",
+  "type": "Example",
+  "number": "3.1.9",
+  "title": "",
+  "body": " Let's compute   Step 1: We can add times Row 1 to Row 2 (and replace Row 2). This will not change the determinant.   Step 2: We can add times Row 1 to Row 3 (and replace Row 3). And this again will not change the determinant.   Step 3: We can add Row 2 to Row 4 (and replace Row 4), and the determinant is still unchanged.   Step 4: We can add times Row 3 to Row 4 without changing the determinant!   Notice that we now have all zeros below the main diagonal. At this point, Richard instantly knows that the determinant is going to be . How does he know that?  Watch what happens when we expand along the last row to compute the determinant: Now we need to figure out the determinant of one matrix that also has all zeros below the main diagonal. So... And now we need to figure out the determinant of one matrix that also has all zeros below the main diagonal (well there is only one spot there, but still!). Continuing then, we get...   So it turned out that the answer was just the product of the entries on the diagonal !  "
+},
+{
+  "id": "sec31-CofactorExpansion-31",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#sec31-CofactorExpansion-31",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "upper triangle lower triangular "
+},
+{
+  "id": "sec31-CofactorExpansion-32",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#sec31-CofactorExpansion-32",
+  "type": "Checkpoint",
+  "number": "3.1.10",
+  "title": "",
+  "body": " Use this new row-reduction method to compute the determinant of    We will add Row 1 tp Row 2, times Row 1 to Row 3, and times Row 1 to Row 4. We get: Now we will add times Row 2 to Row 3, and times Row 2 to Row 4. We get: Now we have an upper triangular matrix and can see that .   "
+},
+{
+  "id": "sec31-CofactorExpansion-33",
+  "level": "2",
+  "url": "sec31-CofactorExpansion.html#sec31-CofactorExpansion-33",
+  "type": "Checkpoint",
+  "number": "3.1.11",
+  "title": "",
+  "body": " What is the determinant of the identity matrix (of any size)?   Identity matrix (of any size) is an upper triangular matrix with 's on the main diagonal (It is also a lower triangular matrix!). Hence the determinant is .   "
+},
+{
+  "id": "sec32-DeterminantsInverse",
+  "level": "1",
+  "url": "sec32-DeterminantsInverse.html",
+  "type": "Section",
+  "number": "3.2",
+  "title": "Determinants and Matrix Inverses",
+  "body": " Determinants and Matrix Inverses   In this section, we will see how to compute the determinant of a matrix inverse, which also tells us about the invertibility of a matrix.    After this section, students will be able to:     Apply the multiplicative property of determinants    determine whether a matrix is invertible by computing its determinant       Important Theorems about Determinants  The most important theorem about determinants is this one:   Determinants and Products   Suppose and are matrices. Then That is, the determinant of the product is the product of the determinants.    And one consequence of this is the following Lemma:    Let be an matrix, then if and only if has no inverse (hence is not invertible).     We know that We can calculate the determinant of all three matrices and quickly verify that    If we know that is invertible, then we can use the above theorem to compute the determinant of the inverse of . Since , we have Hence, . We can make it a theorem!   Determinants and Inverses   Let be an  invertible matrix. Then     The next theorem tells us about the determinants and transpose.   Determinants and Transpose   Let be an matrix. Then     What the theorem tells us is that the determinant of any square matrix is the same as the determinant of its transpose.   Proof using Elementary Matrices...  First, let's make sure this is true for elementary matrices.   If is obtained by swapping two rows on , then is obtained by swapping the corresponding columns of . In each case, the determinant is .    If is obtained by multiplying a row of by a constant, then notice that . So certainly and have the same determinant in this case (it is whatever the constant is).    If is obtained by adding a multiple of a row of to another row of . The transpose could be obtained the same way (reversing the two rows). Or we we could do it by doing the same operation on the corresponding columns of . In any case, the determinant of and are both because those operations do not change the determinant of .   So the result holds for elementary matrices.  Now let's do the proof for any matrix .  If is not invertible, then neither is .  Hmm why is that?  If , then . So we would have an inverse for if we had one for .  So if , then as well.  Suppose , then is invertible and can be written as a product of elementary matrices. Let's say Then by this theorem , we know that Therefore,     Proof Idea using Mathematical Induction...  This proof (idea) is easier but uses a proof technique most MTH 261 students would not be familiar with called Mathematical Induction .  The idea in this case is that the theory is easily verified for matrices:   If , we can see that Since , we can verify that Same thing.   Now suppose we were working with a matrix. Then the first row of becomes the first column of . So if we calculate the determinant using the cofactor method and expand on the first row of and the first column of , we will see that we get the same thing except each of the little determinants has been transposed when we are working with . And since we know from the case that these are the same, it follows that we get the same answer for and in the case as well.  Then we can repeat that same strategy for and so on and so on forever and ever...    "
+},
+{
+  "id": "sec32-DeterminantsInverse-2-2",
+  "level": "2",
+  "url": "sec32-DeterminantsInverse.html#sec32-DeterminantsInverse-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     Apply the multiplicative property of determinants    determine whether a matrix is invertible by computing its determinant    "
+},
+{
+  "id": "thm-DeterminantsProducts",
+  "level": "2",
+  "url": "sec32-DeterminantsInverse.html#thm-DeterminantsProducts",
+  "type": "Theorem",
+  "number": "3.2.1",
+  "title": "Determinants and Products.",
+  "body": " Determinants and Products   Suppose and are matrices. Then That is, the determinant of the product is the product of the determinants.   "
+},
+{
+  "id": "lem-DeterminantsInverses",
+  "level": "2",
+  "url": "sec32-DeterminantsInverse.html#lem-DeterminantsInverses",
+  "type": "Lemma",
+  "number": "3.2.2",
+  "title": "",
+  "body": "  Let be an matrix, then if and only if has no inverse (hence is not invertible).   "
+},
+{
+  "id": "subsec-Theorems-Determinants-6",
+  "level": "2",
+  "url": "sec32-DeterminantsInverse.html#subsec-Theorems-Determinants-6",
+  "type": "Example",
+  "number": "3.2.3",
+  "title": "",
+  "body": " We know that We can calculate the determinant of all three matrices and quickly verify that   "
+},
+{
+  "id": "thm-InverseDeterminant",
+  "level": "2",
+  "url": "sec32-DeterminantsInverse.html#thm-InverseDeterminant",
+  "type": "Theorem",
+  "number": "3.2.4",
+  "title": "Determinants and Inverses.",
+  "body": " Determinants and Inverses   Let be an  invertible matrix. Then    "
+},
+{
+  "id": "thm-TransposeDeterminant",
+  "level": "2",
+  "url": "sec32-DeterminantsInverse.html#thm-TransposeDeterminant",
+  "type": "Theorem",
+  "number": "3.2.5",
+  "title": "Determinants and Transpose.",
+  "body": " Determinants and Transpose   Let be an matrix. Then    "
+},
+{
+  "id": "subsec-Theorems-Determinants-12",
+  "level": "2",
+  "url": "sec32-DeterminantsInverse.html#subsec-Theorems-Determinants-12",
+  "type": "Proof",
+  "number": "1",
+  "title": "Proof using Elementary Matrices....",
+  "body": " Proof using Elementary Matrices...  First, let's make sure this is true for elementary matrices.   If is obtained by swapping two rows on , then is obtained by swapping the corresponding columns of . In each case, the determinant is .    If is obtained by multiplying a row of by a constant, then notice that . So certainly and have the same determinant in this case (it is whatever the constant is).    If is obtained by adding a multiple of a row of to another row of . The transpose could be obtained the same way (reversing the two rows). Or we we could do it by doing the same operation on the corresponding columns of . In any case, the determinant of and are both because those operations do not change the determinant of .   So the result holds for elementary matrices.  Now let's do the proof for any matrix .  If is not invertible, then neither is .  Hmm why is that?  If , then . So we would have an inverse for if we had one for .  So if , then as well.  Suppose , then is invertible and can be written as a product of elementary matrices. Let's say Then by this theorem , we know that Therefore,   "
+},
+{
+  "id": "subsec-Theorems-Determinants-13",
+  "level": "2",
+  "url": "sec32-DeterminantsInverse.html#subsec-Theorems-Determinants-13",
+  "type": "Proof",
+  "number": "2",
+  "title": "Proof Idea using Mathematical Induction....",
+  "body": " Proof Idea using Mathematical Induction...  This proof (idea) is easier but uses a proof technique most MTH 261 students would not be familiar with called Mathematical Induction .  The idea in this case is that the theory is easily verified for matrices:   If , we can see that Since , we can verify that Same thing.   Now suppose we were working with a matrix. Then the first row of becomes the first column of . So if we calculate the determinant using the cofactor method and expand on the first row of and the first column of , we will see that we get the same thing except each of the little determinants has been transposed when we are working with . And since we know from the case that these are the same, it follows that we get the same answer for and in the case as well.  Then we can repeat that same strategy for and so on and so on forever and ever...  "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
