@@ -1396,6 +1396,312 @@ var ptx_lunr_docs = [
   "body": " Proof Idea using Mathematical Induction...  This proof (idea) is easier but uses a proof technique most MTH 261 students would not be familiar with called Mathematical Induction .  The idea in this case is that the theory is easily verified for matrices:   If , we can see that Since , we can verify that Same thing.   Now suppose we were working with a matrix. Then the first row of becomes the first column of . So if we calculate the determinant using the cofactor method and expand on the first row of and the first column of , we will see that we get the same thing except each of the little determinants has been transposed when we are working with . And since we know from the case that these are the same, it follows that we get the same answer for and in the case as well.  Then we can repeat that same strategy for and so on and so on forever and ever...  "
 },
 {
+  "id": "secA1-MidtermReview",
+  "level": "1",
+  "url": "secA1-MidtermReview.html",
+  "type": "Section",
+  "number": "A.1",
+  "title": "Midterm Review",
+  "body": " Midterm Review   The midterm exam will cover material from Week 1 Day 1 of the class through Week 3 Day 2. That is, it covers material in the following sections:    Solutions and Elementary Operations     Gaussian Elimination     Homogeneous Equations     Basic Matrix Operations     Matrix-Vector Multiplication     Matrix Multiplication     Matrix Inverses     Elementary Matrices     Linear Transformations     The Cofactor Expansion     Determinants and Matrix Inverses   On this page, you will find review problems for the midterm exam. The final answers are included for each problem. Make sure you spend some time working through these problems and understanding how things work!   A quick reminder: Some class time during the class session before the midterm exam on Monday, July 13 will be a review session. Usually this will be a work day for you to work through some problems together to prepare for the exam. This is also a great opportunity for you to ask questions about anything that is not clear to you!    Systems of Linear Equations   Solve the following system of equations: If the system is consistent, write the solution set as a column vector If the system is inconsistent, explain how you know it.   The solutions are of the form where and are arbitrary constants.     Solve the following system of linear equations: If the system is consistent, write the solution set as a column vector If the system is inconsistent, explain how you know it.   The solution is      Solve the following system of linear equations: If the system is consistent, write the solution set as a column vector If the system is inconsistent, explain how you know it.   The solution is      Solve the following system of equations: If the system is consistent, write the solution set as a linear combination of basic vectors. If the system is inconsistent, explain how you know it.   This one has only the trivial solution      Solve the following system of equations: If the system is consistent, write the solution set as a linear combination of basic vectors. If the system is inconsistent, explain how you know it.   The solutions are of the form , where is an arbitrary constant.     Solve the following system of equations: If the system is consistent, write the solution set as a linear combination of basic vectors. If the system is inconsistent, explain how you know it.   The solutions are of the form , where and are arbitrary constants.      Given the following matrix equivalent to some coefficient matrix , describe all solutions of in parametric vector form.      The solution set in parametric vector form is , where and are arbitrary constants.       The solution set in parametric vector form is , where and are arbitrary constants.       The solution set in parametric vector form is , where , , and are arbitrary constants.       (Reduced) Row Echelon Form   Row reduce the following matrix to reduced row echelon form. Circle the pivot positions (aka the leading s) in the final matrix and in the original matrix, and list the pivot columns (aka columns that contain a leading ).    The reduced row echelon form is . The pivot positions are at and entries. The pivot columns are Column 1 and Column 2.      In the following exercises, find the solutions of the systems whose augmented matrices are given.      The solution in parametric form is , where is an arbitrary constant.       The solution in parametric form is , where and are arbitrary constants.       The solution in parametric vector form is , where and are arbitrary constants.       Basic Matrix Operations   Let . Compute          Let , , , , and . Compute the following if possible, and if not possible, explain why.                                                     Impossible. is and is ; addition\/subtraction requires identical dimensions.              Impossible. is and is .                   Impossible. is and is .              Multiplying Matrices with Vectors\/Matrices   Compute the following matrix-vector products:                  Impossible. The number of columns in the matrix (2) does not match the number of entries in the vector (3).             Let , , and . Compute and . Compute                                                    Let , , and . Compute the following if possible, and if not possible, explain why.                       Impossible. is not a square matrix ( ), so it cannot be multiplied by itself.    Impossible. The number of columns in (3) does not match the number of rows in (2).              Inverses of Matrices   Find the inverse of the following matrix:                                Let and . Solve the equation using .    .     Find the inverse of of the matrix .   The inverse is       Elementary Matrices   For each of the following elementary matrices, describe the corresponding elementary row operation and write the inverse.                                      Operation: Add times Row 3 to Row 1 (and replace Row 1).  Inverse:     Operation: Swap Row 1 and Row 3.  Inverse: (The matrix is its own inverse).    Operation: Multiply Row 2 by .  Inverse:     Operation: Add times Row 1 to Row 2 (and replace Row 2).  Inverse:     Operation: Swap Row 1 and Row 2.  Inverse:     Operation: Multiply Row 3 by .  Inverse:         Consider the two matrices and . Find an elementary matrix such that .         Write the following matrix AND its inverse as a product of elementary matrices.     and       Linear Transformations   Let be a linear transformation defined by , where    Find the value of     Is an image of this linear transformation? Justify your reasoning.              No it is not.        Let be a linear transformation defined by , where Is an image of this transformation? Justify your reasoning.   Yes, since      Let be a linear transformation such that Find          Let be a linear transformation such that Find a matrix such that is defined by the formula          Suppose is a linear transformation such that is a rotation by counterclockwise. Find the standard matrix that defines this transformation. That is, find the matrix such that .         Suppose is a linear transformation such that is a reflection across the line by . Find the standard matrix that defines this transformation. That is, find the matrix such that .          Determinants (and related stuff)   Let . Find using (1) the cofactor expansion, and (2) elementary row operation to convert the matrix into upper triangular form.         Find the determinant of the following matrices.               Find the determinant of the following matrices.                 Let , , and denote matrices such that Evaluate the following expression.                                "
+},
+{
+  "id": "ws-MidtermReview-SystemEquations-2",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-SystemEquations-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Solve the following system of equations: If the system is consistent, write the solution set as a column vector If the system is inconsistent, explain how you know it.   The solutions are of the form where and are arbitrary constants.   "
+},
+{
+  "id": "ws-MidtermReview-SystemEquations-3",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-SystemEquations-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Solve the following system of linear equations: If the system is consistent, write the solution set as a column vector If the system is inconsistent, explain how you know it.   The solution is    "
+},
+{
+  "id": "ws-MidtermReview-SystemEquations-4",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-SystemEquations-4",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Solve the following system of linear equations: If the system is consistent, write the solution set as a column vector If the system is inconsistent, explain how you know it.   The solution is    "
+},
+{
+  "id": "ws-MidtermReview-SystemEquations-5",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-SystemEquations-5",
+  "type": "Worksheet Exercise",
+  "number": "4",
+  "title": "",
+  "body": " Solve the following system of equations: If the system is consistent, write the solution set as a linear combination of basic vectors. If the system is inconsistent, explain how you know it.   This one has only the trivial solution    "
+},
+{
+  "id": "ws-MidtermReview-SystemEquations-6",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-SystemEquations-6",
+  "type": "Worksheet Exercise",
+  "number": "5",
+  "title": "",
+  "body": " Solve the following system of equations: If the system is consistent, write the solution set as a linear combination of basic vectors. If the system is inconsistent, explain how you know it.   The solutions are of the form , where is an arbitrary constant.   "
+},
+{
+  "id": "ws-MidtermReview-SystemEquations-7",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-SystemEquations-7",
+  "type": "Worksheet Exercise",
+  "number": "6",
+  "title": "",
+  "body": " Solve the following system of equations: If the system is consistent, write the solution set as a linear combination of basic vectors. If the system is inconsistent, explain how you know it.   The solutions are of the form , where and are arbitrary constants.   "
+},
+{
+  "id": "ws-MidtermReview-SystemEquations-8-2",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-SystemEquations-8-2",
+  "type": "Worksheet Exercise",
+  "number": "7",
+  "title": "",
+  "body": "   The solution set in parametric vector form is , where and are arbitrary constants.   "
+},
+{
+  "id": "ws-MidtermReview-SystemEquations-8-3",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-SystemEquations-8-3",
+  "type": "Worksheet Exercise",
+  "number": "8",
+  "title": "",
+  "body": "   The solution set in parametric vector form is , where and are arbitrary constants.   "
+},
+{
+  "id": "ws-MidtermReview-SystemEquations-8-4",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-SystemEquations-8-4",
+  "type": "Worksheet Exercise",
+  "number": "9",
+  "title": "",
+  "body": "   The solution set in parametric vector form is , where , , and are arbitrary constants.   "
+},
+{
+  "id": "ws-MidtermReview-RowEchelonForm-2",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-RowEchelonForm-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Row reduce the following matrix to reduced row echelon form. Circle the pivot positions (aka the leading s) in the final matrix and in the original matrix, and list the pivot columns (aka columns that contain a leading ).    The reduced row echelon form is . The pivot positions are at and entries. The pivot columns are Column 1 and Column 2.   "
+},
+{
+  "id": "ws-MidtermReview-RowEchelonForm-3-2",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-RowEchelonForm-3-2",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": "   The solution in parametric form is , where is an arbitrary constant.   "
+},
+{
+  "id": "ws-MidtermReview-RowEchelonForm-3-3",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-RowEchelonForm-3-3",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": "   The solution in parametric form is , where and are arbitrary constants.   "
+},
+{
+  "id": "ws-MidtermReview-RowEchelonForm-3-4",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-RowEchelonForm-3-4",
+  "type": "Worksheet Exercise",
+  "number": "4",
+  "title": "",
+  "body": "   The solution in parametric vector form is , where and are arbitrary constants.   "
+},
+{
+  "id": "ws-MidtermReview-BasicMatrixOperations-2",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-BasicMatrixOperations-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Let . Compute        "
+},
+{
+  "id": "ws-MidtermReview-BasicMatrixOperations-3",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-BasicMatrixOperations-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Let , , , , and . Compute the following if possible, and if not possible, explain why.                                                     Impossible. is and is ; addition\/subtraction requires identical dimensions.              Impossible. is and is .                   Impossible. is and is .           "
+},
+{
+  "id": "ws-MidtermReview-MatrixMultiplication-2",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-MatrixMultiplication-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Compute the following matrix-vector products:                  Impossible. The number of columns in the matrix (2) does not match the number of entries in the vector (3).           "
+},
+{
+  "id": "ws-MidtermReview-MatrixMultiplication-3",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-MatrixMultiplication-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Let , , and . Compute and . Compute                                                  "
+},
+{
+  "id": "ws-MidtermReview-MatrixMultiplication-4",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-MatrixMultiplication-4",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Let , , and . Compute the following if possible, and if not possible, explain why.                       Impossible. is not a square matrix ( ), so it cannot be multiplied by itself.    Impossible. The number of columns in (3) does not match the number of rows in (2).           "
+},
+{
+  "id": "ws-MidtermReview-Inverses-2",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-Inverses-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Find the inverse of the following matrix:                              "
+},
+{
+  "id": "ws-MidtermReview-Inverses-3",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-Inverses-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Let and . Solve the equation using .    .   "
+},
+{
+  "id": "ws-MidtermReview-Inverses-4",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-Inverses-4",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Find the inverse of of the matrix .   The inverse is    "
+},
+{
+  "id": "ws-MidtermReview-ElementaryMatrices-2",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-ElementaryMatrices-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " For each of the following elementary matrices, describe the corresponding elementary row operation and write the inverse.                                      Operation: Add times Row 3 to Row 1 (and replace Row 1).  Inverse:     Operation: Swap Row 1 and Row 3.  Inverse: (The matrix is its own inverse).    Operation: Multiply Row 2 by .  Inverse:     Operation: Add times Row 1 to Row 2 (and replace Row 2).  Inverse:     Operation: Swap Row 1 and Row 2.  Inverse:     Operation: Multiply Row 3 by .  Inverse:       "
+},
+{
+  "id": "ws-MidtermReview-ElementaryMatrices-3",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-ElementaryMatrices-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Consider the two matrices and . Find an elementary matrix such that .       "
+},
+{
+  "id": "ws-MidtermReview-ElementaryMatrices-4",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-ElementaryMatrices-4",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Write the following matrix AND its inverse as a product of elementary matrices.     and    "
+},
+{
+  "id": "ws-MidtermReview-LinearTransformations-2",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-LinearTransformations-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Let be a linear transformation defined by , where    Find the value of     Is an image of this linear transformation? Justify your reasoning.              No it is not.      "
+},
+{
+  "id": "ws-MidtermReview-LinearTransformations-3",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-LinearTransformations-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Let be a linear transformation defined by , where Is an image of this transformation? Justify your reasoning.   Yes, since    "
+},
+{
+  "id": "ws-MidtermReview-LinearTransformations-4",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-LinearTransformations-4",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Let be a linear transformation such that Find        "
+},
+{
+  "id": "ws-MidtermReview-LinearTransformations-5",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-LinearTransformations-5",
+  "type": "Worksheet Exercise",
+  "number": "4",
+  "title": "",
+  "body": " Let be a linear transformation such that Find a matrix such that is defined by the formula        "
+},
+{
+  "id": "ws-MidtermReview-LinearTransformations-6",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-LinearTransformations-6",
+  "type": "Worksheet Exercise",
+  "number": "5",
+  "title": "",
+  "body": " Suppose is a linear transformation such that is a rotation by counterclockwise. Find the standard matrix that defines this transformation. That is, find the matrix such that .       "
+},
+{
+  "id": "ws-MidtermReview-LinearTransformations-7",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-LinearTransformations-7",
+  "type": "Worksheet Exercise",
+  "number": "6",
+  "title": "",
+  "body": " Suppose is a linear transformation such that is a reflection across the line by . Find the standard matrix that defines this transformation. That is, find the matrix such that .       "
+},
+{
+  "id": "ws-MidtermReview-Determinants-2",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-Determinants-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Let . Find using (1) the cofactor expansion, and (2) elementary row operation to convert the matrix into upper triangular form.       "
+},
+{
+  "id": "ws-MidtermReview-Determinants-3",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-Determinants-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Find the determinant of the following matrices.               Find the determinant of the following matrices.               "
+},
+{
+  "id": "ws-MidtermReview-Determinants-4",
+  "level": "2",
+  "url": "secA1-MidtermReview.html#ws-MidtermReview-Determinants-4",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Let , , and denote matrices such that Evaluate the following expression.                              "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
