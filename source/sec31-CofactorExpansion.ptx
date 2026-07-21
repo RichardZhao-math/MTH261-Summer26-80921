@@ -220,6 +220,79 @@
     Then the determinant of a matrix can be calculated by multiplying each entry of a row (or column) of the matrix by its cofactor and then summing the results. 
   </p>
 
+   <note>
+    <title>Some special Formulas to Find the Determinants</title>
+
+    <p>
+        While the cofactor expansion is the "formal' way to compute the determinant of a matrix, there are some special formulas that can be used to compute the determinants. 
+    </p>
+
+    <p>
+        We have been using the special formula to find the determinant of a <m>2 \times 2</m> matrix all the time. 
+        That is, 
+        <md>
+            \begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix} = ad - bc
+        </md>
+        You can verify this formula by using the cofactor expansion method to compute the determinant of a <m>2 \times 2</m> matrix. 
+    </p>
+
+    <p>
+        There is also a special formula for the determinant of a <m>3 \times 3</m> matrix. 
+        That is, let <m>A = \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \\ a_{31} \amp a_{32} \amp a_{33} \end{bmatrix}</m>. 
+        Then
+        <md>
+            \det A = \lp a_{11} a_{22} a_{33} + a_{12} a_{23} a_{31} + a_{13} a_{21} a_{32}\rp - \lp a_{13} a_{22} a_{31} + a_{11} a_{23} a_{32} + a_{12} a_{21} a_{33}\rp
+        </md>
+        Hmm but how can we memorize such a complicated formula... 
+    </p>
+
+    <p>
+        There is a procedure that leads to this formula. 
+        This is usually the way Richard recommended his MTH 254 students (as opposed to memorizing the complicated formula). 
+    </p>
+
+    <p>
+      Here are the steps to compute the determinant of a 3x3 matrix using the lattice method:
+      <ol>
+        <li>
+          <p>
+            Write down the 3x3 matrix and then duplicate the first two columns to the right of the matrix. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Draw diagonals from the top left to bottom right and multiply the three numbers on each diagonal. 
+            Then add these products together. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Next, draw diagonals from the top right to bottom left and multiply the three numbers on each diagonal. 
+            Then add these products together. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Finally, subtract the sum from step 3 from the sum from step 2 to get the determinant. 
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      Below is a more visual representation of the steps above:
+    </p>
+    <figure>
+      <image source="LatticeMethod_Determinant.png" width="50%"></image>
+      <caption>Lattice Method to calculate the determinant of a 3x3 matrix</caption>
+    </figure>
+
+    <p>
+        Again, this procedure is <alert>only for <m>3 \times 3</m> matrices</alert>!!
+    </p>
+
+  </note>
+
   <example>
     <p>
         Let's compute the determinant of a <m>4 \times 4</m> matrix
