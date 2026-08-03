@@ -1468,6 +1468,1374 @@ var ptx_lunr_docs = [
   "body": " Let's first do the to help visualize the rule and verify that case!  Consider the system In this case, . So we know that . That means that if we solve it using the formula by this .  Let's follow Cramer's Rule and see if we will get the same thing! We know that can be obtained by replacing the first column of with , so we get Then .  Similarly, and .  If we multiply each of these by , we get the solutions and matching up perfectly from our method!  So in general, we can verify that Cramer's Rule works by the following steps:   Write down the answer we would get for if we calculate it by multiplying , where we expressed using the inverse formula (the one with the adjugate). Leave out the part to make it less messy to compare things!     Write down what we would get for for each using the cofactor expansion (expanding on the column you replaced with ). Compare this to fro the previous step and see that it is the same!     "
 },
 {
+  "id": "sec33-EigenvaluesEigenvectors",
+  "level": "1",
+  "url": "sec33-EigenvaluesEigenvectors.html",
+  "type": "Section",
+  "number": "3.3",
+  "title": "Eigenvalues and Eigenvectors",
+  "body": " Eigenvalues and Eigenvectors    Suppose and be a linear transformation defined by .    Let . Compute , and then sketch the vectors and . What is their relationship?    Let . Compute , and then sketch the vectors and . What is their relationship?    In the previous investigation, we found that and are parallel, which allows us to express as a scalar multiple of the preimage . Observe that matrix-vector multiplication is hard. But scalar multiplication of a vector is much easier. This is the idea behind eigenvalues and eigenvectors , which allows us to turn a matrix-vector multiplication to a scalar multiplication!   Eigenvalues and Eigenvectors   Let be an matrix. An eigenvector of is a nonzero vector such that for some scalar . Such a scalar is called an eigenvalue of .  We call here an eigenvector corresponding to the eigenvalue .     But Richard... Why can't we allow the zero vector to be an eigenvector?  Great question! Let's do a quick experiment by allowing the zero vector to be an eigenvector.  If is an eigenvector of some square matrix , then we have for some scalar .   Then what are the eigenvalues of this matrix ?   The answer is every scalar ! This is because the equation is always true regardless of the value of (we ended up getting ). Then why bother defining the concept of eigenvalues of a matrix if every scalar is an eigenvalue?  Observe that allowing the zero vector to be an eigenvector will trivialize the concept of eigenvalues. So we exclude the zero vector from being an eigenvector.   The goal of this section is to be able to find the eigenvalues and its corresponding eigenvectors of a matrix. Let's do some verification, and then we will summarize the process that can be applied to any square matrix.   Let . Is an eigenvector of ?  Based on the definition, an eigenvector can turn a matrix-vector multiplication into a scalar multiplication. So let's compute and see if we can express it as a scalar multiple of .  Observe that So we can express this matrix-vector multiplication as scaling the vector by a factor of . Hence, is an eigenvector of , and the corresponding eigenvalue is .  What about ? Is also an eigenvector of ?  Let's do the same thing as before by computing and see if we can express it as a scalar multiple of : Since is not a scalar multiple of , the vector is not an eigenvector of .  Richard claims that an eigenvalue of is . How can we verify this claim?  If , then we can plug this value into the equation and be able to find the corresponding eigenvectors. So let's first plug in into the equation : We can assume and rewrite the equation as This is equivalent to the system of equations Now we can solve this system of equations using augmented matrices: Converting this matrix to row echelon form, we have This implies that and is a free variable. Hence, the corresponding eigenvectors are of the form for any real number of .   Suppose is an eigenvector of . Then must be a solution to the equation for some scalar . If we do some quick algebraic manipulation, we can obtain the following equation Observe that is a common factor of the left-hand side, so we can factor it out and rewrite the equation as Hmm... But this equation doesn't quick make sense... What is \" \"? That is, how can we subtract a scalar from a matrix?  From the previous example, we saw that is an eigenvalue of , and we ended up subtracting from the diagonal entries of . So instead of writing , which makes no sense, we can rewrite it as , where is the identity matrix. Hence, we can rewrite the equation as Now the equation makes sense! This is just a homogeneous equation so the solution (aka the eigenvectors) is captured by the null space of the matrix . Finding the eigenvectors of a matrix corresponding to a matrix is equivalent to finding the null space of the matrix .    Be careful! Recall that we don't allow the zero vector to be an eigenvector. Hence, we want to find the non-trivial solutions to the equation .   Let . An eigenvalue of this matrix is . Let's find the corresponding eigenvectors!  Essentially we want to find the non-trivial solutions to the equation . So let's find the matrix first: Now we can find the null space of the matrix by solving the homogeneous equation using the augmented matrix: Observe that and are free variables, and . Then we can express the solution, in parametric form, as Then the corresponding eigenvectors are of the form for any real numbers of and , except for the case when both and are zero.   Observe that all the eigenvectors corresponding to a specific eigenvalue of a matrix will live in , which is a subspace. Then we can define eigenspace as the null space of the matrix .   Eigenspace   Let be an matrix, and let be an eigenvalue of . The eigenspace of corresponding to the eigenvalue , denoted by , is the null space of the matrix . Symbolically speaking,     It is correct to say that the eigenspace includes all the eigenvectors corresponding to the eigenvalue of a matrix, but it is incorrect to say that everything in the eigenspace is an eigenvector. Remember that the zero vector is always in the subspace, but it is not an eigenvector. So eigenspace is essentially the set of all eigenvectors corresponding to a specific eigenvalue of a matrix, together with the zero vector.   Back to our previous example of with an eigenvalue of , we can find its eigenspace .  We did all the heavy-lifting work in the previous example by solving the homogeneous equation , with the solution, in parametric form, as Then the eigenspace , aka , is the span of those two basis vectors. That is,    Now that we know how to find the eigenvectors corresponding to a specific eigenvalue, the next question is: How do we find the eigenvalues of a matrix?   We can find the eigenvalues of a matrix by, again, observing this equation Recall that eigenvectors are non-trivial solutions to this homogeneous equation, so this equation must have infinitely many solutions. That is, the matrix must be singular (not invertible).  We can say a lot about a non-invertible matrix. The fact that will be super useful to us is that a matrix is non-invertible if and only if its determinant is zero. So we can find all eigenvalues of a matrix by solving the equation .    Let and we want to find all the eigenvalues of this matrix.  Let be an eigenvalue of . Then we want the matrix be non-invertible to guarantee non-trivial solutions to the equation . That is, we want the values such that .  Let's start by computing the determinant of the matrix : This is essentially a quadratic equation in terms of and we can totally solve it! Factoring the quadratic, we have Hence, the eigenvalues of the matrix are and .    Find the eigenvalues of the matrix .   Since the equation captures the characteristics of the matrix that this matrix must be non-invertible, we call this equation the characteristic equation of the matrix .   Characteristic Equations   Let be an matrix. The equation is called the characteristic equation of the matrix . A scalar is an eigenvalue of if and only if it is a solution to the characteristic equation of .  The characteristic equation will always be a polynomial equation, so is called the characteristic polynomial of the matrix .    In practice, finding the eigenvalues of an matrix results in solving a polynomial equation of degree . This is almost always difficult as gets larger. So we will leave this to computers, except in the case and some easy cases.   Let . What are the eigenvalues of this matrix?  We can find the eigenvalues by solving the characteristic equation , so let's start by computing the determinant of the matrix : Since is already factored, we can easily solve the characteristic equation and find the eigenvalues: Hence, the eigenvalues of the matrix are and .   "
+},
+{
+  "id": "sec33-EigenvaluesEigenvectors-2",
+  "level": "2",
+  "url": "sec33-EigenvaluesEigenvectors.html#sec33-EigenvaluesEigenvectors-2",
+  "type": "Investigation",
+  "number": "3.3.1",
+  "title": "",
+  "body": "  Suppose and be a linear transformation defined by .    Let . Compute , and then sketch the vectors and . What is their relationship?    Let . Compute , and then sketch the vectors and . What is their relationship?   "
+},
+{
+  "id": "sec33-EigenvaluesEigenvectors-3",
+  "level": "2",
+  "url": "sec33-EigenvaluesEigenvectors.html#sec33-EigenvaluesEigenvectors-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "eigenvalues eigenvectors "
+},
+{
+  "id": "def-EigenvaluesEigenvectors",
+  "level": "2",
+  "url": "sec33-EigenvaluesEigenvectors.html#def-EigenvaluesEigenvectors",
+  "type": "Definition",
+  "number": "3.3.1",
+  "title": "Eigenvalues and Eigenvectors.",
+  "body": " Eigenvalues and Eigenvectors   Let be an matrix. An eigenvector of is a nonzero vector such that for some scalar . Such a scalar is called an eigenvalue of .  We call here an eigenvector corresponding to the eigenvalue .   "
+},
+{
+  "id": "sec33-EigenvaluesEigenvectors-5",
+  "level": "2",
+  "url": "sec33-EigenvaluesEigenvectors.html#sec33-EigenvaluesEigenvectors-5",
+  "type": "Note",
+  "number": "3.3.2",
+  "title": "But Richard... Why can’t we allow the zero vector to be an eigenvector?",
+  "body": " But Richard... Why can't we allow the zero vector to be an eigenvector?  Great question! Let's do a quick experiment by allowing the zero vector to be an eigenvector.  If is an eigenvector of some square matrix , then we have for some scalar .   Then what are the eigenvalues of this matrix ?   The answer is every scalar ! This is because the equation is always true regardless of the value of (we ended up getting ). Then why bother defining the concept of eigenvalues of a matrix if every scalar is an eigenvalue?  Observe that allowing the zero vector to be an eigenvector will trivialize the concept of eigenvalues. So we exclude the zero vector from being an eigenvector.  "
+},
+{
+  "id": "sec33-EigenvaluesEigenvectors-7",
+  "level": "2",
+  "url": "sec33-EigenvaluesEigenvectors.html#sec33-EigenvaluesEigenvectors-7",
+  "type": "Example",
+  "number": "3.3.3",
+  "title": "",
+  "body": " Let . Is an eigenvector of ?  Based on the definition, an eigenvector can turn a matrix-vector multiplication into a scalar multiplication. So let's compute and see if we can express it as a scalar multiple of .  Observe that So we can express this matrix-vector multiplication as scaling the vector by a factor of . Hence, is an eigenvector of , and the corresponding eigenvalue is .  What about ? Is also an eigenvector of ?  Let's do the same thing as before by computing and see if we can express it as a scalar multiple of : Since is not a scalar multiple of , the vector is not an eigenvector of .  Richard claims that an eigenvalue of is . How can we verify this claim?  If , then we can plug this value into the equation and be able to find the corresponding eigenvectors. So let's first plug in into the equation : We can assume and rewrite the equation as This is equivalent to the system of equations Now we can solve this system of equations using augmented matrices: Converting this matrix to row echelon form, we have This implies that and is a free variable. Hence, the corresponding eigenvectors are of the form for any real number of .  "
+},
+{
+  "id": "sec33-EigenvaluesEigenvectors-11",
+  "level": "2",
+  "url": "sec33-EigenvaluesEigenvectors.html#sec33-EigenvaluesEigenvectors-11",
+  "type": "Example",
+  "number": "3.3.4",
+  "title": "",
+  "body": " Let . An eigenvalue of this matrix is . Let's find the corresponding eigenvectors!  Essentially we want to find the non-trivial solutions to the equation . So let's find the matrix first: Now we can find the null space of the matrix by solving the homogeneous equation using the augmented matrix: Observe that and are free variables, and . Then we can express the solution, in parametric form, as Then the corresponding eigenvectors are of the form for any real numbers of and , except for the case when both and are zero.  "
+},
+{
+  "id": "sec33-EigenvaluesEigenvectors-12",
+  "level": "2",
+  "url": "sec33-EigenvaluesEigenvectors.html#sec33-EigenvaluesEigenvectors-12",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "eigenspace "
+},
+{
+  "id": "def-Eigenspace",
+  "level": "2",
+  "url": "sec33-EigenvaluesEigenvectors.html#def-Eigenspace",
+  "type": "Definition",
+  "number": "3.3.5",
+  "title": "Eigenspace.",
+  "body": " Eigenspace   Let be an matrix, and let be an eigenvalue of . The eigenspace of corresponding to the eigenvalue , denoted by , is the null space of the matrix . Symbolically speaking,    "
+},
+{
+  "id": "sec33-EigenvaluesEigenvectors-15",
+  "level": "2",
+  "url": "sec33-EigenvaluesEigenvectors.html#sec33-EigenvaluesEigenvectors-15",
+  "type": "Example",
+  "number": "3.3.6",
+  "title": "",
+  "body": " Back to our previous example of with an eigenvalue of , we can find its eigenspace .  We did all the heavy-lifting work in the previous example by solving the homogeneous equation , with the solution, in parametric form, as Then the eigenspace , aka , is the span of those two basis vectors. That is,   "
+},
+{
+  "id": "sec33-EigenvaluesEigenvectors-19",
+  "level": "2",
+  "url": "sec33-EigenvaluesEigenvectors.html#sec33-EigenvaluesEigenvectors-19",
+  "type": "Example",
+  "number": "3.3.7",
+  "title": "",
+  "body": " Let and we want to find all the eigenvalues of this matrix.  Let be an eigenvalue of . Then we want the matrix be non-invertible to guarantee non-trivial solutions to the equation . That is, we want the values such that .  Let's start by computing the determinant of the matrix : This is essentially a quadratic equation in terms of and we can totally solve it! Factoring the quadratic, we have Hence, the eigenvalues of the matrix are and .  "
+},
+{
+  "id": "sec33-EigenvaluesEigenvectors-20",
+  "level": "2",
+  "url": "sec33-EigenvaluesEigenvectors.html#sec33-EigenvaluesEigenvectors-20",
+  "type": "Checkpoint",
+  "number": "3.3.8",
+  "title": "",
+  "body": " Find the eigenvalues of the matrix .  "
+},
+{
+  "id": "sec33-EigenvaluesEigenvectors-21",
+  "level": "2",
+  "url": "sec33-EigenvaluesEigenvectors.html#sec33-EigenvaluesEigenvectors-21",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "characteristic equation "
+},
+{
+  "id": "def-CharacteristicEquation",
+  "level": "2",
+  "url": "sec33-EigenvaluesEigenvectors.html#def-CharacteristicEquation",
+  "type": "Definition",
+  "number": "3.3.9",
+  "title": "Characteristic Equations.",
+  "body": " Characteristic Equations   Let be an matrix. The equation is called the characteristic equation of the matrix . A scalar is an eigenvalue of if and only if it is a solution to the characteristic equation of .  The characteristic equation will always be a polynomial equation, so is called the characteristic polynomial of the matrix .   "
+},
+{
+  "id": "sec33-EigenvaluesEigenvectors-24",
+  "level": "2",
+  "url": "sec33-EigenvaluesEigenvectors.html#sec33-EigenvaluesEigenvectors-24",
+  "type": "Example",
+  "number": "3.3.10",
+  "title": "",
+  "body": " Let . What are the eigenvalues of this matrix?  We can find the eigenvalues by solving the characteristic equation , so let's start by computing the determinant of the matrix : Since is already factored, we can easily solve the characteristic equation and find the eigenvalues: Hence, the eigenvalues of the matrix are and .  "
+},
+{
+  "id": "sec34-Diagonalization",
+  "level": "1",
+  "url": "sec34-Diagonalization.html",
+  "type": "Section",
+  "number": "3.4",
+  "title": "Diagonalization",
+  "body": " Diagonalization    Let and .    Find if this is easy to compute. If not, explain why not (and then table it).    Find if this is easy to compute. If not, explain why not (and then table it).     Diagonal Matrices   A diagonal matrix is a square matrix in which all elements outside the main diagonal are zero.    Diagonal matrices are super nice to work with because   It is easy to find their determinants (just multiply the diagonal entries).    It is easy to find their inverses (just take the reciprocals of the diagonal entries).    We can see immediately what they do to the standard basis vectors (just scale them by the diagonal entries).    It is easy to compute the powers of them (just take the powers of the diagonal entries).   So the goal of this section is to diagonalize a square matrix (if possible). That is, we want to find a diagonal matrix that is similar to a given matrix.   Similar Matrices   Let and be matrices. Then is similar to if there exists an invertible matrix such that     If you end up studying advanced linear algebra, what is really going on here is that the columns of the matrix represent an alternative basis of . If you use that basis instead of the standard basis, the matrix for the corresponding linear transformation actually would be diagonal. This alternative basis is actually made up of eigenvectors and that is what we are going to learn about how.  As far as what this class (MTH 261) concerns, we will focus on the fact that if a matrix is similar to a diagonal matrix, then it is still easy to compute powers if we can figure out what the , , and are.  But how do similar matrices makes it easier to compute powers? Let's investigate this in the next example.   Recall in the previous example, and . These two matrices are similar because with the matrix .  Let's first verify it! We can first find the inverse of quickly: Then we have So and are indeed similar!  Now let's try to compute by finding first to find any pattern! Observe that If we want to compute , we can do the same thing and find that So we can find as We saw that can be computed easily, so we can compute easily as well by just multiplying three matrices together (as opposed to multiplying by itself 25 times).   Now that we have seen how similar matrices (to diagonal matrices) can help us compute powers of matrices, then the next question is: how can we diagonalize a matrix by finding the similar diagonal matrix and the special matrix ? It turns out that the key is to find the eigenvalues and eigenvectors of the matrix!  The process of diagonalization is listed as follows:  Find the eigenvalues of the matrix.   For each eigenvalue, find the corresponding eigenvectors . A quick way to do so is to grab the basis vectors in the eigenspace.    Construct the special matrix using the eigenvectors as comlumns, so     Construct the diagonal matrix by putting the corresponding eigenvalues of on the diagonal entries, up to its multiplicity.           But Richard... Why on earth do eigenvalues and eigenvectors have to do with diagonalization?  Let's say we have a square matrix . Suppose we let where and are the corresponding eigenvalues and eigenvectors of the matrix . That is, for each . To guarantee that is invertible, the columns of (aka all the eigenvectors) must be linearly independent. That is why we want to just grab the basis vectors of the eigenspace to ensure the invertibility.  Imagine we want to multiply . Then we obtain So we just showed that . Since is invertible, then exists, and we can multiply on the right on both sides of the equation. We obtain So yes! and are similar!    Let . Let's diagonalize this matrix!  We need to find the eigenvalues and its corresponding eigenvectors for the diagonalization. In the last section, we found that the characteristic equation is This implies that the eigenvalues are (with the multiplicity of ) and (with the multiplicity of ). Next, we will find the corresponding eigenvectors of these eigenvalues.  Let's consider the eigenvalue of . Then we want to solve the homogeneous equation . The augmented matrix is Observe that is the free variable, so the solution, in parametric form, is Hence, an eigenvector that spans the eigenspace is .  Next, let's consider the eigenvalue of . Then we want to solve the homogeneous equation . The augmented matrix is Observe that and are the free variables, so the solution, in parametric form, is Hence, the eigenvectors that spans the eigenspace are and .  Now let's put together the diagonal matrix and our special matrix for the diagonalization! Our eigenvalues are and their corresponding basis eigenvectors are Then our diagonal matrix and our special matrix is    This is a good place to call it good for diagonalization since we found and . We can next verify it by making sure is indeed .  We can find by reducing to . Hence, .  Now we can verify that    So to diagonalize a matrix, we just need to find all the eigenvalues and its corresponding basis eigenvectors. Then we put things into the right place in the right order.   Let's diagonalize this matrix .  We want to first find its eigenvalues. That is, we want to solve the characteristic equation . Now we solve the characteristic equation to obtain the eigenvalues of , , and .  Let's consider the eigenvalue of . Then we want to solve the homogeneous equation . The augmented matrix is Observe that is the free variable, so the solution, in parametric form, is To avoid fractions, we can choose . Hence, an eigenvector that spans the eigenspace is .  Next, let's consider the eigenvalue of of . Then we want to solve the homogeneous equation . The augmented matrix is Observe that is the free variable, so the solution, in parametric form, is Hence, an eigenvector that spans the eigenspace is .  Finally, let's consider the eigenvalue of . Then we want to solve the homogeneous equation . The augmented matrix is Observe that is the free variable, so the solution, in parametric form, is Hence, an eigenvector that spans the eigenspace is .  Now we put together the diagonal matrix and our special matrix . Our eigenvalues are and their corresponding basis eigenvectors are Then our diagonal matrix and our special matrix is    Feel free to verify our answer by computing and see if we get out of it.    You may observe that from the previous two examples, the multiplicity of an eigenvalue matches up with the dimension of the eigenspace . This is the condition for a matrix to be diagonalizable. That is, if the multiplicity does not match with the dimension, the matrix is not diagonalizable.   Let's say our matrix and we want to diagonalize it.  We will first find the eigenvalues of . The characteristic polynomial is We can factor the characteristic polynomial as follows: So we can solve the characteristic equation and obtain the eigenvalues of (with the multiplicity of ) and (with the multiplicity of ).   NOTE: Feel free to use technology to help you solve the characteristic equation. Remember that we should obtain the number of solutions matching up with the degree of the equation, including multiplicity, guaranteed by the Fundamental Theorem of Algebra.  Next, let's find the corresponding eigenvectors for these eigenvalues. We will start with . We want to solve the homogeneous equation . The augmented matrix is Observe that is the free variable, so the solution in parametric form is Hence, an eigenvector that spans this eigenspace is .  Now let's consider the eigenvalue . We want to solve the homogeneous equation . The augmented matrix is Observe that is the only free variable. The solution in parametric form is To avoid fractions, we can choose , which gives us the eigenvector that spans the eigenspace.  Wait a minute! We have a problem. For the matrix to be diagonalizable, we need linearly independent eigenvectors to form our invertible matrix . However, the eigenvalue has an algebraic multiplicity of , but its eigenspace is spanned just by one basis vector of ... We don't have enough basis vectors to construct our special matrix ...   Therefore, the matrix is not diagonalizable!    "
+},
+{
+  "id": "sec34-Diagonalization-2",
+  "level": "2",
+  "url": "sec34-Diagonalization.html#sec34-Diagonalization-2",
+  "type": "Investigation",
+  "number": "3.4.1",
+  "title": "",
+  "body": "  Let and .    Find if this is easy to compute. If not, explain why not (and then table it).    Find if this is easy to compute. If not, explain why not (and then table it).   "
+},
+{
+  "id": "def-DiagonalMatrices",
+  "level": "2",
+  "url": "sec34-Diagonalization.html#def-DiagonalMatrices",
+  "type": "Definition",
+  "number": "3.4.1",
+  "title": "Diagonal Matrices.",
+  "body": " Diagonal Matrices   A diagonal matrix is a square matrix in which all elements outside the main diagonal are zero.   "
+},
+{
+  "id": "sec34-Diagonalization-4",
+  "level": "2",
+  "url": "sec34-Diagonalization.html#sec34-Diagonalization-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "diagonalize "
+},
+{
+  "id": "def-SimilarMatrices",
+  "level": "2",
+  "url": "sec34-Diagonalization.html#def-SimilarMatrices",
+  "type": "Definition",
+  "number": "3.4.2",
+  "title": "Similar Matrices.",
+  "body": " Similar Matrices   Let and be matrices. Then is similar to if there exists an invertible matrix such that    "
+},
+{
+  "id": "sec34-Diagonalization-9",
+  "level": "2",
+  "url": "sec34-Diagonalization.html#sec34-Diagonalization-9",
+  "type": "Example",
+  "number": "3.4.3",
+  "title": "",
+  "body": " Recall in the previous example, and . These two matrices are similar because with the matrix .  Let's first verify it! We can first find the inverse of quickly: Then we have So and are indeed similar!  Now let's try to compute by finding first to find any pattern! Observe that If we want to compute , we can do the same thing and find that So we can find as We saw that can be computed easily, so we can compute easily as well by just multiplying three matrices together (as opposed to multiplying by itself 25 times).  "
+},
+{
+  "id": "sec34-Diagonalization-12",
+  "level": "2",
+  "url": "sec34-Diagonalization.html#sec34-Diagonalization-12",
+  "type": "Note",
+  "number": "3.4.4",
+  "title": "But Richard... Why on earth do eigenvalues and eigenvectors have to do with diagonalization?",
+  "body": " But Richard... Why on earth do eigenvalues and eigenvectors have to do with diagonalization?  Let's say we have a square matrix . Suppose we let where and are the corresponding eigenvalues and eigenvectors of the matrix . That is, for each . To guarantee that is invertible, the columns of (aka all the eigenvectors) must be linearly independent. That is why we want to just grab the basis vectors of the eigenspace to ensure the invertibility.  Imagine we want to multiply . Then we obtain So we just showed that . Since is invertible, then exists, and we can multiply on the right on both sides of the equation. We obtain So yes! and are similar!  "
+},
+{
+  "id": "sec34-Diagonalization-13",
+  "level": "2",
+  "url": "sec34-Diagonalization.html#sec34-Diagonalization-13",
+  "type": "Example",
+  "number": "3.4.5",
+  "title": "",
+  "body": " Let . Let's diagonalize this matrix!  We need to find the eigenvalues and its corresponding eigenvectors for the diagonalization. In the last section, we found that the characteristic equation is This implies that the eigenvalues are (with the multiplicity of ) and (with the multiplicity of ). Next, we will find the corresponding eigenvectors of these eigenvalues.  Let's consider the eigenvalue of . Then we want to solve the homogeneous equation . The augmented matrix is Observe that is the free variable, so the solution, in parametric form, is Hence, an eigenvector that spans the eigenspace is .  Next, let's consider the eigenvalue of . Then we want to solve the homogeneous equation . The augmented matrix is Observe that and are the free variables, so the solution, in parametric form, is Hence, the eigenvectors that spans the eigenspace are and .  Now let's put together the diagonal matrix and our special matrix for the diagonalization! Our eigenvalues are and their corresponding basis eigenvectors are Then our diagonal matrix and our special matrix is    This is a good place to call it good for diagonalization since we found and . We can next verify it by making sure is indeed .  We can find by reducing to . Hence, .  Now we can verify that   "
+},
+{
+  "id": "sec34-Diagonalization-15",
+  "level": "2",
+  "url": "sec34-Diagonalization.html#sec34-Diagonalization-15",
+  "type": "Example",
+  "number": "3.4.6",
+  "title": "",
+  "body": " Let's diagonalize this matrix .  We want to first find its eigenvalues. That is, we want to solve the characteristic equation . Now we solve the characteristic equation to obtain the eigenvalues of , , and .  Let's consider the eigenvalue of . Then we want to solve the homogeneous equation . The augmented matrix is Observe that is the free variable, so the solution, in parametric form, is To avoid fractions, we can choose . Hence, an eigenvector that spans the eigenspace is .  Next, let's consider the eigenvalue of of . Then we want to solve the homogeneous equation . The augmented matrix is Observe that is the free variable, so the solution, in parametric form, is Hence, an eigenvector that spans the eigenspace is .  Finally, let's consider the eigenvalue of . Then we want to solve the homogeneous equation . The augmented matrix is Observe that is the free variable, so the solution, in parametric form, is Hence, an eigenvector that spans the eigenspace is .  Now we put together the diagonal matrix and our special matrix . Our eigenvalues are and their corresponding basis eigenvectors are Then our diagonal matrix and our special matrix is    Feel free to verify our answer by computing and see if we get out of it.   "
+},
+{
+  "id": "sec34-Diagonalization-17",
+  "level": "2",
+  "url": "sec34-Diagonalization.html#sec34-Diagonalization-17",
+  "type": "Example",
+  "number": "3.4.7",
+  "title": "",
+  "body": " Let's say our matrix and we want to diagonalize it.  We will first find the eigenvalues of . The characteristic polynomial is We can factor the characteristic polynomial as follows: So we can solve the characteristic equation and obtain the eigenvalues of (with the multiplicity of ) and (with the multiplicity of ).   NOTE: Feel free to use technology to help you solve the characteristic equation. Remember that we should obtain the number of solutions matching up with the degree of the equation, including multiplicity, guaranteed by the Fundamental Theorem of Algebra.  Next, let's find the corresponding eigenvectors for these eigenvalues. We will start with . We want to solve the homogeneous equation . The augmented matrix is Observe that is the free variable, so the solution in parametric form is Hence, an eigenvector that spans this eigenspace is .  Now let's consider the eigenvalue . We want to solve the homogeneous equation . The augmented matrix is Observe that is the only free variable. The solution in parametric form is To avoid fractions, we can choose , which gives us the eigenvector that spans the eigenspace.  Wait a minute! We have a problem. For the matrix to be diagonalizable, we need linearly independent eigenvectors to form our invertible matrix . However, the eigenvalue has an algebraic multiplicity of , but its eigenspace is spanned just by one basis vector of ... We don't have enough basis vectors to construct our special matrix ...   Therefore, the matrix is not diagonalizable!   "
+},
+{
+  "id": "sec41-VectorsLines",
+  "level": "1",
+  "url": "sec41-VectorsLines.html",
+  "type": "Section",
+  "number": "4.1",
+  "title": "Vectors and Lines",
+  "body": " Vectors and Lines   In this section, we will build the foundation of vector geometry. We will learn what vectors are, how to manipulate them both algebraically and geometrically, and ultimately how to use them to construct and analyze lines in three-dimensional space.    After this section, students will be able to:     define vectors in and , and determine their components given an initial point and a terminal point.    calculate the length of a vector.    perform vector addition, scalar multiplication, and vector subtraction geometrically.    construct the vector and parametric equations of a line in given either a point and a direction vector, or two points on the line.    determine whether two lines in are parallel, intersecting, or skew, and calculate the exact point of intersection if it exists.       Vectors in and  The notation means the set of all ordered n-tuples of real numbers. Symbolically speaking, Or, using our linear algebra notation, we can write this as   Imagine we want to study vector geometry , then we will focus on the cases of and , since they are the most intuitive to visualize. That is,   A vector , in the geometric sense, is an arrow that has a tail and a tip. Let's call the tail (initial point) and the tip (terminal point) . Then we can write the vector as , and we draw as an arrow pointing from to .   The vector in     Why is bolded but not or ?  This is a notation convention. There is a difference between a vector and a point (or scalar). To specify the difference, we usually bold the vector notation.  For example, if you see something like , then this indicates that is a vector. As a comparison, if you see something like , then this indicates that is a scalar (a number).  But why don't we bold the vector as , but instead put an arrow on top of it?  That is because the arrow notation specifies the tail and the tip of the vector! There is a difference between and ! They have the opposite tail and tip, so they point in opposite directions!  Another reason why sometimes we use the arrow notation is because it is super difficult to write in bold font! This is why Richard often writes on the board to indicate the vector , since he can't write in bold font easily...   In , each point is represented by an ordered pair of real numbers. Then we can define the components of a vector using the ordered pairs of the two points as follows.   Components of a Vector   The components of , where and , are the quantities The pair of components is denoted .     P.S.: If you are a linear algebra-ist and want to use the notation of the column vectors instead, be my guest! Just remember that Richard prefers the column vector notation over the sharp-y angle bracket notation (but he is teaching calculus, not linear algebra, so he will have to live with it).   Find the components of the following vectors with tail and tip . Then sketch the vectors.     and      and      and      and      We can find the components of each vector using the definition:                         The sketches of the vectors are shown below:       Observe that and are parallel . Moreover, is a translation of (i.e., we can obtain by sliding to the left and down). We call these two vectors equivalent vectors if one is a translation of the other.  In fact, two vectors are equivalent if and only if they have the same components. So instead of studying millions of the same vectors in different locations, we can just study one representative vector for each group of equivalent vectors.  But which location should we choose for the representative vector? To keep things easier, we usually choose the representative vector whose tail is at the origin . Then the tip of the vector is at the coordinate point , where are the components of the vector. This is called the position vector .   Sketch the position vectors of the vectors in the previous example.   The vectors in the previous example are The position vectors are sketched below.         The Attributes of Vectors  When defining a vector, it is important to note its length and the direction .  The length of a vector is the distance from the tail to the tip. This is denoted as .  Given a vector , we can determine its length using the Pythagorean Theorem, as demonstrated in the figure below.   The Length of the vectors and     By the Pythagorean Theorem, we have   The magnitude of a vector is really called the norm or the Euclidean norm of a vector in more advanced math courses. In general, norms must satisfy the following three properties:    , with if and only if .     for all scalars .     for any two vectors and , with equallity only if , , or if where . (This is the famous triangle inequality ).   This isn't a linear algebra or functional analysis class, so we won't go deeper into norms here. If you are interested, feel free to do more digging on your own (or ask Richard!).   Find the magnitude of the vectors in the previous examples.   The vectors in the previous examples are Then     Now let's discuss the direction of a vector. The direction of a vector tells us where the vector is pointing. We can indicate the direction of a vector by using the vector itself. As you imagine, the length of a vector has nothing to do with its direction, so we sometimes use a unit vector , which is a vector of length , to indicate the direction, when it is not necessary to specify length.    Vector Algebra (Geometry Version)  Recall we defined two basic operations for vectors: vector addition and scalar multiplication. They both work component-wise. Now let's investigate what these operations look like geometrically .   Vector addition tells us how to add two vectors together. Geometrically speaking, we can imagine a vector as the movement from the tail to the tip. Then adding two vectors means performing the movements one after another. That is, we will need to find the equivalent vector of the second vector whose tail is at the tip of the first vector , and the resulting vector is the vector from the tail of the first vector to the tip of the second vector. This is sometimes referred to as the Triangle Law .    Vector Addition using the Triangle Law   But sometimes we are given the position vectors and their tails are both at the origin (or at the same point). Alternatively, rather than finding the equivalent vector of the second vector, we can construct a parallelogram using the two vectors as adjacent sides, and the resulting vector is the diagonal of the parallelogram starting from the common tail of the two vectors. This is called the Parallelogram Law .    Vector Addition using the Parallelogram Law   Now let's look at scalar multiplication . The term scalar refers to a real number. That is, scalar multiplication tells us how to multiply a vector by a real number. The scalar will \"scale\" or \"resize\" the vector.  When the scalar is positive, the resulting vector points in the same direction, and the size of the vector is scaled by the scalar.    Vector Addition using the Parallelogram Law   When the scalar is negative, the resulting vector points in the opposite direction, and the size of the vector is scaled by the absolute value of the scalar.    Vector Multiplication by a Negative Scalar   But what if the scalar is zero? We can quickly see that the length of the resulting vector is zero, so the resulting vector is the zero vector , denoted by . We can imagine the zero vector has the tail and tip at the same point, which means it doesn't have a specific direction. Alternatively, we can say that the zero vector points in all directions.  Once we have vector addition and scalar multiplication defined, we can subtract two vectors. Recall subtraction is really the same thing as adding the opposite. That is, Graphically, we can find as follows:    Vector Subtraction     Lines in  Remember back when you first learned about lines in , you probably remember that we need both the slope and a point on the line to define a line.   The slope tells us the direction of the line. Yet knowing just the slope doesn't tell us a unique line... There can be thousands of parallel lines with the same slope!    A point on the line can pin down the location of the line. Yet knowing just a point on the line doesn't tell us the direction of the line... We can draw infinitely many lines through a single point!   This is also the case in ! In order to determine a line in , we need to know both the direction of the line and a point on the line.  Unlike stuff in , there is no \"slope\" in to represent the direction of a line, since \"slope\" is a concept that only works in two dimensions. Instead, we use a vector to represent the direction of the line.  We can find a point in just fine, since points in are represented by ordered triples.  Hence, a line in is determined by a point on the line and a direction vector .   Equation of a Line in   The line through in the direction of is described by where .  Alternatively, we can rewrite the equation in its parametric form : where the parameter takes on values .      The line in   Observe that the parametric form specify the -, -, and -coordinates of the points on the line as functions of the parameter . These three parametric equations is itself a linear function in the parameter !   Find an equation of the line that passes through the point in the direction of .   We are given . Therefore, an equation of the line is for .  Alternatively, we can write the equation in its parametric form: for .    Back in algebra 2, you may also have learned that two points can also determine a line in . This is also true in . The trick here is to determine the direction vector using the two points.   Find an equation of the line that passes through the points and .   To find an equation of a line, we need a point on the line and a direction vector. So there are really things we need to find out.  The easier part is to find a point on the line (we are given two points on the line!)  The slightly trickier part is to find a direction vector. Can we find a vector parallel to the line using the two points?    A directional vector is . Then we obtain We can use either point or as the point on the line. Using point , we have . Therefore, an equation of the line is for . The corresponding parametric form is for .    Recall back in , two lines are either parallel or they intersect at a single point (assuming the lines are not essentially the same line). In , if two lines are parallel, then the direction vectors should be parallel, and hence they are scalar multiples of each other. But how do we know if two lines intersect, and if so, how do we find the point of intersection?   Determine whether the lines and intersect, and if so, find the point of intersection.   Let's just assume that the two lines intersect. If two lines intersect, then they must intersect at a single point.  Now put on your algebra 2 hat and think about how to find the point of intersection of two lines in . (You would set the two equations equal to each other and solve for !)    The lines intersect if there exist parameter values and such that Equating corresponding components, we get This is a system of three equations with two variables! We can solve this system using the augmented matrix!  The agumented matrix of the system is Row reducing this matrix, we get From here we can read off the solution , .  To find the point of intersection we substitute into the equation for (or into ) to obtain The point of intersection is the terminal point of this vector, that is, .     Determine whether the lines and are parallel, intersect, or neither.   Observe that the direction vectors are and are not multiples of each other, so the lines are not parallel.  Then the two other possibilities are that the lines intersect or they are skew. We haven't discussed how to check if two lines are skew, but we can check if they intersect. So the question becomes: do the two lines intersect?    If the two lines intersect, then there exist parameter values and such that Equating corresponding components, we get The augmented matrix of this system is Row reducing this matrix we get Observe that a pivot position appears in the rightmost column, which implies that the system is inconsistent.  That is, there are no parameter values and such that the two lines intersect. But they are not parallel either, so what are they?  It turns out that these two lines are skew lines : they do not intersect and are not parallel. They are not coplanar. The figure below shows the sketch of these two lines.   Line (blue) and Line (red)         "
+},
+{
+  "id": "sec41-VectorsLines-2-2",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#sec41-VectorsLines-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     define vectors in and , and determine their components given an initial point and a terminal point.    calculate the length of a vector.    perform vector addition, scalar multiplication, and vector subtraction geometrically.    construct the vector and parametric equations of a line in given either a point and a direction vector, or two points on the line.    determine whether two lines in are parallel, intersecting, or skew, and calculate the exact point of intersection if it exists.    "
+},
+{
+  "id": "subsec-BasicVectorR2-4",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-BasicVectorR2-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "vector "
+},
+{
+  "id": "subsec-BasicVectorR2-5",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-BasicVectorR2-5",
+  "type": "Figure",
+  "number": "4.1.1",
+  "title": "",
+  "body": " The vector in   "
+},
+{
+  "id": "subsec-BasicVectorR2-6",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-BasicVectorR2-6",
+  "type": "Note",
+  "number": "4.1.2",
+  "title": "Why is <span class=\"process-math\">\\(\\v{v}\\)<\/span> bolded but not <span class=\"process-math\">\\(P\\)<\/span> or <span class=\"process-math\">\\(Q\\text{?}\\)<\/span>",
+  "body": " Why is bolded but not or ?  This is a notation convention. There is a difference between a vector and a point (or scalar). To specify the difference, we usually bold the vector notation.  For example, if you see something like , then this indicates that is a vector. As a comparison, if you see something like , then this indicates that is a scalar (a number).  But why don't we bold the vector as , but instead put an arrow on top of it?  That is because the arrow notation specifies the tail and the tip of the vector! There is a difference between and ! They have the opposite tail and tip, so they point in opposite directions!  Another reason why sometimes we use the arrow notation is because it is super difficult to write in bold font! This is why Richard often writes on the board to indicate the vector , since he can't write in bold font easily...  "
+},
+{
+  "id": "subsec-BasicVectorR2-7",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-BasicVectorR2-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "components "
+},
+{
+  "id": "def-ComponentsVectorR2",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#def-ComponentsVectorR2",
+  "type": "Definition",
+  "number": "4.1.3",
+  "title": "Components of a Vector.",
+  "body": " Components of a Vector   The components of , where and , are the quantities The pair of components is denoted .   "
+},
+{
+  "id": "subsec-BasicVectorR2-9",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-BasicVectorR2-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "P.S.: "
+},
+{
+  "id": "subsec-BasicVectorR2-10",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-BasicVectorR2-10",
+  "type": "Example",
+  "number": "4.1.4",
+  "title": "",
+  "body": " Find the components of the following vectors with tail and tip . Then sketch the vectors.     and      and      and      and      We can find the components of each vector using the definition:                         The sketches of the vectors are shown below:      "
+},
+{
+  "id": "subsec-BasicVectorR2-11",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-BasicVectorR2-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "equivalent vectors "
+},
+{
+  "id": "subsec-BasicVectorR2-12",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-BasicVectorR2-12",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "equivalent "
+},
+{
+  "id": "subsec-BasicVectorR2-13",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-BasicVectorR2-13",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "position vector "
+},
+{
+  "id": "subsec-BasicVectorR2-14",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-BasicVectorR2-14",
+  "type": "Example",
+  "number": "4.1.6",
+  "title": "",
+  "body": " Sketch the position vectors of the vectors in the previous example.   The vectors in the previous example are The position vectors are sketched below.      "
+},
+{
+  "id": "subsec-AttributesVector-2",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-AttributesVector-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "length direction "
+},
+{
+  "id": "subsec-AttributesVector-3",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-AttributesVector-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "length "
+},
+{
+  "id": "subsec-AttributesVector-5",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-AttributesVector-5",
+  "type": "Figure",
+  "number": "4.1.8",
+  "title": "",
+  "body": " The Length of the vectors and    "
+},
+{
+  "id": "subsec-AttributesVector-7",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-AttributesVector-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "norm Euclidean norm triangle inequality "
+},
+{
+  "id": "subsec-AttributesVector-8",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-AttributesVector-8",
+  "type": "Example",
+  "number": "4.1.9",
+  "title": "",
+  "body": " Find the magnitude of the vectors in the previous examples.   The vectors in the previous examples are Then    "
+},
+{
+  "id": "subsec-AttributesVector-9",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-AttributesVector-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "direction unit vector "
+},
+{
+  "id": "subsec-VectorAlgebra-3",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-VectorAlgebra-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Vector addition Triangle Law "
+},
+{
+  "id": "subsec-VectorAlgebra-4",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-VectorAlgebra-4",
+  "type": "Figure",
+  "number": "4.1.10",
+  "title": "",
+  "body": "  Vector Addition using the Triangle Law  "
+},
+{
+  "id": "subsec-VectorAlgebra-5",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-VectorAlgebra-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Parallelogram Law "
+},
+{
+  "id": "subsec-VectorAlgebra-6",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-VectorAlgebra-6",
+  "type": "Figure",
+  "number": "4.1.11",
+  "title": "",
+  "body": "  Vector Addition using the Parallelogram Law  "
+},
+{
+  "id": "subsec-VectorAlgebra-7",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-VectorAlgebra-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "scalar multiplication "
+},
+{
+  "id": "subsec-VectorAlgebra-9",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-VectorAlgebra-9",
+  "type": "Figure",
+  "number": "4.1.12",
+  "title": "",
+  "body": "  Vector Addition using the Parallelogram Law  "
+},
+{
+  "id": "subsec-VectorAlgebra-11",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-VectorAlgebra-11",
+  "type": "Figure",
+  "number": "4.1.13",
+  "title": "",
+  "body": "  Vector Multiplication by a Negative Scalar  "
+},
+{
+  "id": "subsec-VectorAlgebra-12",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-VectorAlgebra-12",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "zero vector "
+},
+{
+  "id": "subsec-VectorAlgebra-14",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-VectorAlgebra-14",
+  "type": "Figure",
+  "number": "4.1.14",
+  "title": "",
+  "body": "  Vector Subtraction  "
+},
+{
+  "id": "def-lines-3d",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#def-lines-3d",
+  "type": "Definition",
+  "number": "4.1.15",
+  "title": "Equation of a Line in <span class=\"process-math\">\\(\\R^3\\)<\/span>.",
+  "body": " Equation of a Line in   The line through in the direction of is described by where .  Alternatively, we can rewrite the equation in its parametric form : where the parameter takes on values .   "
+},
+{
+  "id": "subsec-LinesR3-7",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-LinesR3-7",
+  "type": "Figure",
+  "number": "4.1.16",
+  "title": "",
+  "body": "  The line in  "
+},
+{
+  "id": "subsec-LinesR3-9",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-LinesR3-9",
+  "type": "Example",
+  "number": "4.1.17",
+  "title": "",
+  "body": " Find an equation of the line that passes through the point in the direction of .   We are given . Therefore, an equation of the line is for .  Alternatively, we can write the equation in its parametric form: for .   "
+},
+{
+  "id": "subsec-LinesR3-11",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-LinesR3-11",
+  "type": "Example",
+  "number": "4.1.18",
+  "title": "",
+  "body": " Find an equation of the line that passes through the points and .   To find an equation of a line, we need a point on the line and a direction vector. So there are really things we need to find out.  The easier part is to find a point on the line (we are given two points on the line!)  The slightly trickier part is to find a direction vector. Can we find a vector parallel to the line using the two points?    A directional vector is . Then we obtain We can use either point or as the point on the line. Using point , we have . Therefore, an equation of the line is for . The corresponding parametric form is for .   "
+},
+{
+  "id": "subsec-LinesR3-13",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-LinesR3-13",
+  "type": "Example",
+  "number": "4.1.19",
+  "title": "",
+  "body": " Determine whether the lines and intersect, and if so, find the point of intersection.   Let's just assume that the two lines intersect. If two lines intersect, then they must intersect at a single point.  Now put on your algebra 2 hat and think about how to find the point of intersection of two lines in . (You would set the two equations equal to each other and solve for !)    The lines intersect if there exist parameter values and such that Equating corresponding components, we get This is a system of three equations with two variables! We can solve this system using the augmented matrix!  The agumented matrix of the system is Row reducing this matrix, we get From here we can read off the solution , .  To find the point of intersection we substitute into the equation for (or into ) to obtain The point of intersection is the terminal point of this vector, that is, .   "
+},
+{
+  "id": "subsec-LinesR3-14",
+  "level": "2",
+  "url": "sec41-VectorsLines.html#subsec-LinesR3-14",
+  "type": "Example",
+  "number": "4.1.20",
+  "title": "",
+  "body": " Determine whether the lines and are parallel, intersect, or neither.   Observe that the direction vectors are and are not multiples of each other, so the lines are not parallel.  Then the two other possibilities are that the lines intersect or they are skew. We haven't discussed how to check if two lines are skew, but we can check if they intersect. So the question becomes: do the two lines intersect?    If the two lines intersect, then there exist parameter values and such that Equating corresponding components, we get The augmented matrix of this system is Row reducing this matrix we get Observe that a pivot position appears in the rightmost column, which implies that the system is inconsistent.  That is, there are no parameter values and such that the two lines intersect. But they are not parallel either, so what are they?  It turns out that these two lines are skew lines : they do not intersect and are not parallel. They are not coplanar. The figure below shows the sketch of these two lines.   Line (blue) and Line (red)       "
+},
+{
+  "id": "sec42-ProjectionsPlanes",
+  "level": "1",
+  "url": "sec42-ProjectionsPlanes.html",
+  "type": "Section",
+  "number": "4.2",
+  "title": "Projections and Planes",
+  "body": " Projections and Planes   In this section, we will uncover how multiplying the components of vectors unlocks the ability to measure angles, cast orthogonal shadows, and build the equations of planes in three-dimensional space.     After this section, students will be able to:     compute the dot product of two vectors and apply its algebraic properties.    use the dot product to calculate the angle between two vectors.    compute the orthogonal projection of one vector onto another.    construct the scalar and vector equations of a plane in given a point and a normal vector, or given three points.    calculate the exact point of intersection between a line and a plane using parametric substitution.    determine whether two planes are parallel, and if they intersect, find the parametric equations for their line of intersection.      Dot Product  Recall we have briefly mentioned the dot product back in when we defined the matrix-vector multiplication. Let's formalize it now!   Dot Product   The dot product  of two vectors is the scalar defined by     Alternatively, we can also think of the dot product as the matrix product of the transpose of one vector and the other vector:   Observe that we can find the dot product of two vectors by multiplying their corresponding components and adding the results . This is true in (or in general) as well.   Compute the following dot products:                               Remember that the dot product of two vectors results in a scalar (a real number) and not another vector. The dot product has several useful properties that we summarize in the following theorem.   Properties of the Dot Product       , where is the zero vector.     Commutativity:       Pulling out scalars:       Distributive Law:       Relation with length:          Proof(ish) of the above theorem  The proofs of the properties are pretty straightforward using the definition of the dot product. Richard will prove some of them in and leave the rest as exercises for you to verify (especially if you are thinking about majoring in math). You may also want to see if you are convinced that Richard's proofs can be generalized to .     Let . Then     Let and . Then     The proof is left as an exercise for the reader.    The proof is left as an exercise for the reader.    Let . Then         Angle between Two Vectors  Given two vectors, they form an angle between them. But how do we know how big this angle is? The dot product can help us figure this out!  Let's say we have two vectors, and . We call the angle between them and we can construct the vector as shown below:    Vectors and with angle between them   This is essentially a triangle if we drop all the direction arrows. That is, this triangle has sides of lengths , , and .  A relation between the sides of the triangle and the angle is given by the Law of Cosines as follows: Using the relation with length property of the dot product and FOIL-ing, we obtain   We essentially found two ways to represent the quantity . Equating these two expressions together and canceling stuff, we obtain   Observe that we can now solve for the angle between the two vectors by isolating : That is, the dot product gives us a way to compute the angle between two vectors!   Dot Product and the Angle   Let be the angle between two non-zero vectors and . Then     Observe that the angle is being computed using the inverse cosine function. The range of the inverse cosine function is . That is, we consider the angle between two vectors to be the smaller angle formed between them.    By convention, the angle between two vectors is chosen so that .    Find the angle between the vectors and    Richard coded a fancy diagram below to help you visualize how big the angle is. The goal here is to figure out the size of    Vectors and with angle      It looks like the angle between the vectors is acute...    We denote and . To use the formula for the cosine of the angle between two vectors we need to compute the following values: Hence, and so,   The angle is approximately , which is indeed acute.     Find the angle between the vectors and    Richard coded a fancy diagram below to help you visualize how big the angle is. The goal here is to figure out the size of    Vectors and with angle      It looks like the angle between the vectors is obtuse...    We denote and . To use the formula for the cosine of the angle between two vectors we need to compute the following values: Hence, and so,   The angle is , which is indeed obtuse.     Find the angle between the vectors and    Richard coded a fancy diagram below to help you visualize how big the angle is. The goal here is to figure out the size of    Vectors and with angle      It looks like the angle between the vectors is a right angle...    We denote and . To use the formula for the cosine of the angle between two vectors we need to compute the following values: Hence, and so,   The angle is , which is indeed a right angle.    We can find a pattern from the above examples.   If the dot product is positive, then the angle between the vectors is acute.    If the dot product is negative, then the angle between the vectors is obtuse.    If the dot product is zero, then the angle between the vectors is a right angle.   This is true since we know that is positive for acute angles, negative for obtuse angles, and zero for right angles. In addition, when and when .    Relation between the dot product and the angle between two vectors   Observe that the dot product is zero when two vectors are orthogonal (or perpendicular) to each other. This is how we define orthogonality in general.   Orthogonal Vectors   Two vectors and are orthogonal if and only if . We denote this by .    Based on this definition, we see that the zero vector is orthogonal to every vector since the dot product with the zero vector is always zero.   But Richard... Isn't \"orthogonal\" just another fancy way of saying perpendicular?  Yes and no... They are for sure describing the same idea but with some subtle differences.   Perpendicularity\/Perpendicular is a geometric term that describes two things (like lines, planes, etc.) intersect at a right angle (90°). This idea only makes sense in a geometric context where we can visualize angles.   Orthogonality\/Orthogonal is an algebraic term that describes two vectors whose dot product is zero. This idea makes sense in any dimension and doesn't rely on visualizing angles. For example, the zero vector is orthogonal to every vector but it doesn't make sense to say that the zero vector is perpendicular to every vector since the zero vector doesn't have a length (we don't say a point is perpendicular to a line).  Surprise surprise, there is another term that describes the same idea in math: normality\/normal . Normality is often used to describe things that are orthogonal\/perpendicular to a surface\/plane\/line. For example, a normal vector to a plane is a vector that is orthogonal to every vector lying in that plane.    Determine whether the following vectors are orthogonal and, if not, whether the angle between them is acute or obtuse.    and      and      and       We can determine whether the vectors are orthogonal by computing their dot products.   Observe that . Therefore, the vectors are orthogonal.    Observe that . Since the dot product is positive, the angle between the vectors is acute.    Observe that . Since the dot product is negative, the angle between the vectors is obtuse.         Orthogonal Projection  Remember that the dot product should tell us something about how much one vector goes in the direction of another vector. You may get the idea that the sign of the dot product tells us whether the vectors point in similar directions (acute angle) or opposite directions (obtuse angle). But we can actually know more! The orthogonal projection of one vector onto another vector, which is obtained using the dot product, gives us a precise way to measure how much one vector goes in the direction of another vector.  Let's say we have two vectors and and we cast a shadow of on the light through . This shadow is called the orthogonal projection of onto and is denoted by .    The Projection of onto   But how do we find this projection vector? We can use the dot product to help us out!  Let's assume two vectors are pointing in the same(ish) direction, which means the angle between them is acute. The diagram is shown below and our goal is to find the length and the direction of the projection vector.    The Projection of onto with an acute angle between them   Let's tackle the length first. Using trigonometry (and yes there is a right triangle in there somewhere that allows us to use trig), we see that the length of the projection vector is   Next, we need to find the direction of the projection vector. Clearly, the projection vector points in the same direction as . Yet, we can't just simply multiply the length by . If we did that, the length of the projection vector would be off by a factor of . To fix this, we use the unit vector in the direction of , which is .  Therefore, the projection vector is    Projection of onto   Assume . The projection of onto is the vector This is sometimes denoted by . The scalar is called the scalar component of onto and is sometimes denoted by .     But Richard... What if the angle between the vectors is obtuse?  The previous result was derived assuming the angle between the vectors is acute. But what if the angle is obtuse, like in the diagram below? Does the formula for the projection vector still hold?    The Projection of onto with an obtuse angle between them   The answer is yes but the work is a bit different. Richard will encourage you to try proving the formula for the projection vector in this case as an exercise.   Richard's proof if you want to check your proof  The work is almost identical to the acute angle case with one bit of difference.  Let be an obtuse angle, which means . Using trigonometry, we can find the length of the projection vector as follows: While there is a negative sign in front of the length, this is a positive quantity since is negative for .  Next, we find the direction of the projection vector. Clearly, the projection vector points in the opposite direction as (look at the diagram!). Then the unit vector in the direction opposite to is .  Therefore, the projection vector is which is the same formula as before.    Observe that Richard didn't bother with the case when the angle between the vectors is a right angle. This is because the projection vector is simply the zero vector in this case since .   Find the projection of onto where and .   To help you visualize the projection, Richard coded up the following fancy diagram:   Projection of onto      The goal is to find the green projection vector in the diagram above.    The projection of onto is the following vector We compute the values in this expression: Hence,     Now that we know what the projection looks like, the next question to consider is: how different is the vector from its projection? A quick subtraction will give us the answer.    Vector (red), (blue), (green), and (orange)   Observe that this difference vector is orthogonal to . That is, the projection is always parallel to and the difference is always orthogonal to !    Planes in  To define a plane, we need a point and a normal vector to the plane. Visually, this normal vector \"sticks out\" of the plane at a right angle.   A point lies on and     Equation of a Plane   Plane through with normal vector : where .     But Richard... Why is the equation appears this way?  This equation may seem a bit mysterious at first glance, but it actually follows directly from the definition of the dot product (and orthogonality).  Let's say we have a point . Furthermore, let be an arbitrary point on the plane. Then we can define a vector .  Also, we have a normal vector . This vector is orthogonal to ANY vector that lies in the plane, including . Two vectors are orthogonal if and only if their dot product is zero. Therefore, we obtain Hey! This is the scalar form of the equation of a plane!  You can simplify this equation further! That is, the scalar form can be simplied to Observe that the right-hand side is just a number, so let's call it for simplicity. Hence, we obtain where   What about the vector form? We can observe quickly that is just the dot product . Hence, we can rewrite the equation as Hey! The vector form!    Find an equation of the plane with normal vector passing through the point .   We are given and .  We can write an equation using the vector form:   Alternatively, we can write an equation using the scalar form:     Sometimes we are given the equation and we need to work backwards to find the geometric properties. Specifically, we may want to find a normal vector and a point on the plane.  Finding a point is a bit boring... We just need to find a point that satisfies the equation. The easiest way to do so is to set the two other variables to zero (or other numbers) and solve for the third.  What about finding a normal vector? If you stare at the equation long enough, you may notice that the coefficients of , , and correspond to the components of the normal vector. That is, the normal vector is simply .  Surprisingly, this pattern also works for lines in . An equation of the line in is . You for sure know that the slope of this line is . But what you may not know there is that the vector is a normal vector to this line!   A line with normal vector     Consider the plane defined by . Identify the normal vector and find a point on the plane.   To find a normal vector, we read the coefficients directly. .  To find a point on the plane, we can set two of the variables to be constants and solve for the third. For example, we set and , and we can solve for . So, the point is on the plane.    Note that the equation of a plane in is a generalization of the equation of a line in . Back in , we can determine and equation of a line using two points . If we generalize this idea to , we can determine an equation of a plane using three points . It turns out that this plane is unique as long as the three points are not collinear (i.e., they do not all lie on the same line).   We want to find the equation of the plane passing through the three points , , and .  Recall that we need a point and a normal vector to determine an equation of a plane. Well we are given three points, so we can use one of them as our point.  What about a normal vector... Can we find a normal vector using the three points?  Yes we can! There is a vector operation that returns a vector orthogonal to two given vectors, called the cross product .   The Cross Product   Given two vectors and in , the cross product  is the vector defined by:     Wow this definition looks crazy! No one should memorize this long of a formula! It turns out that the cross product can be computed using the determinant .  Given the two vectors and , we can construct a matrix as follows: where the , , and are the standard basis vectors in .  To find the determinant of this matrix (which is the cross product), we will expand along the first column. That is, See this is just the same formula as the original definition!  Back to the actual example, we can find a normal vector to the plane by computing the cross product of two vectors that lie in the plane.  First, we can find two vectors lying on the plane. Since both and lie on the plane, their cross product will be orthogonal to the plane. This can be our normal vector!   Below is a visualization of what we just did. We plotted to create the plane (shown in blue). We constructed the vectors and (green) that lie on the plane. Finally, we crossed them to get the normal vector (red), which you can see stands orthogonal to the surface.   Visualizing the plane through P, Q, R      We can use any scalar multiple of this vector, so let's use for simplicity. Using point , the equation of the line is: This makes sense, as all three given points had a y-coordinate of 1!     Intersection of a Line and a Plane  We often want to know where a specific line punctures a plane. Unless the line is parallel to the plane (or lying inside it), they will intersect at exactly one point.  To find the intersection point of a line and a plane, we need to find the point that lies on both the line and the plane. But how do we solve THREE variables simulateneously?  A good news here is that the line in is defined parametrically using a single parameter ! Since the coordinate of the point needs to satisfy both the equation of the plane and the parametric equation of the line, we can use substitution to find the point of intersection.  That is, to find this point, we  write the parametric equations for , , and from the line.  plug these expressions into the equation of the plane.  solve for .  plug back into the line equation to get the point .     Find the point where the line intersects the plane .   First, let's break the line into its components: , , .  Now, plug these into the plane equation : Simplify the algebra: Now, lug back into our line components: The intersection point is .  Here is a visual confirmation of our algebra. The yellow dot is exactly where the red line punctures the blue plane.   Visualizing the intersection point          Parallel and Intersecting Planes  Two planes in can either be parallel or intersecting, providing they are not the same plane.  To determine whether two planes are parallel, we can compare their normal vectors. Recall two lines are parallel if their direction vectors are parallel (i.e., scalar multiples of each other). In the similar sense, two planes are parallel if their normal vectors are parallel (i.e., scalar multiples of each other).   Show that the two planes and are parallel.   The normal vector of the first plane is and the normal vector of the second plane is . Note that , so the normal vectors are parallel. Therefore, the two planes are parallel.  In the diagram below, you can see these \"floating\" surfaces. They have the same tilt, they are just shifted relative to each other.   Parallel Planes (Blue) and (Red)        What about the intersection of two planes? Imagine two non-parallel planes in is intersecting, then they will intersect along a line.   Find an equation of the line of intersection of the planes and .   To define the line of intersection, we need two things:  A direction vector for the line.  A point on the line.    Since the line lies on both planes, it must be perpendicular to both normal vectors. Does that ring a bell? (Think cross product!)   Intersection of (Blue) and (Red)         Step 1: Find the direction vector. The normal vectors are and . The direction of the intersection line, , is orthogonal to both normals:    Step 2: Find a point on the line. We need a point that satisfies both plane equations. We have 2 equations and 3 unknowns, so we can pick a value for one variable. Let's try (so we are really finding the intersection between this line and the -plane, and this point of intersection will be on this line for sure! ). The system becomes: The augmented matrix is We can row reduce this matrix to find the solution: So the -coordinate is 3 and the -coordinate is 1. Recall we set , so the point we found is .   Step 3: Write the equation. The vector equation of the line is:      "
+},
+{
+  "id": "sec42-ProjectionsPlanes-3",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#sec42-ProjectionsPlanes-3",
+  "type": "Objectives",
+  "number": "4.2",
+  "title": "",
+  "body": "  After this section, students will be able to:     compute the dot product of two vectors and apply its algebraic properties.    use the dot product to calculate the angle between two vectors.    compute the orthogonal projection of one vector onto another.    construct the scalar and vector equations of a plane in given a point and a normal vector, or given three points.    calculate the exact point of intersection between a line and a plane using parametric substitution.    determine whether two planes are parallel, and if they intersect, find the parametric equations for their line of intersection.    "
+},
+{
+  "id": "def-DotProduct",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#def-DotProduct",
+  "type": "Definition",
+  "number": "4.2.1",
+  "title": "Dot Product.",
+  "body": " Dot Product   The dot product  of two vectors is the scalar defined by    "
+},
+{
+  "id": "subsec-DotProduct-6",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-DotProduct-6",
+  "type": "Example",
+  "number": "4.2.2",
+  "title": "",
+  "body": " Compute the following dot products:                              "
+},
+{
+  "id": "thm-DotProductProperties",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#thm-DotProductProperties",
+  "type": "Theorem",
+  "number": "4.2.3",
+  "title": "Properties of the Dot Product.",
+  "body": " Properties of the Dot Product       , where is the zero vector.     Commutativity:       Pulling out scalars:       Distributive Law:       Relation with length:        "
+},
+{
+  "id": "subsec-DotProduct-9",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-DotProduct-9",
+  "type": "Proof",
+  "number": "1",
+  "title": "Proof(ish) of the above theorem.",
+  "body": " Proof(ish) of the above theorem  The proofs of the properties are pretty straightforward using the definition of the dot product. Richard will prove some of them in and leave the rest as exercises for you to verify (especially if you are thinking about majoring in math). You may also want to see if you are convinced that Richard's proofs can be generalized to .     Let . Then     Let and . Then     The proof is left as an exercise for the reader.    The proof is left as an exercise for the reader.    Let . Then      "
+},
+{
+  "id": "subsec-DotProduct-Angles-4",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-DotProduct-Angles-4",
+  "type": "Figure",
+  "number": "4.2.4",
+  "title": "",
+  "body": "  Vectors and with angle between them  "
+},
+{
+  "id": "thm-DotProductAngle",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#thm-DotProductAngle",
+  "type": "Theorem",
+  "number": "4.2.5",
+  "title": "Dot Product and the Angle.",
+  "body": " Dot Product and the Angle   Let be the angle between two non-zero vectors and . Then    "
+},
+{
+  "id": "subsec-DotProduct-Angles-11",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-DotProduct-Angles-11",
+  "type": "Figure",
+  "number": "4.2.6",
+  "title": "",
+  "body": "  By convention, the angle between two vectors is chosen so that .  "
+},
+{
+  "id": "subsec-DotProduct-Angles-12",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-DotProduct-Angles-12",
+  "type": "Example",
+  "number": "4.2.7",
+  "title": "",
+  "body": " Find the angle between the vectors and    Richard coded a fancy diagram below to help you visualize how big the angle is. The goal here is to figure out the size of    Vectors and with angle      It looks like the angle between the vectors is acute...    We denote and . To use the formula for the cosine of the angle between two vectors we need to compute the following values: Hence, and so,   The angle is approximately , which is indeed acute.   "
+},
+{
+  "id": "subsec-DotProduct-Angles-13",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-DotProduct-Angles-13",
+  "type": "Example",
+  "number": "4.2.9",
+  "title": "",
+  "body": " Find the angle between the vectors and    Richard coded a fancy diagram below to help you visualize how big the angle is. The goal here is to figure out the size of    Vectors and with angle      It looks like the angle between the vectors is obtuse...    We denote and . To use the formula for the cosine of the angle between two vectors we need to compute the following values: Hence, and so,   The angle is , which is indeed obtuse.   "
+},
+{
+  "id": "subsec-DotProduct-Angles-14",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-DotProduct-Angles-14",
+  "type": "Example",
+  "number": "4.2.11",
+  "title": "",
+  "body": " Find the angle between the vectors and    Richard coded a fancy diagram below to help you visualize how big the angle is. The goal here is to figure out the size of    Vectors and with angle      It looks like the angle between the vectors is a right angle...    We denote and . To use the formula for the cosine of the angle between two vectors we need to compute the following values: Hence, and so,   The angle is , which is indeed a right angle.   "
+},
+{
+  "id": "subsec-DotProduct-Angles-16",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-DotProduct-Angles-16",
+  "type": "Figure",
+  "number": "4.2.13",
+  "title": "",
+  "body": "  Relation between the dot product and the angle between two vectors  "
+},
+{
+  "id": "subsec-DotProduct-Angles-17",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-DotProduct-Angles-17",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "orthogonal "
+},
+{
+  "id": "def-OrthogonalVectors",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#def-OrthogonalVectors",
+  "type": "Definition",
+  "number": "4.2.14",
+  "title": "Orthogonal Vectors.",
+  "body": " Orthogonal Vectors   Two vectors and are orthogonal if and only if . We denote this by .   "
+},
+{
+  "id": "subsec-DotProduct-Angles-20",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-DotProduct-Angles-20",
+  "type": "Note",
+  "number": "4.2.15",
+  "title": "But Richard... Isn’t \"orthogonal\" just another fancy way of saying perpendicular?",
+  "body": " But Richard... Isn't \"orthogonal\" just another fancy way of saying perpendicular?  Yes and no... They are for sure describing the same idea but with some subtle differences.   Perpendicularity\/Perpendicular is a geometric term that describes two things (like lines, planes, etc.) intersect at a right angle (90°). This idea only makes sense in a geometric context where we can visualize angles.   Orthogonality\/Orthogonal is an algebraic term that describes two vectors whose dot product is zero. This idea makes sense in any dimension and doesn't rely on visualizing angles. For example, the zero vector is orthogonal to every vector but it doesn't make sense to say that the zero vector is perpendicular to every vector since the zero vector doesn't have a length (we don't say a point is perpendicular to a line).  Surprise surprise, there is another term that describes the same idea in math: normality\/normal . Normality is often used to describe things that are orthogonal\/perpendicular to a surface\/plane\/line. For example, a normal vector to a plane is a vector that is orthogonal to every vector lying in that plane.  "
+},
+{
+  "id": "subsec-DotProduct-Angles-21",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-DotProduct-Angles-21",
+  "type": "Example",
+  "number": "4.2.16",
+  "title": "",
+  "body": " Determine whether the following vectors are orthogonal and, if not, whether the angle between them is acute or obtuse.    and      and      and       We can determine whether the vectors are orthogonal by computing their dot products.   Observe that . Therefore, the vectors are orthogonal.    Observe that . Since the dot product is positive, the angle between the vectors is acute.    Observe that . Since the dot product is negative, the angle between the vectors is obtuse.      "
+},
+{
+  "id": "subsec-OrthogonalProjection-3",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-OrthogonalProjection-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "orthogonal projection "
+},
+{
+  "id": "subsec-OrthogonalProjection-4",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-OrthogonalProjection-4",
+  "type": "Figure",
+  "number": "4.2.17",
+  "title": "",
+  "body": "  The Projection of onto  "
+},
+{
+  "id": "subsec-OrthogonalProjection-7",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-OrthogonalProjection-7",
+  "type": "Figure",
+  "number": "4.2.18",
+  "title": "",
+  "body": "  The Projection of onto with an acute angle between them  "
+},
+{
+  "id": "def-OrthogonalProjection",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#def-OrthogonalProjection",
+  "type": "Definition",
+  "number": "4.2.19",
+  "title": "Projection of <span class=\"process-math\">\\(\\v{u}\\)<\/span> onto <span class=\"process-math\">\\(\\v{v}\\)<\/span>.",
+  "body": " Projection of onto   Assume . The projection of onto is the vector This is sometimes denoted by . The scalar is called the scalar component of onto and is sometimes denoted by .   "
+},
+{
+  "id": "subsec-OrthogonalProjection-12",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-OrthogonalProjection-12",
+  "type": "Note",
+  "number": "4.2.20",
+  "title": "But Richard... What if the angle between the vectors is obtuse?",
+  "body": " But Richard... What if the angle between the vectors is obtuse?  The previous result was derived assuming the angle between the vectors is acute. But what if the angle is obtuse, like in the diagram below? Does the formula for the projection vector still hold?    The Projection of onto with an obtuse angle between them   The answer is yes but the work is a bit different. Richard will encourage you to try proving the formula for the projection vector in this case as an exercise.   Richard's proof if you want to check your proof  The work is almost identical to the acute angle case with one bit of difference.  Let be an obtuse angle, which means . Using trigonometry, we can find the length of the projection vector as follows: While there is a negative sign in front of the length, this is a positive quantity since is negative for .  Next, we find the direction of the projection vector. Clearly, the projection vector points in the opposite direction as (look at the diagram!). Then the unit vector in the direction opposite to is .  Therefore, the projection vector is which is the same formula as before.   "
+},
+{
+  "id": "subsec-OrthogonalProjection-14",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-OrthogonalProjection-14",
+  "type": "Example",
+  "number": "4.2.22",
+  "title": "",
+  "body": " Find the projection of onto where and .   To help you visualize the projection, Richard coded up the following fancy diagram:   Projection of onto      The goal is to find the green projection vector in the diagram above.    The projection of onto is the following vector We compute the values in this expression: Hence,    "
+},
+{
+  "id": "subsec-OrthogonalProjection-16",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-OrthogonalProjection-16",
+  "type": "Figure",
+  "number": "4.2.24",
+  "title": "",
+  "body": "  Vector (red), (blue), (green), and (orange)  "
+},
+{
+  "id": "subsec-PlanesR3-2",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-PlanesR3-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "normal vector "
+},
+{
+  "id": "subsec-PlanesR3-3",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-PlanesR3-3",
+  "type": "Figure",
+  "number": "4.2.25",
+  "title": "",
+  "body": " A point lies on and   "
+},
+{
+  "id": "def-Plane3D",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#def-Plane3D",
+  "type": "Definition",
+  "number": "4.2.26",
+  "title": "Equation of a Plane.",
+  "body": " Equation of a Plane   Plane through with normal vector : where .   "
+},
+{
+  "id": "subsec-PlanesR3-5",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-PlanesR3-5",
+  "type": "Note",
+  "number": "4.2.27",
+  "title": "But Richard... Why is the equation appears this way?",
+  "body": " But Richard... Why is the equation appears this way?  This equation may seem a bit mysterious at first glance, but it actually follows directly from the definition of the dot product (and orthogonality).  Let's say we have a point . Furthermore, let be an arbitrary point on the plane. Then we can define a vector .  Also, we have a normal vector . This vector is orthogonal to ANY vector that lies in the plane, including . Two vectors are orthogonal if and only if their dot product is zero. Therefore, we obtain Hey! This is the scalar form of the equation of a plane!  You can simplify this equation further! That is, the scalar form can be simplied to Observe that the right-hand side is just a number, so let's call it for simplicity. Hence, we obtain where   What about the vector form? We can observe quickly that is just the dot product . Hence, we can rewrite the equation as Hey! The vector form!  "
+},
+{
+  "id": "subsec-PlanesR3-6",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-PlanesR3-6",
+  "type": "Example",
+  "number": "4.2.28",
+  "title": "",
+  "body": " Find an equation of the plane with normal vector passing through the point .   We are given and .  We can write an equation using the vector form:   Alternatively, we can write an equation using the scalar form:    "
+},
+{
+  "id": "subsec-PlanesR3-11",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-PlanesR3-11",
+  "type": "Figure",
+  "number": "4.2.29",
+  "title": "",
+  "body": " A line with normal vector   "
+},
+{
+  "id": "subsec-PlanesR3-12",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-PlanesR3-12",
+  "type": "Example",
+  "number": "4.2.30",
+  "title": "",
+  "body": " Consider the plane defined by . Identify the normal vector and find a point on the plane.   To find a normal vector, we read the coefficients directly. .  To find a point on the plane, we can set two of the variables to be constants and solve for the third. For example, we set and , and we can solve for . So, the point is on the plane.   "
+},
+{
+  "id": "subsec-PlanesR3-14",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-PlanesR3-14",
+  "type": "Example",
+  "number": "4.2.31",
+  "title": "",
+  "body": " We want to find the equation of the plane passing through the three points , , and .  Recall that we need a point and a normal vector to determine an equation of a plane. Well we are given three points, so we can use one of them as our point.  What about a normal vector... Can we find a normal vector using the three points?  Yes we can! There is a vector operation that returns a vector orthogonal to two given vectors, called the cross product .   The Cross Product   Given two vectors and in , the cross product  is the vector defined by:     Wow this definition looks crazy! No one should memorize this long of a formula! It turns out that the cross product can be computed using the determinant .  Given the two vectors and , we can construct a matrix as follows: where the , , and are the standard basis vectors in .  To find the determinant of this matrix (which is the cross product), we will expand along the first column. That is, See this is just the same formula as the original definition!  Back to the actual example, we can find a normal vector to the plane by computing the cross product of two vectors that lie in the plane.  First, we can find two vectors lying on the plane. Since both and lie on the plane, their cross product will be orthogonal to the plane. This can be our normal vector!   Below is a visualization of what we just did. We plotted to create the plane (shown in blue). We constructed the vectors and (green) that lie on the plane. Finally, we crossed them to get the normal vector (red), which you can see stands orthogonal to the surface.   Visualizing the plane through P, Q, R      We can use any scalar multiple of this vector, so let's use for simplicity. Using point , the equation of the line is: This makes sense, as all three given points had a y-coordinate of 1!  "
+},
+{
+  "id": "subsec-IntersectionLinePlane-6",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-IntersectionLinePlane-6",
+  "type": "Example",
+  "number": "4.2.34",
+  "title": "",
+  "body": " Find the point where the line intersects the plane .   First, let's break the line into its components: , , .  Now, plug these into the plane equation : Simplify the algebra: Now, lug back into our line components: The intersection point is .  Here is a visual confirmation of our algebra. The yellow dot is exactly where the red line punctures the blue plane.   Visualizing the intersection point       "
+},
+{
+  "id": "subsec-ParallelIntersecting-4",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-ParallelIntersecting-4",
+  "type": "Example",
+  "number": "4.2.36",
+  "title": "",
+  "body": " Show that the two planes and are parallel.   The normal vector of the first plane is and the normal vector of the second plane is . Note that , so the normal vectors are parallel. Therefore, the two planes are parallel.  In the diagram below, you can see these \"floating\" surfaces. They have the same tilt, they are just shifted relative to each other.   Parallel Planes (Blue) and (Red)       "
+},
+{
+  "id": "subsec-ParallelIntersecting-6",
+  "level": "2",
+  "url": "sec42-ProjectionsPlanes.html#subsec-ParallelIntersecting-6",
+  "type": "Example",
+  "number": "4.2.38",
+  "title": "",
+  "body": " Find an equation of the line of intersection of the planes and .   To define the line of intersection, we need two things:  A direction vector for the line.  A point on the line.    Since the line lies on both planes, it must be perpendicular to both normal vectors. Does that ring a bell? (Think cross product!)   Intersection of (Blue) and (Red)         Step 1: Find the direction vector. The normal vectors are and . The direction of the intersection line, , is orthogonal to both normals:    Step 2: Find a point on the line. We need a point that satisfies both plane equations. We have 2 equations and 3 unknowns, so we can pick a value for one variable. Let's try (so we are really finding the intersection between this line and the -plane, and this point of intersection will be on this line for sure! ). The system becomes: The augmented matrix is We can row reduce this matrix to find the solution: So the -coordinate is 3 and the -coordinate is 1. Recall we set , so the point we found is .   Step 3: Write the equation. The vector equation of the line is:    "
+},
+{
+  "id": "sec51-SubspaceSpanning",
+  "level": "1",
+  "url": "sec51-SubspaceSpanning.html",
+  "type": "Section",
+  "number": "5.1",
+  "title": "Subspaces and Spanning",
+  "body": " Subspaces and Spanning   Near the beginning of the course we learned how to write the solution to a homogeneous system of equations as a linear combination of\"basic vectors\". This was possible because the set of solutions to a homogenous system is a special kind of set of vectors called a subspace .  In this section, we will be focusing on learning about subspaces and related concepts!     After this section, students will be able to:     determine if a set of vectors is a subspace.    define the null space and the column space of a matrix.    define the concept of span and spanning sets.      What is a Subspace?  Subspace, is a subset of a vector space that is also a vector space (under the same operations). Yet we have not formally defined what a vector space is. So let's define what a subspace is without relying on the definition of a vector space!   Subspace of    A set of vectors in is called a subspace if it satisfies the following properties:    S1: The zero vector (note: the notation means \"is an element of\" or \"is in\").     S2: If , then .     S3: If , then for every real number .       Some authors will give a slightly different (but equivalent) definition that replaces S1 with \" is non-empty\". Regardless of what specific definition and author gives, it will always be the case that the subspace is non-empty and includes the zero vector.  Terminology: S2 and S3 are symbolic ways of saying must be closed under (vector) addition and closed under scalar multiplication . So we can define a subspace in words to be a non-empty subset of that is closed under vector addition and scalar multiplication.  If you really want to only use words you can replace with \"a vector space\".   The set consisting of only the zero vector of is always a subspace of .  We can verify that this set satisfies the three properties of a subspace:   Clearly this set satisfies S1 !    Since , this set satisfies S2 !    We learned previously that for any scalar , , so this set satisfies S3 !   This subspace is called the trivial subspace because the only thing in it is the one vector that must be in any vector space.    We have seen that the scalar equation of a plane looks like for some number where is a normal vector for the plane. If the plane goes through the origin , then we have to be able to plug in zero for all of the variables and get equality. That means if the plane goes through the origin. So we know that the equation of a plane through the origin looks like   Claim: This plane is a subspace of !  Let's verify the three properties listed in the definition to prove such a plane is a subspace!    S1: This one is given in the description! Or we can just plug in to check that . Checked!     S2: Suppose and are on the plane. Then Using the distributive property along with some commutativity, we can show that So is also on the plane.     S3: Suppose and suppose is on the plane. Then . Then this implies that Using the distributive, associative, and commutative properties for real numbers, we get which means is also on the plane.       Some non-examples of subspaces    The set of vectors is NOT a subspace of .  This subset fails every requirements:    S1:  is not included.     S2:  is not included in the set.     S3:  is not included in the set.       The set of solutions to the system is NEVER a subspace unless .  Proof: The zero vector is excluded because it can't be a solution to if .       Fundamental Subspaces  In matrix algebra, there are four fundamental subspaces associated to a matrix . We will be focusing on two of these subspaces in this section: the null space and the column space .   Null Space of a Matrix   Let be an matrix. The null space of , denoted , is the set of vectors such that . Symbolically speaking,     Claim: The null space of an matrix is a subspace of .      S1:  , so .     S2: Suppose . Then and . This implies that So .    Suppose and . Then , and so Therefore .      Column Space of a Matrix   Let be an matrix. The column space of , denoted , is the set of all linear combinations of the columns of .     But our textbook call it the image space...  Our textbook uses a slightly different terminology and calls the column space the \" image space \". But they are pretty much the same thing!  Here is the definition of the image space from our textbook:   Image Space   Let be an matrix. The image space of , denoted , is the set of all of the possible products of and a vector in . Symbolically speaking,     The word \"image\" actually comes from the linear transformation perspective. The image of is the set of outputs of the linear transformation given by . While \"image\" is the more common term in advanced mathematics, this set is also called the range of the linear transformation.   But why is it the same thing as the column space?   That is because the matrix-vector product can also be expressed as a linear combination of the columns of , where the coefficients come from entries of (see for more information).  Let's look at the case! Suppose we have a generic matrix and a generic vector . Any vector in the image space of will, by definition, be of the form .  Let . Then This means that the image of consists of all of the linear combinations of the columns of . That is why the image space and the column space are the same thing!   Claim: The column space of an matrix is a subspace of .      S1:  , so there exists a vector in that maps to . Therefore, .     S2: Suppose . By definition, there exist vectors such that and . This implies that Since , we have .     S3: Suppose and . By definition, there exists a vector such that . This implies that Since , we have .     But what about the other two fundamental subspaces? They are actually the null space and column space of the transpose of the matrix!   The row space of a matrix is the column space of the transpose of , denoted .    The left null space of a matrix is the null space of the transpose of , denoted .   As you can imagine, if we master the null space and column space of a matrix, then we can easily understand the row space and left null space by just looking at the transpose of the matrix! Hence, we will be focusing on the null space and column space in this section (and the next section).    Span and Spanning Sets  Since we are in the middle of talking about linear combinations, let's continue to talk about span and spanning sets !   Span and Spanning Sets   Let be a set of vectors in . The span of , denoted is the set of all linear combinations of the vectors in . Symbolically speaking,   Let . Then is called the spanning set (or generating set) of .     Fun Grammar Warning! \"Span\" is used both as a noun and a verb! The definition here defines the meaning of span as a noun. When it is used as a verb, it means something a bit different. For example, we can say \"the vectors and span \". As a verb, span means \"is\/are a spanning set for\".  This brings us to the big theorem of this section!    The span of a set of vectors is the smallest subspace containing those vectors.    We can look at this theorem in two parts:   The span of a set of vectors is a subspace.    Any subspace containing those vectors must also contain the span of those vectors.     To justify the first part, we can verify the three properties for the span:    S1: The zero vector is just so it is in the span.     S2: If and are both in the span, then there exist real numbers and such that Then So is also in the span.     S3: Suppose and is in the span. Then there exist real numbers such that So, Therefore, is also in the span.   Hence, the span is a subspace!  For the second part, notice that if you look at the definition of subspaces, the conditions are basically designed so that a subspace consists of all of the linear combination of some non-empty set of vectors. In fact we can formalize this observation: Any subspace containing the vectors must also contain all of the linear combinations of those vectors. So it must contain all of the vectors in . Hence, the span is the smallest subspace containing those vectors!  Sometimes we have nice geometric ways to describe subspaces (e.g. a plane containing the origin), but in general the best way (especially in higher dimensions!) is often to give a spanning set. This is nice because non-trivial subspaces of contain infinitely many things, but we only need finitely many vectors to describe a spanning set of a subspace of .   Recall that the null space and column space of a matrix are subspaces! So let's describe them using spanning sets!  Let's say we have a matrix . We want to find its null space and column space.  Let's start by finding the null space! Recall that the null space of is the set of solutions to the homogeneous equation . So let's solve the homogeneous equation first!  Using Gaussian elimination algorithm, the reduced row echelon form of the augmented matrix is Observe that and are free variables (by the lack of a pivot position in the second and fourth columns).  So the solution to the homogeneous equation looks like this, in parametric form: where   Observe that the solutions are some linear combinations of the two vectors and . Hence, the null space of is the span of those two vectors:    NOTE: recall we always write the solution to a homogeneous system in parametric form. Now you know why!  In the next section, we will learn that this spanning set of the null space is actually a basis !  Now let's find the column space of ! By definition, the column space of is the span of the columns of . So we can just write down the columns of and say that   In the next section, we will learn that this spanning set of the column space is NOT a basis , in the sense that some of the column vectors in the spanning set are \"redundant\".    "
+},
+{
+  "id": "sec51-SubspaceSpanning-2-1",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#sec51-SubspaceSpanning-2-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "subspace "
+},
+{
+  "id": "sec51-SubspaceSpanning-3",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#sec51-SubspaceSpanning-3",
+  "type": "Objectives",
+  "number": "5.1",
+  "title": "",
+  "body": "  After this section, students will be able to:     determine if a set of vectors is a subspace.    define the null space and the column space of a matrix.    define the concept of span and spanning sets.    "
+},
+{
+  "id": "def-Subspaces",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#def-Subspaces",
+  "type": "Definition",
+  "number": "5.1.1",
+  "title": "Subspace of <span class=\"process-math\">\\(\\R^n\\)<\/span>.",
+  "body": " Subspace of    A set of vectors in is called a subspace if it satisfies the following properties:    S1: The zero vector (note: the notation means \"is an element of\" or \"is in\").     S2: If , then .     S3: If , then for every real number .      "
+},
+{
+  "id": "subsec-SubspaceIntro-7",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#subsec-SubspaceIntro-7",
+  "type": "Example",
+  "number": "5.1.2",
+  "title": "",
+  "body": " The set consisting of only the zero vector of is always a subspace of .  We can verify that this set satisfies the three properties of a subspace:   Clearly this set satisfies S1 !    Since , this set satisfies S2 !    We learned previously that for any scalar , , so this set satisfies S3 !   This subspace is called the trivial subspace because the only thing in it is the one vector that must be in any vector space.  "
+},
+{
+  "id": "subsec-SubspaceIntro-8",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#subsec-SubspaceIntro-8",
+  "type": "Example",
+  "number": "5.1.3",
+  "title": "",
+  "body": " We have seen that the scalar equation of a plane looks like for some number where is a normal vector for the plane. If the plane goes through the origin , then we have to be able to plug in zero for all of the variables and get equality. That means if the plane goes through the origin. So we know that the equation of a plane through the origin looks like   Claim: This plane is a subspace of !  Let's verify the three properties listed in the definition to prove such a plane is a subspace!    S1: This one is given in the description! Or we can just plug in to check that . Checked!     S2: Suppose and are on the plane. Then Using the distributive property along with some commutativity, we can show that So is also on the plane.     S3: Suppose and suppose is on the plane. Then . Then this implies that Using the distributive, associative, and commutative properties for real numbers, we get which means is also on the plane.     "
+},
+{
+  "id": "subsec-SubspaceIntro-9",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#subsec-SubspaceIntro-9",
+  "type": "Example",
+  "number": "5.1.4",
+  "title": "Some non-examples of subspaces.",
+  "body": " Some non-examples of subspaces    The set of vectors is NOT a subspace of .  This subset fails every requirements:    S1:  is not included.     S2:  is not included in the set.     S3:  is not included in the set.       The set of solutions to the system is NEVER a subspace unless .  Proof: The zero vector is excluded because it can't be a solution to if .    "
+},
+{
+  "id": "subsec-FundamentalSubspaces-2",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#subsec-FundamentalSubspaces-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "null space column space "
+},
+{
+  "id": "def-NullSpace",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#def-NullSpace",
+  "type": "Definition",
+  "number": "5.1.5",
+  "title": "Null Space of a Matrix.",
+  "body": " Null Space of a Matrix   Let be an matrix. The null space of , denoted , is the set of vectors such that . Symbolically speaking,    "
+},
+{
+  "id": "subsec-FundamentalSubspaces-5",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#subsec-FundamentalSubspaces-5",
+  "type": "Proof",
+  "number": "1",
+  "title": "",
+  "body": "    S1:  , so .     S2: Suppose . Then and . This implies that So .    Suppose and . Then , and so Therefore .    "
+},
+{
+  "id": "def-ColumnSpace",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#def-ColumnSpace",
+  "type": "Definition",
+  "number": "5.1.6",
+  "title": "Column Space of a Matrix.",
+  "body": " Column Space of a Matrix   Let be an matrix. The column space of , denoted , is the set of all linear combinations of the columns of .   "
+},
+{
+  "id": "subsec-FundamentalSubspaces-7",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#subsec-FundamentalSubspaces-7",
+  "type": "Note",
+  "number": "5.1.7",
+  "title": "But our textbook call it the image space....",
+  "body": " But our textbook call it the image space...  Our textbook uses a slightly different terminology and calls the column space the \" image space \". But they are pretty much the same thing!  Here is the definition of the image space from our textbook:   Image Space   Let be an matrix. The image space of , denoted , is the set of all of the possible products of and a vector in . Symbolically speaking,     The word \"image\" actually comes from the linear transformation perspective. The image of is the set of outputs of the linear transformation given by . While \"image\" is the more common term in advanced mathematics, this set is also called the range of the linear transformation.   But why is it the same thing as the column space?   That is because the matrix-vector product can also be expressed as a linear combination of the columns of , where the coefficients come from entries of (see for more information).  Let's look at the case! Suppose we have a generic matrix and a generic vector . Any vector in the image space of will, by definition, be of the form .  Let . Then This means that the image of consists of all of the linear combinations of the columns of . That is why the image space and the column space are the same thing!  "
+},
+{
+  "id": "subsec-FundamentalSubspaces-9",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#subsec-FundamentalSubspaces-9",
+  "type": "Proof",
+  "number": "2",
+  "title": "",
+  "body": "    S1:  , so there exists a vector in that maps to . Therefore, .     S2: Suppose . By definition, there exist vectors such that and . This implies that Since , we have .     S3: Suppose and . By definition, there exists a vector such that . This implies that Since , we have .    "
+},
+{
+  "id": "subsec-FundamentalSubspaces-10",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#subsec-FundamentalSubspaces-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "row space left null space "
+},
+{
+  "id": "subsec-Span-2",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#subsec-Span-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "span spanning sets "
+},
+{
+  "id": "def-Span",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#def-Span",
+  "type": "Definition",
+  "number": "5.1.9",
+  "title": "Span and Spanning Sets.",
+  "body": " Span and Spanning Sets   Let be a set of vectors in . The span of , denoted is the set of all linear combinations of the vectors in . Symbolically speaking,   Let . Then is called the spanning set (or generating set) of .   "
+},
+{
+  "id": "thm-SpanSubspace",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#thm-SpanSubspace",
+  "type": "Theorem",
+  "number": "5.1.10",
+  "title": "",
+  "body": "  The span of a set of vectors is the smallest subspace containing those vectors.   "
+},
+{
+  "id": "subsec-Span-11",
+  "level": "2",
+  "url": "sec51-SubspaceSpanning.html#subsec-Span-11",
+  "type": "Example",
+  "number": "5.1.11",
+  "title": "",
+  "body": " Recall that the null space and column space of a matrix are subspaces! So let's describe them using spanning sets!  Let's say we have a matrix . We want to find its null space and column space.  Let's start by finding the null space! Recall that the null space of is the set of solutions to the homogeneous equation . So let's solve the homogeneous equation first!  Using Gaussian elimination algorithm, the reduced row echelon form of the augmented matrix is Observe that and are free variables (by the lack of a pivot position in the second and fourth columns).  So the solution to the homogeneous equation looks like this, in parametric form: where   Observe that the solutions are some linear combinations of the two vectors and . Hence, the null space of is the span of those two vectors:    NOTE: recall we always write the solution to a homogeneous system in parametric form. Now you know why!  In the next section, we will learn that this spanning set of the null space is actually a basis !  Now let's find the column space of ! By definition, the column space of is the span of the columns of . So we can just write down the columns of and say that   In the next section, we will learn that this spanning set of the column space is NOT a basis , in the sense that some of the column vectors in the spanning set are \"redundant\".  "
+},
+{
+  "id": "sec52-IndependenceDimension",
+  "level": "1",
+  "url": "sec52-IndependenceDimension.html",
+  "type": "Section",
+  "number": "5.2",
+  "title": "Independence and Dimension",
+  "body": " Independence and Dimension   In the previous section, we explored how to build a subspace using a spanning set. But this raises an important question for us to investigate: are all the vectors in a spanning set actually necessary? Sometimes, a set contains \"redundant\" vectors that don't add any new direction to the space.  In this section, we are going to explore the concepts of linear independence and dimension.     After this section, students will be able to:     determine if a set of vectors are linearly independent.    construct a basis for a subspace.    determine the dimension of a subspace.      Linear Independence  When building a span, are all the vectors actually necessary? Sometimes a set contains redundant vectors that don't contribute to the span. Let's keep this in mind as we investigate the concept of linear independence.    An indexed set of vectors , , is linearly independent if the vector equation has only the trivial solution.  If the trivial solution is not unique, we call the set linear dependent .  That is, if a set , , is linearly dependent, then there exists some scalars , not all zero, such that     But how does the vector equation even related to the idea of independence? We will demonstrate the relation in the following example.   Suppose we have a set of three vectors , where Is this set of vectors linearly independent?  Let's follow the definition! That is, we want to determine if the solution to the following vector equation is unique.  We know how to solve this equation! We will first convert it to an augmented matrix: Now let's row reduce this augmented matrix!   Step 1: Adding times Row 1 to Row 2 (and replacing Row 2), we obtain     Step 2: Adding times Row 1 to Row 3 (and replacing Row 3), we obtain    We immediately know that is a free variable since there is no pivot position in the third column. Hence, this vector equation has infinitely many solutions.  By the definition, we know that is linearly dependent .  But what does it mean? Why do we call these three vectors linearly dependent ? Well let's finish solving this vector equation!  Since is a free variable, then we let , where . Then we obtain Okay. This is a general solution to the vector equation. Recall we can obtain a particular solution by assigning a value to our parameter, .  Let's make . Then our particular solution is Then plugging in the solution to the vector equation will make the equation true. That is, we have the following equation: We can isolate one of the three vectors! Just for demonstration purposes, let's isolate ! Then we have Observe that is a linear combination of and ! That is, is dependent on and .   The practical meaning of a linearly dependent set of vectors is that a vector can be expressed as a linear combination of the other vectors in the set. That is, this vector is dependent of other vectors. This specific relation is called the linear dependence relation .  In the above example, a linear dependence relation is since this relation allows us to express a vector, , as a linear combination of the other vectors, and .   Is the set linearly independent?   Yes, this set of vectors is linearly independent .  To justify this, we set up the homogeneous vector equation:   We can solve this by row reducing the corresponding augmented matrix:   Notice that every column in the coefficient matrix contains a pivot position, which means there are no free variables. Therefore, the vector equation has only the trivial solution ( ). Because no vector can be built from the others, the set is linearly independent.    You may notice that the procedure to determine whether a set of column vectors are linearly independent is essentially the same as row reducing an augmented matrix representing a homogeneous system of linear equations. That is, we are essentially solving the homogeneous matrix equation , where consists of the vectors of interest.   If has only the trivial solution, then the columns of are linearly independent;    If has infinitely many solutions, then the columns of are linearly dependent.      Suppose we are given the coefficient matrix . Observe that consists of three column vectors: Are they linearly independent?  We can answer this question by solving the homogeneous matrix equation . The augmented matrix is Of course we know how to row reduce it! Notice that the constant column of zeros will stay unchanged after all the elementary row operations. So we can only row reduce the coefficient matrix part! Recall the constant column will consist of all zeros.  Observe that every column of the coefficient matrix has a pivot position, which implies that there is no free variable. Then this homogeneous matrix equation has only the trivial solution. That is, the only \"linearly dependent relation\" is Well we can't isolate any of the three vectors since all the above relation tells us is that . Hence, it makes sense to call the vectors making up the columns of  linearly independent , in the sense that none of the vector is dependent of other vectors.   It turns out that there are some special theorems to determine whether a set of vectors are linearly independent. Let's look at the following example and see if we can generalize the theorems!   Is linearly independent?  Think about it first and see if you can figure it out. Then expand the following solution to check your answer!   These two vectors are linearly dependent since there is a way to write a vector as a linear combination of the other vector.  Clearly, . That is, the vector is a linear combination of the vector . So is dependent of .    Using the similar argument, we can make sense of the following theorem:    Consider . If for some nonzero constant , then and are linearly dependent.    Now let's look at the next example! Remember the goal is to generalize it!   Is linearly independent?  Think about it first and see if you can figure it out. Then expand the following solution to check your answer!   These three vectors are linearly dependent since there is a way to write a vector as a linear combination of the other vectors.  Clearly, we can represent the zero vector as a linear combination of the other two vectors with both scalars being zero. That is, Hence, these three vectors are linearly dependent.    Using the similar argument, we can make sense of the following theorem:    Any set containing is linearly dependent.     When is the set of a single vector linearly independent?   A set containing a single vector is linearly independent if and only if .  By definition, we are looking at the vector equation . If is the zero vector, then the scalar can be any real number (yielding infinitely many solutions), making it a dependent set. If is any non-zero vector, the only way for the equation to hold true is if the scalar (the trivial solution), making it an independent set.    Now let's look at the next example! Remember the goal is to generalize it!   Is linearly independent?  Think about it first and see if you can figure it out. Then expand the following solution to check your answer!   These three vectors are linearly dependent since the homogeneous matrix equation is guaranteed to have infinitely many solutions.  Let . What does the (reduced) row echelon look like after row reductions?  Well there are only two row so there can be at most two pivot positions.  Yet there are three variables in this equation since each vector gets a mystery scalars. That is, at least one variable is a free variable, and hence the homogeneous equation must have infinitely many solutions.  Therefore, these three vectors are linearly dependent.    Using the similar argument, we can make sense of the following theorem:    A set of vectors with more vectors than there are entries in those vectors are linearly dependent.    They are the linear dependence tests we can use to quickly determine if a set of vectors is linearly dependent. If you can apply one of the three tests immediately, great! We can conclude that the set is linearly dependent. But the failure to apply any of these tests doesn't mean the set is linearly independent . It just means we will have to go back to the definition to determine it.    Basis  Recall that a span of a set of vectors is the smallest subspace containing those vectors, and the span of those vectors contains all possible linear combinations of those vectors. If the spanning set is linearly dependent, then it contains redundant vectors that don't contribute to the span. We can remove those redundant vectors and still have the same span. For briefness, we only want to keep the necessary vectors that contribute to the span. That is, we want our spanning set to be linearly independent.  This is essentially the basis of a subspace: a linearly independent spanning set that spans the subspace .  That is, the two criteria for a basis are: (1) the set must span the subspace of interest, and (2) the set must be linearly independent. In a more math-y way, we can define a basis as follows:   Basis of a Subspace of   Let be a subspace of . A set of vectors is called a basis of if         is linearly independent.       A basis should only include the necessary vectors that contribute to the span.   Claim: The set is a basis for .  This claim is true because (1) any vector in can be written as a linear combination of these two vectors (so it spans ) and (2) these two vectors are linearly independent.  Alternatively, is also a basis for . But why... Well this set of vectors also satisfies the two criteria for a basis.  (1) Any vector in can be written as a linear combination of these two vectors. Let be an arbitrary vector in . We want to find scalars and such that Solving this system, we obtain: Therefore, any vector in can be written as a linear combination of these two vectors, so they span .  (2) These two vectors are linearly independent. The set only contains two vectors and they are not scalar multiples of each other, so they are linearly independent.   Amazing Fact about bases! If and are both bases of a subspace , then . In other words, every basis of a given subspace contains exactly the same number of vectors.  So for example, there is no such thing as a basis for that contains one or three vectors. They all must contain exactly two vectors!   But Richard... Why is it true?  Well here is a very interesting approach to prove this fact (and this is also usually the approach to prove two quantities are equal in advanced mathematics!).  Let's assume that and are both bases of a subspace . Then has vectors in it and has vectors in it.  The approach goes like this: we want to show that cannot contain more vectors than (so ), and also that cannot contain more vectors than (so ). Then this will force to be true!  Since is a basis of and spans , then .  And since is a basis of and spans , then .  Together, that means .      Dimensions  Recall that the number of vectors in a basis is a fixed number for a given subspace, and we can generate the whole subspace by taking linear combinations of the vectors in the basis. Then we define the dimension of a subspace as the number of vectors in a basis for that subspace.   Dimension of a Subspace of   Let be a subspace and be a basis of . Then the dimension of , denoted , is the number of vectors in the basis, which is . That is, .     It makes sense to say that the dimension of is and the dimension of is . But how does it match with our definition of dimension?  We can verify this by finding a basis for and easily. Earlier, we saw that is a basis for , so . The basis is called the standard basis for .  Similarly, is a basis for , so . This basis is called the standard basis for .  More generally, the dimension of is since the standard basis for is and there are exactly vectors in this basis.   Recall we talked about two fundamental subspaces associated with a matrix in the last section: the null space and the column space. What about their basis and dimension?  Good news! The technique we use to find a spanning set for the null space of a matrix will automatically give us a basis! So we can find a basis of a null space by just doing what we have been doing: solving the homogeneous equation and writing the solution in parametric form. The vectors corresponding to the free variables will form a basis for the null space.   NOTE: The reason why the vectors corresponding to the free variables will automatically form a basis for the null space is because of the nature of the free variables (talk to Richard if you are super interested in it!). So the only way to end up with the wrong number of vectors in the basis is to have the wrong number of free variables.  Yet the basis for the column space is a bit more tricky to find, as there is no guarantee that the columns of a matrix will be linearly independent. However, we can find a basis for the column space by only including the pivot columns , as these column vectors are guaranteed to be linearly independent (so we essentially take out the free variables to make sure only has the trivial solution).   Let's say we have the matrix and this time we want to find a basis for the null space and the column space.  In the last section, we solved the homogeneous equation . For our convenience, let's copy down the reduced row echelon form of the augmented matrix:  P.S.: Row echelon form is enough as well since all we need to identify are the pivot columns (or not the pivot columns).  Lets' start with the null space first! The solution to the homogeneous equation , in parametric form, looks like this: where . Hence, the null space of is Since these vectors are linearly independent, then a basis for the null space is and hence the null space has dimension .  What about a basis for the column space? Let's stare at the reduced row echelon form of the coefficient matrix part again!  Notice that a pivot position appears in the first, third, and fifth columns. So they do NOT correspond to free variables. Imagine if we remove column 2 and column 4 from the coefficient matrix in the beginning, then we will end up with a homogeneous equation that has no free variable, and hence the columns are linearly independent. Therefore, we can span the column space by just including the first, third, and fifth columns. That is, A basis for the column space is and hence the column space has dimension .   Spoiler: You may have noticed that the dimension of the null space and the dimension of the column space add up to the number of columns in the matrix. This is a BIG theorem in linear algebra! We can sense that this is true because we take the columns with pivot positions to form a basis for the column space and use the columns without pivot positions to figure out a basis for the null space. We will focus on this theorem in section 5.4 (and this theorem is a fundamental theorem of linear algebra!) .    Let .  Find a basis and the dimension for and .     Extending Our Invertible Matrix Theorem!  Back in we saw our first version of the .  Now that we learn more fancy things in linear algebra, we can add a couple more conditions that are equivalent to invertibility:   7. The columns of are linearly independent.    8. The columns of span .    9. The columns of form a basis of .    10. .    11. .    12. .    13. .   They should be immediate results from the Invertible Matrix Theorem, but rephrasing it using all the fancy concepts we learned in this chapter.   "
+},
+{
+  "id": "sec52-IndependenceDimension-3",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#sec52-IndependenceDimension-3",
+  "type": "Objectives",
+  "number": "5.2",
+  "title": "",
+  "body": "  After this section, students will be able to:     determine if a set of vectors are linearly independent.    construct a basis for a subspace.    determine the dimension of a subspace.    "
+},
+{
+  "id": "def-LinearIndependence",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#def-LinearIndependence",
+  "type": "Definition",
+  "number": "5.2.1",
+  "title": "",
+  "body": "  An indexed set of vectors , , is linearly independent if the vector equation has only the trivial solution.  If the trivial solution is not unique, we call the set linear dependent .  That is, if a set , , is linearly dependent, then there exists some scalars , not all zero, such that    "
+},
+{
+  "id": "subsec-LinearIndependence-5",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#subsec-LinearIndependence-5",
+  "type": "Example",
+  "number": "5.2.2",
+  "title": "",
+  "body": " Suppose we have a set of three vectors , where Is this set of vectors linearly independent?  Let's follow the definition! That is, we want to determine if the solution to the following vector equation is unique.  We know how to solve this equation! We will first convert it to an augmented matrix: Now let's row reduce this augmented matrix!   Step 1: Adding times Row 1 to Row 2 (and replacing Row 2), we obtain     Step 2: Adding times Row 1 to Row 3 (and replacing Row 3), we obtain    We immediately know that is a free variable since there is no pivot position in the third column. Hence, this vector equation has infinitely many solutions.  By the definition, we know that is linearly dependent .  But what does it mean? Why do we call these three vectors linearly dependent ? Well let's finish solving this vector equation!  Since is a free variable, then we let , where . Then we obtain Okay. This is a general solution to the vector equation. Recall we can obtain a particular solution by assigning a value to our parameter, .  Let's make . Then our particular solution is Then plugging in the solution to the vector equation will make the equation true. That is, we have the following equation: We can isolate one of the three vectors! Just for demonstration purposes, let's isolate ! Then we have Observe that is a linear combination of and ! That is, is dependent on and .  "
+},
+{
+  "id": "subsec-LinearIndependence-6",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#subsec-LinearIndependence-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "linear dependence relation "
+},
+{
+  "id": "subsec-LinearIndependence-8",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#subsec-LinearIndependence-8",
+  "type": "Checkpoint",
+  "number": "5.2.3",
+  "title": "",
+  "body": " Is the set linearly independent?   Yes, this set of vectors is linearly independent .  To justify this, we set up the homogeneous vector equation:   We can solve this by row reducing the corresponding augmented matrix:   Notice that every column in the coefficient matrix contains a pivot position, which means there are no free variables. Therefore, the vector equation has only the trivial solution ( ). Because no vector can be built from the others, the set is linearly independent.   "
+},
+{
+  "id": "subsec-LinearIndependence-10",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#subsec-LinearIndependence-10",
+  "type": "Example",
+  "number": "5.2.4",
+  "title": "",
+  "body": " Suppose we are given the coefficient matrix . Observe that consists of three column vectors: Are they linearly independent?  We can answer this question by solving the homogeneous matrix equation . The augmented matrix is Of course we know how to row reduce it! Notice that the constant column of zeros will stay unchanged after all the elementary row operations. So we can only row reduce the coefficient matrix part! Recall the constant column will consist of all zeros.  Observe that every column of the coefficient matrix has a pivot position, which implies that there is no free variable. Then this homogeneous matrix equation has only the trivial solution. That is, the only \"linearly dependent relation\" is Well we can't isolate any of the three vectors since all the above relation tells us is that . Hence, it makes sense to call the vectors making up the columns of  linearly independent , in the sense that none of the vector is dependent of other vectors.  "
+},
+{
+  "id": "subsec-LinearIndependence-12",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#subsec-LinearIndependence-12",
+  "type": "Example",
+  "number": "5.2.5",
+  "title": "",
+  "body": " Is linearly independent?  Think about it first and see if you can figure it out. Then expand the following solution to check your answer!   These two vectors are linearly dependent since there is a way to write a vector as a linear combination of the other vector.  Clearly, . That is, the vector is a linear combination of the vector . So is dependent of .   "
+},
+{
+  "id": "thm-LinearlyDependent-SetTwoVectors",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#thm-LinearlyDependent-SetTwoVectors",
+  "type": "Theorem",
+  "number": "5.2.6",
+  "title": "",
+  "body": "  Consider . If for some nonzero constant , then and are linearly dependent.   "
+},
+{
+  "id": "subsec-LinearIndependence-16",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#subsec-LinearIndependence-16",
+  "type": "Example",
+  "number": "5.2.7",
+  "title": "",
+  "body": " Is linearly independent?  Think about it first and see if you can figure it out. Then expand the following solution to check your answer!   These three vectors are linearly dependent since there is a way to write a vector as a linear combination of the other vectors.  Clearly, we can represent the zero vector as a linear combination of the other two vectors with both scalars being zero. That is, Hence, these three vectors are linearly dependent.   "
+},
+{
+  "id": "thm-LinearDependence-ZeroVector",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#thm-LinearDependence-ZeroVector",
+  "type": "Theorem",
+  "number": "5.2.8",
+  "title": "",
+  "body": "  Any set containing is linearly dependent.   "
+},
+{
+  "id": "subsec-LinearIndependence-19",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#subsec-LinearIndependence-19",
+  "type": "Checkpoint",
+  "number": "5.2.9",
+  "title": "",
+  "body": " When is the set of a single vector linearly independent?   A set containing a single vector is linearly independent if and only if .  By definition, we are looking at the vector equation . If is the zero vector, then the scalar can be any real number (yielding infinitely many solutions), making it a dependent set. If is any non-zero vector, the only way for the equation to hold true is if the scalar (the trivial solution), making it an independent set.   "
+},
+{
+  "id": "subsec-LinearIndependence-21",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#subsec-LinearIndependence-21",
+  "type": "Example",
+  "number": "5.2.10",
+  "title": "",
+  "body": " Is linearly independent?  Think about it first and see if you can figure it out. Then expand the following solution to check your answer!   These three vectors are linearly dependent since the homogeneous matrix equation is guaranteed to have infinitely many solutions.  Let . What does the (reduced) row echelon look like after row reductions?  Well there are only two row so there can be at most two pivot positions.  Yet there are three variables in this equation since each vector gets a mystery scalars. That is, at least one variable is a free variable, and hence the homogeneous equation must have infinitely many solutions.  Therefore, these three vectors are linearly dependent.   "
+},
+{
+  "id": "thm-LinearDependence-MoreVectors",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#thm-LinearDependence-MoreVectors",
+  "type": "Theorem",
+  "number": "5.2.11",
+  "title": "",
+  "body": "  A set of vectors with more vectors than there are entries in those vectors are linearly dependent.   "
+},
+{
+  "id": "subsec-Basis-3",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#subsec-Basis-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "basis "
+},
+{
+  "id": "def-Basis",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#def-Basis",
+  "type": "Definition",
+  "number": "5.2.12",
+  "title": "Basis of a Subspace of <span class=\"process-math\">\\(\\R^n\\)<\/span>.",
+  "body": " Basis of a Subspace of   Let be a subspace of . A set of vectors is called a basis of if         is linearly independent.      "
+},
+{
+  "id": "subsec-Basis-7",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#subsec-Basis-7",
+  "type": "Example",
+  "number": "5.2.13",
+  "title": "",
+  "body": " Claim: The set is a basis for .  This claim is true because (1) any vector in can be written as a linear combination of these two vectors (so it spans ) and (2) these two vectors are linearly independent.  Alternatively, is also a basis for . But why... Well this set of vectors also satisfies the two criteria for a basis.  (1) Any vector in can be written as a linear combination of these two vectors. Let be an arbitrary vector in . We want to find scalars and such that Solving this system, we obtain: Therefore, any vector in can be written as a linear combination of these two vectors, so they span .  (2) These two vectors are linearly independent. The set only contains two vectors and they are not scalar multiples of each other, so they are linearly independent.   Amazing Fact about bases! If and are both bases of a subspace , then . In other words, every basis of a given subspace contains exactly the same number of vectors.  So for example, there is no such thing as a basis for that contains one or three vectors. They all must contain exactly two vectors!   But Richard... Why is it true?  Well here is a very interesting approach to prove this fact (and this is also usually the approach to prove two quantities are equal in advanced mathematics!).  Let's assume that and are both bases of a subspace . Then has vectors in it and has vectors in it.  The approach goes like this: we want to show that cannot contain more vectors than (so ), and also that cannot contain more vectors than (so ). Then this will force to be true!  Since is a basis of and spans , then .  And since is a basis of and spans , then .  Together, that means .   "
+},
+{
+  "id": "subsec-Dimensions-2",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#subsec-Dimensions-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "dimension "
+},
+{
+  "id": "def-Dimensions",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#def-Dimensions",
+  "type": "Definition",
+  "number": "5.2.15",
+  "title": "Dimension of a Subspace of <span class=\"process-math\">\\(\\R^n\\)<\/span>.",
+  "body": " Dimension of a Subspace of   Let be a subspace and be a basis of . Then the dimension of , denoted , is the number of vectors in the basis, which is . That is, .   "
+},
+{
+  "id": "subsec-Dimensions-4",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#subsec-Dimensions-4",
+  "type": "Example",
+  "number": "5.2.16",
+  "title": "",
+  "body": " It makes sense to say that the dimension of is and the dimension of is . But how does it match with our definition of dimension?  We can verify this by finding a basis for and easily. Earlier, we saw that is a basis for , so . The basis is called the standard basis for .  Similarly, is a basis for , so . This basis is called the standard basis for .  More generally, the dimension of is since the standard basis for is and there are exactly vectors in this basis.  "
+},
+{
+  "id": "ex-BasisNullColumnSpaces",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#ex-BasisNullColumnSpaces",
+  "type": "Example",
+  "number": "5.2.17",
+  "title": "",
+  "body": " Let's say we have the matrix and this time we want to find a basis for the null space and the column space.  In the last section, we solved the homogeneous equation . For our convenience, let's copy down the reduced row echelon form of the augmented matrix:  P.S.: Row echelon form is enough as well since all we need to identify are the pivot columns (or not the pivot columns).  Lets' start with the null space first! The solution to the homogeneous equation , in parametric form, looks like this: where . Hence, the null space of is Since these vectors are linearly independent, then a basis for the null space is and hence the null space has dimension .  What about a basis for the column space? Let's stare at the reduced row echelon form of the coefficient matrix part again!  Notice that a pivot position appears in the first, third, and fifth columns. So they do NOT correspond to free variables. Imagine if we remove column 2 and column 4 from the coefficient matrix in the beginning, then we will end up with a homogeneous equation that has no free variable, and hence the columns are linearly independent. Therefore, we can span the column space by just including the first, third, and fifth columns. That is, A basis for the column space is and hence the column space has dimension .   Spoiler: You may have noticed that the dimension of the null space and the dimension of the column space add up to the number of columns in the matrix. This is a BIG theorem in linear algebra! We can sense that this is true because we take the columns with pivot positions to form a basis for the column space and use the columns without pivot positions to figure out a basis for the null space. We will focus on this theorem in section 5.4 (and this theorem is a fundamental theorem of linear algebra!) .  "
+},
+{
+  "id": "subsec-Dimensions-10",
+  "level": "2",
+  "url": "sec52-IndependenceDimension.html#subsec-Dimensions-10",
+  "type": "Checkpoint",
+  "number": "5.2.18",
+  "title": "",
+  "body": " Let .  Find a basis and the dimension for and .  "
+},
+{
+  "id": "sec53-Orthogonality",
+  "level": "1",
+  "url": "sec53-Orthogonality.html",
+  "type": "Section",
+  "number": "5.3",
+  "title": "Orthogonality",
+  "body": " Orthogonality  Recall back in , we saw that two vectors are orthogonal if their dot product is in . Similarly, we can define orthogonal sets as a set of orthogonal vectors.   Orthogonal Sets   A set of vectors is an orthogonal set if each pair of distinct vectors from this set is orthogonal. That is, whenever .     Let , , and . Is this set an orthogonal set?  If this is an orthogonal set, then each pair of the distinct vectors is orthogonal. We can form three pairs of distinct vectors in the set, and we will check their orthogonality respectively: Observe that each pair of distinct vectors in the set is orthogonal. Hence this is an orthogonal set.   Sometimes we want to only focus on the direction of a vector. Since the length of a vector has nothing to do with its direction, we want to minimize the effect of the length by making the length to be .   Unit Vectors   A vector with length is called a unit vector .    Given a non-zero vector , we can make its length to be by dividing it by its length . That is, a unit vector in the same direction as is This process of creating a normal vector from is called normalizing .  Given an orthogonal set, we can even normalize each vector in this set! This set is called the orthonormal set .   Orthonormal Sets   A set is an orthonormal set if it is an orthogonal set of unit vectors.     We showed that, in the previous example, that is an orthogonal set, where , , and . Is this set also an orthonormal set?  The answer is no since none of the three vectors have the length of .   But we can make an orthonormal set out of it by normalizing each vector. Since normalization (aka rescaling the vector to have the length of ) will not change the direction, the orthogonality remains.  Observe that Then we can normalize each vector by dividing it by its lengths: The set is now an orthonormal set!   But why do we want orthogonal\/orthonormal sets? That is because these sets are linearly independent so they can become some bases for some subspaces. Also, things are working out nicely with orthogonal\/orthonormal bases, so we like to work with them.  If we want an orthogonal basis for a subspace, we can produce it using the Gram-Schmidt Process . We will not be covering it in this class. Feel free to look into it if you are interested. You should be able to understand the process just fine, as the trick to make the process work is through projection that we learned before!  "
+},
+{
+  "id": "sec53-Orthogonality-2",
+  "level": "2",
+  "url": "sec53-Orthogonality.html#sec53-Orthogonality-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "orthogonal sets "
+},
+{
+  "id": "def-OrthogonalSet",
+  "level": "2",
+  "url": "sec53-Orthogonality.html#def-OrthogonalSet",
+  "type": "Definition",
+  "number": "5.3.1",
+  "title": "Orthogonal Sets.",
+  "body": " Orthogonal Sets   A set of vectors is an orthogonal set if each pair of distinct vectors from this set is orthogonal. That is, whenever .   "
+},
+{
+  "id": "sec53-Orthogonality-4",
+  "level": "2",
+  "url": "sec53-Orthogonality.html#sec53-Orthogonality-4",
+  "type": "Example",
+  "number": "5.3.2",
+  "title": "",
+  "body": " Let , , and . Is this set an orthogonal set?  If this is an orthogonal set, then each pair of the distinct vectors is orthogonal. We can form three pairs of distinct vectors in the set, and we will check their orthogonality respectively: Observe that each pair of distinct vectors in the set is orthogonal. Hence this is an orthogonal set.  "
+},
+{
+  "id": "def-UnitVector",
+  "level": "2",
+  "url": "sec53-Orthogonality.html#def-UnitVector",
+  "type": "Definition",
+  "number": "5.3.3",
+  "title": "Unit Vectors.",
+  "body": " Unit Vectors   A vector with length is called a unit vector .   "
+},
+{
+  "id": "sec53-Orthogonality-7",
+  "level": "2",
+  "url": "sec53-Orthogonality.html#sec53-Orthogonality-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "normalizing "
+},
+{
+  "id": "sec53-Orthogonality-8",
+  "level": "2",
+  "url": "sec53-Orthogonality.html#sec53-Orthogonality-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "orthonormal set "
+},
+{
+  "id": "def-OrthonormalSet",
+  "level": "2",
+  "url": "sec53-Orthogonality.html#def-OrthonormalSet",
+  "type": "Definition",
+  "number": "5.3.4",
+  "title": "Orthonormal Sets.",
+  "body": " Orthonormal Sets   A set is an orthonormal set if it is an orthogonal set of unit vectors.   "
+},
+{
+  "id": "sec53-Orthogonality-10",
+  "level": "2",
+  "url": "sec53-Orthogonality.html#sec53-Orthogonality-10",
+  "type": "Example",
+  "number": "5.3.5",
+  "title": "",
+  "body": " We showed that, in the previous example, that is an orthogonal set, where , , and . Is this set also an orthonormal set?  The answer is no since none of the three vectors have the length of .   But we can make an orthonormal set out of it by normalizing each vector. Since normalization (aka rescaling the vector to have the length of ) will not change the direction, the orthogonality remains.  Observe that Then we can normalize each vector by dividing it by its lengths: The set is now an orthonormal set!  "
+},
+{
+  "id": "sec53-Orthogonality-12",
+  "level": "2",
+  "url": "sec53-Orthogonality.html#sec53-Orthogonality-12",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Gram-Schmidt Process "
+},
+{
+  "id": "sec54-Rank",
+  "level": "1",
+  "url": "sec54-Rank.html",
+  "type": "Section",
+  "number": "5.4",
+  "title": "Rank of a Matrix",
+  "body": " Rank of a Matrix  Recall that back in , we investigated two of the four fundamental subspaces as Null Spaces ( ) and Column Spaces ( ). We also saw how we can find a basis for these two subspaces in . There is actually a cool observation about the relationship between their dimensions.   Recall we did an example back in to find a basis for the null space and the column space of the matrix . will link you back to the work if you need a refresher.  If we try finding the dimension of the null space and the dimension of the column space, we may notice that they add up to the number of columns. That is, , , and , so Well this makes sense because a basis of consists of the columns that contains a pivot position, and a basis of can be obtained using the columns without a pivot position. So every column counts.   This observation about the relationship between the dimensions is a fundamental theorem of linear algebra , as it links two of the fundamental subspaces together.  Terminology! The rank of a matrix is the dimension of the column space, and the nullity of a matrix is the dimension of the null space. Then we have the following theorem:   Rank-Nullity Theorem   Let be an matrix. Then That is, the rank plus the nullity equals to the number of columns.    The other two fundamental subspaces are the column space and the null space of the transpose. That is, let be an matrix. Then its four fundamental subspaces are    , the column space of      , the null space of      , the column space of , aka the row space      , the null space of , aka the left-null space      If we apply the Rank-Nullity Theorem to , then we can find the relationship between the dimension of the row space and the left-null space, as follows: And if you think about the connection between the column space and the row space, they should have the same dimension since the number of pivot positions in a matrix should be fixed (unchanged through transpose). That is, This is essentially part of the fundamental theorem of linear algebra , along with the orthogonal condition that we won't be discussing in this class but it is super obvious (look up something called the \"direct sum\"), captured in the following diagram.    Diagram of Fundamental Theorem of Linear Algebra    Fundamental Theorem of Linear Algebra   Let be an matrix with . Then                     There are other statements in the fundamental theorem of linear algebra captured in this diagram (i.e., is the direct sum of the row space and the null space). Essentially, the fundamental theorem of linear algebra is a collection of results about many properties of the four fundamental subspaces. In this class, all we care about here is the connection between the dimensions of the subspaces.  "
+},
+{
+  "id": "sec54-Rank-3",
+  "level": "2",
+  "url": "sec54-Rank.html#sec54-Rank-3",
+  "type": "Example",
+  "number": "5.4.1",
+  "title": "",
+  "body": " Recall we did an example back in to find a basis for the null space and the column space of the matrix . will link you back to the work if you need a refresher.  If we try finding the dimension of the null space and the dimension of the column space, we may notice that they add up to the number of columns. That is, , , and , so Well this makes sense because a basis of consists of the columns that contains a pivot position, and a basis of can be obtained using the columns without a pivot position. So every column counts.  "
+},
+{
+  "id": "sec54-Rank-4",
+  "level": "2",
+  "url": "sec54-Rank.html#sec54-Rank-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "fundamental theorem of linear algebra "
+},
+{
+  "id": "sec54-Rank-5",
+  "level": "2",
+  "url": "sec54-Rank.html#sec54-Rank-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "rank nullity "
+},
+{
+  "id": "thm-RankNullityTheorem",
+  "level": "2",
+  "url": "sec54-Rank.html#thm-RankNullityTheorem",
+  "type": "Theorem",
+  "number": "5.4.2",
+  "title": "Rank-Nullity Theorem.",
+  "body": " Rank-Nullity Theorem   Let be an matrix. Then That is, the rank plus the nullity equals to the number of columns.   "
+},
+{
+  "id": "sec54-Rank-7",
+  "level": "2",
+  "url": "sec54-Rank.html#sec54-Rank-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "row space left-null space "
+},
+{
+  "id": "sec54-Rank-9",
+  "level": "2",
+  "url": "sec54-Rank.html#sec54-Rank-9",
+  "type": "Figure",
+  "number": "5.4.3",
+  "title": "",
+  "body": "  Diagram of Fundamental Theorem of Linear Algebra  "
+},
+{
+  "id": "thm-FundamentalTheoremLinearAlgebra",
+  "level": "2",
+  "url": "sec54-Rank.html#thm-FundamentalTheoremLinearAlgebra",
+  "type": "Theorem",
+  "number": "5.4.4",
+  "title": "Fundamental Theorem of Linear Algebra.",
+  "body": " Fundamental Theorem of Linear Algebra   Let be an matrix with . Then                    "
+},
+{
   "id": "secA1-MidtermReview",
   "level": "1",
   "url": "secA1-MidtermReview.html",
@@ -1745,6 +3113,303 @@ var ptx_lunr_docs = [
   "number": "6",
   "title": "",
   "body": " Suppose is a linear transformation such that is a reflection across the line by . Find the standard matrix that defines this transformation. That is, find the matrix such that .       "
+},
+{
+  "id": "secA2-FinalReview",
+  "level": "1",
+  "url": "secA2-FinalReview.html",
+  "type": "Section",
+  "number": "A.2",
+  "title": "Final Review",
+  "body": " Final Review   The final exam will be cumulative, which means it is a fair shot for me to ask anything we covered this term on the final exam (minus the abstract vector space thing in the last chapter). Below are the sections we covered after the midterm exam:                                  Orthogonality     Rank of a Matrix     Eigenvalues and Eigenvectors     Diagonalization   On this page, you will find review problems that addresses the aforementioned sections. The final answers are included for each problem. Make sure you spend some time working through these problems and understanding how things work!   Note: For review problems that address material covered in the midterm exam, please refer to the Midterm Review.   A quick reminder: The last class session on Monday, August 10, will be a review session. Usually this will be a work day for you to work through some problems together to prepare for the exam. This is also a great opportunity for you to ask questions about anything that is not clear to you!    Determinants (and related stuff)   Let . Find using (1) the cofactor expansion, and (2) elementary row operation to convert the matrix into upper triangular form.         Find the determinant of the following matrices.               Find the determinant of the following matrices.                 Let , , and denote matrices such that Evaluate the following expression.                                 Vector Geometry   Determine whether the lines and intersect, and if so, find the point of intersection.   The two lines are parallel of each other. Hence they do not intersect.     Determine whether the lines and intersect, and if so, find the point of intersection.   They intersect at the point      Determine whether the lines and intersect, and if so, find the point of intersection.   These two lines do not intersect. They are skew.     Write the equation of the plane with normal vector passing through the point .         Find an equation of the plane that contains the points , , and .         Find an equation of the plane passing through the three points , , and .         Find the intersection of the line and the plane .         Let denote the line of intersection of the planes and . Find an equation for the line in parametric form.          Subspaces (and related stuff)   Let . Find a basis and the dimension of the null space and the column space of .   Basis for and .  Basis for and .     Let . Find a basis and the dimension of the null space and the column space of .   Basis for and .  Basis for (the empty set) and .     Determine if the following set is a subspace of . Justify your reasoning.   Yes     Is the set linearly independent? Justify your reasoning.   Yes     Is the set linearly independent? Justify your reasoning.   No     Determine which of the following sets are bases for or . Justify your reasoning.                       This is a basis for .    This is NOT a basis for nor .    This is NOT a basis for nor .        Let .   Find a basis for .    Is a vector in ? Justify your reasoning.        A basis for is     Yes is in .       Let .   Find a basis for .    Is a vector in ? Justify your reasoning.        A basis for is .    Yes, is in .       Find a basis for the subspace spanned by the following vectors: Then determine the dimension of this subspace.   A basis is and the dimension is       Orthogonality   Let , , and . Determine whether this set an orthogonal set. Why or why not?   Nope     Let , , and . Is this set an orthogonal set? Why or why not?   Nope     Let , , and . Is this set an orthogonal set? Why or why not?   Yep     Let , , and . Is this set an orthogonal set? Why or why not?  Is this set an orthonormal set? If not, normalize these vectors to create an orthonormal set?   Yep to the orthogonal set and nope to the orthonormal set.  The normalized version is       Column Space & Null Space   Let .   Find the dimension of .    Find the dimension of .       and      Let .   Find the dimension of .    Find the dimension of .       and      Let be an  invertible matrix.   What is the dimension of ?    What is the dimension of ?       and    P.S: the matrix in the previous exercise is invertible, so you see that every column has a pivot position (and hence ). By the Rank Nullity Theorem, .      Eigen-related Stuff   Let . Find all the eigenvalues of this matrix, and determine the corresponding eigenspace.   The eigenvalue is , with the multiplicity of .  Its corresponding eigenspace is      Let . Find all the eigenvalues of this matrix.   The eigenvalues are (with the multiplicity of ) and (with the multiplicity of )     Diagonalize the matrix if possible. If not, state why.   Yep, is diagonalizable.   and      Diagonalize the matrix if possible. If not, state why.   Yep is diagonalizable.   and      Diagonalize the matrix if possible. If not, state why.   Nope is not diagonalizable.     "
+},
+{
+  "id": "ws-MidtermReview-Determinants-2",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-MidtermReview-Determinants-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Let . Find using (1) the cofactor expansion, and (2) elementary row operation to convert the matrix into upper triangular form.       "
+},
+{
+  "id": "ws-MidtermReview-Determinants-3",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-MidtermReview-Determinants-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Find the determinant of the following matrices.               Find the determinant of the following matrices.               "
+},
+{
+  "id": "ws-MidtermReview-Determinants-4",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-MidtermReview-Determinants-4",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Let , , and denote matrices such that Evaluate the following expression.                              "
+},
+{
+  "id": "ws-MidtermReview-VectorGeometry-2",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-MidtermReview-VectorGeometry-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Determine whether the lines and intersect, and if so, find the point of intersection.   The two lines are parallel of each other. Hence they do not intersect.   "
+},
+{
+  "id": "ws-MidtermReview-VectorGeometry-3",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-MidtermReview-VectorGeometry-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Determine whether the lines and intersect, and if so, find the point of intersection.   They intersect at the point    "
+},
+{
+  "id": "ws-MidtermReview-VectorGeometry-4",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-MidtermReview-VectorGeometry-4",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Determine whether the lines and intersect, and if so, find the point of intersection.   These two lines do not intersect. They are skew.   "
+},
+{
+  "id": "ws-MidtermReview-VectorGeometry-5",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-MidtermReview-VectorGeometry-5",
+  "type": "Worksheet Exercise",
+  "number": "4",
+  "title": "",
+  "body": " Write the equation of the plane with normal vector passing through the point .       "
+},
+{
+  "id": "ws-MidtermReview-VectorGeometry-6",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-MidtermReview-VectorGeometry-6",
+  "type": "Worksheet Exercise",
+  "number": "5",
+  "title": "",
+  "body": " Find an equation of the plane that contains the points , , and .       "
+},
+{
+  "id": "ws-MidtermReview-VectorGeometry-7",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-MidtermReview-VectorGeometry-7",
+  "type": "Worksheet Exercise",
+  "number": "6",
+  "title": "",
+  "body": " Find an equation of the plane passing through the three points , , and .       "
+},
+{
+  "id": "ws-MidtermReview-VectorGeometry-8",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-MidtermReview-VectorGeometry-8",
+  "type": "Worksheet Exercise",
+  "number": "7",
+  "title": "",
+  "body": " Find the intersection of the line and the plane .       "
+},
+{
+  "id": "ws-MidtermReview-VectorGeometry-9",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-MidtermReview-VectorGeometry-9",
+  "type": "Worksheet Exercise",
+  "number": "8",
+  "title": "",
+  "body": " Let denote the line of intersection of the planes and . Find an equation for the line in parametric form.       "
+},
+{
+  "id": "ws-Subspaces-2",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-Subspaces-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Let . Find a basis and the dimension of the null space and the column space of .   Basis for and .  Basis for and .   "
+},
+{
+  "id": "ws-Subspaces-3",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-Subspaces-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Let . Find a basis and the dimension of the null space and the column space of .   Basis for and .  Basis for (the empty set) and .   "
+},
+{
+  "id": "ws-Subspaces-4",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-Subspaces-4",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Determine if the following set is a subspace of . Justify your reasoning.   Yes   "
+},
+{
+  "id": "ws-Subspaces-5",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-Subspaces-5",
+  "type": "Worksheet Exercise",
+  "number": "4",
+  "title": "",
+  "body": " Is the set linearly independent? Justify your reasoning.   Yes   "
+},
+{
+  "id": "ws-Subspaces-6",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-Subspaces-6",
+  "type": "Worksheet Exercise",
+  "number": "5",
+  "title": "",
+  "body": " Is the set linearly independent? Justify your reasoning.   No   "
+},
+{
+  "id": "ws-Subspaces-7",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-Subspaces-7",
+  "type": "Worksheet Exercise",
+  "number": "6",
+  "title": "",
+  "body": " Determine which of the following sets are bases for or . Justify your reasoning.                       This is a basis for .    This is NOT a basis for nor .    This is NOT a basis for nor .      "
+},
+{
+  "id": "ws-Subspaces-8",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-Subspaces-8",
+  "type": "Worksheet Exercise",
+  "number": "7",
+  "title": "",
+  "body": " Let .   Find a basis for .    Is a vector in ? Justify your reasoning.        A basis for is     Yes is in .     "
+},
+{
+  "id": "ws-Subspaces-9",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-Subspaces-9",
+  "type": "Worksheet Exercise",
+  "number": "8",
+  "title": "",
+  "body": " Let .   Find a basis for .    Is a vector in ? Justify your reasoning.        A basis for is .    Yes, is in .     "
+},
+{
+  "id": "ws-Subspaces-10",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-Subspaces-10",
+  "type": "Worksheet Exercise",
+  "number": "9",
+  "title": "",
+  "body": " Find a basis for the subspace spanned by the following vectors: Then determine the dimension of this subspace.   A basis is and the dimension is    "
+},
+{
+  "id": "ws-Orthogonality-2",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-Orthogonality-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Let , , and . Determine whether this set an orthogonal set. Why or why not?   Nope   "
+},
+{
+  "id": "ws-Orthogonality-3",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-Orthogonality-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Let , , and . Is this set an orthogonal set? Why or why not?   Nope   "
+},
+{
+  "id": "ws-Orthogonality-4",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-Orthogonality-4",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Let , , and . Is this set an orthogonal set? Why or why not?   Yep   "
+},
+{
+  "id": "ws-Orthogonality-5",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-Orthogonality-5",
+  "type": "Worksheet Exercise",
+  "number": "4",
+  "title": "",
+  "body": " Let , , and . Is this set an orthogonal set? Why or why not?  Is this set an orthonormal set? If not, normalize these vectors to create an orthonormal set?   Yep to the orthogonal set and nope to the orthonormal set.  The normalized version is    "
+},
+{
+  "id": "ws-RankNullity-2",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-RankNullity-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Let .   Find the dimension of .    Find the dimension of .       and    "
+},
+{
+  "id": "ws-RankNullity-3",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-RankNullity-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Let .   Find the dimension of .    Find the dimension of .       and    "
+},
+{
+  "id": "ws-RankNullity-4",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-RankNullity-4",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Let be an  invertible matrix.   What is the dimension of ?    What is the dimension of ?       and    P.S: the matrix in the previous exercise is invertible, so you see that every column has a pivot position (and hence ). By the Rank Nullity Theorem, .   "
+},
+{
+  "id": "ws-FinalReview-EigenStuff-2",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-FinalReview-EigenStuff-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Let . Find all the eigenvalues of this matrix, and determine the corresponding eigenspace.   The eigenvalue is , with the multiplicity of .  Its corresponding eigenspace is    "
+},
+{
+  "id": "ws-FinalReview-EigenStuff-3",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-FinalReview-EigenStuff-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Let . Find all the eigenvalues of this matrix.   The eigenvalues are (with the multiplicity of ) and (with the multiplicity of )   "
+},
+{
+  "id": "ws-FinalReview-EigenStuff-4",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-FinalReview-EigenStuff-4",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Diagonalize the matrix if possible. If not, state why.   Yep, is diagonalizable.   and    "
+},
+{
+  "id": "ws-FinalReview-EigenStuff-5",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-FinalReview-EigenStuff-5",
+  "type": "Worksheet Exercise",
+  "number": "4",
+  "title": "",
+  "body": " Diagonalize the matrix if possible. If not, state why.   Yep is diagonalizable.   and    "
+},
+{
+  "id": "ws-FinalReview-EigenStuff-6",
+  "level": "2",
+  "url": "secA2-FinalReview.html#ws-FinalReview-EigenStuff-6",
+  "type": "Worksheet Exercise",
+  "number": "5",
+  "title": "",
+  "body": " Diagonalize the matrix if possible. If not, state why.   Nope is not diagonalizable.   "
 },
 {
   "id": "backmatter-2",

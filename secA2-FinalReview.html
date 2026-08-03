@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: salem                          *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Final Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="MTH 261 Intro to Linear Algebra: Summer 2026">
+<meta property="og:title" content="MTH 261 Intro to Linear Algebra: Summer 2026">
+<meta property="book:title" content="MTH 261 Intro to Linear Algebra: Summer 2026">
+<meta name="twitter:description" content="A simple string (no markup is allowed) to describe your book.">
+<meta property="og:description" content="A simple string (no markup is allowed) to describe your book.">
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.ed2cce180827a7ad.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.1f660864c47fc762.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8086b62682b271d1.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="MTH261_Summer2026.html"><span class="title">MTH 261 Intro to Linear Algebra</span> <span class="subtitle">Summer 2026</span></a></h1>
+<p class="byline">Richard Zhao</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="secA1-MidtermReview.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="appendixA-ExamReviews.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q} 
+\newcommand{\R}{\mathbb R} 
+
+\newcommand{\ds}{\displaystyle}
+
+\newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\adj}{\text{adj}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Nul}{\text{Nul}}
+\newcommand{\Col}{\text{Col}}
+\newcommand{\im}{\text{im}}
+\newcommand{\span}{\text{span}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch1-SystemLinearEquation.html" class="internal"><span class="codenumber">1</span> <span class="title">Systems of Linear Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Solutions and Elementary Operations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-SolvingSystemsEquations" class="internal"><span class="title">Solving Systems of Linear Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-AugmentedMatrices" class="internal"><span class="title">Augmented Matrices and Elementary Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-NumberOfSolution" class="internal"><span class="title">How many solutions can a linear system have?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec11-SolutionsElementaryOperations.html#subsec-ExistenceUniqueness-SystemEquations" class="internal"><span class="title">Existence and Uniqueness Questions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec12-GaussianElimination.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Gaussian Elimination</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec12-GaussianElimination.html#subsubsec-NumberOfParameters" class="internal"><span class="title">How many parameters does the solution have?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec12-GaussianElimination.html#subsec-ExistenceUniqueness-AugmentedMatrices" class="internal"><span class="title">Existence and Uniqueness Questions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec13-HomogeneousEquations.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Homogeneous Equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec13-HomogeneousEquations.html#subsec-HomogeneousSystem-BasisVectors" class="internal"><span class="title">Basis Vectors and Linear Combinations</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch2-MatrixAlgebra.html" class="internal"><span class="codenumber">2</span> <span class="title">Matrix Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Matrix Addition, Scalar Multiplication, and Transposition</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-MatrixIntro" class="internal"><span class="title">What exactly is a matrix?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-BasicMatrixOperations" class="internal"><span class="title">Basic Matrix Operations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-SubscriptNotationMatrices" class="internal"><span class="title">Subscript Notation for Matrices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-Rules-MatrixAdditionScalarMultiplication" class="internal"><span class="title">Rules for Matrix Addition and Scalar Multiplication</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec21-BasicMatrixOperations.html#subsec-Rules-TransposeMatrices" class="internal"><span class="title">Rules for Transposes</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Matrix-Vector Multiplication</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-Basics-Vector" class="internal"><span class="title">Quick Notes about Vector Notation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-DecodeAugmentedMatrix" class="internal"><span class="title">What exactly is an Augmented Matrix?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-MultiplyingMatrixVector" class="internal"><span class="title">Multiplying a Matrix by a Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-ExistenceUniqueness-Rank" class="internal"><span class="title">Existence and Uniqueness Questions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-VectorEquations" class="internal"><span class="title">Vector Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-LinearTransformations-Intro" class="internal"><span class="title">Intro to Linear Transformations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-DotProduct-Intro" class="internal"><span class="title">Intro to the Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec22-MatrixVectorMultiplication.html#subsec-ZeroMatrix-IdentityMatrix" class="internal"><span class="title">Two Special Matrices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec23-MatrixMultiplication.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Matrix Multiplication</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec24-MatrixInverse.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Matrix Inverses</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec24-MatrixInverse.html#subsec-InverseMatrices" class="internal"><span class="title">Inverse of a Matrix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec24-MatrixInverse.html#subsec-ImportantTheorems-Inverses" class="internal"><span class="title">Important Theorems and Facts about Inverses</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec25-ElementaryMatrices.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Elementary Matrices</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec26-LinearTransformations.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Linear Transformations</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch3-DeterminantsDiagonalization.html" class="internal"><span class="codenumber">3</span> <span class="title">Determinants and Diagonalization</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec31-CofactorExpansion.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Cofactor Expansion</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec32-DeterminantsInverse.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Determinants and Matrix Inverses</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec32-DeterminantsInverse.html#subsec-Theorems-Determinants" class="internal"><span class="title">Important Theorems about Determinants</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec32-DeterminantsInverse.html#subsec-Applications_Determinants" class="internal"><span class="title">Applications using Determinants</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec33-EigenvaluesEigenvectors.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec34-Diagonalization.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Diagonalization</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch4-VectorGeometry.html" class="internal"><span class="codenumber">4</span> <span class="title">Vector Geometry</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec41-VectorsLines.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Vectors and Lines</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-BasicVectorR2" class="internal"><span class="title">Vectors in <span class="process-math">\(\boldsymbol{\R^2}\)</span> and <span class="process-math">\(\R^3\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-AttributesVector" class="internal"><span class="title">The Attributes of Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-VectorAlgebra" class="internal"><span class="title">Vector Algebra (Geometry Version)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec41-VectorsLines.html#subsec-LinesR3" class="internal"><span class="title">Lines in <span class="process-math">\(\R^3\)</span></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Projections and Planes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-DotProduct" class="internal"><span class="title">Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-DotProduct-Angles" class="internal"><span class="title">Angle between Two Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-OrthogonalProjection" class="internal"><span class="title">Orthogonal Projection</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-PlanesR3" class="internal"><span class="title">Planes in <span class="process-math">\(\R^3\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-IntersectionLinePlane" class="internal"><span class="title">Intersection of a Line and a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec42-ProjectionsPlanes.html#subsec-ParallelIntersecting" class="internal"><span class="title">Parallel and Intersecting Planes</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch5-VectorSpace.html" class="internal"><span class="codenumber">5</span> <span class="title">Vector Space <span class="process-math">\(\R^n\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec51-SubspaceSpanning.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Subspaces and Spanning</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec51-SubspaceSpanning.html#subsec-SubspaceIntro" class="internal"><span class="title">What is a Subspace?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec51-SubspaceSpanning.html#subsec-FundamentalSubspaces" class="internal"><span class="title">Fundamental Subspaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec51-SubspaceSpanning.html#subsec-Span" class="internal"><span class="title">Span and Spanning Sets</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec52-IndependenceDimension.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Independence and Dimension</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-LinearIndependence" class="internal"><span class="title">Linear Independence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-Basis" class="internal"><span class="title">Basis</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-Dimensions" class="internal"><span class="title">Dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec52-IndependenceDimension.html#subsec-ExtendedInvertibleMatrixTheorem" class="internal"><span class="title">Extending Our Invertible Matrix Theorem!</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec53-Orthogonality.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Orthogonality</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec54-Rank.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Rank of a Matrix</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-appendix contains-active">
+<div class="toc-title-box"><a href="appendixA-ExamReviews.html" class="internal"><span class="codenumber">A</span> <span class="title">Exam Reviews Page</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="secA1-MidtermReview.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Midterm Review</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="secA1-MidtermReview.html#ws-MidtermReview-SystemEquations" class="internal"><span class="title">Systems of Linear Equations</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="secA1-MidtermReview.html#ws-MidtermReview-RowEchelonForm" class="internal"><span class="title">(Reduced) Row Echelon Form</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="secA1-MidtermReview.html#ws-MidtermReview-BasicMatrixOperations" class="internal"><span class="title">Basic Matrix Operations</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="secA1-MidtermReview.html#ws-MidtermReview-MatrixMultiplication" class="internal"><span class="title">Multiplying Matrices with Vectors/Matrices</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="secA1-MidtermReview.html#ws-MidtermReview-Inverses" class="internal"><span class="title">Inverses of Matrices</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="secA1-MidtermReview.html#ws-MidtermReview-ElementaryMatrices" class="internal"><span class="title">Elementary Matrices</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="secA1-MidtermReview.html#ws-MidtermReview-LinearTransformations" class="internal"><span class="title">Linear Transformations</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="secA2-FinalReview.html" class="internal"><span class="codenumber">A.2</span> <span class="title">Final Review</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="secA2-FinalReview.html#ws-MidtermReview-Determinants" class="internal"><span class="title">Determinants (and related stuff)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="secA2-FinalReview.html#ws-MidtermReview-VectorGeometry" class="internal"><span class="title">Vector Geometry</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="secA2-FinalReview.html#ws-Subspaces" class="internal"><span class="title">Subspaces (and related stuff)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="secA2-FinalReview.html#ws-Orthogonality" class="internal"><span class="title">Orthogonality</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="secA2-FinalReview.html#ws-RankNullity" class="internal"><span class="title">Column Space &amp; Null Space</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="secA2-FinalReview.html#ws-FinalReview-EigenStuff" class="internal"><span class="title">Eigen-related Stuff</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<div class="print-preview-header">
+<h2 class="print-preview">Print preview</h2>
+<div class="print-controls">
+<div class="print-controls-toggles">
+<form class="papersize-select" id="papersize-select">
+<span class="name">Paper size</span><label><input type="radio" name="papersize" value="a4">A4
+        </label><label><input type="radio" name="papersize" value="letter">Letter
+        </label>
+</form>
+<details class="print-options"><summary>Additional printing options</summary><div class="hide-solutions-options"><div class="hide-option">
+<label for="hide-answer-checkbox">Hide answers</label><input type="checkbox" id="hide-answer-checkbox">
+</div></div>
+<div class="header-footer-options">
+<div class="header-option">
+<span class="title">Print headers</span><label>First page<input type="checkbox" id="print-first-page-header-checkbox" checked></label><label>Running<input type="checkbox" id="print-running-header-checkbox" checked></label>
+</div>
+<div class="footer-option">
+<span class="title">Print footers</span><label>First page<input type="checkbox" id="print-first-page-footer-checkbox" checked></label><label>Running<input type="checkbox" id="print-running-footer-checkbox" checked></label>
+</div>
+</div>
+<div class="highlight-workspace-option">
+<label for="highlight-workspace-checkbox">Highlight workspace</label><input type="checkbox" id="highlight-workspace-checkbox">
+</div></details>
+</div>
+<button class="print-button" title="Print" onClick="window.print()"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span><span class="name">Print</span></button>
+</div>
+</div>
+<section class="section" id="secA2-FinalReview">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">A.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Final Review</span>
+</h2>
+<section class="introduction" id="secA2-FinalReview-2">
+<div class="para logical" id="secA2-FinalReview-2-1">
+<div class="para">The final exam will be cumulative, which means it is a fair shot for me to ask anything we covered this term on the final exam (minus the abstract vector space thing in the last chapter). Below are the sections we covered after the midterm exam:</div>
+<ul class="no-marker" id="secA2-FinalReview-2-1-1">
+<li id="secA2-FinalReview-2-1-1-1">
+<div class="para" id="secA2-FinalReview-2-1-1-1-1">
+<a href="sec31-CofactorExpansion.html" class="internal" title="Section 3.1: The Cofactor Expansion">Section 3.1</a><div class="autopermalink" data-description="Paragraph"><a href="#secA2-FinalReview-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#secA2-FinalReview-2-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="secA2-FinalReview-2-1-1-2">
+<div class="para" id="secA2-FinalReview-2-1-1-2-1">
+<a href="sec32-DeterminantsInverse.html" class="internal" title="Section 3.2: Determinants and Matrix Inverses">Section 3.2</a><div class="autopermalink" data-description="Paragraph"><a href="#secA2-FinalReview-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#secA2-FinalReview-2-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="secA2-FinalReview-2-1-1-3">
+<div class="para" id="secA2-FinalReview-2-1-1-3-1">
+<a href="sec41-VectorsLines.html" class="internal" title="Section 4.1: Vectors and Lines">Section 4.1</a><div class="autopermalink" data-description="Paragraph"><a href="#secA2-FinalReview-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#secA2-FinalReview-2-1-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="secA2-FinalReview-2-1-1-4">
+<div class="para" id="secA2-FinalReview-2-1-1-4-1">
+<a href="sec42-ProjectionsPlanes.html" class="internal" title="Section 4.2: Projections and Planes">Section 4.2</a><div class="autopermalink" data-description="Paragraph"><a href="#secA2-FinalReview-2-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#secA2-FinalReview-2-1-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="secA2-FinalReview-2-1-1-5">
+<div class="para" id="secA2-FinalReview-2-1-1-5-1">
+<a href="sec51-SubspaceSpanning.html" class="internal" title="Section 5.1: Subspaces and Spanning">Section 5.1</a><div class="autopermalink" data-description="Paragraph"><a href="#secA2-FinalReview-2-1-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#secA2-FinalReview-2-1-1-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="secA2-FinalReview-2-1-1-6">
+<div class="para" id="secA2-FinalReview-2-1-1-6-1">
+<a href="sec52-IndependenceDimension.html" class="internal" title="Section 5.2: Independence and Dimension">Section 5.2</a><div class="autopermalink" data-description="Paragraph"><a href="#secA2-FinalReview-2-1-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#secA2-FinalReview-2-1-1-6" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="secA2-FinalReview-2-1-1-7">
+<div class="para" id="secA2-FinalReview-2-1-1-7-1">
+<a href="sec53-Orthogonality.html" class="internal" title="Section 5.3: Orthogonality">Section 5.3</a> Orthogonality<div class="autopermalink" data-description="Paragraph"><a href="#secA2-FinalReview-2-1-1-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#secA2-FinalReview-2-1-1-7" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="secA2-FinalReview-2-1-1-8">
+<div class="para" id="secA2-FinalReview-2-1-1-8-1">
+<a href="sec54-Rank.html" class="internal" title="Section 5.4: Rank of a Matrix">Section 5.4</a> Rank of a Matrix<div class="autopermalink" data-description="Paragraph"><a href="#secA2-FinalReview-2-1-1-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#secA2-FinalReview-2-1-1-8" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="secA2-FinalReview-2-1-1-9">
+<div class="para" id="secA2-FinalReview-2-1-1-9-1">
+<a href="sec33-EigenvaluesEigenvectors.html" class="internal" title="Section 3.3: Eigenvalues and Eigenvectors">Section 3.3</a> Eigenvalues and Eigenvectors<div class="autopermalink" data-description="Paragraph"><a href="#secA2-FinalReview-2-1-1-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#secA2-FinalReview-2-1-1-9" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="secA2-FinalReview-2-1-1-10">
+<div class="para" id="secA2-FinalReview-2-1-1-10-1">
+<a href="sec34-Diagonalization.html" class="internal" title="Section 3.4: Diagonalization">Section 3.4</a> Diagonalization<div class="autopermalink" data-description="Paragraph"><a href="#secA2-FinalReview-2-1-1-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#secA2-FinalReview-2-1-1-10" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">On this page, you will find review problems that addresses the aforementioned sections. The final answers are included for each problem. Make sure you spend some time working through these problems and understanding how things work!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#secA2-FinalReview-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="secA2-FinalReview-2-2">
+<em class="alert">Note:</em> For review problems that address material covered in the midterm exam, please refer to the <a href="secA1-MidtermReview.html" class="internal" title="Section A.1: Midterm Review">Section A.1</a> Midterm Review.<div class="autopermalink" data-description="Paragraph"><a href="#secA2-FinalReview-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="secA2-FinalReview-2-3">
+<em class="alert">A quick reminder:</em> The last class session on Monday, August 10, will be a review session. Usually this will be a work day for you to work through some problems together to prepare for the exam. This is also a great opportunity for you to ask questions about anything that is not clear to you!<div class="autopermalink" data-description="Paragraph"><a href="#secA2-FinalReview-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section>
+<section class="worksheet" id="ws-MidtermReview-Determinants" data-margins="0.75in 0.75in 0.75in 0.75in">
+<h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Determinants (and related stuff)</span><div class="print-links"><a href="?printpreview=ws-MidtermReview-Determinants" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<article class="exercise exercise-like" id="ws-MidtermReview-Determinants-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-MidtermReview-Determinants-2-1">Let <span class="process-math">\(A = \begin{bmatrix} 1 \amp 3 \amp -2 \\ 0 \amp 1 \amp 5 \\ 2 \amp 3 \amp 1 \end{bmatrix}\text{.}\)</span> Find <span class="process-math">\(\det A\)</span> using (1) the cofactor expansion, and (2) elementary row operation to convert the matrix into upper triangular form.<div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-Determinants-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-MidtermReview-Determinants-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-MidtermReview-Determinants-2-2-1">
+<span class="process-math">\(\det A = 20\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-Determinants-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.1"><a href="#ws-MidtermReview-Determinants-2-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 1"><a href="#ws-MidtermReview-Determinants-2" title="Copy heading and permalink for Worksheet Exercise 1" aria-label="Copy heading and permalink for Worksheet Exercise 1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-MidtermReview-Determinants-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-MidtermReview-Determinants-3-1">
+<div class="para">Find the determinant of the following matrices.</div>
+<ol class="lower-alpha ol-marker-3" id="ws-MidtermReview-Determinants-3-1-1">
+<li id="ws-MidtermReview-Determinants-3-1-1-1">
+<div class="para" id="ws-MidtermReview-Determinants-3-1-1-1-1">
+<span class="process-math">\(\displaystyle \begin{bmatrix} 1 \amp 0 \amp 3 \amp 1 \\ 2 \amp 2 \amp 6 \amp 0 \\ -1 \amp 0 \amp -3 \amp 1 \\ 4 \amp 1 \amp 12 \amp 0 \end{bmatrix} \)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-Determinants-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.a"><a href="#ws-MidtermReview-Determinants-3-1-1-1" title="Copy heading and permalink for Item 2.a" aria-label="Copy heading and permalink for Item 2.a">🔗</a></div>
+</li>
+<li id="ws-MidtermReview-Determinants-3-1-1-2">
+<div class="para" id="ws-MidtermReview-Determinants-3-1-1-2-1">
+<span class="process-math">\(\displaystyle \begin{bmatrix} -1 \amp -1 \amp 1 \amp 0 \\ 2 \amp 1 \amp 1 \amp 3 \\ 0 \amp 1 \amp 1 \amp 2 \\ 1 \amp 3 \amp -1 \amp 2 \end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-Determinants-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.b"><a href="#ws-MidtermReview-Determinants-3-1-1-2" title="Copy heading and permalink for Item 2.b" aria-label="Copy heading and permalink for Item 2.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-Determinants-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-MidtermReview-Determinants-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para logical" id="ws-MidtermReview-Determinants-3-2-1">
+<div class="para">Find the determinant of the following matrices.</div>
+<ol class="lower-alpha ol-marker-3" id="ws-MidtermReview-Determinants-3-2-1-1">
+<li id="ws-MidtermReview-Determinants-3-2-1-1-1">
+<div class="para" id="ws-MidtermReview-Determinants-3-2-1-1-1-1">
+<span class="process-math">\(\displaystyle \begin{vmatrix} 1 \amp 0 \amp 3 \amp 1 \\ 2 \amp 2 \amp 6 \amp 0 \\ -1 \amp 0 \amp -3 \amp 1 \\ 4 \amp 1 \amp 12 \amp 0 \end{vmatrix} = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-Determinants-3-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.a"><a href="#ws-MidtermReview-Determinants-3-2-1-1-1" title="Copy heading and permalink for Item 2.a" aria-label="Copy heading and permalink for Item 2.a">🔗</a></div>
+</li>
+<li id="ws-MidtermReview-Determinants-3-2-1-1-2">
+<div class="para" id="ws-MidtermReview-Determinants-3-2-1-1-2-1">
+<span class="process-math">\(\displaystyle \begin{vmatrix} -1 \amp -1 \amp 1 \amp 0 \\ 2 \amp 1 \amp 1 \amp 3 \\ 0 \amp 1 \amp 1 \amp 2 \\ 1 \amp 3 \amp -1 \amp 2 \end{vmatrix} = 2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-Determinants-3-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.b"><a href="#ws-MidtermReview-Determinants-3-2-1-1-2" title="Copy heading and permalink for Item 2.b" aria-label="Copy heading and permalink for Item 2.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-Determinants-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.1"><a href="#ws-MidtermReview-Determinants-3-2" title="Copy heading and permalink for Answer 2.1" aria-label="Copy heading and permalink for Answer 2.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 2"><a href="#ws-MidtermReview-Determinants-3" title="Copy heading and permalink for Worksheet Exercise 2" aria-label="Copy heading and permalink for Worksheet Exercise 2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-MidtermReview-Determinants-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-MidtermReview-Determinants-4-1">
+<div class="para">Let <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span> denote <span class="process-math">\(n\times n\)</span> matrices such that</div>
+<div class="displaymath process-math" id="ws-MidtermReview-Determinants-4-1-5">
+\begin{equation*}
+\det A = -1\, , \, \det B = 2\, , \, \text{ and } \det C = 3
+\end{equation*}
+</div>
+<div class="para">Evaluate the following expression.</div>
+<ol class="lower-alpha ol-marker-3" id="ws-MidtermReview-Determinants-4-1-6">
+<li id="ws-MidtermReview-Determinants-4-1-6-1">
+<div class="para" id="ws-MidtermReview-Determinants-4-1-6-1-1">
+<span class="process-math">\(\displaystyle \det \lp A^3BC^TB^{-1} \rp\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-Determinants-4-1-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.a"><a href="#ws-MidtermReview-Determinants-4-1-6-1" title="Copy heading and permalink for Item 3.a" aria-label="Copy heading and permalink for Item 3.a">🔗</a></div>
+</li>
+<li id="ws-MidtermReview-Determinants-4-1-6-2">
+<div class="para" id="ws-MidtermReview-Determinants-4-1-6-2-1">
+<span class="process-math">\(\displaystyle \det \lp B^2 C^{-1} AB^{-1} C^T \rp\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-Determinants-4-1-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.b"><a href="#ws-MidtermReview-Determinants-4-1-6-2" title="Copy heading and permalink for Item 3.b" aria-label="Copy heading and permalink for Item 3.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-Determinants-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-MidtermReview-Determinants-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para logical" id="ws-MidtermReview-Determinants-4-2-1">
+<ol class="lower-alpha ol-marker-3" id="ws-MidtermReview-Determinants-4-2-1-1">
+<li id="ws-MidtermReview-Determinants-4-2-1-1-1">
+<div class="para" id="ws-MidtermReview-Determinants-4-2-1-1-1-1">
+<span class="process-math">\(\displaystyle -3\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-Determinants-4-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.a"><a href="#ws-MidtermReview-Determinants-4-2-1-1-1" title="Copy heading and permalink for Item 3.a" aria-label="Copy heading and permalink for Item 3.a">🔗</a></div>
+</li>
+<li id="ws-MidtermReview-Determinants-4-2-1-1-2">
+<div class="para" id="ws-MidtermReview-Determinants-4-2-1-1-2-1">
+<span class="process-math">\(\displaystyle -2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-Determinants-4-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.b"><a href="#ws-MidtermReview-Determinants-4-2-1-1-2" title="Copy heading and permalink for Item 3.b" aria-label="Copy heading and permalink for Item 3.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-Determinants-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.1"><a href="#ws-MidtermReview-Determinants-4-2" title="Copy heading and permalink for Answer 3.1" aria-label="Copy heading and permalink for Answer 3.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 3"><a href="#ws-MidtermReview-Determinants-4" title="Copy heading and permalink for Worksheet Exercise 3" aria-label="Copy heading and permalink for Worksheet Exercise 3">🔗</a></div>
+</article><div class="autopermalink" data-description="Worksheet: Determinants (and related stuff)"><a href="#ws-MidtermReview-Determinants" title="Copy heading and permalink for Worksheet: Determinants (and related stuff)" aria-label="Copy heading and permalink for Worksheet: Determinants (and related stuff)">🔗</a></div>
+</section>
+<section class="worksheet" id="ws-MidtermReview-VectorGeometry" data-margins="0.75in 0.75in 0.75in 0.75in">
+<h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vector Geometry</span><div class="print-links"><a href="?printpreview=ws-MidtermReview-VectorGeometry" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<article class="exercise exercise-like" id="ws-MidtermReview-VectorGeometry-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-MidtermReview-VectorGeometry-2-1">Determine whether the lines <span class="process-math">\(\v{p}_1 = \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} + t \begin{bmatrix} 2 \\ -1 \\ 3 \end{bmatrix}\)</span> and <span class="process-math">\(\v{p}_2 = \begin{bmatrix} 3 \\ 0 \\ 5 \end{bmatrix} + s \begin{bmatrix} 4 \\ -2 \\ 6 \end{bmatrix}\)</span> intersect, and if so, find the point of intersection.<div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-MidtermReview-VectorGeometry-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-MidtermReview-VectorGeometry-2-2-1">The two lines are parallel of each other. Hence they do not intersect.<div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.1"><a href="#ws-MidtermReview-VectorGeometry-2-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 1"><a href="#ws-MidtermReview-VectorGeometry-2" title="Copy heading and permalink for Worksheet Exercise 1" aria-label="Copy heading and permalink for Worksheet Exercise 1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-MidtermReview-VectorGeometry-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-MidtermReview-VectorGeometry-3-1">Determine whether the lines <span class="process-math">\(\v{p}_1 = \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} + t \begin{bmatrix} 1 \\ 1 \\ 2 \end{bmatrix} \)</span> and <span class="process-math">\(\v{p}_2 = \begin{bmatrix} 2 \\ 0 \\ 3 \end{bmatrix} + s \begin{bmatrix} 1 \\ 4 \\ 4 \end{bmatrix}\)</span> intersect, and if so, find the point of intersection.<div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-MidtermReview-VectorGeometry-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-MidtermReview-VectorGeometry-3-2-1">They intersect at the point <span class="process-math">\(\lp 3,4,7 \rp\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.1"><a href="#ws-MidtermReview-VectorGeometry-3-2" title="Copy heading and permalink for Answer 2.1" aria-label="Copy heading and permalink for Answer 2.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 2"><a href="#ws-MidtermReview-VectorGeometry-3" title="Copy heading and permalink for Worksheet Exercise 2" aria-label="Copy heading and permalink for Worksheet Exercise 2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-MidtermReview-VectorGeometry-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-MidtermReview-VectorGeometry-4-1">Determine whether the lines <span class="process-math">\(\v{p}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} + t \begin{bmatrix} 1 \\ 2 \\ 1 \end{bmatrix}\)</span> and <span class="process-math">\(\v{p}_2 = \begin{bmatrix} 0 \\ 1 \\ 2 \end{bmatrix} + s \begin{bmatrix} -1 \\ 1 \\ 0 \end{bmatrix}\)</span> intersect, and if so, find the point of intersection.<div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-MidtermReview-VectorGeometry-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-MidtermReview-VectorGeometry-4-2-1">These two lines do not intersect. They are skew.<div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.1"><a href="#ws-MidtermReview-VectorGeometry-4-2" title="Copy heading and permalink for Answer 3.1" aria-label="Copy heading and permalink for Answer 3.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 3"><a href="#ws-MidtermReview-VectorGeometry-4" title="Copy heading and permalink for Worksheet Exercise 3" aria-label="Copy heading and permalink for Worksheet Exercise 3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-MidtermReview-VectorGeometry-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-MidtermReview-VectorGeometry-5-1">Write the equation of the plane with normal vector <span class="process-math">\(\v{n} = \begin{bmatrix} -1 \\ 2 \\ 1 \end{bmatrix}\)</span> passing through the point <span class="process-math">\(\lp 4,1,5 \rp\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-MidtermReview-VectorGeometry-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-MidtermReview-VectorGeometry-5-2-1">
+<span class="process-math">\(-x + 2y + z = 3\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.1"><a href="#ws-MidtermReview-VectorGeometry-5-2" title="Copy heading and permalink for Answer 4.1" aria-label="Copy heading and permalink for Answer 4.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 4"><a href="#ws-MidtermReview-VectorGeometry-5" title="Copy heading and permalink for Worksheet Exercise 4" aria-label="Copy heading and permalink for Worksheet Exercise 4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-MidtermReview-VectorGeometry-6"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-MidtermReview-VectorGeometry-6-1">Find an equation of the plane that contains the points <span class="process-math">\((1,2,3)\text{,}\)</span> <span class="process-math">\((-1,0,4)\text{,}\)</span> and <span class="process-math">\((1,1,1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-MidtermReview-VectorGeometry-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-MidtermReview-VectorGeometry-6-2-1">
+<span class="process-math">\(5x - 4y + 2z = 3\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.1"><a href="#ws-MidtermReview-VectorGeometry-6-2" title="Copy heading and permalink for Answer 5.1" aria-label="Copy heading and permalink for Answer 5.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 5"><a href="#ws-MidtermReview-VectorGeometry-6" title="Copy heading and permalink for Worksheet Exercise 5" aria-label="Copy heading and permalink for Worksheet Exercise 5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-MidtermReview-VectorGeometry-7"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-MidtermReview-VectorGeometry-7-1">Find an equation of the plane passing through the three points <span class="process-math">\(P = (1,0,0)\text{,}\)</span> <span class="process-math">\(Q = (0,1,1)\text{,}\)</span> and <span class="process-math">\(R = (2,0,1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-MidtermReview-VectorGeometry-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-MidtermReview-VectorGeometry-7-2-1">
+<span class="process-math">\(x + 2y - z = 1\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 6.1"><a href="#ws-MidtermReview-VectorGeometry-7-2" title="Copy heading and permalink for Answer 6.1" aria-label="Copy heading and permalink for Answer 6.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 6"><a href="#ws-MidtermReview-VectorGeometry-7" title="Copy heading and permalink for Worksheet Exercise 6" aria-label="Copy heading and permalink for Worksheet Exercise 6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-MidtermReview-VectorGeometry-8"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-MidtermReview-VectorGeometry-8-1">Find the intersection of the line <span class="process-math">\(\v{p} = \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix} + t \begin{bmatrix} 0 \\ 2 \\ 4 \end{bmatrix}\)</span> and the plane <span class="process-math">\(x + y + z = 14\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-MidtermReview-VectorGeometry-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-MidtermReview-VectorGeometry-8-2-1">
+<span class="process-math">\((1,5,8)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 7.1"><a href="#ws-MidtermReview-VectorGeometry-8-2" title="Copy heading and permalink for Answer 7.1" aria-label="Copy heading and permalink for Answer 7.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 7"><a href="#ws-MidtermReview-VectorGeometry-8" title="Copy heading and permalink for Worksheet Exercise 7" aria-label="Copy heading and permalink for Worksheet Exercise 7">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-MidtermReview-VectorGeometry-9"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-MidtermReview-VectorGeometry-9-1">Let <span class="process-math">\(\v{p}\)</span> denote the line of intersection of the planes <span class="process-math">\(x - y - z = 1\)</span> and <span class="process-math">\(2x + 3y + z = 2\text{.}\)</span> Find an equation for the line <span class="process-math">\(\v{p}\)</span> in parametric form.<div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-MidtermReview-VectorGeometry-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-MidtermReview-VectorGeometry-9-2-1">
+<span class="process-math">\(\v{p} = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} + t \begin{bmatrix} 2 \\ -3 \\ 5 \end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-MidtermReview-VectorGeometry-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 8.1"><a href="#ws-MidtermReview-VectorGeometry-9-2" title="Copy heading and permalink for Answer 8.1" aria-label="Copy heading and permalink for Answer 8.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 8"><a href="#ws-MidtermReview-VectorGeometry-9" title="Copy heading and permalink for Worksheet Exercise 8" aria-label="Copy heading and permalink for Worksheet Exercise 8">🔗</a></div>
+</article><div class="autopermalink" data-description="Worksheet: Vector Geometry"><a href="#ws-MidtermReview-VectorGeometry" title="Copy heading and permalink for Worksheet: Vector Geometry" aria-label="Copy heading and permalink for Worksheet: Vector Geometry">🔗</a></div>
+</section>
+<section class="worksheet" id="ws-Subspaces" data-margins="0.75in 0.75in 0.75in 0.75in">
+<h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Subspaces (and related stuff)</span><div class="print-links"><a href="?printpreview=ws-Subspaces" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<article class="exercise exercise-like" id="ws-Subspaces-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-Subspaces-2-1">Let <span class="process-math">\(A = \begin{bmatrix} 2 \amp 4 \amp 0 \amp -30 \amp 6 \\ 3 \amp 1 \amp 0 \amp 5 \amp -1 \\ 6 \amp 6 \amp 0 \amp -30 \amp 21 \\ 3 \amp 2 \amp 0 \amp -5 \amp 5 \end{bmatrix}\text{.}\)</span> Find a basis and the dimension of the null space and the column space of <span class="process-math">\(A\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-Subspaces-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-Subspaces-2-2-1">Basis for <span class="process-math">\(\Col A = \left\{ \begin{bmatrix} 2 \\ 3 \\ 6 \\ 3 \end{bmatrix}, \begin{bmatrix} 4 \\ 1 \\ 6 \\ 2 \end{bmatrix}, \begin{bmatrix} 6 \\ -1 \\ 21 \\ 5 \end{bmatrix} \right\}\)</span> and <span class="process-math">\(\dim \Col A = 3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-Subspaces-2-2-2">Basis for <span class="process-math">\(\Nul A = \left\{ \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} -5 \\ 10 \\ 0 \\ 1 \\ 0 \end{bmatrix} \right\}\)</span> and <span class="process-math">\(\dim \Nul A = 2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.1"><a href="#ws-Subspaces-2-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 1"><a href="#ws-Subspaces-2" title="Copy heading and permalink for Worksheet Exercise 1" aria-label="Copy heading and permalink for Worksheet Exercise 1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-Subspaces-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-Subspaces-3-1">Let <span class="process-math">\(A = \begin{bmatrix} 1 \amp -2 \amp 3 \\ 2 \amp -3 \amp 1 \\ 0 \amp 1 \amp -4 \end{bmatrix}\text{.}\)</span> Find a basis and the dimension of the null space and the column space of <span class="process-math">\(A\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-Subspaces-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-Subspaces-3-2-1">Basis for <span class="process-math">\(\Col A = \left\{ \begin{bmatrix} 1 \\ -2 \\ 3 \end{bmatrix}, \begin{bmatrix} 2 \\ -3 \\ 1 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ -4 \end{bmatrix} \right\}\)</span> and <span class="process-math">\(\dim \Col A = 3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-Subspaces-3-2-2">Basis for <span class="process-math">\(\Nul A = \set{\v{0}}\)</span> (the empty set) and <span class="process-math">\(\dim \Nul A = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.1"><a href="#ws-Subspaces-3-2" title="Copy heading and permalink for Answer 2.1" aria-label="Copy heading and permalink for Answer 2.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 2"><a href="#ws-Subspaces-3" title="Copy heading and permalink for Worksheet Exercise 2" aria-label="Copy heading and permalink for Worksheet Exercise 2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-Subspaces-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-Subspaces-4-1">
+<div class="para">Determine if the following set</div>
+<div class="displaymath process-math" id="ws-Subspaces-4-1-1">
+\begin{equation*}
+U = \left\{\begin{bmatrix} x \\ 0 \\ z \end{bmatrix} \mid x^2 + z^2 = 0 \text{ and } x,z \in \R\right\}
+\end{equation*}
+</div>
+<div class="para">is a subspace of <span class="process-math">\(\R^3\text{.}\)</span> Justify your reasoning.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-Subspaces-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-Subspaces-4-2-1">Yes<div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.1"><a href="#ws-Subspaces-4-2" title="Copy heading and permalink for Answer 3.1" aria-label="Copy heading and permalink for Answer 3.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 3"><a href="#ws-Subspaces-4" title="Copy heading and permalink for Worksheet Exercise 3" aria-label="Copy heading and permalink for Worksheet Exercise 3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-Subspaces-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-Subspaces-5-1">Is the set <span class="process-math">\(\left\{\begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix}\, , \, \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}\, , \, \begin{bmatrix} -1 \\ 2 \\ 4 \end{bmatrix}\right\}\)</span> linearly independent? Justify your reasoning.<div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-Subspaces-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-Subspaces-5-2-1">Yes<div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.1"><a href="#ws-Subspaces-5-2" title="Copy heading and permalink for Answer 4.1" aria-label="Copy heading and permalink for Answer 4.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 4"><a href="#ws-Subspaces-5" title="Copy heading and permalink for Worksheet Exercise 4" aria-label="Copy heading and permalink for Worksheet Exercise 4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-Subspaces-6"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-Subspaces-6-1">Is the set <span class="process-math">\(\left\{\begin{bmatrix} 1 \\ 3 \\ -2 \end{bmatrix}\, , \, \begin{bmatrix} 2 \\ 0 \\ 1 \end{bmatrix}\, , \, \begin{bmatrix} 5 \\ 3 \\ 0 \end{bmatrix}\right\}\)</span> linearly independent? Justify your reasoning.<div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-Subspaces-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-Subspaces-6-2-1">No<div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.1"><a href="#ws-Subspaces-6-2" title="Copy heading and permalink for Answer 5.1" aria-label="Copy heading and permalink for Answer 5.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 5"><a href="#ws-Subspaces-6" title="Copy heading and permalink for Worksheet Exercise 5" aria-label="Copy heading and permalink for Worksheet Exercise 5">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-Subspaces-7"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-Subspaces-7-1">
+<div class="para">Determine which of the following sets are bases for <span class="process-math">\(\R^2\)</span> or <span class="process-math">\(\R^3\text{.}\)</span> Justify your reasoning.</div>
+<ol class="lower-alpha ol-marker-3" id="ws-Subspaces-7-1-3">
+<li id="ws-Subspaces-7-1-3-1">
+<div class="para" id="ws-Subspaces-7-1-3-1-1">
+<span class="process-math">\(\displaystyle \left\{\begin{bmatrix} 5 \\ -2 \end{bmatrix}, \begin{bmatrix} 10 \\ -3 \end{bmatrix}\right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-7-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.a"><a href="#ws-Subspaces-7-1-3-1" title="Copy heading and permalink for Item 6.a" aria-label="Copy heading and permalink for Item 6.a">🔗</a></div>
+</li>
+<li id="ws-Subspaces-7-1-3-2">
+<div class="para" id="ws-Subspaces-7-1-3-2-1">
+<span class="process-math">\(\displaystyle \left\{\begin{bmatrix} 0 \\ 1 \\ -2 \end{bmatrix}, \begin{bmatrix} 5 \\ -7 \\ 4 \end{bmatrix}, \begin{bmatrix} 5 \\ -5 \\ 0 \end{bmatrix}\right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-7-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.b"><a href="#ws-Subspaces-7-1-3-2" title="Copy heading and permalink for Item 6.b" aria-label="Copy heading and permalink for Item 6.b">🔗</a></div>
+</li>
+<li id="ws-Subspaces-7-1-3-3">
+<div class="para" id="ws-Subspaces-7-1-3-3-1">
+<span class="process-math">\(\displaystyle \left\{\begin{bmatrix} 3 \\ -8 \\ 1 \end{bmatrix}, \begin{bmatrix} 6 \\ 2 \\ -5 \end{bmatrix}\right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-7-1-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.c"><a href="#ws-Subspaces-7-1-3-3" title="Copy heading and permalink for Item 6.c" aria-label="Copy heading and permalink for Item 6.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-Subspaces-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para logical" id="ws-Subspaces-7-2-1">
+<ol class="lower-alpha ol-marker-3" id="ws-Subspaces-7-2-1-1">
+<li id="ws-Subspaces-7-2-1-1-1">
+<div class="para" id="ws-Subspaces-7-2-1-1-1-1">This is a basis for <span class="process-math">\(\R^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-7-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.a"><a href="#ws-Subspaces-7-2-1-1-1" title="Copy heading and permalink for Item 6.a" aria-label="Copy heading and permalink for Item 6.a">🔗</a></div>
+</li>
+<li id="ws-Subspaces-7-2-1-1-2">
+<div class="para" id="ws-Subspaces-7-2-1-1-2-1">This is NOT a basis for <span class="process-math">\(\R^2\)</span> nor <span class="process-math">\(\R^3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-7-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.b"><a href="#ws-Subspaces-7-2-1-1-2" title="Copy heading and permalink for Item 6.b" aria-label="Copy heading and permalink for Item 6.b">🔗</a></div>
+</li>
+<li id="ws-Subspaces-7-2-1-1-3">
+<div class="para" id="ws-Subspaces-7-2-1-1-3-1">This is NOT a basis for <span class="process-math">\(\R^2\)</span> nor <span class="process-math">\(\R^3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-7-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6.c"><a href="#ws-Subspaces-7-2-1-1-3" title="Copy heading and permalink for Item 6.c" aria-label="Copy heading and permalink for Item 6.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 6.1"><a href="#ws-Subspaces-7-2" title="Copy heading and permalink for Answer 6.1" aria-label="Copy heading and permalink for Answer 6.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 6"><a href="#ws-Subspaces-7" title="Copy heading and permalink for Worksheet Exercise 6" aria-label="Copy heading and permalink for Worksheet Exercise 6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-Subspaces-8"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-Subspaces-8-1">
+<div class="para">Let <span class="process-math">\(A = \begin{bmatrix} 2 \amp -3 \amp -4 \\ -8 \amp 8 \amp 6 \\ 6 \amp -7 \amp -7 \end{bmatrix}\text{.}\)</span>
+</div>
+<ol class="lower-alpha ol-marker-3" id="ws-Subspaces-8-1-2">
+<li id="ws-Subspaces-8-1-2-1">
+<div class="para" id="ws-Subspaces-8-1-2-1-1">Find a basis for <span class="process-math">\(\Col A\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-8-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.a"><a href="#ws-Subspaces-8-1-2-1" title="Copy heading and permalink for Item 7.a" aria-label="Copy heading and permalink for Item 7.a">🔗</a></div>
+</li>
+<li id="ws-Subspaces-8-1-2-2">
+<div class="para" id="ws-Subspaces-8-1-2-2-1">Is <span class="process-math">\(\v{p} = \begin{bmatrix} 6 \\ -10 \\ 11 \end{bmatrix}\)</span> a vector in <span class="process-math">\(\Col A\text{?}\)</span> Justify your reasoning.<div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-8-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.b"><a href="#ws-Subspaces-8-1-2-2" title="Copy heading and permalink for Item 7.b" aria-label="Copy heading and permalink for Item 7.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-Subspaces-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<ol class="lower-alpha ol-marker-3" id="ws-Subspaces-8-2-1">
+<li id="ws-Subspaces-8-2-1-1">
+<div class="para" id="ws-Subspaces-8-2-1-1-1">A basis for <span class="process-math">\(\Col A\)</span> is <span class="process-math">\(\left\{ \begin{bmatrix} 2 \\ -8 \\ 6 \end{bmatrix}, \begin{bmatrix} -3 \\ 8 \\ -7 \end{bmatrix} \right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-8-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.a"><a href="#ws-Subspaces-8-2-1-1" title="Copy heading and permalink for Item 7.a" aria-label="Copy heading and permalink for Item 7.a">🔗</a></div>
+</li>
+<li id="ws-Subspaces-8-2-1-2">
+<div class="para" id="ws-Subspaces-8-2-1-2-1">Yes <span class="process-math">\(\v{p}\)</span> is in <span class="process-math">\(\Col A\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-8-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 7.b"><a href="#ws-Subspaces-8-2-1-2" title="Copy heading and permalink for Item 7.b" aria-label="Copy heading and permalink for Item 7.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Answer 7.1"><a href="#ws-Subspaces-8-2" title="Copy heading and permalink for Answer 7.1" aria-label="Copy heading and permalink for Answer 7.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 7"><a href="#ws-Subspaces-8" title="Copy heading and permalink for Worksheet Exercise 7" aria-label="Copy heading and permalink for Worksheet Exercise 7">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-Subspaces-9"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-Subspaces-9-1">
+<div class="para">Let <span class="process-math">\(A = \begin{bmatrix} 1 \amp 0 \amp -2 \amp 3 \\ 2 \amp 1 \amp -3 \amp 5 \\ 5 \amp 3 \amp -7 \amp 12 \end{bmatrix}\text{.}\)</span>
+</div>
+<ol class="lower-alpha ol-marker-3" id="ws-Subspaces-9-1-2">
+<li id="ws-Subspaces-9-1-2-1">
+<div class="para" id="ws-Subspaces-9-1-2-1-1">Find a basis for <span class="process-math">\(\Nul A\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-9-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 8.a"><a href="#ws-Subspaces-9-1-2-1" title="Copy heading and permalink for Item 8.a" aria-label="Copy heading and permalink for Item 8.a">🔗</a></div>
+</li>
+<li id="ws-Subspaces-9-1-2-2">
+<div class="para" id="ws-Subspaces-9-1-2-2-1">Is <span class="process-math">\(\v{p} = \begin{bmatrix} -4 \\ 1 \\ 1 \\ 2 \end{bmatrix}\)</span> a vector in <span class="process-math">\(\Nul A\text{?}\)</span> Justify your reasoning.<div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-9-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 8.b"><a href="#ws-Subspaces-9-1-2-2" title="Copy heading and permalink for Item 8.b" aria-label="Copy heading and permalink for Item 8.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-Subspaces-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<ol class="lower-alpha ol-marker-3" id="ws-Subspaces-9-2-1">
+<li id="ws-Subspaces-9-2-1-1">
+<div class="para" id="ws-Subspaces-9-2-1-1-1">A basis for <span class="process-math">\(\Nul A\)</span> is <span class="process-math">\(\left\{ \begin{bmatrix} 2 \\ -1 \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} -3 \\ 1 \\ 0 \\ 1 \end{bmatrix} \right\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-9-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 8.a"><a href="#ws-Subspaces-9-2-1-1" title="Copy heading and permalink for Item 8.a" aria-label="Copy heading and permalink for Item 8.a">🔗</a></div>
+</li>
+<li id="ws-Subspaces-9-2-1-2">
+<div class="para" id="ws-Subspaces-9-2-1-2-1">Yes, <span class="process-math">\(\v{p}\)</span> is in <span class="process-math">\(\Nul A\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-9-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 8.b"><a href="#ws-Subspaces-9-2-1-2" title="Copy heading and permalink for Item 8.b" aria-label="Copy heading and permalink for Item 8.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Answer 8.1"><a href="#ws-Subspaces-9-2" title="Copy heading and permalink for Answer 8.1" aria-label="Copy heading and permalink for Answer 8.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 8"><a href="#ws-Subspaces-9" title="Copy heading and permalink for Worksheet Exercise 8" aria-label="Copy heading and permalink for Worksheet Exercise 8">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-Subspaces-10"><h4 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-Subspaces-10-1">
+<div class="para">Find a basis for the subspace spanned by the following vectors:</div>
+<div class="displaymath process-math" id="ws-Subspaces-10-1-1">
+\begin{equation*}
+\begin{bmatrix} 1 \\ -3 \\ 2 \\ -4 \end{bmatrix}\, , \, 
+\begin{bmatrix} -3 \\ 9 \\ -6 \\ 12 \end{bmatrix}\, , \, 
+\begin{bmatrix} 2 \\ -1 \\ 4 \\ 2 \end{bmatrix}\, , \, 
+\begin{bmatrix} -4 \\ 5 \\ -3 \\ 7 \end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">Then determine the dimension of this subspace.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-Subspaces-10-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-Subspaces-10-2-1">A basis is <span class="process-math">\(\left\{ 
+\begin{bmatrix} 1 \\ -3 \\ 2 \\ -4 \end{bmatrix}, 
+\begin{bmatrix} 2 \\ -1 \\ 4 \\ 2 \end{bmatrix}, 
+\begin{bmatrix} -4 \\ 5 \\ -3 \\ 7 \end{bmatrix} 
+\right\}\)</span> and the dimension is <span class="process-math">\(3\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Subspaces-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 9.1"><a href="#ws-Subspaces-10-2" title="Copy heading and permalink for Answer 9.1" aria-label="Copy heading and permalink for Answer 9.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 9"><a href="#ws-Subspaces-10" title="Copy heading and permalink for Worksheet Exercise 9" aria-label="Copy heading and permalink for Worksheet Exercise 9">🔗</a></div>
+</article><div class="autopermalink" data-description="Worksheet: Subspaces (and related stuff)"><a href="#ws-Subspaces" title="Copy heading and permalink for Worksheet: Subspaces (and related stuff)" aria-label="Copy heading and permalink for Worksheet: Subspaces (and related stuff)">🔗</a></div>
+</section>
+<section class="worksheet" id="ws-Orthogonality" data-margins="0.75in 0.75in 0.75in 0.75in">
+<h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Orthogonality</span><div class="print-links"><a href="?printpreview=ws-Orthogonality" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<article class="exercise exercise-like" id="ws-Orthogonality-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-Orthogonality-2-1">Let <span class="process-math">\(\v{v}_1 = \begin{bmatrix} 1 \\ -2 \\ 0 \end{bmatrix}\text{,}\)</span> <span class="process-math">\(\v{v}_2 = \begin{bmatrix} 2 \\ 1 \\ -3 \end{bmatrix}\text{,}\)</span> and <span class="process-math">\(\v{v}_3 = \begin{bmatrix} 3 \\ 0 \\ 2 \end{bmatrix}\text{.}\)</span> Determine whether this set <span class="process-math">\(\set{\v{v}_1, \v{v}_2, \v{v}_3}\)</span> an orthogonal set. Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#ws-Orthogonality-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-Orthogonality-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-Orthogonality-2-2-1">Nope<div class="autopermalink" data-description="Paragraph"><a href="#ws-Orthogonality-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.1"><a href="#ws-Orthogonality-2-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 1"><a href="#ws-Orthogonality-2" title="Copy heading and permalink for Worksheet Exercise 1" aria-label="Copy heading and permalink for Worksheet Exercise 1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-Orthogonality-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-Orthogonality-3-1">Let <span class="process-math">\(\v{v}_1 = \begin{bmatrix} 1 \\ 2 \end{bmatrix}\text{,}\)</span> <span class="process-math">\(\v{v}_2 = \begin{bmatrix} -2 \\ 1 \end{bmatrix}\text{,}\)</span> and <span class="process-math">\(\v{v}_3 = \begin{bmatrix} 3 \\ -1 \end{bmatrix}\text{.}\)</span> Is this set <span class="process-math">\(\set{\v{v}_1, \v{v}_2, \v{v}_3}\)</span> an orthogonal set? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#ws-Orthogonality-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-Orthogonality-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-Orthogonality-3-2-1">Nope<div class="autopermalink" data-description="Paragraph"><a href="#ws-Orthogonality-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.1"><a href="#ws-Orthogonality-3-2" title="Copy heading and permalink for Answer 2.1" aria-label="Copy heading and permalink for Answer 2.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 2"><a href="#ws-Orthogonality-3" title="Copy heading and permalink for Worksheet Exercise 2" aria-label="Copy heading and permalink for Worksheet Exercise 2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-Orthogonality-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-Orthogonality-4-1">Let <span class="process-math">\(\v{v}_1 = \begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix}\text{,}\)</span> <span class="process-math">\(\v{v}_2 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}\text{,}\)</span> and <span class="process-math">\(\v{v}_3 = \begin{bmatrix} -1 \\ -1 \\ 2 \end{bmatrix}\text{.}\)</span> Is this set <span class="process-math">\(\set{\v{v}_1, \v{v}_2, \v{v}_3}\)</span> an orthogonal set? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#ws-Orthogonality-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-Orthogonality-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-Orthogonality-4-2-1">Yep<div class="autopermalink" data-description="Paragraph"><a href="#ws-Orthogonality-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.1"><a href="#ws-Orthogonality-4-2" title="Copy heading and permalink for Answer 3.1" aria-label="Copy heading and permalink for Answer 3.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 3"><a href="#ws-Orthogonality-4" title="Copy heading and permalink for Worksheet Exercise 3" aria-label="Copy heading and permalink for Worksheet Exercise 3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-Orthogonality-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-Orthogonality-5-1">Let <span class="process-math">\(\v{v}_1 = \begin{bmatrix} 2 \\ 3 \\ 6 \end{bmatrix}\text{,}\)</span> <span class="process-math">\(\v{v}_2 = \begin{bmatrix} 3 \\ -6 \\ 2 \end{bmatrix}\text{,}\)</span> and <span class="process-math">\(\v{v}_3 = \begin{bmatrix} 6 \\ 2 \\ -3 \end{bmatrix}\text{.}\)</span> Is this set <span class="process-math">\(\set{\v{v}_1, \v{v}_2, \v{v}_3}\)</span> an orthogonal set? Why or why not?<div class="autopermalink" data-description="Paragraph"><a href="#ws-Orthogonality-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-Orthogonality-5-2">Is this set <span class="process-math">\(\set{\v{v}_1, \v{v}_2, \v{v}_3}\)</span> an orthonormal set? If not, normalize these vectors to create an orthonormal set?<div class="autopermalink" data-description="Paragraph"><a href="#ws-Orthogonality-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-Orthogonality-5-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-Orthogonality-5-3-1">Yep to the orthogonal set and nope to the orthonormal set.<div class="autopermalink" data-description="Paragraph"><a href="#ws-Orthogonality-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-Orthogonality-5-3-2">The normalized version is <span class="process-math">\(\left\{\begin{bmatrix} \frac{2}{7} \\ \frac{3}{7} \\ \frac{6}{7} \end{bmatrix}, \begin{bmatrix} \frac{3}{7} \\ -\frac{6}{7} \\ \frac{2}{7} \end{bmatrix}, \begin{bmatrix} \frac{6}{7} \\ \frac{2}{7} \\ -\frac{3}{7} \end{bmatrix}\right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-Orthogonality-5-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.1"><a href="#ws-Orthogonality-5-3" title="Copy heading and permalink for Answer 4.1" aria-label="Copy heading and permalink for Answer 4.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 4"><a href="#ws-Orthogonality-5" title="Copy heading and permalink for Worksheet Exercise 4" aria-label="Copy heading and permalink for Worksheet Exercise 4">🔗</a></div>
+</article><div class="autopermalink" data-description="Worksheet: Orthogonality"><a href="#ws-Orthogonality" title="Copy heading and permalink for Worksheet: Orthogonality" aria-label="Copy heading and permalink for Worksheet: Orthogonality">🔗</a></div>
+</section>
+<section class="worksheet" id="ws-RankNullity" data-margins="0.75in 0.75in 0.75in 0.75in">
+<h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Column Space &amp; Null Space</span><div class="print-links"><a href="?printpreview=ws-RankNullity" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<article class="exercise exercise-like" id="ws-RankNullity-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-RankNullity-2-1">
+<div class="para">Let <span class="process-math">\(A = \begin{bmatrix} 1 \amp -2 \amp 3 \\ -2 \amp 4 \amp -6 \\ 3 \amp -6 \amp 9 \\ 0 \amp 0 \amp 0 \\ -1 \amp 2 \amp -3 \end{bmatrix}\text{.}\)</span>
+</div>
+<ol class="lower-alpha ol-marker-3" id="ws-RankNullity-2-1-2">
+<li id="ws-RankNullity-2-1-2-1">
+<div class="para" id="ws-RankNullity-2-1-2-1-1">Find the dimension of <span class="process-math">\(\Col A\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-RankNullity-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.a"><a href="#ws-RankNullity-2-1-2-1" title="Copy heading and permalink for Item 1.a" aria-label="Copy heading and permalink for Item 1.a">🔗</a></div>
+</li>
+<li id="ws-RankNullity-2-1-2-2">
+<div class="para" id="ws-RankNullity-2-1-2-2-1">Find the dimension of <span class="process-math">\(\Nul A\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-RankNullity-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.b"><a href="#ws-RankNullity-2-1-2-2" title="Copy heading and permalink for Item 1.b" aria-label="Copy heading and permalink for Item 1.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-RankNullity-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-RankNullity-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-RankNullity-2-2-1">
+<span class="process-math">\(\dim \Col A = 1\)</span> and <span class="process-math">\(\dim \Nul A = 2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-RankNullity-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.1"><a href="#ws-RankNullity-2-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 1"><a href="#ws-RankNullity-2" title="Copy heading and permalink for Worksheet Exercise 1" aria-label="Copy heading and permalink for Worksheet Exercise 1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-RankNullity-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-RankNullity-3-1">
+<div class="para">Let <span class="process-math">\(B = \begin{bmatrix} 1 \amp 0 \amp 2 \amp 1 \\ 0 \amp 1 \amp -1 \amp 0 \\ 2 \amp 0 \amp 5 \amp 2 \\ 1 \amp -1 \amp 2 \amp 2 \end{bmatrix}\text{.}\)</span>
+</div>
+<ol class="lower-alpha ol-marker-3" id="ws-RankNullity-3-1-2">
+<li id="ws-RankNullity-3-1-2-1">
+<div class="para" id="ws-RankNullity-3-1-2-1-1">Find the dimension of <span class="process-math">\(\Col B\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-RankNullity-3-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.a"><a href="#ws-RankNullity-3-1-2-1" title="Copy heading and permalink for Item 2.a" aria-label="Copy heading and permalink for Item 2.a">🔗</a></div>
+</li>
+<li id="ws-RankNullity-3-1-2-2">
+<div class="para" id="ws-RankNullity-3-1-2-2-1">Find the dimension of <span class="process-math">\(\Nul B\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-RankNullity-3-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.b"><a href="#ws-RankNullity-3-1-2-2" title="Copy heading and permalink for Item 2.b" aria-label="Copy heading and permalink for Item 2.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-RankNullity-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-RankNullity-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-RankNullity-3-2-1">
+<span class="process-math">\(\dim \Col A = 4\)</span> and <span class="process-math">\(\dim \Nul A = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-RankNullity-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.1"><a href="#ws-RankNullity-3-2" title="Copy heading and permalink for Answer 2.1" aria-label="Copy heading and permalink for Answer 2.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 2"><a href="#ws-RankNullity-3" title="Copy heading and permalink for Worksheet Exercise 2" aria-label="Copy heading and permalink for Worksheet Exercise 2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-RankNullity-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-RankNullity-4-1">
+<div class="para">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> <em class="emphasis">invertible</em> matrix.</div>
+<ol class="lower-alpha ol-marker-3" id="ws-RankNullity-4-1-4">
+<li id="ws-RankNullity-4-1-4-1">
+<div class="para" id="ws-RankNullity-4-1-4-1-1">What is the dimension of <span class="process-math">\(\Col A\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-RankNullity-4-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.a"><a href="#ws-RankNullity-4-1-4-1" title="Copy heading and permalink for Item 3.a" aria-label="Copy heading and permalink for Item 3.a">🔗</a></div>
+</li>
+<li id="ws-RankNullity-4-1-4-2">
+<div class="para" id="ws-RankNullity-4-1-4-2-1">What is the dimension of <span class="process-math">\(\Nul A\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-RankNullity-4-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.b"><a href="#ws-RankNullity-4-1-4-2" title="Copy heading and permalink for Item 3.b" aria-label="Copy heading and permalink for Item 3.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-RankNullity-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-RankNullity-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-RankNullity-4-2-1">
+<span class="process-math">\(\dim \Col A = n\)</span> and <span class="process-math">\(\dim \Nul A = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-RankNullity-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-RankNullity-4-2-2">
+<em class="emphasis">P.S:</em> the matrix in the previous exercise is invertible, so you see that every column has a pivot position (and hence <span class="process-math">\(\dim \Col A = n\)</span>). By the Rank Nullity Theorem, <span class="process-math">\(\dim \Nul A = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-RankNullity-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.1"><a href="#ws-RankNullity-4-2" title="Copy heading and permalink for Answer 3.1" aria-label="Copy heading and permalink for Answer 3.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 3"><a href="#ws-RankNullity-4" title="Copy heading and permalink for Worksheet Exercise 3" aria-label="Copy heading and permalink for Worksheet Exercise 3">🔗</a></div>
+</article><div class="autopermalink" data-description="Worksheet: Column Space &amp; Null Space"><a href="#ws-RankNullity" title="Copy heading and permalink for Worksheet: Column Space &amp; Null Space" aria-label="Copy heading and permalink for Worksheet: Column Space &amp; Null Space">🔗</a></div>
+</section>
+<section class="worksheet" id="ws-FinalReview-EigenStuff" data-margins="0.75in 0.75in 0.75in 0.75in">
+<h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Eigen-related Stuff</span><div class="print-links"><a href="?printpreview=ws-FinalReview-EigenStuff" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<article class="exercise exercise-like" id="ws-FinalReview-EigenStuff-2"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-FinalReview-EigenStuff-2-1">Let <span class="process-math">\(A = \begin{bmatrix} 5 \amp -1 \\ 1 \amp 3 \end{bmatrix}\text{.}\)</span> Find <em class="emphasis">all</em> the eigenvalues of this matrix, and determine the corresponding eigenspace.<div class="autopermalink" data-description="Paragraph"><a href="#ws-FinalReview-EigenStuff-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-FinalReview-EigenStuff-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-FinalReview-EigenStuff-2-2-1">The eigenvalue is <span class="process-math">\(\lambda = 4\text{,}\)</span> with the multiplicity of <span class="process-math">\(2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-FinalReview-EigenStuff-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-FinalReview-EigenStuff-2-2-2">Its corresponding eigenspace is <span class="process-math">\(E_4 = \span \left\{\begin{bmatrix} 1 \\ 1 \end{bmatrix}\right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-FinalReview-EigenStuff-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 1.1"><a href="#ws-FinalReview-EigenStuff-2-2" title="Copy heading and permalink for Answer 1.1" aria-label="Copy heading and permalink for Answer 1.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 1"><a href="#ws-FinalReview-EigenStuff-2" title="Copy heading and permalink for Worksheet Exercise 1" aria-label="Copy heading and permalink for Worksheet Exercise 1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-FinalReview-EigenStuff-3"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-FinalReview-EigenStuff-3-1">Let <span class="process-math">\(A = \begin{bmatrix} 2 \amp -2 \amp -1 \\ -1 \amp 1 \amp -1 \\ -1 \amp -2 \amp 2 \end{bmatrix}\text{.}\)</span> Find <em class="emphasis">all</em> the eigenvalues of this matrix.<div class="autopermalink" data-description="Paragraph"><a href="#ws-FinalReview-EigenStuff-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-FinalReview-EigenStuff-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-FinalReview-EigenStuff-3-2-1">The eigenvalues are <span class="process-math">\(\lambda = 3\)</span> (with the multiplicity of <span class="process-math">\(2\)</span>) and <span class="process-math">\(\lambda = -1\)</span> (with the multiplicity of <span class="process-math">\(1\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#ws-FinalReview-EigenStuff-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 2.1"><a href="#ws-FinalReview-EigenStuff-3-2" title="Copy heading and permalink for Answer 2.1" aria-label="Copy heading and permalink for Answer 2.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 2"><a href="#ws-FinalReview-EigenStuff-3" title="Copy heading and permalink for Worksheet Exercise 2" aria-label="Copy heading and permalink for Worksheet Exercise 2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-FinalReview-EigenStuff-4"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-FinalReview-EigenStuff-4-1">Diagonalize the matrix <span class="process-math">\(A = \begin{bmatrix} 4 \amp -5 \\ -3 \amp 2 \end{bmatrix}\)</span> if possible. If not, state why.<div class="autopermalink" data-description="Paragraph"><a href="#ws-FinalReview-EigenStuff-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-FinalReview-EigenStuff-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-FinalReview-EigenStuff-4-2-1">Yep, <span class="process-math">\(A\)</span> is diagonalizable.<div class="autopermalink" data-description="Paragraph"><a href="#ws-FinalReview-EigenStuff-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-FinalReview-EigenStuff-4-2-2">
+<span class="process-math">\(D = \begin{bmatrix} 7 \amp 0 \\ 0 \amp -1 \end{bmatrix}\)</span> and <span class="process-math">\(P = \begin{bmatrix} 5 \amp 1 \\ -3 \amp 1 \end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-FinalReview-EigenStuff-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 3.1"><a href="#ws-FinalReview-EigenStuff-4-2" title="Copy heading and permalink for Answer 3.1" aria-label="Copy heading and permalink for Answer 3.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 3"><a href="#ws-FinalReview-EigenStuff-4" title="Copy heading and permalink for Worksheet Exercise 3" aria-label="Copy heading and permalink for Worksheet Exercise 3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-FinalReview-EigenStuff-5"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-FinalReview-EigenStuff-5-1">Diagonalize the matrix <span class="process-math">\(B = \begin{bmatrix} -1 \amp 2 \amp 2 \\ -2 \amp 3 \amp 1 \\ -2 \amp 2 \amp 4 \end{bmatrix}\)</span> if possible. If not, state why.<div class="autopermalink" data-description="Paragraph"><a href="#ws-FinalReview-EigenStuff-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-FinalReview-EigenStuff-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-FinalReview-EigenStuff-5-2-1">Yep <span class="process-math">\(B\)</span> is diagonalizable.<div class="autopermalink" data-description="Paragraph"><a href="#ws-FinalReview-EigenStuff-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-FinalReview-EigenStuff-5-2-2">
+<span class="process-math">\(D = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix}\)</span> and <span class="process-math">\(P = \begin{bmatrix} 1 \amp 0 \amp 1 \\ 1 \amp -1 \amp 0 \\ 0 \amp 1 \amp 2 \end{bmatrix}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-FinalReview-EigenStuff-5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 4.1"><a href="#ws-FinalReview-EigenStuff-5-2" title="Copy heading and permalink for Answer 4.1" aria-label="Copy heading and permalink for Answer 4.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 4"><a href="#ws-FinalReview-EigenStuff-5" title="Copy heading and permalink for Worksheet Exercise 4" aria-label="Copy heading and permalink for Worksheet Exercise 4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="ws-FinalReview-EigenStuff-6"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-FinalReview-EigenStuff-6-1">Diagonalize the matrix <span class="process-math">\(C = \begin{bmatrix} 0 \amp -6 \amp -4 \\ 5 \amp -11 \amp -6 \\ -6 \amp 9 \amp 4 \end{bmatrix}\)</span> if possible. If not, state why.<div class="autopermalink" data-description="Paragraph"><a href="#ws-FinalReview-EigenStuff-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-FinalReview-EigenStuff-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="answer solution-like knowl__content">
+<div class="para" id="ws-FinalReview-EigenStuff-6-2-1">Nope <span class="process-math">\(C\)</span> is not diagonalizable.<div class="autopermalink" data-description="Paragraph"><a href="#ws-FinalReview-EigenStuff-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.1"><a href="#ws-FinalReview-EigenStuff-6-2" title="Copy heading and permalink for Answer 5.1" aria-label="Copy heading and permalink for Answer 5.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 5"><a href="#ws-FinalReview-EigenStuff-6" title="Copy heading and permalink for Worksheet Exercise 5" aria-label="Copy heading and permalink for Worksheet Exercise 5">🔗</a></div>
+</article><div class="autopermalink" data-description="Worksheet: Eigen-related Stuff"><a href="#ws-FinalReview-EigenStuff" title="Copy heading and permalink for Worksheet: Eigen-related Stuff" aria-label="Copy heading and permalink for Worksheet: Eigen-related Stuff">🔗</a></div>
+</section><div class="autopermalink" data-description="Section A.2: Final Review"><a href="#secA2-FinalReview" title="Copy heading and permalink for Section A.2: Final Review" aria-label="Copy heading and permalink for Section A.2: Final Review">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="secA1-MidtermReview.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
