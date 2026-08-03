@@ -197,9 +197,6 @@
 
   <!-- include sections -->
   <xi:include href="secA1-MidtermReview.ptx" />
-
-  <!--
-  <xi:include href="secA3-FinalReview.ptx" />
--->
+  <xi:include href="secA2-FinalReview.ptx" />
 
 </appendix>

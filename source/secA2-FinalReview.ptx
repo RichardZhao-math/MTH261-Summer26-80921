@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="secA2-FinalReview" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Final Review</title>
+
+    <introduction>
+        <p>
+            The final exam will be cumulative, which means it is a fair shot for me to ask anything we covered this term on the final exam (minus the abstract vector space thing in the last chapter). 
+            Below are the sections we covered after the midterm exam: 
+            <ul marker="">
+                <li>
+                    <p>
+                        <xref ref="sec31-CofactorExpansion"/>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <xref ref="sec32-DeterminantsInverse"/>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <xref ref="sec41-VectorsLines"/>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <xref ref="sec42-ProjectionsPlanes"/>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <xref ref="sec51-SubspaceSpanning"/>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <xref ref="sec52-IndependenceDimension"/>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <xref ref="sec53-Orthogonality"/> Orthogonality
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <xref ref="sec54-Rank"/> Rank of a Matrix
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <xref ref="sec33-EigenvaluesEigenvectors"/> Eigenvalues and Eigenvectors
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <xref ref="sec34-Diagonalization"/> Diagonalization
+                    </p>
+                </li>
+            </ul>
+            On this page, you will find review problems that addresses the aforementioned sections. 
+            The final answers are included for each problem.
+            Make sure you spend some time working through these problems and understanding how things work! 
+        </p>
+
+        <p>
+            <alert>Note:</alert> For review problems that address material covered in the midterm exam, please refer to the <xref ref="secA1-MidtermReview"/> Midterm Review. 
+        </p>
+
+        <p>
+            <alert>A quick reminder:</alert> The last class session on Monday, August 10, will be a review session. 
+            Usually this will be a work day for you to work through some problems together to prepare for the exam. 
+            This is also a great opportunity for you to ask questions about anything that is not clear to you! 
+        </p>
+        
+    </introduction>
+
+    <worksheet xml:id="ws-MidtermReview-Determinants">
+        <title>Determinants (and related stuff)</title>
+
+        <exercise>
+            <p>
+                Let <m>A = \begin{bmatrix} 1 \amp 3 \amp -2 \\ 0 \amp 1 \amp 5 \\ 2 \amp 3 \amp 1 \end{bmatrix}</m>. 
+                Find <m>\det A</m> using (1) the cofactor expansion, and (2) elementary row operation to convert the matrix into upper triangular form. 
+            </p>
+
+            <answer>
+                <p>
+                    <m>\det A = 20</m>
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Find the determinant of the following matrices. 
+                <ol marker="(a)">
+                    <li>
+                        <p>
+                            <m>\begin{bmatrix} 1 \amp 0 \amp 3 \amp 1 \\ 2 \amp 2 \amp 6 \amp 0 \\ -1 \amp 0 \amp -3 \amp 1 \\ 4 \amp 1 \amp 12 \amp 0 \end{bmatrix} </m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\begin{bmatrix} -1 \amp -1 \amp 1 \amp 0 \\ 2 \amp 1 \amp 1 \amp 3 \\ 0 \amp 1 \amp 1 \amp 2 \\ 1 \amp 3 \amp -1 \amp 2 \end{bmatrix}</m>
+                        </p>
+                    </li>
+                </ol>
+            </p>
+
+            <answer>
+                <p>
+                    Find the determinant of the following matrices. 
+                    <ol marker="(a)">
+                        <li>
+                            <p>
+                                <m>\begin{vmatrix} 1 \amp 0 \amp 3 \amp 1 \\ 2 \amp 2 \amp 6 \amp 0 \\ -1 \amp 0 \amp -3 \amp 1 \\ 4 \amp 1 \amp 12 \amp 0 \end{vmatrix} = 0</m>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>\begin{vmatrix} -1 \amp -1 \amp 1 \amp 0 \\ 2 \amp 1 \amp 1 \amp 3 \\ 0 \amp 1 \amp 1 \amp 2 \\ 1 \amp 3 \amp -1 \amp 2 \end{vmatrix} = 2</m>
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </answer>
+        </exercise>
+
+
+        <exercise>
+            <p>
+                Let <m>A</m>, <m>B</m>, and <m>C</m> denote <m>n\times n</m> matrices such that
+                <md>
+                    \det A = -1\, , \, \det B = 2\, , \, \text{ and } \det C = 3
+                </md>
+                Evaluate the following expression. 
+                <ol marker="(a)">
+                    <li>
+                        <p>
+                            <m>\det \lp A^3BC^TB^{-1} \rp</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\det \lp B^2 C^{-1} AB^{-1} C^T \rp</m>
+                        </p>
+                    </li>
+                </ol>
+            </p>
+
+            <answer>
+                <p>
+                    <ol marker="(a)">
+                        <li>
+                            <p>
+                                <m>-3</m>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>-2</m>
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </answer>
+        </exercise>
+    </worksheet>
+
+    <worksheet xml:id="ws-MidtermReview-VectorGeometry">
+        <title>Vector Geometry</title>
+
+        <exercise>
+            <p>
+                Determine whether the lines <m>\v{p}_1 = \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} + t \begin{bmatrix} 2 \\ -1 \\ 3 \end{bmatrix}</m> and <m>\v{p}_2 = \begin{bmatrix} 3 \\ 0 \\ 5 \end{bmatrix} + s \begin{bmatrix} 4 \\ -2 \\ 6 \end{bmatrix}</m> intersect, and if so, find the point of intersection.
+            </p>
+
+            <answer>
+                <p>
+                    The two lines are parallel of each other. 
+                    Hence they do not intersect. 
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Determine whether the lines <m>\v{p}_1 = \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix} + t \begin{bmatrix} 1 \\ 1 \\ 2 \end{bmatrix} </m> and <m>\v{p}_2 = \begin{bmatrix} 2 \\ 0 \\ 3 \end{bmatrix} + s \begin{bmatrix} 1 \\ 4 \\ 4 \end{bmatrix}</m> intersect, and if so, find the point of intersection.
+            </p>
+
+            <answer>
+                <p>
+                    They intersect at the point <m>\lp 3,4,7 \rp</m>
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Determine whether the lines <m>\v{p}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} + t \begin{bmatrix} 1 \\ 2 \\ 1 \end{bmatrix}</m> and <m>\v{p}_2 = \begin{bmatrix} 0 \\ 1 \\ 2 \end{bmatrix} + s \begin{bmatrix} -1 \\ 1 \\ 0 \end{bmatrix}</m> intersect, and if so, find the point of intersection.
+            </p>
+
+            <answer>
+                <p>
+                    These two lines do not intersect. They are skew. 
+                </p>
+            </answer>
+        </exercise>
+        
+        <exercise>
+            <p>
+                Write the equation of the plane with normal vector <m>\v{n} = \begin{bmatrix} -1 \\ 2 \\ 1 \end{bmatrix}</m> passing through the point <m>\lp 4,1,5 \rp</m>. 
+            </p>
+
+            <answer>
+                <p>
+                    <m>-x + 2y + z = 3</m>
+                </p>
+            </answer>
+        </exercise>
+        
+        <exercise>
+            <p>
+                Find an equation of the plane that contains the points <m>(1,2,3)</m>, <m>(-1,0,4)</m>, and <m>(1,1,1)</m>. 
+            </p>
+
+            <answer>
+                <p>
+                    <m>5x - 4y + 2z = 3</m>
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Find an equation of the plane passing through the three points <m>P = (1,0,0)</m>, <m>Q = (0,1,1)</m>, and <m>R = (2,0,1)</m>. 
+            </p>
+
+            <answer>
+                <p>
+                    <m>x + 2y - z = 1</m>
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Find the intersection of the line <m>\v{p} = \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix} + t \begin{bmatrix} 0 \\ 2 \\ 4 \end{bmatrix}</m> and the plane <m>x + y + z = 14</m>. 
+            </p>
+
+            <answer>
+                <p>
+                    <m>(1,5,8)</m>
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Let <m>\v{p}</m> denote the line of intersection of the planes <m>x - y - z = 1</m> and <m>2x + 3y + z = 2</m>. 
+                Find an equation for the line <m>\v{p}</m> in parametric form. 
+            </p>
+
+            <answer>
+                <p>
+                    <m>\v{p} = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} + t \begin{bmatrix} 2 \\ -3 \\ 5 \end{bmatrix}</m>
+                </p>
+            </answer>
+        </exercise>
+    </worksheet>
+
+    <worksheet xml:id="ws-Subspaces">
+        <title>Subspaces (and related stuff)</title>
+
+        <exercise>
+            <p>
+                Let <m>A = \begin{bmatrix} 2 \amp 4 \amp 0 \amp -30 \amp 6 \\ 3 \amp 1 \amp 0 \amp 5 \amp -1 \\ 6 \amp 6 \amp 0 \amp -30 \amp 21 \\ 3 \amp 2 \amp 0 \amp -5 \amp 5 \end{bmatrix}</m>. 
+                Find a basis and the dimension of the null space and the column space of <m>A</m>. 
+            </p>
+
+            <answer>
+                <p>
+                    Basis for <m>\Col A = \left\{ \begin{bmatrix} 2 \\ 3 \\ 6 \\ 3 \end{bmatrix}, \begin{bmatrix} 4 \\ 1 \\ 6 \\ 2 \end{bmatrix}, \begin{bmatrix} 6 \\ -1 \\ 21 \\ 5 \end{bmatrix} \right\}</m> and <m>\dim \Col A = 3</m>. 
+                </p>
+
+                <p>
+                    Basis for <m>\Nul A = \left\{ \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} -5 \\ 10 \\ 0 \\ 1 \\ 0 \end{bmatrix} \right\}</m> and <m>\dim \Nul A = 2</m>. 
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Let <m>A = \begin{bmatrix} 1 \amp -2 \amp 3 \\ 2 \amp -3 \amp 1 \\ 0 \amp 1 \amp -4 \end{bmatrix}</m>. 
+                Find a basis and the dimension of the null space and the column space of <m>A</m>. 
+            </p>
+
+            <answer>
+                <p>
+                    Basis for <m>\Col A = \left\{ \begin{bmatrix} 1 \\ -2 \\ 3 \end{bmatrix}, \begin{bmatrix} 2 \\ -3 \\ 1 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ -4 \end{bmatrix} \right\}</m> and <m>\dim \Col A = 3</m>. 
+                </p>
+                <p>
+                    Basis for <m>\Nul A = \set{\v{0}}</m> (the empty set) and <m>\dim \Nul A = 0</m>. 
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Determine if the following set 
+                <md>
+                    U = \left\{\begin{bmatrix} x \\ 0 \\ z \end{bmatrix} \mid x^2 + z^2 = 0 \text{ and } x,z \in \R\right\}
+                </md>
+                is a subspace of <m>\R^3</m>. 
+                Justify your reasoning. 
+            </p>
+
+            <answer>
+                <p>
+                    Yes
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Is the set <m>\left\{\begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix}\, , \, \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}\, , \, \begin{bmatrix} -1 \\ 2 \\ 4 \end{bmatrix}\right\}</m> linearly independent? 
+                Justify your reasoning.
+            </p>
+
+            <answer>
+                <p>
+                    Yes
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Is the set <m>\left\{\begin{bmatrix} 1 \\ 3 \\ -2 \end{bmatrix}\, , \, \begin{bmatrix} 2 \\ 0 \\ 1 \end{bmatrix}\, , \, \begin{bmatrix} 5 \\ 3 \\ 0 \end{bmatrix}\right\}</m> linearly independent? 
+                Justify your reasoning.
+            </p>
+
+            <answer>
+                <p>
+                    No
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Determine which of the following sets are bases for <m>\R^2</m> or <m>\R^3</m>. 
+                Justify your reasoning. 
+                <ol marker="(a)">
+                    <li>
+                        <p>
+                            <m>\left\{\begin{bmatrix} 5 \\ -2 \end{bmatrix}, \begin{bmatrix} 10 \\ -3 \end{bmatrix}\right\}</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\left\{\begin{bmatrix} 0 \\ 1 \\ -2 \end{bmatrix}, \begin{bmatrix} 5 \\ -7 \\ 4 \end{bmatrix}, \begin{bmatrix} 5 \\ -5 \\ 0 \end{bmatrix}\right\}</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\left\{\begin{bmatrix} 3 \\ -8 \\ 1 \end{bmatrix}, \begin{bmatrix} 6 \\ 2 \\ -5 \end{bmatrix}\right\}</m>
+                        </p>
+                    </li>
+                </ol>
+            </p>
+
+            <answer>
+                <p>
+                    <ol marker="(a)">
+                        <li>
+                            <p>
+                                This is a basis for <m>\R^2</m>. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                This is NOT a basis for <m>\R^2</m> nor <m>\R^3</m>. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                This is NOT a basis for <m>\R^2</m> nor <m>\R^3</m>. 
+                            </p>
+                        </li>
+                    </ol>
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Let <m>A = \begin{bmatrix} 2 \amp -3 \amp -4 \\ -8 \amp 8 \amp 6 \\ 6 \amp -7 \amp -7 \end{bmatrix}</m>. 
+                <ol marker="(a)">
+                    <li>
+                        <p>
+                            Find a basis for <m>\Col A</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Is <m>\v{p} = \begin{bmatrix} 6 \\ -10 \\ 11 \end{bmatrix}</m> a vector in <m>\Col A</m>? 
+                            Justify your reasoning. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+
+            <answer>
+                <ol marker="(a)">
+                    <li>
+                        <p>
+                            A basis for <m>\Col A</m> is <m>\left\{ \begin{bmatrix} 2 \\ -8 \\ 6 \end{bmatrix}, \begin{bmatrix} -3 \\ 8 \\ -7 \end{bmatrix} \right\}</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Yes <m>\v{p}</m> is in <m>\Col A</m>. 
+                        </p>
+                    </li>
+                </ol>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Let <m>A = \begin{bmatrix} 1 \amp 0 \amp -2 \amp 3 \\ 2 \amp 1 \amp -3 \amp 5 \\ 5 \amp 3 \amp -7 \amp 12 \end{bmatrix}</m>. 
+                <ol marker="(a)">
+                    <li>
+                        <p>
+                            Find a basis for <m>\Nul A</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Is <m>\v{p} = \begin{bmatrix} -4 \\ 1 \\ 1 \\ 2 \end{bmatrix}</m> a vector in <m>\Nul A</m>? 
+                            Justify your reasoning. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+
+            <answer>
+                <ol marker="(a)">
+                    <li>
+                        <p>
+                            A basis for <m>\Nul A</m> is <m>\left\{ \begin{bmatrix} 2 \\ -1 \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} -3 \\ 1 \\ 0 \\ 1 \end{bmatrix} \right\}</m>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Yes, <m>\v{p}</m> is in <m>\Nul A</m>. 
+                        </p>
+                    </li>
+                </ol>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Find a basis for the subspace spanned by the following vectors:
+                <md>
+                    \begin{bmatrix} 1 \\ -3 \\ 2 \\ -4 \end{bmatrix}\, , \, 
+                    \begin{bmatrix} -3 \\ 9 \\ -6 \\ 12 \end{bmatrix}\, , \, 
+                    \begin{bmatrix} 2 \\ -1 \\ 4 \\ 2 \end{bmatrix}\, , \, 
+                    \begin{bmatrix} -4 \\ 5 \\ -3 \\ 7 \end{bmatrix}
+                </md>
+                Then determine the dimension of this subspace. 
+            </p>
+
+            <answer>
+                <p>
+                    A basis is <m>\left\{ 
+                \begin{bmatrix} 1 \\ -3 \\ 2 \\ -4 \end{bmatrix}, 
+                \begin{bmatrix} 2 \\ -1 \\ 4 \\ 2 \end{bmatrix}, 
+                \begin{bmatrix} -4 \\ 5 \\ -3 \\ 7 \end{bmatrix} 
+                \right\}</m>
+                and the dimension is <m>3</m>
+                </p>
+            </answer>
+        </exercise>
+    </worksheet>
+    
+    <worksheet xml:id="ws-Orthogonality">
+        <title>Orthogonality</title>
+
+        <exercise>
+            <p>
+                Let <m>\v{v}_1 = \begin{bmatrix} 1 \\ -2 \\ 0 \end{bmatrix}</m>, <m>\v{v}_2 = \begin{bmatrix} 2 \\ 1 \\ -3 \end{bmatrix}</m>, and <m>\v{v}_3 = \begin{bmatrix} 3 \\ 0 \\ 2 \end{bmatrix}</m>. 
+                Determine whether this set <m>\set{\v{v}_1, \v{v}_2, \v{v}_3}</m> an orthogonal set. 
+                Why or why not? 
+            </p>
+
+            <answer>
+                <p>
+                    Nope
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Let <m>\v{v}_1 = \begin{bmatrix} 1 \\ 2 \end{bmatrix}</m>, <m>\v{v}_2 = \begin{bmatrix} -2 \\ 1 \end{bmatrix}</m>, and <m>\v{v}_3 = \begin{bmatrix} 3 \\ -1 \end{bmatrix}</m>. 
+                Is this set <m>\set{\v{v}_1, \v{v}_2, \v{v}_3}</m> an orthogonal set? 
+                Why or why not? 
+            </p>
+
+            <answer>
+                <p>
+                    Nope
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Let <m>\v{v}_1 = \begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix}</m>, <m>\v{v}_2 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}</m>, and <m>\v{v}_3 = \begin{bmatrix} -1 \\ -1 \\ 2 \end{bmatrix}</m>. 
+                Is this set <m>\set{\v{v}_1, \v{v}_2, \v{v}_3}</m> an orthogonal set? 
+                Why or why not? 
+            </p>
+
+            <answer>
+                <p>
+                    Yep
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Let <m>\v{v}_1 = \begin{bmatrix} 2 \\ 3 \\ 6 \end{bmatrix}</m>, <m>\v{v}_2 = \begin{bmatrix} 3 \\ -6 \\ 2 \end{bmatrix}</m>, and <m>\v{v}_3 = \begin{bmatrix} 6 \\ 2 \\ -3 \end{bmatrix}</m>. 
+                Is this set <m>\set{\v{v}_1, \v{v}_2, \v{v}_3}</m> an orthogonal set? 
+                Why or why not? 
+            </p>
+
+            <p>
+                Is this set <m>\set{\v{v}_1, \v{v}_2, \v{v}_3}</m> an orthonormal set? 
+                If not, normalize these vectors to create an orthonormal set?
+            </p>
+
+            <answer>
+                <p>
+                    Yep to the orthogonal set and nope to the orthonormal set. 
+                </p>
+
+                <p>
+                    The normalized version is <m>\left\{\begin{bmatrix} \frac{2}{7} \\ \frac{3}{7} \\ \frac{6}{7} \end{bmatrix}, \begin{bmatrix} \frac{3}{7} \\ -\frac{6}{7} \\ \frac{2}{7} \end{bmatrix}, \begin{bmatrix} \frac{6}{7} \\ \frac{2}{7} \\ -\frac{3}{7} \end{bmatrix}\right\}</m>
+                </p>
+            </answer>
+        </exercise>
+        
+    </worksheet>
+
+    <worksheet xml:id="ws-RankNullity">
+        <title>Column Space &amp; Null Space</title>
+
+        <exercise>
+            <p>
+                Let <m>A = \begin{bmatrix} 1 \amp -2 \amp 3 \\ -2 \amp 4 \amp -6 \\ 3 \amp -6 \amp 9 \\ 0 \amp 0 \amp 0 \\ -1 \amp 2 \amp -3 \end{bmatrix}</m>. 
+                <ol marker="(a)">
+                    <li>
+                        <p>
+                            Find the dimension of <m>\Col A</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Find the dimension of <m>\Nul A</m>. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+
+            <answer>
+                <p>
+                    <m>\dim \Col A = 1</m> and <m>\dim \Nul A = 2</m>
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Let <m>B = \begin{bmatrix} 1 \amp 0 \amp 2 \amp 1 \\ 0 \amp 1 \amp -1 \amp 0 \\ 2 \amp 0 \amp 5 \amp 2 \\ 1 \amp -1 \amp 2 \amp 2 \end{bmatrix}</m>. 
+                <ol marker="(a)">
+                    <li>
+                        <p>
+                            Find the dimension of <m>\Col B</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Find the dimension of <m>\Nul B</m>. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+
+            <answer>
+                <p>
+                    <m>\dim \Col A = 4</m> and <m>\dim \Nul A = 0</m>
+                </p>
+            </answer>
+        </exercise>
+        
+        <exercise>
+            <p>
+                Let <m>A</m> be an <m>n \times n</m> <em>invertible</em> matrix. 
+                <ol marker="(a)">
+                    <li>
+                        <p>
+                            What is the dimension of <m>\Col A</m>? 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            What is the dimension of <m>\Nul A</m>? 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+
+            <answer>
+                <p>
+                    <m>\dim \Col A = n</m> and <m>\dim \Nul A = 0</m>
+                </p>
+
+                <p>
+                    <em>P.S:</em> the matrix in the previous exercise is invertible, so you see that every column has a pivot position (and hence <m>\dim \Col A = n</m>). 
+                    By the Rank Nullity Theorem, <m>\dim \Nul A = 0</m>. 
+                </p>
+            </answer>
+        </exercise>
+    </worksheet>
+
+    <worksheet xml:id="ws-FinalReview-EigenStuff">
+        <title>Eigen-related Stuff</title>
+
+        <exercise>
+            <p>
+                Let <m>A = \begin{bmatrix} 5 \amp -1 \\ 1 \amp 3 \end{bmatrix}</m>. 
+                Find <em>all</em> the eigenvalues of this matrix, and determine the corresponding eigenspace.
+            </p>
+
+            <answer>
+                <p>
+                    The eigenvalue is <m>\lambda = 4</m>, with the multiplicity of <m>2</m>. 
+                </p>
+
+                <p>
+                    Its corresponding eigenspace is <m>E_4 = \span \left\{\begin{bmatrix} 1 \\ 1 \end{bmatrix}\right\}</m>
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Let <m>A = \begin{bmatrix} 2 \amp -2 \amp -1 \\ -1 \amp 1 \amp -1 \\ -1 \amp -2 \amp 2 \end{bmatrix}</m>. 
+                Find <em>all</em> the eigenvalues of this matrix. 
+            </p>
+
+            <answer>
+                <p>
+                    The eigenvalues are <m>\lambda = 3</m> (with the multiplicity of <m>2</m>) and <m>\lambda = -1</m> (with the multiplicity of <m>1</m>)
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Diagonalize the matrix <m>A = \begin{bmatrix} 4 \amp -5 \\ -3 \amp 2 \end{bmatrix}</m> if possible. 
+                If not, state why.
+            </p>
+
+            <answer>
+                <p>
+                    Yep, <m>A</m> is diagonalizable. 
+                </p>
+
+                <p>
+                    <m>D = \begin{bmatrix} 7 \amp 0 \\ 0 \amp -1 \end{bmatrix}</m> and <m>P = \begin{bmatrix} 5 \amp 1 \\ -3 \amp 1 \end{bmatrix}</m>
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Diagonalize the matrix <m>B = \begin{bmatrix} -1 \amp 2 \amp 2 \\ -2 \amp 3 \amp 1 \\ -2 \amp 2 \amp 4 \end{bmatrix}</m> if possible. 
+                If not, state why. 
+            </p>
+
+            <answer>
+                <p>
+                    Yep <m>B</m> is diagonalizable. 
+                </p>
+
+                <p>
+                    <m>D = \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 2 \amp 0 \\ 0 \amp 0 \amp 3 \end{bmatrix}</m> and <m>P = \begin{bmatrix} 1 \amp 0 \amp 1 \\ 1 \amp -1 \amp 0 \\ 0 \amp 1 \amp 2 \end{bmatrix}</m>
+                </p>
+            </answer>
+        </exercise>
+
+        <exercise>
+            <p>
+                Diagonalize the matrix <m>C = \begin{bmatrix} 0 \amp -6 \amp -4 \\ 5 \amp -11 \amp -6 \\ -6 \amp 9 \amp 4 \end{bmatrix}</m> if possible. 
+                If not, state why. 
+            </p>
+
+            <answer>
+                <p>
+                    Nope <m>C</m> is not diagonalizable. 
+                </p>
+            </answer>
+        </exercise>
+    </worksheet>
+
+</section>
