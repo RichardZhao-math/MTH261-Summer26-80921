@@ -2836,6 +2836,150 @@ var ptx_lunr_docs = [
   "body": " Fundamental Theorem of Linear Algebra   Let be an matrix with . Then                    "
 },
 {
+  "id": "sec71-PropertiesLinearTransformation",
+  "level": "1",
+  "url": "sec71-PropertiesLinearTransformation.html",
+  "type": "Section",
+  "number": "6.1",
+  "title": "Examples and Elementary Properties",
+  "body": " Examples and Elementary Properties  Recall we briefly discussed linear transformations in . The context is specifically in .  The most important concept in linear algebra is the concept of a linear transformation. In this section, we will revisit linear transformations in the context of a vector space .    A linear transformation is a function that maps vectors from one vector space to another while preserving vector addition and scalar multiplication.  That is, let and be vector spaces and be a function. Then is a linear transformation if it satisfies   (closed under addition) for all     (closed under scalar multiplication) for all and scalars        We got away with not defining vector spaces before because the only vector spaces we used were the well-known Euclidean spaces and their subspaces. Now let's first investigate what exactly a vector space is.   Vector Spaces  Long story short, a vector space is a set of vectors that can be added and scaled. So vector spaces are made up of vectors and scalars .   CAUTION: These are not defined by what they look like, but by what rules they satisfy! (so a vector do not need to be a column vector or an arrow in space). So we really need three kinds of rules here:   Rules for how vectors interact with each other.    Rules for how scalars interact with each other.    Rules for how scalars and vectors interact with each other.   Using fancy math terminology, vectors form an abelian group with respect to vector addition. The first set of rules that we will be given in the definition of vector spaces are basically the definition of an abelien group. Scalars form a field with respect to scalar addition and multiplication (the main example of a field is the set of real numbers ). We won't give the rules for a fiend because we are only going to define vector spaces over the real numbers whose properties are very familiar!  So our definition will have two sets of rules: the rules for an abelian group and the rules for how scalars and vectors play together.   Vector Spaces   A vector space over the real numbers consists of a set of vectors that can be combined by addition and that be multiplied by real numbers where these operations satisfy the following rules:  Vector addition rules:   (Closed under Addition) for all     (Associativity) for all     (Zero Vector) There is a vector such that for all     (Inverses) For each , there exists such that     (Commutativity) for all      Rules for how vectors and scalars interact:   (Closed under Scalar Multiplication) for all and     (Distributive Property 1) for all ad     (Distributive Property 2) for all and     (Associativity kind-of...) for all and     (Multiplying by the Scalar ) for all        The definition of vector spaces is very long but it mostly consists of rules that we know well from our work in . In your textbook, you can find the definition of vector spaces in Section 6.1 (we did not go over in class).  There are many many examples of vector spaces other than . Let's take a look at two of them.   Example #1: The set of matrices with entries from .  V1 - V5 are properties we have already talked about for matrix addition.  S1 - S5 are properties we have already talked about for multiplying matrices by scalars.  So we can do linear algebra where we use matrices as the vectors!    Example #2: The set of polynomials of degree at most with coefficients from .  V1 - V5 and S1 - S5 are properties that you saw and used in pre-calculus and calculus when you worked with polynomials.  So we can do linear algebra where we use polynomials as the vectors!     (Revisiting) Linear Transformation!  If you compare the two definitions of linear transformations back in and in this section, they are the exact same definition except that we don't assume the vector spaces are and . Let's look at some examples where vector spaces are not .   Example #1: Transposition is a linear transformation from the vector space of matrices to the vector space of matrices.  Recall the set of matrices form a vector space (and hence the set of matrices is also a vector space!)  The linearity properties are satisfied by the properties of transposition (see for properties of transposition)! That is, for all matrices and and .    Non-example: Inverting is NOT a linear transformation from the vector space of matrices to the vector space of matrices.  This is NOT even a function on the set of all matrices since not all square matrices have inverses!  And the two linearity properties fail even when we we can take the inverses!    Example #2: Differentiation is a linear transformation from the vector space of all polynomials of degree less than or equal to to the vector space of all polynomials of degree less than or equal to .  We know from the power rule (along with the sum and constant rules) that the derivative of a polynomial of degree less than or equal to is a polynomial of degree less than or equal to . The degree will always be reduced by one when taking the derivative of any non-constant polynomial.  T1 is just the sum rule for derivatives from calculus. That is,   T2 is just the constant multiple rule from calculus. That is,      Representation of Vectors  We are used to thinking of vectors as ordered -tuples (as column vectors in this class). Well we can still do that for general vector spaces!   So the question is: How do we represent matrices or polynomials (or other things) as -tuples?   We can do so by finding a basis for the vector space . We know that we can write any vector as a linear combination of the basis vectors. Then we write the vector as an -tuple where the coordinates are the coefficients in the linear combination.   Example #1: A basis for the set of matrices is   We can certainly write any as a linear combination of these four matrices, and we can see that any linear combination of these vectors that gives the zero matrix will be trivial (so they are linearly independent!).  Let be a matrix. Then we can write it as a linear combination of the basis vectors as follows   So we can express that matrix as the -tuple .  As a specific, the matrix would be represented by .    Example #2: A basis for the set of polynomials of degree or less is given by   Any polynomial of degree or less is a linear combination of these vectors because literally is already written as a linear combination of those five vectors!  And by definition, the zero polynomial is the trivial linear combination of these vectors, so this is a linearly independent set.  So we can express the polynomial as the -tuple   As a specific example, the polynomial can be represented by .     Standard Matrix of a Linear Transformation  Just like back in the ay, we can write the matrix that represents a linear transformation by figuring out the outputs of the standard basis vectors and using those as columns. We can also find the standard matrix of a general linear transformation. The trick here is to convert the vectors into -tuples to do it.   Example #1: A matrix that transposes matrices.  Let's make a matrix for the linear transformation that transposes matrices. This linear transformation is a function from the vector space of matrices to the vector space of matrices. Symbolically speaking, the linear transformation does this:   The standard basis for the vector space of all matrices consists of the six different matrices where the only one-zero entry is a (the same is true for the set of matrices). We need to decide on the order of these basis vectors so that we can write matrices as -tuples. We will order them according to where the appears. We will start with the top left position and go left to right starting with the first row and then moving down the row.  Let's write the output of each such matrix under transposition:    This output matrix would be represented by        This output matrix would be represented by        This output matrix would be represented by        This output matrix would be represented by        This output matrix would be represented by        This output matrix would be represented by      These outputs will give us the columns of the standard matrix:   Let's see if this works! Let's use it to transpose the matrix   First, we need to write this matrix as an -tuple: .  Next, let's multiply! So the output, as a -tuple, is .  So the answer is a linear combination of the basis matrices with coefficients . That means the answer is And that really is the transpose of our matrix!    Example #2: A matrix that takes derivatives!  Let's make a matrix for the linear transformation that takes derivatives of polynomials of degree or less. We just need to figure out what this linear transformation does to the basis vectors .  And we need to write the answers in terms of the basis for the vector space of polynomials of degree or less. That basis is .    goes to . As a -tuple, this output vector is .     goes to . As a -tuple, this output vector is .     goes to . As a -tuple, this output vector is .     goes to . As a -tuple, this output vector is .     goes to . As a -tuple, this output vector is .   So these will be the columns of our matrix:   Let's take the derivative of something to see if this matrix works! Let's try taking the derivative of   First, we write the input as a -tuple: .  Next, let's multiply! As a -tuple, the output is , which we can use to write out answer as a linear combination of the basis vectors: And that really is our derivative!  Fun observation: This gives a really easy way to teach a computer how to compute the derivative of a polynomial!   It turns out that we don't really need th use the standard basis vectors to do this but it makes things much easier, especially when it is intuitively obvious what the standard bases should be. But sometimes things are a bit easier. In particular, it is generally easy-ish to write the matrix of a linear transformation if it is given by an old school function rule that describes how to turn inputs into outputs. And that is actually the case for both of the examples we just did.   Example #1: Transposing Matrices  Like it says in the beginning of the example above, the transpose of a matrix is given by Now if we convert the input and output in this formula to -tuples, we get Now we just want to find a matrix such that We can see that we don't want to multiply any of the entries of the input by anything other than or . What we want is a matrix that is all 's and 's strategically arranged to shuffle the coordinates as needed. A little guess and check tells us that If you don't want to guess and check, you can think about how matrix-vector multiplication works and you can see in each row you want to put the in the spot that corresponds to the coordinate of the input vector that that row of the output vector. For example, the second slot of the output vector is which is the fourth coordinate of the input vector. So the 2nd row of the matrix has a in the fourth spot and elsewhere.    Example #2: Differentiating Polynomials  The differentiation linear transformation is even easier! That is because polynomials already look like linear combinations of the basis vectors.  The rule for differentiation of polynomials of degree or less is Converting polynomials to -tuples and -tuples, we get So we want the matrix such that We can see that we want the first row to multiply the first coordinate by , the second row to multiply the second coordinate by , the third row to multiply the third coordinate by , and the fourth row to multiply the fourth coordinate by . And that's all we want to happen.  So we want a nice diagonal matrix like this:    As you can see, it isn't quite as easy as when a linear transformation from to is given by a function rule, but it is doable to find the matrix without explicitly doing the general process of mapping the standard basis vectors.   "
+},
+{
+  "id": "def-LinearTransformation-VectorSpace",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#def-LinearTransformation-VectorSpace",
+  "type": "Definition",
+  "number": "6.1.1",
+  "title": "",
+  "body": "  A linear transformation is a function that maps vectors from one vector space to another while preserving vector addition and scalar multiplication.  That is, let and be vector spaces and be a function. Then is a linear transformation if it satisfies   (closed under addition) for all     (closed under scalar multiplication) for all and scalars       "
+},
+{
+  "id": "subsec-VectorSpaces-Intro-2",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#subsec-VectorSpaces-Intro-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "vectors scalars "
+},
+{
+  "id": "subsec-VectorSpaces-Intro-3",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#subsec-VectorSpaces-Intro-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "abelian group field "
+},
+{
+  "id": "def-VectorSpace",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#def-VectorSpace",
+  "type": "Definition",
+  "number": "6.1.2",
+  "title": "Vector Spaces.",
+  "body": " Vector Spaces   A vector space over the real numbers consists of a set of vectors that can be combined by addition and that be multiplied by real numbers where these operations satisfy the following rules:  Vector addition rules:   (Closed under Addition) for all     (Associativity) for all     (Zero Vector) There is a vector such that for all     (Inverses) For each , there exists such that     (Commutativity) for all      Rules for how vectors and scalars interact:   (Closed under Scalar Multiplication) for all and     (Distributive Property 1) for all ad     (Distributive Property 2) for all and     (Associativity kind-of...) for all and     (Multiplying by the Scalar ) for all       "
+},
+{
+  "id": "subsec-VectorSpaces-Intro-8",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#subsec-VectorSpaces-Intro-8",
+  "type": "Example",
+  "number": "6.1.3",
+  "title": "",
+  "body": " Example #1: The set of matrices with entries from .  V1 - V5 are properties we have already talked about for matrix addition.  S1 - S5 are properties we have already talked about for multiplying matrices by scalars.  So we can do linear algebra where we use matrices as the vectors!  "
+},
+{
+  "id": "subsec-VectorSpaces-Intro-9",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#subsec-VectorSpaces-Intro-9",
+  "type": "Example",
+  "number": "6.1.4",
+  "title": "",
+  "body": " Example #2: The set of polynomials of degree at most with coefficients from .  V1 - V5 and S1 - S5 are properties that you saw and used in pre-calculus and calculus when you worked with polynomials.  So we can do linear algebra where we use polynomials as the vectors!  "
+},
+{
+  "id": "subsec-LinearTransformation-VectorSpaces-3",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#subsec-LinearTransformation-VectorSpaces-3",
+  "type": "Example",
+  "number": "6.1.5",
+  "title": "",
+  "body": " Example #1: Transposition is a linear transformation from the vector space of matrices to the vector space of matrices.  Recall the set of matrices form a vector space (and hence the set of matrices is also a vector space!)  The linearity properties are satisfied by the properties of transposition (see for properties of transposition)! That is, for all matrices and and .  "
+},
+{
+  "id": "subsec-LinearTransformation-VectorSpaces-4",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#subsec-LinearTransformation-VectorSpaces-4",
+  "type": "Example",
+  "number": "6.1.6",
+  "title": "",
+  "body": " Non-example: Inverting is NOT a linear transformation from the vector space of matrices to the vector space of matrices.  This is NOT even a function on the set of all matrices since not all square matrices have inverses!  And the two linearity properties fail even when we we can take the inverses!  "
+},
+{
+  "id": "subsec-LinearTransformation-VectorSpaces-5",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#subsec-LinearTransformation-VectorSpaces-5",
+  "type": "Example",
+  "number": "6.1.7",
+  "title": "",
+  "body": " Example #2: Differentiation is a linear transformation from the vector space of all polynomials of degree less than or equal to to the vector space of all polynomials of degree less than or equal to .  We know from the power rule (along with the sum and constant rules) that the derivative of a polynomial of degree less than or equal to is a polynomial of degree less than or equal to . The degree will always be reduced by one when taking the derivative of any non-constant polynomial.  T1 is just the sum rule for derivatives from calculus. That is,   T2 is just the constant multiple rule from calculus. That is,   "
+},
+{
+  "id": "subsec-VectorRepresentation-VectorSpaces-5",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#subsec-VectorRepresentation-VectorSpaces-5",
+  "type": "Example",
+  "number": "6.1.8",
+  "title": "",
+  "body": " Example #1: A basis for the set of matrices is   We can certainly write any as a linear combination of these four matrices, and we can see that any linear combination of these vectors that gives the zero matrix will be trivial (so they are linearly independent!).  Let be a matrix. Then we can write it as a linear combination of the basis vectors as follows   So we can express that matrix as the -tuple .  As a specific, the matrix would be represented by .  "
+},
+{
+  "id": "subsec-VectorRepresentation-VectorSpaces-6",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#subsec-VectorRepresentation-VectorSpaces-6",
+  "type": "Example",
+  "number": "6.1.9",
+  "title": "",
+  "body": " Example #2: A basis for the set of polynomials of degree or less is given by   Any polynomial of degree or less is a linear combination of these vectors because literally is already written as a linear combination of those five vectors!  And by definition, the zero polynomial is the trivial linear combination of these vectors, so this is a linearly independent set.  So we can express the polynomial as the -tuple   As a specific example, the polynomial can be represented by .  "
+},
+{
+  "id": "subsec-StandardMatrix-VectorSpaces-3",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#subsec-StandardMatrix-VectorSpaces-3",
+  "type": "Example",
+  "number": "6.1.10",
+  "title": "",
+  "body": " Example #1: A matrix that transposes matrices.  Let's make a matrix for the linear transformation that transposes matrices. This linear transformation is a function from the vector space of matrices to the vector space of matrices. Symbolically speaking, the linear transformation does this:   The standard basis for the vector space of all matrices consists of the six different matrices where the only one-zero entry is a (the same is true for the set of matrices). We need to decide on the order of these basis vectors so that we can write matrices as -tuples. We will order them according to where the appears. We will start with the top left position and go left to right starting with the first row and then moving down the row.  Let's write the output of each such matrix under transposition:    This output matrix would be represented by        This output matrix would be represented by        This output matrix would be represented by        This output matrix would be represented by        This output matrix would be represented by        This output matrix would be represented by      These outputs will give us the columns of the standard matrix:   Let's see if this works! Let's use it to transpose the matrix   First, we need to write this matrix as an -tuple: .  Next, let's multiply! So the output, as a -tuple, is .  So the answer is a linear combination of the basis matrices with coefficients . That means the answer is And that really is the transpose of our matrix!  "
+},
+{
+  "id": "subsec-StandardMatrix-VectorSpaces-4",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#subsec-StandardMatrix-VectorSpaces-4",
+  "type": "Example",
+  "number": "6.1.11",
+  "title": "",
+  "body": " Example #2: A matrix that takes derivatives!  Let's make a matrix for the linear transformation that takes derivatives of polynomials of degree or less. We just need to figure out what this linear transformation does to the basis vectors .  And we need to write the answers in terms of the basis for the vector space of polynomials of degree or less. That basis is .    goes to . As a -tuple, this output vector is .     goes to . As a -tuple, this output vector is .     goes to . As a -tuple, this output vector is .     goes to . As a -tuple, this output vector is .     goes to . As a -tuple, this output vector is .   So these will be the columns of our matrix:   Let's take the derivative of something to see if this matrix works! Let's try taking the derivative of   First, we write the input as a -tuple: .  Next, let's multiply! As a -tuple, the output is , which we can use to write out answer as a linear combination of the basis vectors: And that really is our derivative!  Fun observation: This gives a really easy way to teach a computer how to compute the derivative of a polynomial!  "
+},
+{
+  "id": "subsec-StandardMatrix-VectorSpaces-6",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#subsec-StandardMatrix-VectorSpaces-6",
+  "type": "Example",
+  "number": "6.1.12",
+  "title": "",
+  "body": " Example #1: Transposing Matrices  Like it says in the beginning of the example above, the transpose of a matrix is given by Now if we convert the input and output in this formula to -tuples, we get Now we just want to find a matrix such that We can see that we don't want to multiply any of the entries of the input by anything other than or . What we want is a matrix that is all 's and 's strategically arranged to shuffle the coordinates as needed. A little guess and check tells us that If you don't want to guess and check, you can think about how matrix-vector multiplication works and you can see in each row you want to put the in the spot that corresponds to the coordinate of the input vector that that row of the output vector. For example, the second slot of the output vector is which is the fourth coordinate of the input vector. So the 2nd row of the matrix has a in the fourth spot and elsewhere.  "
+},
+{
+  "id": "subsec-StandardMatrix-VectorSpaces-7",
+  "level": "2",
+  "url": "sec71-PropertiesLinearTransformation.html#subsec-StandardMatrix-VectorSpaces-7",
+  "type": "Example",
+  "number": "6.1.13",
+  "title": "",
+  "body": " Example #2: Differentiating Polynomials  The differentiation linear transformation is even easier! That is because polynomials already look like linear combinations of the basis vectors.  The rule for differentiation of polynomials of degree or less is Converting polynomials to -tuples and -tuples, we get So we want the matrix such that We can see that we want the first row to multiply the first coordinate by , the second row to multiply the second coordinate by , the third row to multiply the third coordinate by , and the fourth row to multiply the fourth coordinate by . And that's all we want to happen.  So we want a nice diagonal matrix like this:   "
+},
+{
   "id": "secA1-MidtermReview",
   "level": "1",
   "url": "secA1-MidtermReview.html",
