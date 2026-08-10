@@ -17,9 +17,7 @@
     <xi:include href="./ch3-DeterminantsDiagonalization.ptx" />
     <xi:include href="./ch4-VectorGeometry.ptx" />
     <xi:include href="./ch5-VectorSpace.ptx" />
-    <!--
     <xi:include href="./ch7-LinearTransformation.ptx" />
-    -->
 
     <!-- Include Appendices -->
     <xi:include href="./appendixA-ExamReviews.ptx" />

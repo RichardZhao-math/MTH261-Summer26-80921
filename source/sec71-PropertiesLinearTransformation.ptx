@@ -1,0 +1,666 @@
+<section xml:id="sec71-PropertiesLinearTransformation" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Examples and Elementary Properties</title>
+
+  <p>
+    Recall we briefly discussed linear transformations in <xref ref="sec26-LinearTransformations"/>. 
+    The context is specifically in <m>\R^n</m>.
+  </p>
+
+  <p>
+    The most important concept in linear algebra is the concept of a linear transformation. 
+    In this section, we will revisit linear transformations in the context of a <alert>vector space</alert>. 
+  </p>
+
+  <definition xml:id="def-LinearTransformation-VectorSpace">
+    <statement>
+        <p>
+            A <term>linear transformation</term> is a function that maps vectors from one <alert>vector space</alert> to another while preserving vector addition and scalar multiplication. 
+        </p>
+
+        <p>
+            That is, let <m>V</m> and <m>W</m> be vector spaces and <m>T: V \to W</m> be a function. 
+            Then <m>T</m> is a <term>linear transformation</term> if it satisfies
+            <ol marker="T1.">
+                <li>
+                    <p>
+                        (closed under addition) <m>T(\v{v}_1 + \v{v}_2) = T(\v{v}_1) + T(\v{v}_2)</m> for all <m>\v{v}_1, \v{v}_2 \in V</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        (closed under scalar multiplication) <m>T(c\v{v}) = cT(\v{v})</m> for all <m>\v{v}\in V</m> and scalars <m>c</m>
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+  </definition>
+
+  <p>
+    We got away with not defining vector spaces before because the only vector spaces we used were the well-known Euclidean spaces <m>\R^n</m> and their subspaces. 
+    Now let's first investigate what exactly a vector space is. 
+  </p>
+
+  <subsection xml:id="subsec-VectorSpaces-Intro">
+    <title>Vector Spaces</title>
+    
+    <p>
+        Long story short, a vector space is a set of vectors that can be added and scaled. 
+        So vector spaces are made up of <term>vectors</term> and <term>scalars</term>. 
+    </p>
+
+    <p>
+        <alert>CAUTION: These are not defined by what they look like, but by what rules they satisfy!</alert> (so a vector do not need to be a column vector or an arrow in space). 
+        So we really need three kinds of rules here: 
+        <ol>
+            <li>
+                <p>
+                    Rules for how vectors interact with each other.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Rules for how scalars interact with each other. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Rules for how scalars and vectors interact with each other. 
+                </p>
+            </li>
+        </ol>
+        Using fancy math terminology, vectors form an <term>abelian group</term> with respect to vector addition. 
+        The first set of rules that we will be given in the definition of vector spaces are basically the definition of an abelien group. 
+        
+        Scalars form a <term>field</term> with respect to scalar addition and multiplication (the main example of a field is the set of real numbers <m>\R</m>). 
+        We won't give the rules for a fiend because we are only going to define vector spaces over the real numbers whose properties are very familiar!
+    </p>
+
+    <p>
+        So our definition will have two sets of rules: the rules for an abelian group and the rules for how scalars and vectors play together. 
+    </p>
+
+    <definition xml:id="def-VectorSpace">
+        <title>Vector Spaces</title>
+        <statement>
+            <p>
+                A <term>vector space</term> over the real numbers consists of a set of vectors <m>V</m> that can be combined by addition and that be multiplied by real numbers where these operations satisfy the following rules:
+            </p>
+
+            <p>
+                Vector addition rules: 
+                <ol marker="V1.">
+                    <li>
+                        <p>
+                            (Closed under Addition) <m>\v{v} + \v{w} \in V</m> for all <m>\v{v}, \v{w}\in V</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            (Associativity) <m>(\v{u} + \v{v}) + \v{w} = \v{u} + (\v{v} + \v{w})</m> for all <m>\v{u}, \v{v}, \v{w}\in V</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            (Zero Vector) There is a vector <m>\v{0}\in V</m> such that <m>\v{0} + \v{v} = \v{v} + \v{0} = \v{v}</m> for all <m>\v{v}\in V</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            (Inverses) For each <m>\v{v}\in V</m>, there exists <m>-\v{v}\in V</m> such that <m>\v{v} + -\v{v} = -\v{v} + \v{v} = \v{0}</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            (Commutativity) <m>\v{v} + \v{w} = \v{w} + \v{v}</m> for all <m>\v{v}, \v{w}\in V</m>
+                        </p>
+                    </li>
+                </ol>
+            </p>
+
+            <p>
+                Rules for how vectors and scalars interact: 
+                <ol marker="S1.">
+                    <li>
+                        <p>
+                            (Closed under Scalar Multiplication) <m>c\v{v} \in V</m> for all <m>\v{v}\in V</m> and <m>c\in \R</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            (Distributive Property 1) <m>c(\v{v} + \v{w}) = c\v{v} + c\v{w}</m> for all <m>\v{v}, \v{w}\in V</m> ad <m>c\in \R</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            (Distributive Property 2) <m>(a + b)\v{v} = a\v{v} + b\v{v}</m> for all <m>\v{v}\in V</m> and <m>a,b \in \R</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            (Associativity kind-of...) <m>a(b\v{v}) = (ab)\v{v}</m> for all <m>a,b \in \R</m> and <m>\v{v} \in V</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            (Multiplying by the Scalar <m>1</m>) <m>1\v{v} = \v{v}</m> for all <m>\v{v} \in V</m>
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+    </definition>
+
+    <p>
+        The definition of vector spaces is very long but it mostly consists of rules that we know well from our work in <m>\R^n</m>. 
+        In your textbook, you can find the definition of vector spaces in Section 6.1 (we did not go over in class). 
+    </p>
+
+    <p>
+        There are many many examples of vector spaces other than <m>\R^n</m>. 
+        Let's take a look at two of them. 
+    </p>
+
+    <example>
+        <p>
+            Example #1: The set of <m>m \times n</m> matrices with entries from <m>\R</m>. 
+        </p>
+
+        <p>
+            V1 - V5 are properties we have already talked about for matrix addition. 
+        </p>
+
+        <p>
+            S1 - S5 are properties we have already talked about for multiplying matrices by scalars. 
+        </p>
+
+        <p>
+            So we can do linear algebra where we use matrices as the vectors!
+        </p>
+    </example>
+
+    <example>
+        <p>
+            Example #2: The set of polynomials of degree at most <m>n</m> with coefficients from <m>\R</m>. 
+        </p>
+
+        <p>
+            V1 - V5 and S1 - S5 are properties that you saw and used in pre-calculus and calculus when you worked with polynomials. 
+        </p>
+
+        <p>
+            So we can do linear algebra where we use polynomials as the vectors!
+        </p>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-LinearTransformation-VectorSpaces">
+    <title>(Revisiting) Linear Transformation!</title>
+    
+    <p>
+        If you compare the two definitions of linear transformations back in <xref ref="sec26-LinearTransformations"/> and in this section, they are the exact same definition <alert>except</alert> that we don't assume the vector spaces are <m>\R^m</m> and <m>\R^n</m>. 
+        Let's look at some examples where vector spaces are not <m>\R^n</m>. 
+    </p>
+
+    <example>
+        <p>
+            Example #1: Transposition is a linear transformation from the vector space of <m>m \times n</m> matrices to the vector space of <m>n \times m</m> matrices. 
+        </p>
+
+        <p>
+            Recall the set of <m>m \times n</m> matrices form a vector space (and hence the set of <m>n \times m</m> matrices is also a vector space!)
+        </p>
+
+        <p>
+            The linearity properties are satisfied by the properties of transposition (see <xref ref="sec21-BasicMatrixOperations"/> for properties of transposition)! 
+            That is, 
+            <md>
+                (A + B)^T = A^T + B^T
+                \qquad \text{ and } \qquad
+                (cA)^T = cA^T
+            </md>
+            for all <m>m \times n</m> matrices <m>A</m> and <m>B</m> and <m>c\in \R</m>. 
+        </p>
+    </example>
+
+    <example>
+        <p>
+            Non-example: Inverting is NOT a linear transformation from the vector space of <m>n \times n</m> matrices to the vector space of <m>n \times n</m> matrices. 
+        </p>
+
+        <p>
+            This is NOT even a function on the set of all <m>n\times n</m> matrices since not all square matrices have inverses!
+        </p>
+
+        <p>
+            And the two linearity properties fail even when we we can take the inverses!
+        </p>
+    </example>
+
+    <example>
+        <p>
+            Example #2: Differentiation is a linear transformation from the vector space of all polynomials of degree less than or equal to <m>n</m> to the vector space of all polynomials of degree less than or equal to <m>n - 1</m>. 
+        </p>
+
+        <p>
+            We know from the power rule (along with the sum and constant rules) that the derivative of a polynomial of degree less than or equal to <m>n</m> is a polynomial of degree less than or equal to <m>n - 1</m>. 
+            The degree will always be reduced by one when taking the derivative of any non-constant polynomial. 
+        </p>
+
+        <p>
+            T1 is just the sum rule for derivatives from calculus. 
+            That is, <m>\dfrac{d}{dx}(p(x) + q(x)) = p'(x) + q'(x)</m>
+        </p>
+
+        <p>
+            T2 is just the constant multiple rule from calculus. 
+            That is, <m>\dfrac{d}{dx}(cp(x)) = cp'(x)</m>
+        </p>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-VectorRepresentation-VectorSpaces">
+    <title>Representation of Vectors</title>
+    
+    <p>
+        We are used to thinking of vectors as ordered <m>n</m>-tuples (as column vectors in this class). 
+        Well we can still do that for general vector spaces!
+    </p>
+
+    <p>
+        <alert>So the question is: How do we represent matrices or polynomials (or other things) as <m>n</m>-tuples?</alert>
+    </p>
+
+    <p>
+        We can do so by <alert>finding a basis for the vector space</alert>. 
+        We know that we can write any vector as a linear combination of the basis vectors. 
+        Then we write the vector as an <m>n</m>-tuple where the coordinates are the coefficients in the linear combination. 
+    </p>
+
+    <example>
+        <p>
+            Example #1: A basis for the set of <m>2 \times 2</m> matrices is
+            <md>
+                \left\{\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}, \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}, \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}, \begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}\right\}
+            </md>
+        </p>
+
+        <p>
+            We can certainly write any <m>2 \times 2</m> as a linear combination of these four matrices, and we can see that any linear combination of these vectors that gives the zero matrix will be trivial (so they are linearly independent!). 
+        </p>
+
+        <p>
+            Let <m>\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}</m> be a <m>2 \times 2</m> matrix. 
+            Then we can write it as a linear combination of the basis vectors as follows
+            <md>
+                \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = a\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \end{bmatrix} + b\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \end{bmatrix} + c\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \end{bmatrix} + d\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+            </md>
+        </p>
+
+        <p>
+            So we can express that matrix as the <m>4</m>-tuple <m>(a,b,c,d)</m>. 
+        </p>
+
+        <p>
+            As a specific, the matrix <m>\begin{bmatrix} 1 \amp 2 \\ 3 \amp 4 \end{bmatrix}</m> would be represented by <m>(1,2,3,4)</m>. 
+        </p>
+    </example>
+
+    <example>
+        <p>
+            Example #2: A basis for the set of polynomials of degree <m>4</m> or less is given by 
+            <md>
+                \set{x^4, x^3, x^2, x, 1}
+            </md>
+        </p>
+
+        <p>
+            Any polynomial of degree <m>4</m> or less is a linear combination of these vectors because 
+            <md>
+                a_4x_4 + a_3x^3 + a_2x^2 + a_1x + a_0
+            </md>
+            literally is already written as a linear combination of those five vectors!
+        </p>
+
+        <p>
+            And by definition, the zero polynomial is the trivial linear combination of these vectors, so this is a linearly independent set. 
+        </p>
+
+        <p>
+            So we can express the polynomial <m>a_4x_4 + a_3x^3 + a_2x^2 + a_1x + a_0</m> as the <m>5</m>-tuple <m>(a_4, a_3, a_2, a_1, a_0)</m>
+        </p>
+
+        <p>
+            As a specific example, the polynomial <m>3x^3 + x + 5</m> can be represented by <m>(0,3,0,1,5)</m>.
+        </p>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-StandardMatrix-VectorSpaces">
+    <title>Standard Matrix of a Linear Transformation</title>
+    
+    <p>
+        Just like back in the ay, we can write the matrix that represents a linear transformation by figuring out the outputs of the standard basis vectors and using those as columns. 
+        We can also find the standard matrix of a general linear transformation. 
+        The trick here is to convert the vectors into <m>n</m>-tuples to do it. 
+    </p>
+
+    <example>
+        <p>
+            Example #1: A matrix that transposes matrices. 
+        </p>
+
+        <p>
+            Let's make a matrix for the linear transformation that transposes <m>2 \times 3</m> matrices. 
+            This linear transformation is a function from the vector space of <m>2 \times 3</m> matrices to the vector space of <m>3 \times 2</m> matrices. 
+            Symbolically speaking, the linear transformation does this: 
+            <md>
+                \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \end{bmatrix} \mapsto\begin{bmatrix} a_{11} \amp a_{21} \\ a_{12} \amp a_{22} \\ a_{13} \amp a_{23} \end{bmatrix}
+            </md>
+        </p>
+
+        <p>
+            The standard basis for the vector space of all <m>2 \times 3</m> matrices consists of the six different matrices where the only one-zero entry is a <m>1</m> (the same is true for the set of <m>3 \times 2</m> matrices). 
+            We need to decide on the order of these basis vectors so that we can write matrices as <m>6</m>-tuples. 
+            We will order them according to where the <m>1</m> appears. 
+            We will start with the top left position and go left to right starting with the first row and then moving down the row. 
+        </p>
+
+        <p>
+            Let's write the output of each such matrix under transposition: 
+            <md>
+                \begin{bmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \end{bmatrix} \mapsto \begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+            </md>
+            <ul marker="">
+                <li>
+                    <p>
+                        This output matrix would be represented by <m>(1,0,0,0,0,0)</m>  
+                    </p>
+                </li>
+            </ul>
+            <md>
+                \begin{bmatrix} 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{bmatrix} \mapsto \begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+            </md>
+            <ul marker="">
+                <li>
+                    <p>
+                        This output matrix would be represented by <m>(0,0,0,1,0,0)</m>  
+                    </p>
+                </li>
+            </ul>
+            <md>
+                \begin{bmatrix} 0 \amp 0 \amp 1 \\ 0 \amp 0 \amp 0 \end{bmatrix} \mapsto \begin{bmatrix} 0 \amp 0 \\ 0 \amp 0 \\ 1 \amp 0 \end{bmatrix}
+            </md>
+            <ul marker="">
+                <li>
+                    <p>
+                        This output matrix would be represented by <m>(0,0,0,0,1,0)</m>  
+                    </p>
+                </li>
+            </ul>
+            <md>
+                \begin{bmatrix} 0 \amp 0 \amp 0 \\ 1 \amp 0 \amp 0 \end{bmatrix} \mapsto \begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \\ 0 \amp 0 \end{bmatrix}
+            </md>
+            <ul marker="">
+                <li>
+                    <p>
+                        This output matrix would be represented by <m>(0,1,0,0,0,0)</m>  
+                    </p>
+                </li>
+            </ul>
+            <md>
+                \begin{bmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \end{bmatrix} \mapsto \begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \\ 0 \amp 0 \end{bmatrix}
+            </md>
+            <ul marker="">
+                <li>
+                    <p>
+                        This output matrix would be represented by <m>(0,0,0,1,0,0)</m>  
+                    </p>
+                </li>
+            </ul>
+            <md>
+                \begin{bmatrix} 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \end{bmatrix} \mapsto \begin{bmatrix} 0 \amp 0 \\ 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+            </md>
+            <ul marker="">
+                <li>
+                    <p>
+                        This output matrix would be represented by <m>(0,0,0,0,0,1)</m>  
+                    </p>
+                </li>
+            </ul>
+        </p>
+
+        <p>
+            These outputs will give us the columns of the standard matrix:
+            <md>
+                A = 
+                \begin{bmatrix} 
+                1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\ 
+                0 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+                0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+                0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0 \\
+                0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+                1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 1
+                \end{bmatrix}
+            </md>
+        </p>
+
+        <p>
+            Let's see if this works! 
+            Let's use it to transpose the matrix <m>\begin{bmatrix} 1 \amp 2 \amp 3 \\ 4 \amp 5 \amp 6 \end{bmatrix}</m>
+        </p>
+
+        <p>
+            First, we need to write this matrix as an <m>6</m>-tuple: <m>(1,2,3,4,5,6)</m>. 
+        </p>
+
+        <p>
+            Next, let's multiply! 
+            <md>
+                \begin{bmatrix} 
+                1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\ 
+                0 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+                0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+                0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0 \\
+                0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+                1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 1
+                \end{bmatrix}
+                \begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \\ 5 \\ 6 \end{bmatrix}
+                = 
+                \begin{bmatrix} 1 \\ 4 \\ 2 \\ 5 \\ 3 \\ 6 \end{bmatrix}
+            </md>
+            So the output, as a <m>6</m>-tuple, is <m>(1,4,2,5,3,6)</m>. 
+        </p>
+
+        <p>
+            So the answer is a linear combination of the basis <m>3 \times 2</m> matrices with coefficients <m>1, 4, 2, 5, 3, 6</m>. 
+            That means the answer is
+            <md>
+                1\begin{bmatrix} 1 \amp 0 \\ 0 \amp 0 \\ 0 \amp 0 \end{bmatrix} + 4\begin{bmatrix} 0 \amp 1 \\ 0 \amp 0 \\ 0 \amp 0 \end{bmatrix} + 2\begin{bmatrix} 0 \amp 0 \\ 1 \amp 0 \\ 0 \amp 0 \end{bmatrix} + 5\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \\ 0 \amp 0 \end{bmatrix} + 3\begin{bmatrix} 0 \amp 0 \\ 0 \amp 0 \\ 1 \amp 0 \end{bmatrix} + 6\begin{bmatrix} 0 \amp 0 \\ 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+                = \begin{bmatrix} 1 \amp 4 \\ 2 \amp 5 \\ 3 \amp 6 \end{bmatrix}
+            </md>
+            And that really is the transpose of our matrix!
+        </p>
+    </example>
+
+    <example>
+        <p>
+            Example #2: A matrix that takes derivatives! 
+        </p>
+
+        <p>
+            Let's make a matrix for the linear transformation that takes derivatives of polynomials of degree <m>4</m> or less. 
+            We just need to figure out what this linear transformation does to the basis vectors <m>\set{x^4, x^3, x^2, x, 1}</m>. 
+        </p>
+
+        <p>
+            And we need to write the answers in terms of the basis for the vector space of polynomials of degree <m>3</m> or less. 
+            That basis is <m>\set{x^3, x^2, x, 1}</m>. 
+            <ul marker="">
+                <li>
+                    <p>
+                        <m>x^4</m> goes to <m>4x^3</m>. 
+                        As a <m>4</m>-tuple, this output vector is <m>(4,0,0,0)</m>. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>x^3</m> goes to <m>3x^2</m>. 
+                        As a <m>4</m>-tuple, this output vector is <m>(0,3,0,0)</m>. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>x^2</m> goes to <m>2x</m>. 
+                        As a <m>4</m>-tuple, this output vector is <m>(0,0,2,0)</m>. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>x</m> goes to <m>1</m>. 
+                        As a <m>4</m>-tuple, this output vector is <m>(0,0,0,1)</m>. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>1</m> goes to <m>0</m>. 
+                        As a <m>4</m>-tuple, this output vector is <m>(0,0,0,0)</m>. 
+                    </p>
+                </li>
+            </ul>
+            So these will be the columns of our matrix: 
+            <md>
+                D = \begin{bmatrix} 
+                4 \amp 0 \amp 0 \amp 0 \amp 0 \\
+                0 \amp 3 \amp 0 \amp 0 \amp 0 \\
+                0 \amp 0 \amp 2 \amp 0 \amp 0 \\
+                0 \amp 0 \amp 0 \amp 1 \amp 0 
+                \end{bmatrix}
+            </md>
+        </p>
+
+        <p>
+            Let's take the derivative of something to see if this matrix works! 
+            Let's try taking the derivative of <m>f(x) = 7x^4 + 2x^2 + 5x - 8</m>
+        </p>
+
+        <p>
+            First, we write the input as a <m>5</m>-tuple: <m>(7,0,2,5,-8)</m>. 
+        </p>
+
+        <p>
+            Next, let's multiply!
+            <md>
+                D = \begin{bmatrix} 
+                4 \amp 0 \amp 0 \amp 0 \amp 0 \\
+                0 \amp 3 \amp 0 \amp 0 \amp 0 \\
+                0 \amp 0 \amp 2 \amp 0 \amp 0 \\
+                0 \amp 0 \amp 0 \amp 1 \amp 0 
+                \end{bmatrix}
+                \begin{bmatrix} 7 \\ 0 \\ 2 \\ 5 \\ -8 \end{bmatrix}
+                = \begin{bmatrix} 28 \\ 0 \\ 4 \\ 5 \end{bmatrix}
+            </md>
+            As a <m>4</m>-tuple, the output is <m>(28, 0, 4, 5)</m>, which we can use to write out answer as a linear combination of the basis vectors: 
+            <md>
+                f'(x) = 28x^3 + 4x + 5
+            </md>
+            And that really is our derivative!
+        </p>
+
+        <p>
+            Fun observation: This gives a really easy way to teach a computer how to compute the derivative of a polynomial!
+        </p>
+    </example>
+
+    <p>
+        It turns out that we don't really need th use the standard basis vectors to do this but it makes things much easier, especially when it is intuitively obvious what the standard bases should be. 
+        But sometimes things are a bit easier. 
+        In particular, it is generally easy-ish to write the matrix of a linear transformation if it is given by an old school function rule that describes how to turn inputs into outputs. 
+        And that is actually the case for both of the examples we just did. 
+    </p>
+
+    <example>
+        <p>
+            Example #1: Transposing Matrices
+        </p>
+
+        <p>
+            Like it says in the beginning of the example above, the transpose of a <m>2 \times 3</m> matrix is given by
+            <md>
+                T\lp \begin{bmatrix} a_{11} \amp a_{12} \amp a_{13} \\ a_{21} \amp a_{22} \amp a_{23} \end{bmatrix} \rp = \begin{bmatrix} a_{11} \amp a_{21} \\ a_{12} \amp a_{22} \\ a_{13} \amp a_{23} \end{bmatrix}
+            </md>
+            Now if we convert the input and output in this formula to <m>6</m>-tuples, we get
+            <md>
+                T\lp (a_{11}, a_{12}, a_{13}, a_{21}, a_{22}, a_{23}) \rp = (a_{11}, a_{21}, a_{12}, a_{22}, a_{13}, a_{23})
+            </md>
+            Now we just want to find a <m>6 \times 6</m> matrix <m>A</m> such that
+            <md>
+                A \begin{bmatrix} a_{11} \\ a_{12} \\ a_{13} \\ a_{21} \\ a_{22} \\ a_{23} \end{bmatrix} = \begin{bmatrix} a_{11} \\ a_{21} \\ a_{12} \\ a_{22} \\ a_{13} \\ a_{23} \end{bmatrix}
+            </md>
+            We can see that we don't want to multiply any of the entries of the input by anything other than <m>1</m> or <m>0</m>. 
+            What we want is a matrix that is all <m>1</m>'s and <m>0</m>'s strategically arranged to shuffle the coordinates as needed. 
+            A little guess and check tells us that
+            <md>
+                \begin{bmatrix} 
+                1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\ 
+                0 \amp 0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+                0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+                0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0 \\
+                0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+                1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 1
+                \end{bmatrix}
+                \begin{bmatrix} a_{11} \\ a_{12} \\ a_{13} \\ a_{21} \\ a_{22} \\ a_{23} \end{bmatrix} 
+                = \begin{bmatrix} a_{11} \\ a_{21} \\ a_{12} \\ a_{22} \\ a_{13} \\ a_{23} \end{bmatrix}
+            </md>
+            If you don't want to guess and check, you can think about how matrix-vector multiplication works and you can see in each row you want to put the in the spot that corresponds to the coordinate of the input vector that that row of the output vector.
+            For example, the second slot of the output vector is <m>a_{21}</m> which is the fourth coordinate of the input vector. 
+            So the 2nd row of the matrix has a <m>1</m> in the fourth spot and <m>0</m> elsewhere. 
+        </p>
+    </example>
+
+    <example>
+        <p>
+            Example #2: Differentiating Polynomials
+        </p>
+
+        <p>
+            The differentiation linear transformation is even easier! 
+            That is because polynomials already look like linear combinations of the basis vectors. 
+        </p>
+
+        <p>
+            The rule for differentiation of polynomials of degree <m>4</m> or less is
+            <md>
+                \frac{d}{dx} \lp a_4x^4 + a_3x^3 + a_2x^2 + a_1x + a_0 \rp = 4a_4x^3 + 3a_3x^2 + 2a_2x + a_1
+            </md>
+            Converting polynomials to <m>5</m>-tuples and <m>4</m>-tuples, we get
+            <md>
+                D \lp (a_4, a_3, a_2, a_1, a_0) \rp = \lp 4a_4, 3a_3, 2a_2, a_1 \rp
+            </md>
+            So we want the matrix <m>D</m> such that
+            <md>
+                D \begin{bmatrix} a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0 \end{bmatrix} = \begin{bmatrix} 4a_4 \\ 3a_3 \\ 2a_2 \\ a_1 \end{bmatrix}
+            </md>
+            We can see that we want the first row to multiply the first coordinate by <m>4</m>, the second row to multiply the second coordinate by <m>3</m>, the third row to multiply the third coordinate by <m>2</m>, and the fourth row to multiply the fourth coordinate by <m>1</m>. 
+            And that's all we want to happen. 
+        </p>
+
+        <p>
+            So we want a nice diagonal matrix like this: 
+            <md>
+                D = \begin{bmatrix} 
+                4 \amp 0 \amp 0 \amp 0 \amp 0 \\
+                0 \amp 3 \amp 0 \amp 0 \amp 0 \\
+                0 \amp 0 \amp 2 \amp 0 \amp 0 \\
+                0 \amp 0 \amp 0 \amp 1 \amp 0 
+                \end{bmatrix}
+            </md>
+        </p>
+    </example>
+
+    <p>
+        As you can see, it isn't quite as easy as when a linear transformation from <m>\R^n</m> to <m>\R^m</m> is given by a function rule, but it is doable to find the matrix without explicitly doing the general process of mapping the standard basis vectors. 
+    </p>
+  </subsection>
+
+</section>
